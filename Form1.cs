@@ -1,4 +1,5 @@
-﻿using System;
+﻿using grocery_store.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,5 +17,6 @@ namespace grocery_store
         {
             InitializeComponent();
         }
+        Category Category = new Category();
     }
 }

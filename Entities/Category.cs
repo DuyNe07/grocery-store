@@ -11,5 +11,13 @@ namespace grocery_store.Entities
     {
         public int CategoryId { get; set; }
         public string Name { get; set; }
+
+        public virtual ICollection<Product> Products { get; set; }
+        public Category() { }
+        public Category(int categoryId, string name)
+        {
+            CategoryId = categoryId;
+            Name = name;
+        }
     }
 }
