@@ -31,7 +31,6 @@ namespace grocery_store.GUI
 
         private void reset_UC()
         {
-            //set visible all user control is false
             UC_BanHang.Visible = false;
             UC_HoaDon.Visible = false;
             UC_HangHoa.Visible = false;
@@ -40,46 +39,46 @@ namespace grocery_store.GUI
             UC_QuanLy.Visible = false; 
         }
 
-        private void btn_banhang_Click(object sender, EventArgs e)
+        private void btn_sell_Click(object sender, EventArgs e)
         {
             reset_UC();
             UC_BanHang.Visible = true;
             
         }
 
-        private void btn_hoadon_Click(object sender, EventArgs e)
+        private void btn_invoice_Click(object sender, EventArgs e)
         {
             reset_UC();
             UC_HoaDon.Visible = true;
         }
 
-        private void btn_hanghoa_Click(object sender, EventArgs e)
+        private void btn_good_Click(object sender, EventArgs e)
         {
             reset_UC();
             UC_HangHoa.Visible = true;
         }
 
-        private void btn_thongke_Click(object sender, EventArgs e)
+        private void btn_statistical_Click(object sender, EventArgs e)
         {
             reset_UC();
             UC_ThongKe.Visible = true;
         }
 
-        private void btn_nhanvien_Click(object sender, EventArgs e)
+        private void btn_staff_Click(object sender, EventArgs e)
         {
             reset_UC();
             UC_NhanVien.Visible = true;
         }
 
-        private void btn_quanly_Click(object sender, EventArgs e)
+        private void btn_manage_Click(object sender, EventArgs e)
         {
             reset_UC();
             UC_QuanLy.Visible = true;
         }
 
-        private void btn_thoat_Click(object sender, EventArgs e)
+        private void btn_logout_Click(object sender, EventArgs e)
         {
-            reset_UC();
+            this.Close();
         }
     }
 }
