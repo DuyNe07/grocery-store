@@ -44,7 +44,6 @@ namespace grocery_store.GUI
         {
             reset_UC();
             UC_BanHang.Visible = true;
-            btn_banhang.OnPressedState.FillColor = Color.FromArgb(82, 121, 111);
             
         }
 
@@ -52,41 +51,35 @@ namespace grocery_store.GUI
         {
             reset_UC();
             UC_HoaDon.Visible = true;
-            btn_hoadon.OnPressedState.FillColor = Color.FromArgb(82, 121, 111);
         }
 
         private void btn_hanghoa_Click(object sender, EventArgs e)
         {
             reset_UC();
             UC_HangHoa.Visible = true;
-            btn_hanghoa.OnPressedState.FillColor = Color.FromArgb(82, 121, 111);
         }
 
         private void btn_thongke_Click(object sender, EventArgs e)
         {
             reset_UC();
             UC_ThongKe.Visible = true;
-            btn_thongke.OnPressedState.FillColor = Color.FromArgb(82, 121, 111);
         }
 
         private void btn_nhanvien_Click(object sender, EventArgs e)
         {
             reset_UC();
             UC_NhanVien.Visible = true;
-            btn_nhanvien.OnPressedState.FillColor = Color.FromArgb(82, 121, 111);
         }
 
         private void btn_quanly_Click(object sender, EventArgs e)
         {
             reset_UC();
             UC_QuanLy.Visible = true;
-            btn_quanly.OnPressedState.FillColor = Color.FromArgb(82, 121, 111);
         }
 
         private void btn_thoat_Click(object sender, EventArgs e)
         {
             reset_UC();
-            btn_thoat.OnPressedState.FillColor = Color.FromArgb(82, 121, 111);
         }
     }
 }
