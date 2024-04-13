@@ -36,12 +36,18 @@
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges7 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            this.panel_UC = new System.Windows.Forms.Panel();
+            this.UC_Staff = new grocery_store.GUI.Dashboard.NhanVien();
+            this.UC_Statistical = new grocery_store.GUI.ThongKe();
+            this.UC_Good = new grocery_store.GUI.HangHoa();
+            this.UC_Invoice = new grocery_store.GUI.HoaDon();
+            this.UC_Sell = new grocery_store.GUI.Dashboard.BanHang();
             this.panel_header = new Bunifu.UI.WinForms.BunifuPanel();
             this.btn_minimize = new Bunifu.UI.WinForms.BunifuImageButton();
             this.btn_close = new Bunifu.UI.WinForms.BunifuImageButton();
             this.panel_control = new Bunifu.UI.WinForms.BunifuPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.Copyright = new System.Windows.Forms.Label();
+            this.logo_Code = new System.Windows.Forms.PictureBox();
             this.btn_logout = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.btn_manage = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.btn_staff = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
@@ -49,18 +55,71 @@
             this.btn_good = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.btn_invoice = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.btn_sell = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.UC_BanHang = new grocery_store.GUI.Dashboard.BanHang();
-            this.UC_QuanLy = new grocery_store.GUI.Dashboard.QuanLy();
-            this.UC_NhanVien = new grocery_store.GUI.Dashboard.NhanVien();
-            this.UC_ThongKe = new grocery_store.GUI.ThongKe();
-            this.UC_HangHoa = new grocery_store.GUI.HangHoa();
-            this.UC_HoaDon = new grocery_store.GUI.HoaDon();
+            this.Logo = new System.Windows.Forms.PictureBox();
+            this.UC_Manager = new grocery_store.GUI.Dashboard.QuanLy();
+            this.panel_UC.SuspendLayout();
             this.panel_header.SuspendLayout();
             this.panel_control.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logo_Code)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.SuspendLayout();
+            // 
+            // panel_UC
+            // 
+            this.panel_UC.Controls.Add(this.UC_Manager);
+            this.panel_UC.Controls.Add(this.UC_Staff);
+            this.panel_UC.Controls.Add(this.UC_Statistical);
+            this.panel_UC.Controls.Add(this.UC_Good);
+            this.panel_UC.Controls.Add(this.UC_Invoice);
+            this.panel_UC.Controls.Add(this.UC_Sell);
+            this.panel_UC.Location = new System.Drawing.Point(300, 30);
+            this.panel_UC.Name = "panel_UC";
+            this.panel_UC.Size = new System.Drawing.Size(1200, 870);
+            this.panel_UC.TabIndex = 2;
+            // 
+            // UC_Staff
+            // 
+            this.UC_Staff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.UC_Staff.Location = new System.Drawing.Point(0, 0);
+            this.UC_Staff.Margin = new System.Windows.Forms.Padding(0);
+            this.UC_Staff.Name = "UC_Staff";
+            this.UC_Staff.Size = new System.Drawing.Size(1200, 870);
+            this.UC_Staff.TabIndex = 4;
+            // 
+            // UC_Statistical
+            // 
+            this.UC_Statistical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.UC_Statistical.Location = new System.Drawing.Point(0, 0);
+            this.UC_Statistical.Margin = new System.Windows.Forms.Padding(0);
+            this.UC_Statistical.Name = "UC_Statistical";
+            this.UC_Statistical.Size = new System.Drawing.Size(1200, 870);
+            this.UC_Statistical.TabIndex = 3;
+            // 
+            // UC_Good
+            // 
+            this.UC_Good.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.UC_Good.Location = new System.Drawing.Point(0, 0);
+            this.UC_Good.Margin = new System.Windows.Forms.Padding(0);
+            this.UC_Good.Name = "UC_Good";
+            this.UC_Good.Size = new System.Drawing.Size(1200, 870);
+            this.UC_Good.TabIndex = 2;
+            // 
+            // UC_Invoice
+            // 
+            this.UC_Invoice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.UC_Invoice.Location = new System.Drawing.Point(0, 0);
+            this.UC_Invoice.Margin = new System.Windows.Forms.Padding(0);
+            this.UC_Invoice.Name = "UC_Invoice";
+            this.UC_Invoice.Size = new System.Drawing.Size(1200, 870);
+            this.UC_Invoice.TabIndex = 1;
+            // 
+            // UC_Sell
+            // 
+            this.UC_Sell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.UC_Sell.Location = new System.Drawing.Point(0, 0);
+            this.UC_Sell.Name = "UC_Sell";
+            this.UC_Sell.Size = new System.Drawing.Size(1300, 870);
+            this.UC_Sell.TabIndex = 0;
             // 
             // panel_header
             // 
@@ -160,14 +219,15 @@
             // 
             // panel_control
             // 
+            this.panel_control.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel_control.BackgroundColor = System.Drawing.Color.White;
             this.panel_control.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel_control.BackgroundImage")));
             this.panel_control.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel_control.BorderColor = System.Drawing.Color.Transparent;
             this.panel_control.BorderRadius = 0;
             this.panel_control.BorderThickness = 0;
-            this.panel_control.Controls.Add(this.label1);
-            this.panel_control.Controls.Add(this.pictureBox2);
+            this.panel_control.Controls.Add(this.Copyright);
+            this.panel_control.Controls.Add(this.logo_Code);
             this.panel_control.Controls.Add(this.btn_logout);
             this.panel_control.Controls.Add(this.btn_manage);
             this.panel_control.Controls.Add(this.btn_staff);
@@ -175,7 +235,7 @@
             this.panel_control.Controls.Add(this.btn_good);
             this.panel_control.Controls.Add(this.btn_invoice);
             this.panel_control.Controls.Add(this.btn_sell);
-            this.panel_control.Controls.Add(this.pictureBox1);
+            this.panel_control.Controls.Add(this.Logo);
             this.panel_control.Location = new System.Drawing.Point(0, 0);
             this.panel_control.Margin = new System.Windows.Forms.Padding(0);
             this.panel_control.Name = "panel_control";
@@ -183,28 +243,28 @@
             this.panel_control.Size = new System.Drawing.Size(300, 900);
             this.panel_control.TabIndex = 0;
             // 
-            // label1
+            // Copyright
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(96, 843);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(162, 18);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Develop by Vượt cạn";
+            this.Copyright.AutoSize = true;
+            this.Copyright.BackColor = System.Drawing.Color.Transparent;
+            this.Copyright.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.Copyright.Location = new System.Drawing.Point(96, 843);
+            this.Copyright.Name = "Copyright";
+            this.Copyright.Size = new System.Drawing.Size(162, 18);
+            this.Copyright.TabIndex = 11;
+            this.Copyright.Text = "Develop by Vượt cạn";
             // 
-            // pictureBox2
+            // logo_Code
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox2.Image = global::grocery_store.Properties.Resources.code__2_;
-            this.pictureBox2.Location = new System.Drawing.Point(52, 828);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(38, 50);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 10;
-            this.pictureBox2.TabStop = false;
+            this.logo_Code.BackColor = System.Drawing.Color.Transparent;
+            this.logo_Code.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.logo_Code.Image = global::grocery_store.Properties.Resources.code__2_;
+            this.logo_Code.Location = new System.Drawing.Point(52, 828);
+            this.logo_Code.Name = "logo_Code";
+            this.logo_Code.Size = new System.Drawing.Size(38, 50);
+            this.logo_Code.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.logo_Code.TabIndex = 10;
+            this.logo_Code.TabStop = false;
             // 
             // btn_logout
             // 
@@ -842,71 +902,27 @@
             this.btn_sell.UseDefaultRadiusAndThickness = true;
             this.btn_sell.Click += new System.EventHandler(this.btn_sell_Click);
             // 
-            // pictureBox1
+            // Logo
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.Image = global::grocery_store.Properties.Resources.takeeasy;
-            this.pictureBox1.Location = new System.Drawing.Point(62, 35);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(168, 138);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.Logo.BackColor = System.Drawing.Color.Transparent;
+            this.Logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Logo.Image = global::grocery_store.Properties.Resources.takeeasy;
+            this.Logo.Location = new System.Drawing.Point(62, 35);
+            this.Logo.Margin = new System.Windows.Forms.Padding(0);
+            this.Logo.Name = "Logo";
+            this.Logo.Size = new System.Drawing.Size(168, 138);
+            this.Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Logo.TabIndex = 1;
+            this.Logo.TabStop = false;
             // 
-            // UC_BanHang
+            // UC_Manager
             // 
-            this.UC_BanHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.UC_BanHang.Location = new System.Drawing.Point(300, 30);
-            this.UC_BanHang.Name = "UC_BanHang";
-            this.UC_BanHang.Size = new System.Drawing.Size(1200, 870);
-            this.UC_BanHang.TabIndex = 8;
-            // 
-            // UC_QuanLy
-            // 
-            this.UC_QuanLy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.UC_QuanLy.Location = new System.Drawing.Point(300, 30);
-            this.UC_QuanLy.Margin = new System.Windows.Forms.Padding(0);
-            this.UC_QuanLy.Name = "UC_QuanLy";
-            this.UC_QuanLy.Size = new System.Drawing.Size(1200, 870);
-            this.UC_QuanLy.TabIndex = 7;
-            // 
-            // UC_NhanVien
-            // 
-            this.UC_NhanVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.UC_NhanVien.Location = new System.Drawing.Point(300, 30);
-            this.UC_NhanVien.Margin = new System.Windows.Forms.Padding(0);
-            this.UC_NhanVien.Name = "UC_NhanVien";
-            this.UC_NhanVien.Size = new System.Drawing.Size(1200, 870);
-            this.UC_NhanVien.TabIndex = 6;
-            // 
-            // UC_ThongKe
-            // 
-            this.UC_ThongKe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.UC_ThongKe.Location = new System.Drawing.Point(300, 30);
-            this.UC_ThongKe.Margin = new System.Windows.Forms.Padding(0);
-            this.UC_ThongKe.Name = "UC_ThongKe";
-            this.UC_ThongKe.Size = new System.Drawing.Size(1200, 870);
-            this.UC_ThongKe.TabIndex = 5;
-            // 
-            // UC_HangHoa
-            // 
-            this.UC_HangHoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.UC_HangHoa.Location = new System.Drawing.Point(300, 30);
-            this.UC_HangHoa.Margin = new System.Windows.Forms.Padding(0);
-            this.UC_HangHoa.Name = "UC_HangHoa";
-            this.UC_HangHoa.Size = new System.Drawing.Size(1200, 870);
-            this.UC_HangHoa.TabIndex = 4;
-            // 
-            // UC_HoaDon
-            // 
-            this.UC_HoaDon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.UC_HoaDon.Location = new System.Drawing.Point(300, 30);
-            this.UC_HoaDon.Margin = new System.Windows.Forms.Padding(0);
-            this.UC_HoaDon.Name = "UC_HoaDon";
-            this.UC_HoaDon.Size = new System.Drawing.Size(1200, 870);
-            this.UC_HoaDon.TabIndex = 3;
+            this.UC_Manager.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.UC_Manager.Location = new System.Drawing.Point(0, 0);
+            this.UC_Manager.Margin = new System.Windows.Forms.Padding(0);
+            this.UC_Manager.Name = "UC_Manager";
+            this.UC_Manager.Size = new System.Drawing.Size(1200, 870);
+            this.UC_Manager.TabIndex = 5;
             // 
             // Main
             // 
@@ -916,12 +932,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1500, 900);
             this.ControlBox = false;
-            this.Controls.Add(this.UC_BanHang);
-            this.Controls.Add(this.UC_QuanLy);
-            this.Controls.Add(this.UC_NhanVien);
-            this.Controls.Add(this.UC_ThongKe);
-            this.Controls.Add(this.UC_HangHoa);
-            this.Controls.Add(this.UC_HoaDon);
+            this.Controls.Add(this.panel_UC);
             this.Controls.Add(this.panel_header);
             this.Controls.Add(this.panel_control);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -929,11 +940,13 @@
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Takeasy";
+            this.Load += new System.EventHandler(this.Main_Load);
+            this.panel_UC.ResumeLayout(false);
             this.panel_header.ResumeLayout(false);
             this.panel_control.ResumeLayout(false);
             this.panel_control.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logo_Code)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -944,7 +957,7 @@
         private Bunifu.UI.WinForms.BunifuPanel panel_header;
         private Bunifu.UI.WinForms.BunifuImageButton btn_close;
         private Bunifu.UI.WinForms.BunifuImageButton btn_minimize;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox Logo;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btn_sell;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btn_invoice;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btn_good;
@@ -952,13 +965,14 @@
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btn_logout;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btn_manage;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btn_staff;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label1;
-        private HoaDon UC_HoaDon;
-        private HangHoa UC_HangHoa;
-        private ThongKe UC_ThongKe;
-        private Dashboard.NhanVien UC_NhanVien;
-        private Dashboard.QuanLy UC_QuanLy;
-        private Dashboard.BanHang UC_BanHang;
+        private System.Windows.Forms.PictureBox logo_Code;
+        private System.Windows.Forms.Label Copyright;
+        private System.Windows.Forms.Panel panel_UC;
+        private Dashboard.BanHang UC_Sell;
+        private HoaDon UC_Invoice;
+        private HangHoa UC_Good;
+        private ThongKe UC_Statistical;
+        private Dashboard.NhanVien UC_Staff;
+        private Dashboard.QuanLy UC_Manager;
     }
 }
