@@ -16,7 +16,7 @@ namespace grocery_store.GUI
         {
             InitializeComponent();
             reset_UC();
-            UC_BanHang.Visible = true;
+            UC_Sell.Visible = true;
         }
 
         private void btn_close_Click(object sender, EventArgs e)
@@ -31,54 +31,59 @@ namespace grocery_store.GUI
 
         private void reset_UC()
         {
-            UC_BanHang.Visible = false;
-            UC_HoaDon.Visible = false;
-            UC_HangHoa.Visible = false;
-            UC_ThongKe.Visible = false;
-            UC_NhanVien.Visible = false;
-            UC_QuanLy.Visible = false; 
+            UC_Sell.Visible = false;
+            UC_Invoice.Visible = false;
+            UC_Good.Visible = false;
+            UC_Statistical.Visible = false;
+            UC_Staff.Visible = false;
+            UC_Manager.Visible = false; 
         }
 
         private void btn_sell_Click(object sender, EventArgs e)
         {
             reset_UC();
-            UC_BanHang.Visible = true;
+            UC_Sell.Visible = true;
             
         }
 
         private void btn_invoice_Click(object sender, EventArgs e)
         {
             reset_UC();
-            UC_HoaDon.Visible = true;
+            UC_Invoice.Visible = true;
         }
 
         private void btn_good_Click(object sender, EventArgs e)
         {
             reset_UC();
-            UC_HangHoa.Visible = true;
+            UC_Good.Visible = true;
         }
 
         private void btn_statistical_Click(object sender, EventArgs e)
         {
             reset_UC();
-            UC_ThongKe.Visible = true;
+            UC_Statistical.Visible = true;
         }
 
         private void btn_staff_Click(object sender, EventArgs e)
         {
             reset_UC();
-            UC_NhanVien.Visible = true;
+            UC_Staff.Visible = true;
         }
 
         private void btn_manage_Click(object sender, EventArgs e)
         {
             reset_UC();
-            UC_QuanLy.Visible = true;
+            UC_Manager.Visible = true;
         }
 
         private void btn_logout_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
