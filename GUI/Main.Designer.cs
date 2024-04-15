@@ -37,11 +37,6 @@
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges7 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.panel_UC = new System.Windows.Forms.Panel();
-            this.UC_Staff = new grocery_store.GUI.Dashboard.NhanVien();
-            this.UC_Statistical = new grocery_store.GUI.ThongKe();
-            this.UC_Good = new grocery_store.GUI.HangHoa();
-            this.UC_Invoice = new grocery_store.GUI.HoaDon();
-            this.UC_Sell = new grocery_store.GUI.Dashboard.BanHang();
             this.panel_header = new Bunifu.UI.WinForms.BunifuPanel();
             this.btn_minimize = new Bunifu.UI.WinForms.BunifuImageButton();
             this.btn_close = new Bunifu.UI.WinForms.BunifuImageButton();
@@ -56,6 +51,11 @@
             this.btn_invoice = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.btn_sell = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.Logo = new System.Windows.Forms.PictureBox();
+            this.UC_Sell = new grocery_store.GUI.Dashboard.BanHang();
+            this.UC_Invoice = new grocery_store.GUI.HoaDon();
+            this.UC_Good = new grocery_store.GUI.HangHoa();
+            this.UC_Statistical = new grocery_store.GUI.ThongKe();
+            this.UC_Staff = new grocery_store.GUI.Dashboard.NhanVien();
             this.UC_Manager = new grocery_store.GUI.Dashboard.QuanLy();
             this.panel_UC.SuspendLayout();
             this.panel_header.SuspendLayout();
@@ -66,60 +66,16 @@
             // 
             // panel_UC
             // 
+            this.panel_UC.Controls.Add(this.UC_Sell);
             this.panel_UC.Controls.Add(this.UC_Manager);
             this.panel_UC.Controls.Add(this.UC_Staff);
             this.panel_UC.Controls.Add(this.UC_Statistical);
             this.panel_UC.Controls.Add(this.UC_Good);
             this.panel_UC.Controls.Add(this.UC_Invoice);
-            this.panel_UC.Controls.Add(this.UC_Sell);
             this.panel_UC.Location = new System.Drawing.Point(300, 30);
             this.panel_UC.Name = "panel_UC";
-            this.panel_UC.Size = new System.Drawing.Size(1200, 870);
+            this.panel_UC.Size = new System.Drawing.Size(1620, 1050);
             this.panel_UC.TabIndex = 2;
-            // 
-            // UC_Staff
-            // 
-            this.UC_Staff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.UC_Staff.Location = new System.Drawing.Point(0, 0);
-            this.UC_Staff.Margin = new System.Windows.Forms.Padding(0);
-            this.UC_Staff.Name = "UC_Staff";
-            this.UC_Staff.Size = new System.Drawing.Size(1200, 870);
-            this.UC_Staff.TabIndex = 4;
-            // 
-            // UC_Statistical
-            // 
-            this.UC_Statistical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.UC_Statistical.Location = new System.Drawing.Point(0, 0);
-            this.UC_Statistical.Margin = new System.Windows.Forms.Padding(0);
-            this.UC_Statistical.Name = "UC_Statistical";
-            this.UC_Statistical.Size = new System.Drawing.Size(1200, 870);
-            this.UC_Statistical.TabIndex = 3;
-            // 
-            // UC_Good
-            // 
-            this.UC_Good.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.UC_Good.Location = new System.Drawing.Point(0, 0);
-            this.UC_Good.Margin = new System.Windows.Forms.Padding(0);
-            this.UC_Good.Name = "UC_Good";
-            this.UC_Good.Size = new System.Drawing.Size(1200, 870);
-            this.UC_Good.TabIndex = 2;
-            // 
-            // UC_Invoice
-            // 
-            this.UC_Invoice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.UC_Invoice.Location = new System.Drawing.Point(0, 0);
-            this.UC_Invoice.Margin = new System.Windows.Forms.Padding(0);
-            this.UC_Invoice.Name = "UC_Invoice";
-            this.UC_Invoice.Size = new System.Drawing.Size(1200, 870);
-            this.UC_Invoice.TabIndex = 1;
-            // 
-            // UC_Sell
-            // 
-            this.UC_Sell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.UC_Sell.Location = new System.Drawing.Point(0, 0);
-            this.UC_Sell.Name = "UC_Sell";
-            this.UC_Sell.Size = new System.Drawing.Size(1300, 870);
-            this.UC_Sell.TabIndex = 0;
             // 
             // panel_header
             // 
@@ -135,7 +91,7 @@
             this.panel_header.Margin = new System.Windows.Forms.Padding(0);
             this.panel_header.Name = "panel_header";
             this.panel_header.ShowBorders = false;
-            this.panel_header.Size = new System.Drawing.Size(1200, 30);
+            this.panel_header.Size = new System.Drawing.Size(1620, 30);
             this.panel_header.TabIndex = 1;
             // 
             // btn_minimize
@@ -160,7 +116,7 @@
             this.btn_minimize.ImageSize = new System.Drawing.Size(29, 29);
             this.btn_minimize.ImageZoomSize = new System.Drawing.Size(30, 30);
             this.btn_minimize.InitialImage = ((System.Drawing.Image)(resources.GetObject("btn_minimize.InitialImage")));
-            this.btn_minimize.Location = new System.Drawing.Point(1140, 0);
+            this.btn_minimize.Location = new System.Drawing.Point(1558, 0);
             this.btn_minimize.Margin = new System.Windows.Forms.Padding(0);
             this.btn_minimize.Name = "btn_minimize";
             this.btn_minimize.Rotation = 0;
@@ -198,10 +154,10 @@
             this.btn_close.ImageActive = null;
             this.btn_close.ImageLocation = null;
             this.btn_close.ImageMargin = 0;
-            this.btn_close.ImageSize = new System.Drawing.Size(29, 29);
-            this.btn_close.ImageZoomSize = new System.Drawing.Size(30, 30);
+            this.btn_close.ImageSize = new System.Drawing.Size(31, 29);
+            this.btn_close.ImageZoomSize = new System.Drawing.Size(32, 30);
             this.btn_close.InitialImage = ((System.Drawing.Image)(resources.GetObject("btn_close.InitialImage")));
-            this.btn_close.Location = new System.Drawing.Point(1170, 0);
+            this.btn_close.Location = new System.Drawing.Point(1588, 0);
             this.btn_close.Margin = new System.Windows.Forms.Padding(0);
             this.btn_close.Name = "btn_close";
             this.btn_close.Rotation = 0;
@@ -209,7 +165,7 @@
             this.btn_close.ShowCursorChanges = true;
             this.btn_close.ShowImageBorders = false;
             this.btn_close.ShowSizeMarkers = false;
-            this.btn_close.Size = new System.Drawing.Size(30, 30);
+            this.btn_close.Size = new System.Drawing.Size(32, 30);
             this.btn_close.TabIndex = 2;
             this.btn_close.ToolTipText = "";
             this.btn_close.WaitOnLoad = false;
@@ -240,7 +196,7 @@
             this.panel_control.Margin = new System.Windows.Forms.Padding(0);
             this.panel_control.Name = "panel_control";
             this.panel_control.ShowBorders = false;
-            this.panel_control.Size = new System.Drawing.Size(300, 900);
+            this.panel_control.Size = new System.Drawing.Size(300, 1080);
             this.panel_control.TabIndex = 0;
             // 
             // Copyright
@@ -248,7 +204,7 @@
             this.Copyright.AutoSize = true;
             this.Copyright.BackColor = System.Drawing.Color.Transparent;
             this.Copyright.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.Copyright.Location = new System.Drawing.Point(96, 843);
+            this.Copyright.Location = new System.Drawing.Point(96, 1028);
             this.Copyright.Name = "Copyright";
             this.Copyright.Size = new System.Drawing.Size(162, 18);
             this.Copyright.TabIndex = 11;
@@ -259,7 +215,7 @@
             this.logo_Code.BackColor = System.Drawing.Color.Transparent;
             this.logo_Code.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.logo_Code.Image = global::grocery_store.Properties.Resources.code__2_;
-            this.logo_Code.Location = new System.Drawing.Point(52, 828);
+            this.logo_Code.Location = new System.Drawing.Point(52, 1013);
             this.logo_Code.Name = "logo_Code";
             this.logo_Code.Size = new System.Drawing.Size(38, 50);
             this.logo_Code.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -313,7 +269,7 @@
             this.btn_logout.IdleIconLeftImage = global::grocery_store.Properties.Resources.logout;
             this.btn_logout.IdleIconRightImage = null;
             this.btn_logout.IndicateFocus = true;
-            this.btn_logout.Location = new System.Drawing.Point(12, 753);
+            this.btn_logout.Location = new System.Drawing.Point(12, 938);
             this.btn_logout.Name = "btn_logout";
             this.btn_logout.OnDisabledState.BorderColor = System.Drawing.Color.Black;
             this.btn_logout.OnDisabledState.BorderRadius = 30;
@@ -361,7 +317,7 @@
             this.btn_manage.AllowAnimations = true;
             this.btn_manage.AllowMouseEffects = true;
             this.btn_manage.AllowToggling = true;
-            this.btn_manage.AnimationSpeed = 20;
+            this.btn_manage.AnimationSpeed = 5;
             this.btn_manage.AutoGenerateColors = false;
             this.btn_manage.AutoRoundBorders = false;
             this.btn_manage.AutoSizeLeftIcon = true;
@@ -403,7 +359,7 @@
             this.btn_manage.IdleIconLeftImage = global::grocery_store.Properties.Resources.shield;
             this.btn_manage.IdleIconRightImage = null;
             this.btn_manage.IndicateFocus = true;
-            this.btn_manage.Location = new System.Drawing.Point(12, 575);
+            this.btn_manage.Location = new System.Drawing.Point(12, 600);
             this.btn_manage.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.btn_manage.Name = "btn_manage";
             this.btn_manage.OnDisabledState.BorderColor = System.Drawing.Color.Black;
@@ -452,7 +408,7 @@
             this.btn_staff.AllowAnimations = true;
             this.btn_staff.AllowMouseEffects = true;
             this.btn_staff.AllowToggling = true;
-            this.btn_staff.AnimationSpeed = 20;
+            this.btn_staff.AnimationSpeed = 5;
             this.btn_staff.AutoGenerateColors = false;
             this.btn_staff.AutoRoundBorders = false;
             this.btn_staff.AutoSizeLeftIcon = true;
@@ -494,7 +450,7 @@
             this.btn_staff.IdleIconLeftImage = global::grocery_store.Properties.Resources.user;
             this.btn_staff.IdleIconRightImage = null;
             this.btn_staff.IndicateFocus = true;
-            this.btn_staff.Location = new System.Drawing.Point(12, 502);
+            this.btn_staff.Location = new System.Drawing.Point(12, 530);
             this.btn_staff.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.btn_staff.Name = "btn_staff";
             this.btn_staff.OnDisabledState.BorderColor = System.Drawing.Color.Black;
@@ -543,7 +499,7 @@
             this.btn_statistical.AllowAnimations = true;
             this.btn_statistical.AllowMouseEffects = true;
             this.btn_statistical.AllowToggling = true;
-            this.btn_statistical.AnimationSpeed = 20;
+            this.btn_statistical.AnimationSpeed = 5;
             this.btn_statistical.AutoGenerateColors = false;
             this.btn_statistical.AutoRoundBorders = false;
             this.btn_statistical.AutoSizeLeftIcon = true;
@@ -585,7 +541,7 @@
             this.btn_statistical.IdleIconLeftImage = global::grocery_store.Properties.Resources.chart;
             this.btn_statistical.IdleIconRightImage = null;
             this.btn_statistical.IndicateFocus = true;
-            this.btn_statistical.Location = new System.Drawing.Point(12, 429);
+            this.btn_statistical.Location = new System.Drawing.Point(12, 460);
             this.btn_statistical.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.btn_statistical.Name = "btn_statistical";
             this.btn_statistical.OnDisabledState.BorderColor = System.Drawing.Color.Black;
@@ -634,7 +590,7 @@
             this.btn_good.AllowAnimations = true;
             this.btn_good.AllowMouseEffects = true;
             this.btn_good.AllowToggling = true;
-            this.btn_good.AnimationSpeed = 20;
+            this.btn_good.AnimationSpeed = 5;
             this.btn_good.AutoGenerateColors = false;
             this.btn_good.AutoRoundBorders = false;
             this.btn_good.AutoSizeLeftIcon = true;
@@ -676,7 +632,7 @@
             this.btn_good.IdleIconLeftImage = global::grocery_store.Properties.Resources.box;
             this.btn_good.IdleIconRightImage = null;
             this.btn_good.IndicateFocus = true;
-            this.btn_good.Location = new System.Drawing.Point(12, 356);
+            this.btn_good.Location = new System.Drawing.Point(12, 390);
             this.btn_good.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.btn_good.Name = "btn_good";
             this.btn_good.OnDisabledState.BorderColor = System.Drawing.Color.Black;
@@ -725,7 +681,7 @@
             this.btn_invoice.AllowAnimations = true;
             this.btn_invoice.AllowMouseEffects = true;
             this.btn_invoice.AllowToggling = true;
-            this.btn_invoice.AnimationSpeed = 20;
+            this.btn_invoice.AnimationSpeed = 5;
             this.btn_invoice.AutoGenerateColors = false;
             this.btn_invoice.AutoRoundBorders = false;
             this.btn_invoice.AutoSizeLeftIcon = true;
@@ -767,7 +723,7 @@
             this.btn_invoice.IdleIconLeftImage = global::grocery_store.Properties.Resources.bill_list;
             this.btn_invoice.IdleIconRightImage = null;
             this.btn_invoice.IndicateFocus = true;
-            this.btn_invoice.Location = new System.Drawing.Point(12, 283);
+            this.btn_invoice.Location = new System.Drawing.Point(12, 320);
             this.btn_invoice.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.btn_invoice.Name = "btn_invoice";
             this.btn_invoice.OnDisabledState.BorderColor = System.Drawing.Color.Black;
@@ -816,7 +772,7 @@
             this.btn_sell.AllowAnimations = true;
             this.btn_sell.AllowMouseEffects = true;
             this.btn_sell.AllowToggling = true;
-            this.btn_sell.AnimationSpeed = 20;
+            this.btn_sell.AnimationSpeed = 5;
             this.btn_sell.AutoGenerateColors = false;
             this.btn_sell.AutoRoundBorders = false;
             this.btn_sell.AutoSizeLeftIcon = true;
@@ -858,7 +814,7 @@
             this.btn_sell.IdleIconLeftImage = global::grocery_store.Properties.Resources.cart;
             this.btn_sell.IdleIconRightImage = null;
             this.btn_sell.IndicateFocus = true;
-            this.btn_sell.Location = new System.Drawing.Point(12, 210);
+            this.btn_sell.Location = new System.Drawing.Point(12, 250);
             this.btn_sell.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.btn_sell.Name = "btn_sell";
             this.btn_sell.OnDisabledState.BorderColor = System.Drawing.Color.Black;
@@ -907,7 +863,7 @@
             this.Logo.BackColor = System.Drawing.Color.Transparent;
             this.Logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Logo.Image = global::grocery_store.Properties.Resources.takeeasy;
-            this.Logo.Location = new System.Drawing.Point(62, 35);
+            this.Logo.Location = new System.Drawing.Point(61, 55);
             this.Logo.Margin = new System.Windows.Forms.Padding(0);
             this.Logo.Name = "Logo";
             this.Logo.Size = new System.Drawing.Size(168, 138);
@@ -915,13 +871,56 @@
             this.Logo.TabIndex = 1;
             this.Logo.TabStop = false;
             // 
+            // UC_Sell
+            // 
+            this.UC_Sell.Location = new System.Drawing.Point(0, 0);
+            this.UC_Sell.Name = "UC_Sell";
+            this.UC_Sell.Size = new System.Drawing.Size(1620, 1050);
+            this.UC_Sell.TabIndex = 0;
+            // 
+            // UC_Invoice
+            // 
+            this.UC_Invoice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.UC_Invoice.Location = new System.Drawing.Point(0, 0);
+            this.UC_Invoice.Margin = new System.Windows.Forms.Padding(0);
+            this.UC_Invoice.Name = "UC_Invoice";
+            this.UC_Invoice.Size = new System.Drawing.Size(1620, 1050);
+            this.UC_Invoice.TabIndex = 1;
+            // 
+            // UC_Good
+            // 
+            this.UC_Good.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.UC_Good.Location = new System.Drawing.Point(0, 0);
+            this.UC_Good.Margin = new System.Windows.Forms.Padding(0);
+            this.UC_Good.Name = "UC_Good";
+            this.UC_Good.Size = new System.Drawing.Size(1620, 1050);
+            this.UC_Good.TabIndex = 2;
+            // 
+            // UC_Statistical
+            // 
+            this.UC_Statistical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.UC_Statistical.Location = new System.Drawing.Point(0, 0);
+            this.UC_Statistical.Margin = new System.Windows.Forms.Padding(0);
+            this.UC_Statistical.Name = "UC_Statistical";
+            this.UC_Statistical.Size = new System.Drawing.Size(1620, 1050);
+            this.UC_Statistical.TabIndex = 3;
+            // 
+            // UC_Staff
+            // 
+            this.UC_Staff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.UC_Staff.Location = new System.Drawing.Point(0, 0);
+            this.UC_Staff.Margin = new System.Windows.Forms.Padding(0);
+            this.UC_Staff.Name = "UC_Staff";
+            this.UC_Staff.Size = new System.Drawing.Size(1620, 1050);
+            this.UC_Staff.TabIndex = 4;
+            // 
             // UC_Manager
             // 
             this.UC_Manager.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.UC_Manager.Location = new System.Drawing.Point(0, 0);
             this.UC_Manager.Margin = new System.Windows.Forms.Padding(0);
             this.UC_Manager.Name = "UC_Manager";
-            this.UC_Manager.Size = new System.Drawing.Size(1200, 870);
+            this.UC_Manager.Size = new System.Drawing.Size(1620, 1050);
             this.UC_Manager.TabIndex = 5;
             // 
             // Main
@@ -930,7 +929,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(1500, 900);
+            this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.ControlBox = false;
             this.Controls.Add(this.panel_UC);
             this.Controls.Add(this.panel_header);
@@ -940,6 +939,7 @@
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Takeasy";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Main_Load);
             this.panel_UC.ResumeLayout(false);
             this.panel_header.ResumeLayout(false);
