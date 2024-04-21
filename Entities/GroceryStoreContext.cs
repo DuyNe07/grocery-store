@@ -37,18 +37,7 @@ namespace grocery_store.Entities
         {
             if (!optionsBuilder.IsConfigured)
             {
-                if (!optionsBuilder.IsConfigured)
-                {
-                    var connectionString = Environment.GetEnvironmentVariable("GroceryStoreConnectionString");
-                    if (string.IsNullOrEmpty(connectionString))
-                    {
-                        throw new InvalidOperationException("Could not find a connection string named 'GroceryStoreConnectionString'.");
-                    }
-                    else
-                    {
-                        optionsBuilder.UseSqlServer(connectionString);
-                    }
-                }
+                optionsBuilder.UseSqlServer("Data Source=LAPTOP-DFD1KE5V\\HOAITRONG;Initial Catalog=GroceryStore;Integrated Security=True");
             }
         }
 
