@@ -35,7 +35,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "PaymentMethod";
-            this.Size = new System.Drawing.Size(790, 515);
+            this.Size = new System.Drawing.Size(541, 484);
             this.ResumeLayout(false);
 
         }
