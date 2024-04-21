@@ -20,15 +20,12 @@ namespace grocery_store.Entities
         }
 
         public virtual DbSet<Category> Category { get; set; }
-        public virtual DbSet<CategoryPromotion> CategoryPromotion { get; set; }
         public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<EmployeeTimekeeping> EmployeeTimekeeping { get; set; }
         public virtual DbSet<Job> Job { get; set; }
         public virtual DbSet<OrderLine> OrderLine { get; set; }
         public virtual DbSet<Payment> Payment { get; set; }
         public virtual DbSet<Product> Product { get; set; }
-        public virtual DbSet<ProductCategory> ProductCategory { get; set; }
-        public virtual DbSet<Promotion> Promotion { get; set; }
         public virtual DbSet<ShopOrder> ShopOrder { get; set; }
         public virtual DbSet<Supplier> Supplier { get; set; }
         public virtual DbSet<Timekeeping> Timekeeping { get; set; }
@@ -37,18 +34,8 @@ namespace grocery_store.Entities
         {
             if (!optionsBuilder.IsConfigured)
             {
-                if (!optionsBuilder.IsConfigured)
-                {
-                    var connectionString = Environment.GetEnvironmentVariable("GroceryStoreConnectionString");
-                    if (string.IsNullOrEmpty(connectionString))
-                    {
-                        throw new InvalidOperationException("Could not find a connection string named 'GroceryStoreConnectionString'.");
-                    }
-                    else
-                    {
-                        optionsBuilder.UseSqlServer(connectionString);
-                    }
-                }
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                optionsBuilder.UseSqlServer("Server=DUY_NE\\DUYNE;Database=GroceryStore;Trusted_Connection=True;");
             }
         }
 
@@ -59,25 +46,6 @@ namespace grocery_store.Entities
                 entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
 
                 entity.Property(e => e.Name).HasMaxLength(50);
-            });
-
-            modelBuilder.Entity<CategoryPromotion>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
-
-                entity.Property(e => e.PromotionId).HasColumnName("PromotionID");
-
-                entity.HasOne(d => d.Category)
-                    .WithMany()
-                    .HasForeignKey(d => d.CategoryId)
-                    .HasConstraintName("FK_Category_Promotion");
-
-                entity.HasOne(d => d.Promotion)
-                    .WithMany()
-                    .HasForeignKey(d => d.PromotionId)
-                    .HasConstraintName("FK_Promotion_Category");
             });
 
             modelBuilder.Entity<Employee>(entity =>
@@ -166,6 +134,8 @@ namespace grocery_store.Entities
             {
                 entity.Property(e => e.ProductId).HasColumnName("ProductID");
 
+                entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
+
                 entity.Property(e => e.CostPrice).HasColumnType("money");
 
                 entity.Property(e => e.Expiry).HasColumnType("date");
@@ -182,38 +152,15 @@ namespace grocery_store.Entities
 
                 entity.Property(e => e.SupplierId).HasColumnName("SupplierID");
 
+                entity.HasOne(d => d.Category)
+                    .WithMany(p => p.Product)
+                    .HasForeignKey(d => d.CategoryId)
+                    .HasConstraintName("FK_Product_Category");
+
                 entity.HasOne(d => d.Supplier)
                     .WithMany(p => p.Product)
                     .HasForeignKey(d => d.SupplierId)
                     .HasConstraintName("FK_Product_Supplier");
-            });
-
-            modelBuilder.Entity<ProductCategory>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
-
-                entity.Property(e => e.ProductId).HasColumnName("ProductID");
-
-                entity.HasOne(d => d.Category)
-                    .WithMany()
-                    .HasForeignKey(d => d.CategoryId)
-                    .HasConstraintName("FK_Category_Product");
-
-                entity.HasOne(d => d.Product)
-                    .WithMany()
-                    .HasForeignKey(d => d.ProductId)
-                    .HasConstraintName("FK_Product_Category");
-            });
-
-            modelBuilder.Entity<Promotion>(entity =>
-            {
-                entity.Property(e => e.PromotionId).HasColumnName("PromotionID");
-
-                entity.Property(e => e.EndDay).HasColumnType("datetime");
-
-                entity.Property(e => e.StartDay).HasColumnType("datetime");
             });
 
             modelBuilder.Entity<ShopOrder>(entity =>

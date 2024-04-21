@@ -360,20 +360,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Category.cs" />
-    <Compile Include="Entities\CategoryPromotion.cs" />
-    <Compile Include="Entities\Employee.cs" />
-    <Compile Include="Entities\EmployeeTimekeeping.cs" />
-    <Compile Include="Entities\GroceryStoreContext.cs" />
-    <Compile Include="Entities\Job.cs" />
-    <Compile Include="Entities\OrderLine.cs" />
-    <Compile Include="Entities\Payment.cs" />
-    <Compile Include="Entities\Product.cs" />
-    <Compile Include="Entities\ProductCategory.cs" />
-    <Compile Include="Entities\Promotion.cs" />
-    <Compile Include="Entities\ShopOrder.cs" />
-    <Compile Include="Entities\Supplier.cs" />
-    <Compile Include="Entities\Timekeeping.cs" />
+    <Compile Include="Entitie\Category.cs" />
+    <Compile Include="Entitie\CategoryPromotion.cs" />
+    <Compile Include="Entitie\Employee.cs" />
+    <Compile Include="Entitie\EmployeeTimekeeping.cs" />
+    <Compile Include="Entitie\GroceryStoreContext.cs" />
+    <Compile Include="Entitie\Job.cs" />
+    <Compile Include="Entitie\OrderLine.cs" />
+    <Compile Include="Entitie\Payment.cs" />
+    <Compile Include="Entitie\Product.cs" />
+    <Compile Include="Entitie\ProductCategory.cs" />
+    <Compile Include="Entitie\Promotion.cs" />
+    <Compile Include="Entitie\ShopOrder.cs" />
+    <Compile Include="Entitie\Supplier.cs" />
+    <Compile Include="Entitie\Timekeeping.cs" />
+    <Compile Include="GUI\BanHang\Item.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\BanHang\Item.Designer.cs">
+      <DependentUpon>Item.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\BanHang\PaymentMethod.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\BanHang\PaymentMethod.Designer.cs">
+      <DependentUpon>PaymentMethod.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Dashboard\BanHang.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -419,6 +431,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
+    <EmbeddedResource Include="GUI\BanHang\Item.resx">
+      <DependentUpon>Item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\BanHang\PaymentMethod.resx">
+      <DependentUpon>PaymentMethod.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Dashboard\BanHang.resx">
       <DependentUpon>BanHang.cs</DependentUpon>
     </EmbeddedResource>
