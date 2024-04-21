@@ -9,15 +9,14 @@ namespace grocery_store.Entities
 {
     public partial class Category
     {
+        public Category()
+        {
+            Product = new HashSet<Product>();
+        }
+
         public int CategoryId { get; set; }
         public string Name { get; set; }
 
-        public virtual ICollection<Product> Products { get; set; }
-        public Category() { }
-        public Category(int categoryId, string name)
-        {
-            CategoryId = categoryId;
-            Name = name;
-        }
+        public virtual ICollection<Product> Product { get; set; }
     }
 }

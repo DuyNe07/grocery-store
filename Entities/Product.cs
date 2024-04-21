@@ -22,7 +22,9 @@ namespace grocery_store.Entities
         public decimal? MarketPrice { get; set; }
         public DateTime? Expiry { get; set; }
         public int? SupplierId { get; set; }
+        public int? CategoryId { get; set; }
 
+        public virtual Category Category { get; set; }
         public virtual Supplier Supplier { get; set; }
         public virtual ICollection<OrderLine> OrderLine { get; set; }
     }
