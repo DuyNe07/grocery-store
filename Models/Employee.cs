@@ -5,19 +5,22 @@ using System.Collections.Generic;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace grocery_store.Entities
+namespace grocery_store.Models
 {
-    public partial class Payment
+    public partial class Employee
     {
-        public Payment()
+        public Employee()
         {
             ShopOrder = new HashSet<ShopOrder>();
         }
 
-        public int PaymentId { get; set; }
-        public string Name { get; set; }
-        public string Qr { get; set; }
+        public int EmployeeId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Role { get; set; }
+        public int? JobId { get; set; }
 
+        public virtual Job Job { get; set; }
         public virtual ICollection<ShopOrder> ShopOrder { get; set; }
     }
 }

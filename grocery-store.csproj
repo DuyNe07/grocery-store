@@ -360,20 +360,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entitie\Category.cs" />
-    <Compile Include="Entitie\CategoryPromotion.cs" />
-    <Compile Include="Entitie\Employee.cs" />
-    <Compile Include="Entitie\EmployeeTimekeeping.cs" />
-    <Compile Include="Entitie\GroceryStoreContext.cs" />
-    <Compile Include="Entitie\Job.cs" />
-    <Compile Include="Entitie\OrderLine.cs" />
-    <Compile Include="Entitie\Payment.cs" />
-    <Compile Include="Entitie\Product.cs" />
-    <Compile Include="Entitie\ProductCategory.cs" />
-    <Compile Include="Entitie\Promotion.cs" />
-    <Compile Include="Entitie\ShopOrder.cs" />
-    <Compile Include="Entitie\Supplier.cs" />
-    <Compile Include="Entitie\Timekeeping.cs" />
     <Compile Include="GUI\BanHang\Item.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -554,6 +540,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Image\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="takeeasy_1.ico" />

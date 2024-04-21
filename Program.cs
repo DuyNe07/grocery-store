@@ -1,4 +1,4 @@
-﻿using grocery_store.Entities;
+﻿using grocery_store.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
