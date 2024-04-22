@@ -40,7 +40,7 @@ namespace grocery_store.GUI.BanHang
             this.btn_del.Click += (sender, e) => ButtonClick?.Invoke(this, e);
             this.domainUpDown_quantity.TextChanged += (sender, e) => QuantityChanged?.Invoke(this, e);
             this.Quantity = "1";
-            this.NameProduct = product.Name;       
+            this.NameProduct = product.Name;
 
             System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("vi-VN");
             string formattedPrice = product.MarketPrice.ToString("N0");
