@@ -204,8 +204,6 @@ namespace grocery_store.Models
                 entity.Property(e => e.TimekeepingId).HasColumnName("TimekeepingID");
 
                 entity.Property(e => e.Checkout).HasColumnType("decimal(18, 0)");
-
-                entity.Property(e => e.Salary).HasColumnType("money");
             });
 
             OnModelCreatingPartial(modelBuilder);

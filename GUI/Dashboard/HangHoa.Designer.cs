@@ -143,7 +143,7 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "HangHoa";
-            this.Size = new System.Drawing.Size(1620, 1050);
+            this.Size = new System.Drawing.Size(1720, 1050);
             this.ResumeLayout(false);
             this.PerformLayout();
 
