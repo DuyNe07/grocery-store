@@ -29,19 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BanHang));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges7 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges8 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtbox_enterCode = new System.Windows.Forms.TextBox();
             this.panel_products = new System.Windows.Forms.Panel();
             this.bunifuButton1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.btn_paymentType = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.btn_enterCode = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.btn_scan = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.comboBox_paymentMethod = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -59,6 +58,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(162)))), ((int)(((byte)(129)))));
             this.label2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(1338, 940);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(10);
@@ -80,7 +80,7 @@
             // 
             this.txtbox_enterCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(162)))), ((int)(((byte)(129)))));
             this.txtbox_enterCode.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtbox_enterCode.Location = new System.Drawing.Point(101, 64);
+            this.txtbox_enterCode.Location = new System.Drawing.Point(133, 64);
             this.txtbox_enterCode.Name = "txtbox_enterCode";
             this.txtbox_enterCode.Size = new System.Drawing.Size(324, 47);
             this.txtbox_enterCode.TabIndex = 10;
@@ -88,9 +88,9 @@
             // panel_products
             // 
             this.panel_products.AutoScroll = true;
-            this.panel_products.AutoScrollMargin = new System.Drawing.Size(0, 100);
+            this.panel_products.AutoScrollMargin = new System.Drawing.Size(0, 30);
             this.panel_products.BackColor = System.Drawing.Color.PeachPuff;
-            this.panel_products.Location = new System.Drawing.Point(101, 151);
+            this.panel_products.Location = new System.Drawing.Point(108, 151);
             this.panel_products.Name = "panel_products";
             this.panel_products.Size = new System.Drawing.Size(1490, 700);
             this.panel_products.TabIndex = 11;
@@ -114,11 +114,11 @@
             this.bunifuButton1.ColorContrastOnClick = 45;
             this.bunifuButton1.ColorContrastOnHover = 45;
             this.bunifuButton1.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges5.BottomLeft = true;
-            borderEdges5.BottomRight = true;
-            borderEdges5.TopLeft = true;
-            borderEdges5.TopRight = true;
-            this.bunifuButton1.CustomizableEdges = borderEdges5;
+            borderEdges1.BottomLeft = true;
+            borderEdges1.BottomRight = true;
+            borderEdges1.TopLeft = true;
+            borderEdges1.TopRight = true;
+            this.bunifuButton1.CustomizableEdges = borderEdges1;
             this.bunifuButton1.DialogResult = System.Windows.Forms.DialogResult.None;
             this.bunifuButton1.DisabledBorderColor = System.Drawing.Color.Black;
             this.bunifuButton1.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(162)))), ((int)(((byte)(129)))));
@@ -185,96 +185,6 @@
             this.bunifuButton1.TextPadding = new System.Windows.Forms.Padding(0);
             this.bunifuButton1.UseDefaultRadiusAndThickness = true;
             // 
-            // btn_paymentType
-            // 
-            this.btn_paymentType.AllowAnimations = true;
-            this.btn_paymentType.AllowMouseEffects = true;
-            this.btn_paymentType.AllowToggling = true;
-            this.btn_paymentType.AnimationSpeed = 20;
-            this.btn_paymentType.AutoGenerateColors = false;
-            this.btn_paymentType.AutoRoundBorders = false;
-            this.btn_paymentType.AutoSizeLeftIcon = true;
-            this.btn_paymentType.AutoSizeRightIcon = true;
-            this.btn_paymentType.BackColor = System.Drawing.Color.Transparent;
-            this.btn_paymentType.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(162)))), ((int)(((byte)(129)))));
-            this.btn_paymentType.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_paymentType.BackgroundImage")));
-            this.btn_paymentType.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btn_paymentType.ButtonText = "Thẻ VISA";
-            this.btn_paymentType.ButtonTextMarginLeft = 0;
-            this.btn_paymentType.ColorContrastOnClick = 45;
-            this.btn_paymentType.ColorContrastOnHover = 45;
-            this.btn_paymentType.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges6.BottomLeft = true;
-            borderEdges6.BottomRight = true;
-            borderEdges6.TopLeft = true;
-            borderEdges6.TopRight = true;
-            this.btn_paymentType.CustomizableEdges = borderEdges6;
-            this.btn_paymentType.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btn_paymentType.DisabledBorderColor = System.Drawing.Color.Black;
-            this.btn_paymentType.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(162)))), ((int)(((byte)(129)))));
-            this.btn_paymentType.DisabledForecolor = System.Drawing.Color.Black;
-            this.btn_paymentType.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
-            this.btn_paymentType.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btn_paymentType.ForeColor = System.Drawing.Color.Black;
-            this.btn_paymentType.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_paymentType.IconLeftCursor = System.Windows.Forms.Cursors.Default;
-            this.btn_paymentType.IconLeftPadding = new System.Windows.Forms.Padding(20, 3, 3, 3);
-            this.btn_paymentType.IconMarginLeft = 11;
-            this.btn_paymentType.IconPadding = 10;
-            this.btn_paymentType.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_paymentType.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.btn_paymentType.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
-            this.btn_paymentType.IconSize = 25;
-            this.btn_paymentType.IdleBorderColor = System.Drawing.Color.Transparent;
-            this.btn_paymentType.IdleBorderRadius = 30;
-            this.btn_paymentType.IdleBorderThickness = 1;
-            this.btn_paymentType.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(162)))), ((int)(((byte)(129)))));
-            this.btn_paymentType.IdleIconLeftImage = null;
-            this.btn_paymentType.IdleIconRightImage = null;
-            this.btn_paymentType.IndicateFocus = true;
-            this.btn_paymentType.Location = new System.Drawing.Point(732, 938);
-            this.btn_paymentType.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.btn_paymentType.Name = "btn_paymentType";
-            this.btn_paymentType.OnDisabledState.BorderColor = System.Drawing.Color.Black;
-            this.btn_paymentType.OnDisabledState.BorderRadius = 30;
-            this.btn_paymentType.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btn_paymentType.OnDisabledState.BorderThickness = 1;
-            this.btn_paymentType.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(162)))), ((int)(((byte)(129)))));
-            this.btn_paymentType.OnDisabledState.ForeColor = System.Drawing.Color.Black;
-            this.btn_paymentType.OnDisabledState.IconLeftImage = null;
-            this.btn_paymentType.OnDisabledState.IconRightImage = null;
-            this.btn_paymentType.onHoverState.BorderColor = System.Drawing.Color.Transparent;
-            this.btn_paymentType.onHoverState.BorderRadius = 30;
-            this.btn_paymentType.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btn_paymentType.onHoverState.BorderThickness = 1;
-            this.btn_paymentType.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(121)))), ((int)(((byte)(111)))));
-            this.btn_paymentType.onHoverState.ForeColor = System.Drawing.Color.Black;
-            this.btn_paymentType.onHoverState.IconLeftImage = null;
-            this.btn_paymentType.onHoverState.IconRightImage = null;
-            this.btn_paymentType.OnIdleState.BorderColor = System.Drawing.Color.Transparent;
-            this.btn_paymentType.OnIdleState.BorderRadius = 30;
-            this.btn_paymentType.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btn_paymentType.OnIdleState.BorderThickness = 1;
-            this.btn_paymentType.OnIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(162)))), ((int)(((byte)(129)))));
-            this.btn_paymentType.OnIdleState.ForeColor = System.Drawing.Color.Black;
-            this.btn_paymentType.OnIdleState.IconLeftImage = null;
-            this.btn_paymentType.OnIdleState.IconRightImage = null;
-            this.btn_paymentType.OnPressedState.BorderColor = System.Drawing.Color.Transparent;
-            this.btn_paymentType.OnPressedState.BorderRadius = 30;
-            this.btn_paymentType.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btn_paymentType.OnPressedState.BorderThickness = 1;
-            this.btn_paymentType.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(162)))), ((int)(((byte)(129)))));
-            this.btn_paymentType.OnPressedState.ForeColor = System.Drawing.Color.Black;
-            this.btn_paymentType.OnPressedState.IconLeftImage = null;
-            this.btn_paymentType.OnPressedState.IconRightImage = null;
-            this.btn_paymentType.Size = new System.Drawing.Size(260, 60);
-            this.btn_paymentType.TabIndex = 5;
-            this.btn_paymentType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_paymentType.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btn_paymentType.TextMarginLeft = 0;
-            this.btn_paymentType.TextPadding = new System.Windows.Forms.Padding(0);
-            this.btn_paymentType.UseDefaultRadiusAndThickness = true;
-            // 
             // btn_enterCode
             // 
             this.btn_enterCode.AllowAnimations = true;
@@ -294,11 +204,11 @@
             this.btn_enterCode.ColorContrastOnClick = 45;
             this.btn_enterCode.ColorContrastOnHover = 45;
             this.btn_enterCode.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges7.BottomLeft = true;
-            borderEdges7.BottomRight = true;
-            borderEdges7.TopLeft = true;
-            borderEdges7.TopRight = true;
-            this.btn_enterCode.CustomizableEdges = borderEdges7;
+            borderEdges2.BottomLeft = true;
+            borderEdges2.BottomRight = true;
+            borderEdges2.TopLeft = true;
+            borderEdges2.TopRight = true;
+            this.btn_enterCode.CustomizableEdges = borderEdges2;
             this.btn_enterCode.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btn_enterCode.DisabledBorderColor = System.Drawing.Color.Black;
             this.btn_enterCode.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(162)))), ((int)(((byte)(129)))));
@@ -364,6 +274,7 @@
             this.btn_enterCode.TextMarginLeft = 0;
             this.btn_enterCode.TextPadding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btn_enterCode.UseDefaultRadiusAndThickness = true;
+            this.btn_enterCode.Click += new System.EventHandler(this.btn_enterCode_Click);
             // 
             // btn_scan
             // 
@@ -384,11 +295,11 @@
             this.btn_scan.ColorContrastOnClick = 45;
             this.btn_scan.ColorContrastOnHover = 45;
             this.btn_scan.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges8.BottomLeft = true;
-            borderEdges8.BottomRight = true;
-            borderEdges8.TopLeft = true;
-            borderEdges8.TopRight = true;
-            this.btn_scan.CustomizableEdges = borderEdges8;
+            borderEdges3.BottomLeft = true;
+            borderEdges3.BottomRight = true;
+            borderEdges3.TopLeft = true;
+            borderEdges3.TopRight = true;
+            this.btn_scan.CustomizableEdges = borderEdges3;
             this.btn_scan.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btn_scan.DisabledBorderColor = System.Drawing.Color.Black;
             this.btn_scan.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(162)))), ((int)(((byte)(129)))));
@@ -456,21 +367,39 @@
             this.btn_scan.UseDefaultRadiusAndThickness = true;
             this.btn_scan.Click += new System.EventHandler(this.btn_scan_Click);
             // 
+            // comboBox_paymentMethod
+            // 
+            this.comboBox_paymentMethod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(162)))), ((int)(((byte)(129)))));
+            this.comboBox_paymentMethod.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.comboBox_paymentMethod.FormattingEnabled = true;
+            this.comboBox_paymentMethod.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.comboBox_paymentMethod.ItemHeight = 45;
+            this.comboBox_paymentMethod.Items.AddRange(new object[] {
+            "Momo",
+            "Tiền mặt",
+            "QR",
+            "Thẻ"});
+            this.comboBox_paymentMethod.Location = new System.Drawing.Point(692, 945);
+            this.comboBox_paymentMethod.Name = "comboBox_paymentMethod";
+            this.comboBox_paymentMethod.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.comboBox_paymentMethod.Size = new System.Drawing.Size(325, 53);
+            this.comboBox_paymentMethod.TabIndex = 12;
+            // 
             // BanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.comboBox_paymentMethod);
             this.Controls.Add(this.panel_products);
             this.Controls.Add(this.txtbox_enterCode);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.bunifuButton1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btn_paymentType);
             this.Controls.Add(this.btn_enterCode);
             this.Controls.Add(this.btn_scan);
             this.Name = "BanHang";
-            this.Size = new System.Drawing.Size(1620, 1050);
+            this.Size = new System.Drawing.Size(1720, 1050);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -480,12 +409,12 @@
 
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btn_scan;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btn_enterCode;
-        private Bunifu.UI.WinForms.BunifuButton.BunifuButton btn_paymentType;
         private System.Windows.Forms.Label label1;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtbox_enterCode;
         private System.Windows.Forms.Panel panel_products;
+        private System.Windows.Forms.ComboBox comboBox_paymentMethod;
     }
 }

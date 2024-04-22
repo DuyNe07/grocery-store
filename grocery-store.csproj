@@ -78,6 +78,12 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuSlider">
       <HintPath>Frameworks\Bufinu\Bunifu.UI.WinForms.BunifuSlider.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuSnackbar">
+      <HintPath>Frameworks\Bufinu\Bunifu.UI.WinForms.BunifuSnackbar.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuTextbox">
+      <HintPath>Frameworks\Bufinu\Bunifu.UI.WinForms.BunifuTextbox.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuUserControl">
       <HintPath>Frameworks\Bufinu\Bunifu.UI.WinForms.BunifuUserControl.dll</HintPath>
     </Reference>
@@ -275,6 +281,7 @@
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
     </Reference>
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Net.Http, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Net.Http.4.3.0\lib\net46\System.Net.Http.dll</HintPath>
       <Private>True</Private>
@@ -366,12 +373,6 @@
     <Compile Include="GUI\BanHang\Item.Designer.cs">
       <DependentUpon>Item.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\BanHang\PaymentMethod.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\BanHang\PaymentMethod.Designer.cs">
-      <DependentUpon>PaymentMethod.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\Dashboard\BanHang.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -414,14 +415,22 @@
     <Compile Include="GUI\Dashboard\ThongKe.Designer.cs">
       <DependentUpon>ThongKe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\EmployeeTimekeeping.cs" />
+    <Compile Include="Models\GroceryStoreContext.cs" />
+    <Compile Include="Models\Job.cs" />
+    <Compile Include="Models\OrderLine.cs" />
+    <Compile Include="Models\Payment.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ShopOrder.cs" />
+    <Compile Include="Models\Supplier.cs" />
+    <Compile Include="Models\Timekeeping.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
     <EmbeddedResource Include="GUI\BanHang\Item.resx">
       <DependentUpon>Item.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\BanHang\PaymentMethod.resx">
-      <DependentUpon>PaymentMethod.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Dashboard\BanHang.resx">
       <DependentUpon>BanHang.cs</DependentUpon>
@@ -540,7 +549,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Image\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="takeeasy_1.ico" />
