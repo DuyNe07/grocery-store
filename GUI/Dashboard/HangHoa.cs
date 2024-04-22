@@ -16,5 +16,7 @@ namespace grocery_store.GUI
         {
             InitializeComponent();
         }
+
+
     }
 }
