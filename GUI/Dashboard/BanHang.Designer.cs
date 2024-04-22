@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BanHang));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label_totalPrice = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtbox_enterCode = new System.Windows.Forms.TextBox();
             this.panel_products = new System.Windows.Forms.Panel();
@@ -53,18 +53,18 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Phương thức thanh toán ";
             // 
-            // label2
+            // label_totalPrice
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(162)))), ((int)(((byte)(129)))));
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(1338, 940);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(10);
-            this.label2.Size = new System.Drawing.Size(181, 58);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "10.000.000";
+            this.label_totalPrice.AutoSize = true;
+            this.label_totalPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(162)))), ((int)(((byte)(129)))));
+            this.label_totalPrice.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label_totalPrice.ForeColor = System.Drawing.Color.Black;
+            this.label_totalPrice.Location = new System.Drawing.Point(1406, 938);
+            this.label_totalPrice.Name = "label_totalPrice";
+            this.label_totalPrice.Padding = new System.Windows.Forms.Padding(10);
+            this.label_totalPrice.Size = new System.Drawing.Size(53, 58);
+            this.label_totalPrice.TabIndex = 8;
+            this.label_totalPrice.Text = "0";
             // 
             // label3
             // 
@@ -114,11 +114,11 @@
             this.bunifuButton1.ColorContrastOnClick = 45;
             this.bunifuButton1.ColorContrastOnHover = 45;
             this.bunifuButton1.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges1.BottomLeft = true;
-            borderEdges1.BottomRight = true;
-            borderEdges1.TopLeft = true;
-            borderEdges1.TopRight = true;
-            this.bunifuButton1.CustomizableEdges = borderEdges1;
+            borderEdges4.BottomLeft = true;
+            borderEdges4.BottomRight = true;
+            borderEdges4.TopLeft = true;
+            borderEdges4.TopRight = true;
+            this.bunifuButton1.CustomizableEdges = borderEdges4;
             this.bunifuButton1.DialogResult = System.Windows.Forms.DialogResult.None;
             this.bunifuButton1.DisabledBorderColor = System.Drawing.Color.Black;
             this.bunifuButton1.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(162)))), ((int)(((byte)(129)))));
@@ -204,11 +204,11 @@
             this.btn_enterCode.ColorContrastOnClick = 45;
             this.btn_enterCode.ColorContrastOnHover = 45;
             this.btn_enterCode.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges2.BottomLeft = true;
-            borderEdges2.BottomRight = true;
-            borderEdges2.TopLeft = true;
-            borderEdges2.TopRight = true;
-            this.btn_enterCode.CustomizableEdges = borderEdges2;
+            borderEdges5.BottomLeft = true;
+            borderEdges5.BottomRight = true;
+            borderEdges5.TopLeft = true;
+            borderEdges5.TopRight = true;
+            this.btn_enterCode.CustomizableEdges = borderEdges5;
             this.btn_enterCode.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btn_enterCode.DisabledBorderColor = System.Drawing.Color.Black;
             this.btn_enterCode.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(162)))), ((int)(((byte)(129)))));
@@ -295,11 +295,11 @@
             this.btn_scan.ColorContrastOnClick = 45;
             this.btn_scan.ColorContrastOnHover = 45;
             this.btn_scan.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges3.BottomLeft = true;
-            borderEdges3.BottomRight = true;
-            borderEdges3.TopLeft = true;
-            borderEdges3.TopRight = true;
-            this.btn_scan.CustomizableEdges = borderEdges3;
+            borderEdges6.BottomLeft = true;
+            borderEdges6.BottomRight = true;
+            borderEdges6.TopLeft = true;
+            borderEdges6.TopRight = true;
+            this.btn_scan.CustomizableEdges = borderEdges6;
             this.btn_scan.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btn_scan.DisabledBorderColor = System.Drawing.Color.Black;
             this.btn_scan.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(162)))), ((int)(((byte)(129)))));
@@ -393,7 +393,7 @@
             this.Controls.Add(this.panel_products);
             this.Controls.Add(this.txtbox_enterCode);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label_totalPrice);
             this.Controls.Add(this.bunifuButton1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_enterCode);
@@ -411,7 +411,7 @@
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btn_enterCode;
         private System.Windows.Forms.Label label1;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label_totalPrice;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtbox_enterCode;
         private System.Windows.Forms.Panel panel_products;

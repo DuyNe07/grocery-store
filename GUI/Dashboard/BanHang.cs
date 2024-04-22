@@ -51,6 +51,23 @@ namespace grocery_store.GUI.Dashboard
             //refresh();
         }
 
+        private void updateTotal()
+        {
+            int total = 0;
+            foreach (Item item in items)
+            {
+                string priceWithoutSeparators = item.Price.Replace(".", "");
+                total += int.Parse(priceWithoutSeparators) * int.Parse(item.Quantity);
+
+            }
+            System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("vi-VN");
+            string formattedTotal = total.ToString("N0");
+
+            label_totalPrice.Text = formattedTotal.ToString();
+            label_totalPrice.Location = new Point(1075 - label_totalPrice.Width / 2, 768);
+        }
+
+
         private void btn_enterCode_Click(object sender, EventArgs e)
         {
             if(txtbox_enterCode.Text == "")
@@ -86,7 +103,12 @@ namespace grocery_store.GUI.Dashboard
                         items.Remove(item);
                         refresh();
                     };
+                    item.QuantityChanged += (s, args) =>
+                    {
+                        updateTotal();
+                    };
                     items.Add(item);
+                    updateTotal();
                     refresh();
                 }
             }
