@@ -1,4 +1,7 @@
-﻿namespace grocery_store.GUI.Dashboard
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace grocery_store.GUI.Dashboard
 {
     partial class BanHang
     {
@@ -29,9 +32,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BanHang));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges7 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges8 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges9 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.label1 = new System.Windows.Forms.Label();
             this.label_totalPrice = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,6 +44,10 @@
             this.btn_enterCode = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.btn_scan = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.comboBox_paymentMethod = new System.Windows.Forms.ComboBox();
+            this.panel_products.SuspendLayout();
+            this.pictureBox_ScanCode = new System.Windows.Forms.PictureBox();
+            this.pictureBox_ScanCode.BringToFront();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ScanCode)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -114,11 +121,11 @@
             this.bunifuButton1.ColorContrastOnClick = 45;
             this.bunifuButton1.ColorContrastOnHover = 45;
             this.bunifuButton1.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges4.BottomLeft = true;
-            borderEdges4.BottomRight = true;
-            borderEdges4.TopLeft = true;
-            borderEdges4.TopRight = true;
-            this.bunifuButton1.CustomizableEdges = borderEdges4;
+            borderEdges7.BottomLeft = true;
+            borderEdges7.BottomRight = true;
+            borderEdges7.TopLeft = true;
+            borderEdges7.TopRight = true;
+            this.bunifuButton1.CustomizableEdges = borderEdges7;
             this.bunifuButton1.DialogResult = System.Windows.Forms.DialogResult.None;
             this.bunifuButton1.DisabledBorderColor = System.Drawing.Color.Black;
             this.bunifuButton1.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(162)))), ((int)(((byte)(129)))));
@@ -204,11 +211,11 @@
             this.btn_enterCode.ColorContrastOnClick = 45;
             this.btn_enterCode.ColorContrastOnHover = 45;
             this.btn_enterCode.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges5.BottomLeft = true;
-            borderEdges5.BottomRight = true;
-            borderEdges5.TopLeft = true;
-            borderEdges5.TopRight = true;
-            this.btn_enterCode.CustomizableEdges = borderEdges5;
+            borderEdges8.BottomLeft = true;
+            borderEdges8.BottomRight = true;
+            borderEdges8.TopLeft = true;
+            borderEdges8.TopRight = true;
+            this.btn_enterCode.CustomizableEdges = borderEdges8;
             this.btn_enterCode.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btn_enterCode.DisabledBorderColor = System.Drawing.Color.Black;
             this.btn_enterCode.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(162)))), ((int)(((byte)(129)))));
@@ -295,11 +302,11 @@
             this.btn_scan.ColorContrastOnClick = 45;
             this.btn_scan.ColorContrastOnHover = 45;
             this.btn_scan.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges6.BottomLeft = true;
-            borderEdges6.BottomRight = true;
-            borderEdges6.TopLeft = true;
-            borderEdges6.TopRight = true;
-            this.btn_scan.CustomizableEdges = borderEdges6;
+            borderEdges9.BottomLeft = true;
+            borderEdges9.BottomRight = true;
+            borderEdges9.TopLeft = true;
+            borderEdges9.TopRight = true;
+            this.btn_scan.CustomizableEdges = borderEdges9;
             this.btn_scan.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btn_scan.DisabledBorderColor = System.Drawing.Color.Black;
             this.btn_scan.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(162)))), ((int)(((byte)(129)))));
@@ -385,6 +392,16 @@
             this.comboBox_paymentMethod.Size = new System.Drawing.Size(325, 53);
             this.comboBox_paymentMethod.TabIndex = 12;
             // 
+            // pictureBox_ScanCode
+            // 
+            this.pictureBox_ScanCode.BackColor = System.Drawing.Color.Bisque;
+            this.pictureBox_ScanCode.Location = new System.Drawing.Point(383, 147);
+            this.pictureBox_ScanCode.Name = "pictureBox_ScanCode";
+            this.pictureBox_ScanCode.Size = new System.Drawing.Size(788, 428);
+            this.pictureBox_ScanCode.TabIndex = 0;
+            this.pictureBox_ScanCode.TabStop = false;
+            this.pictureBox_ScanCode.Visible = false;
+            // 
             // BanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -398,11 +415,13 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_enterCode);
             this.Controls.Add(this.btn_scan);
+            this.Controls.Add(this.pictureBox_ScanCode);
             this.Name = "BanHang";
             this.Size = new System.Drawing.Size(1720, 1050);
+            this.panel_products.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ScanCode)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
@@ -416,5 +435,6 @@
         private System.Windows.Forms.TextBox txtbox_enterCode;
         private System.Windows.Forms.Panel panel_products;
         private System.Windows.Forms.ComboBox comboBox_paymentMethod;
+        private PictureBox pictureBox_ScanCode;
     }
 }

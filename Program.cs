@@ -17,6 +17,8 @@ namespace grocery_store
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            //API.GenarateBarCode genarateBarCode = new API.GenarateBarCode();
+            //genarateBarCode.Genarate();
             Application.Run(new GUI.Main());
         }
     }
