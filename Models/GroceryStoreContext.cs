@@ -110,12 +110,12 @@ namespace grocery_store.Models
                 entity.HasOne(d => d.ShopOrder)
                     .WithMany(p => p.OrderLine)
                     .HasForeignKey(d => d.ShopOrderId)
-                    .HasConstraintName("FK_OrderLine_ProductID");
-
-                entity.HasOne(d => d.ShopOrderNavigation)
-                    .WithMany(p => p.OrderLine)
-                    .HasForeignKey(d => d.ShopOrderId)
                     .HasConstraintName("FK_OrderLine_ShopOrder");
+
+                entity.HasOne(d => d.Product)
+                    .WithMany(p => p.OrderLine)
+                    .HasForeignKey(d => d.ProductId)
+                    .HasConstraintName("FK_OrderLine_ProductID");
             });
 
             modelBuilder.Entity<Payment>(entity =>

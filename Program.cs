@@ -19,7 +19,9 @@ namespace grocery_store
             Application.SetCompatibleTextRenderingDefault(false);
             //API.GenarateBarCode genarateBarCode = new API.GenarateBarCode();
             //genarateBarCode.Genarate();
-            Application.Run(new GUI.Main());
+            //API.PaymentQR paymentQR = new API.PaymentQR();
+            //paymentQR.Genarate();
+            Application.Run(new GUI.Login());
         }
     }
     
