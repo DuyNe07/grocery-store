@@ -387,7 +387,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\GenarateBarCode.cs" />
-    <Compile Include="API\PaymentQR.cs" />
     <Compile Include="GUI\BanHang\Item.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -424,28 +423,23 @@
     <Compile Include="GUI\Dashboard\QuanLy.Designer.cs">
       <DependentUpon>QuanLy.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\HangHoa_\DanhSachPhanLoai.cs">
+    <Compile Include="GUI\HangHoa\DanhSachPhanLoai.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\HangHoa_\DanhSachPhanLoai.Designer.cs">
+    <Compile Include="GUI\HangHoa\DanhSachPhanLoai.Designer.cs">
       <DependentUpon>DanhSachPhanLoai.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\HangHoa_\DanhSachSanPham.cs">
+    <Compile Include="GUI\HangHoa\DanhSachSanPham.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\HangHoa_\DanhSachSanPham.Designer.cs">
+    <Compile Include="GUI\HangHoa\DanhSachSanPham.Designer.cs">
       <DependentUpon>DanhSachSanPham.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\HangHoa_\NhapKho.cs">
+    <Compile Include="GUI\HangHoa\NhapKho.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\HangHoa_\NhapKho.Designer.cs">
+    <Compile Include="GUI\HangHoa\NhapKho.Designer.cs">
       <DependentUpon>NhapKho.cs</DependentUpon>
-    <Compile Include="GUI\Login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Main.cs">
       <SubType>Form</SubType>
@@ -491,19 +485,14 @@
     <EmbeddedResource Include="GUI\Dashboard\QuanLy.resx">
       <DependentUpon>QuanLy.cs</DependentUpon>
     </EmbeddedResource>
-
-    <EmbeddedResource Include="GUI\HangHoa_\DanhSachPhanLoai.resx">
+    <EmbeddedResource Include="GUI\HangHoa\DanhSachPhanLoai.resx">
       <DependentUpon>DanhSachPhanLoai.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\HangHoa_\DanhSachSanPham.resx">
+    <EmbeddedResource Include="GUI\HangHoa\DanhSachSanPham.resx">
       <DependentUpon>DanhSachSanPham.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\HangHoa_\NhapKho.resx">
+    <EmbeddedResource Include="GUI\HangHoa\NhapKho.resx">
       <DependentUpon>NhapKho.cs</DependentUpon>
-
-    <EmbeddedResource Include="GUI\Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
-
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -609,6 +598,13 @@
     <Folder Include="Image\BarCode\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Image1.bmp" />
+    <None Include="Resources\Search.png" />
+    <None Include="Image\delete.png" />
+    <None Include="Image\add.png" />
+    <None Include="Image\edit.png" />
+    <None Include="Image\save.png" />
+    <None Include="Image\cancel.png" />
     <Content Include="takeeasy_1.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -46,8 +46,8 @@ namespace grocery_store.GUI
             if (san_pham == 0)
             {
                 btn_san_pham.BaseColor = Color.FromArgb(109, 125, 229);
+                btn_san_pham.OnHoverBaseColor = Color.FromArgb(72, 83, 152);
                 btn_san_pham.ForeColor = Color.White;
-                btn_san_pham.OnHoverBaseColor = Color.White;
             } else
             {
                 btn_san_pham.BaseColor = Color.FromArgb(196, 211, 249);
@@ -59,8 +59,8 @@ namespace grocery_store.GUI
             if (phan_loai == 0)
             {
                 btn_phan_loai.BaseColor = Color.FromArgb(109, 125, 229);
+                btn_phan_loai.OnHoverBaseColor = Color.FromArgb(72, 83, 152);
                 btn_phan_loai.ForeColor = Color.White;
-                btn_phan_loai.OnHoverBaseColor = Color.White;
             }
             else
             {
@@ -73,8 +73,8 @@ namespace grocery_store.GUI
             if (nhap_kho == 0)
             {
                 btn_nhap_hang.BaseColor = Color.FromArgb(109, 125, 229);
+                btn_nhap_hang.OnHoverBaseColor = Color.FromArgb(72, 83, 152);
                 btn_nhap_hang.ForeColor = Color.White;
-                btn_nhap_hang.OnHoverBaseColor = Color.White;
             }
             else
             {
