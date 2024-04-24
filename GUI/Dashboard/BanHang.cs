@@ -1,50 +1,37 @@
-﻿using grocery_store.GUI.BanHang;
+﻿using AForge.Video;
+using AForge.Video.DirectShow;
+using grocery_store.GUI.BanHang;
+using grocery_store.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using grocery_store.Models;
-using AForge.Video;
-using AForge.Video.DirectShow;
 using ZXing;
-using System.Threading;
 
 namespace grocery_store.GUI.Dashboard
 {
     public partial class BanHang : UserControl
     {
+        #region Biến cần thiết
+        System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("vi-VN");
         List<Item> items = new List<Item>();
         GroceryStoreContext db = new GroceryStoreContext();
-        public event EventHandler ButtonClick;
+        private VideoCaptureDevice FinalFrame = null;
+        private CancellationTokenSource cancellationTokenSource;
+        #endregion
 
         public BanHang()
         {
             InitializeComponent();
         }
 
-        private void refresh()
-        {
-            panel_products.Controls.Clear();
-            int y_start = 30;
-            foreach (Item item in items)
-            {
-                item.Location = new Point(70, y_start);
-                item.BackColor = Color.White;
-
-                panel_products.Controls.Add(item);
-                y_start += 90;
-            }
-        }
-
-        // Thêm biến này vào lớp của bạn
-        private VideoCaptureDevice FinalFrame = null;
-        private CancellationTokenSource cancellationTokenSource;
-
+        #region Event Control
+        // INFO : Sự kiện khi nhấn nút quét mã vạch
         private async void btn_scan_Click(object sender, EventArgs e)
         {
             if (FinalFrame != null && FinalFrame.IsRunning)
@@ -58,55 +45,123 @@ namespace grocery_store.GUI.Dashboard
 
             this.pictureBox_ScanCode.Visible = true;
             this.pictureBox_ScanCode.BringToFront();
+            this.pictureBox_ScanCode.Location = new Point(100, 100);
             cancellationTokenSource = new CancellationTokenSource();
-            await ScanBarcodeAsync(cancellationTokenSource.Token);
-        }
 
-        private async Task ScanBarcodeAsync(CancellationToken cancellationToken)
-        {
+            // Khởi chạy webcam ở luồng chính
             this.pictureBox_ScanCode.Visible = true;
             FilterInfoCollection CaptureDevice = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             FinalFrame = new VideoCaptureDevice(CaptureDevice[0].MonikerString);
             FinalFrame.NewFrame += new NewFrameEventHandler(async (s, eventArgs) =>
             {
-                this.pictureBox_ScanCode.Image = (Bitmap)eventArgs.Frame.Clone();
+                Bitmap frame = (Bitmap)eventArgs.Frame.Clone();
+                frame.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                this.pictureBox_ScanCode.Image = frame;
                 BarcodeReader reader = new BarcodeReader();
                 var result = reader.Decode((Bitmap)eventArgs.Frame.Clone());
+
+                // Khi phát hiện ra mã vạch
                 if (result != null)
                 {
-                    this.Invoke((MethodInvoker)delegate {
-                        this.pictureBox_ScanCode.Visible = false;
-                    });
-                    MessageBox.Show(result.Text);
+                    // Khởi chạy 1 luồng mới để chạy ZXing nhận dạng mã vạch
+                    string barcode = await Task.Run(() => result.Text);
+
+                    // Dừng luồng webcam
                     FinalFrame.SignalToStop();
                     FinalFrame.WaitForStop();
                     FinalFrame = null;
                     cancellationTokenSource.Cancel();
+
+                    // Dừng webcam và thêm sản phẩm vào danh sách
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        this.pictureBox_ScanCode.Visible = false;
+                        addItem(barcode);
+                    });
+
                     return;
                 }
                 await Task.Delay(1);
             });
             FinalFrame.Start();
-            await Task.Delay(-1, cancellationToken);
         }
 
+        // INFO : Sự kiện khi nhấn nút xác nhận
+        private void btn_enterCode_Click(object sender, EventArgs e)
+        {
+            if (txtbox_enterCode.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập mã sản phẩm");
+                return;
+            }
+            else
+            {
+                addItem(txtbox_enterCode.Text);
+            }
+        }
+
+        private async void btn_pay_Click(object sender, EventArgs e)
+        {
+            Payment payment = await db.Payment.FirstOrDefaultAsync(p => p.PaymentId == 2);
+
+            // tạo ra 1 picturebox để in ra mã QR từ payment trực tiếp chứ không lưu ra 1 file ảnh
+            PictureBox pictureBox = new PictureBox();
+            pictureBox.Size = new Size(500, 500);
+            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox.Location = new Point(100, 100);
+            pictureBox.Image = Image.FromStream(new System.IO.MemoryStream(payment.Qr));
+            this.Controls.Add(pictureBox);
+            pictureBox.BringToFront();
+
+            ShopOrder shopOrder = new ShopOrder();
+            shopOrder.OrderDate = DateTime.Now;
+            shopOrder.SubTotal = int.Parse(label_totalPrice.Text.Replace(".", ""));
+            shopOrder.PaymentId = payment.PaymentId;
+
+            Main main = (Main)this.Parent.Parent;
+            shopOrder.EmployeeId = main.Employee.EmployeeId;
+
+            List<OrderLine> orderLines = await CreateOrderLinesAsync(shopOrder);
+            shopOrder.OrderLine = orderLines;
+
+
+            db.ShopOrder.Add(shopOrder);
+            db.OrderLine.AddRange(orderLines);
+            await db.SaveChangesAsync();
+            await UpdateStockProduct();
+
+            MessageBox.Show("Thanh toán thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            items.Clear();
+            refresh();
+            updateTotal();
+        }
+
+        #endregion
+
+        #region Tính tổng tiền của đơn
+
+        // INFO : Cập nhật tổng tiền
         private async void updateTotal()
         {
             int total = await Task.Run(() => CalculateTotal());
             UpdateUITotal(total);
         }
 
+        // INFO : Tính tổng tiền trên luồng khác
         private int CalculateTotal()
         {
             int total = 0;
             foreach (Item item in items)
             {
-                string priceWithoutSeparators = item.Price.Replace(".", "");
-                total += int.Parse(priceWithoutSeparators) * int.Parse(item.Quantity);
+                int price = int.Parse(item.Price.Replace(".", ""));
+                int quantity = int.Parse(item.Quantity);
+                total += price * quantity;
             }
             return total;
         }
 
+
+        // INFO : Cập nhật giao diện tổng tiền 
         private void UpdateUITotal(int total)
         {
             // Kiểm tra xem có cần chuyển sang luồng giao diện người dùng không nếu có thì chuyển
@@ -115,60 +170,158 @@ namespace grocery_store.GUI.Dashboard
                 this.Invoke(new Action<int>(UpdateUITotal), total);
                 return;
             }
-
-            System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("vi-VN");
             string formattedTotal = total.ToString("N0");
 
             label_totalPrice.Text = formattedTotal;
             label_totalPrice.Location = new Point(1075 - label_totalPrice.Width / 2, 763);
         }
 
+        #endregion
 
-        private void btn_enterCode_Click(object sender, EventArgs e)
+        #region Danh sách item
+        // INFO : Cập nhật lại giao diện
+        private void refresh()
         {
-            if(txtbox_enterCode.Text == "")
+            panel_products.Controls.Clear();
+            int y_start = 30;
+            foreach (Item item in items)
             {
-                MessageBox.Show("Vui lòng nhập mã sản phẩm");
+                item.Location = new Point(70, y_start);
+                item.BackColor = Color.White;
+                updateUnitPrice();
+                item.label_marketPrice.Location = new Point(490 - (item.label_price.Width / 2), 30);
+                panel_products.Controls.Add(item);
+                y_start += 90;
+            }
+        }
+
+        // INFO : Cập nhật đơn giá của từng sản phẩm
+        private void updateUnitPrice()
+        {
+            foreach (Item item in items)
+            {
+                int quantity = int.Parse(item.domainUpDown_quantity.Text);
+                int marketPrice = int.Parse(item.label_marketPrice.Text.Replace(".", ""));
+                int unit_price = quantity * marketPrice;
+
+                string formattedTotal = unit_price.ToString("N0");
+                item.label_price.Text = formattedTotal;
+                item.label_price.Location = new Point(715 - (item.label_price.Width / 2), 30);
+            }
+        }
+
+
+        #endregion
+
+        #region Item
+        // INFO : Kiểm tra Item và thêm Item vào danh sách
+        private async void addItem(string productSKU)
+        {
+            Product product = db.Product.Include(p => p).FirstOrDefault(p => p.Sku == productSKU);
+            if (product == null)
+            {
+                MessageBox.Show("Không tìm thấy sản phẩm");
                 return;
+            }
+
+            if (items.Any(i => i.NameProduct == product.Name))
+            {
+                var item = items.First(i => i.NameProduct == product.Name);
+                if (!await CheckQuantityInStock(item))
+                {
+                    MessageBox.Show("Sản phẩm không đủ hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                item.Quantity = (int.Parse(item.Quantity) + 1).ToString();
             }
             else
             {
-                Product product = db.Product.Where(p => p.Sku == txtbox_enterCode.Text).FirstOrDefault();
-                if (product == null)
+                Item newItem = new Item(product);
+                if (!await CheckQuantityInStock(newItem))
                 {
-                    MessageBox.Show("Không tìm thấy sản phẩm");
+                    MessageBox.Show("Sản phẩm không đủ hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    newItem.Dispose();
                     return;
+                }
+                addEventItem(newItem);
+                items.Add(newItem);
+            }
+
+            refresh();
+            updateTotal();
+        }
+
+        // INFO : Thêm sự kiện cho Item
+        private void addEventItem(Item item)
+        {
+            item.RemoveClick += async (s, args) =>
+            {
+                items.Remove(item);
+                refresh();
+                updateTotal();
+            };
+
+            item.QuantityChanged += async (s, args) =>
+            {
+                //INFO: Kiểm tra xem sản phẩm còn hàng không và cập nhật giá tiền
+                bool check = await CheckQuantityInStock(item);
+                if (!check)
+                {
+                    MessageBox.Show("Sản phẩm không đủ hàng", "Thông báo",
+                                                   MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    item.domainUpDown_quantity.Text = 0 + "";
                 }
                 else
                 {
-                    //kiểm tra xem sản phẩm đã có trong danh sách chưa nếu có thì cộng dồn số lượng
-                    foreach (Item i in items)
+                    this.Invoke((MethodInvoker)delegate
                     {
-                        if (i.NameProduct == product.Name)
-                        {
-                            int quantity = int.Parse(i.Quantity);
-                            quantity += 1;
-                            i.Quantity = quantity.ToString();
-                            return;
-                        }
-                    }
-                    Item item = new Item(product);
-                    item.label_price.Location = new Point(590 - (item.label_price.Width / 2), 35);
-                    item.ButtonClick += async (s, args) =>
-                    {
-                        items.Remove(item);
-                        refresh();
+                        updateUnitPrice();
                         updateTotal();
-                    };
-                    item.QuantityChanged += (s, args) =>
-                    {
-                        updateTotal();
-                    };
-                    items.Add(item);
-                    updateTotal();
-                    refresh();
+                    });
                 }
-            }
+            };
         }
+
+        // INFO : Kiểm tra số lượng hàng còn trong kho
+        private async Task<bool> CheckQuantityInStock(Item item)
+        {
+            Product product = await db.Product.FirstOrDefaultAsync(p => p.Name == item.NameProduct);
+            return product.QuantityInStock >= int.Parse(item.domainUpDown_quantity.Text);
+        }
+
+        #endregion
+
+        #region DataLayer
+
+        private async Task<List<OrderLine>> CreateOrderLinesAsync(ShopOrder shopOrder)
+        {
+            List<OrderLine> orderLines = new List<OrderLine>();
+            foreach (Item item in items)
+            {
+                OrderLine orderLine = new OrderLine();
+                orderLine.Price = int.Parse(item.Price.Replace(".", ""));
+                orderLine.Product = await db.Product.FirstOrDefaultAsync(p => p.Name == item.NameProduct);
+                orderLine.Quantity = int.Parse(item.Quantity);
+                orderLine.ShopOrder = shopOrder;
+                orderLines.Add(orderLine);
+            }
+            return orderLines;
+        }
+
+        private async Task UpdateStockProduct()
+        {
+            var productIds = items.Select(i => i.Product.ProductId).ToList();
+            var products = await db.Product.Where(p => productIds.Contains(p.ProductId)).ToDictionaryAsync(p => p.ProductId, p => p);
+
+            foreach (Item item in items)
+            {
+                Product product = products[item.Product.ProductId];
+                product.QuantityInStock -= int.Parse(item.domainUpDown_quantity.Text);
+                db.Product.Update(product);
+            }
+            await db.SaveChangesAsync();
+        }
+
+        #endregion
     }
 }

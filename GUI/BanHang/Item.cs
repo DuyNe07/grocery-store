@@ -13,9 +13,8 @@ namespace grocery_store.GUI.BanHang
 {
     public partial class Item : UserControl
     {
-        public event EventHandler ButtonClick;
+        public event EventHandler RemoveClick;
         public event EventHandler QuantityChanged;
-
         public Product Product { get; set; }
         public string Quantity
         {
@@ -29,15 +28,17 @@ namespace grocery_store.GUI.BanHang
         }
         public string Price
         {
-            get => label_price.Text;
-            set => label_price.Text = value;
+            get => label_marketPrice.Text;
+            set => label_marketPrice.Text = value;
         }
         public Item(Product product)
         {
             InitializeComponent();
             generateQuantity();
 
-            this.btn_del.Click += (sender, e) => ButtonClick?.Invoke(this, e);
+            this.Product = product;
+
+            this.btn_del.Click += (sender, e) => RemoveClick?.Invoke(this, e);
             this.domainUpDown_quantity.TextChanged += (sender, e) => QuantityChanged?.Invoke(this, e);
             this.Quantity = "1";
             this.NameProduct = product.Name;
@@ -50,7 +51,7 @@ namespace grocery_store.GUI.BanHang
         private void generateQuantity()
         {
             domainUpDown_quantity.Items.Clear();
-            for (int i = 99; i >= 1; i--)
+            for (int i = 99; i >= 0; i--)
             {
                 domainUpDown_quantity.Items.Add(i.ToString());
             }

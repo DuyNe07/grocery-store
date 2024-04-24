@@ -16,7 +16,7 @@ namespace grocery_store.Models
 
         public int PaymentId { get; set; }
         public string Name { get; set; }
-        public string Qr { get; set; }
+        public byte[] Qr { get; set; }
 
         public virtual ICollection<ShopOrder> ShopOrder { get; set; }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using grocery_store.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace grocery_store.GUI
 {
     public partial class Main : Form
     {
+        public Employee Employee { get; set; }
         public Main()
         {
             InitializeComponent();
@@ -22,7 +24,6 @@ namespace grocery_store.GUI
         private void btn_close_Click(object sender, EventArgs e)
         {
             this.Close();
-            Application.Exit();
         }
 
         private void btn_minimize_Click(object sender, EventArgs e)
@@ -80,13 +81,21 @@ namespace grocery_store.GUI
         private void btn_logout_Click(object sender, EventArgs e)
         {
             this.Close();
-            //ngắt tất cả các luồng đang chạy
-            Application.Exit();
         }
 
         private void Main_Load(object sender, EventArgs e)
         {
 
+        }
+
+        public void setEmployee(Employee employee)
+        {
+            this.Employee = employee;
+        }
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
