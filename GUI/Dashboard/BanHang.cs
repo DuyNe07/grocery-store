@@ -153,7 +153,7 @@ namespace grocery_store.GUI.Dashboard
             int total = 0;
             foreach (Item item in items)
             {
-                int price = int.Parse(item.Price.Replace(".", ""));
+                int price = int.Parse(item.Price.Replace(",", ""));
                 int quantity = int.Parse(item.Quantity);
                 total += price * quantity;
             }
@@ -201,7 +201,7 @@ namespace grocery_store.GUI.Dashboard
             foreach (Item item in items)
             {
                 int quantity = int.Parse(item.domainUpDown_quantity.Text);
-                int marketPrice = int.Parse(item.label_marketPrice.Text.Replace(".", ""));
+                int marketPrice = int.Parse(item.label_marketPrice.Text.Replace(",", ""));
                 int unit_price = quantity * marketPrice;
 
                 string formattedTotal = unit_price.ToString("N0");
