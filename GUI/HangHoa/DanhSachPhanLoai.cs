@@ -26,5 +26,10 @@ namespace grocery_store.GUI.HangHoa_
         {
             txtbox_tim_kiem.Text = "Tìm Kiếm";
         }
+
+        private void gridview_danh_sach_loai_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
