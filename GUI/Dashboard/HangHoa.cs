@@ -23,22 +23,14 @@ namespace grocery_store.GUI
             reset_UC();
             UC_danh_sach_san_pham.Visible = true;
             set_color(1, 0, 0);
+            lb_name_control.Text = "DANH SÁCH SẢN PHẨM";
         }
 
         private void txtbox_tim_kiem_MouseClick(object sender, MouseEventArgs e)
         {
-
-           
-            
-        }
-
-        private void txtbox_tim_kiem_Enter(object sender, EventArgs e)
-        {
-            txtbox_tim_kiem.Text = "";
-        }
-        private void txtbox_tim_kiem_Leave(object sender, EventArgs e)
-        {
-            txtbox_tim_kiem.Text = "Tìm Kiếm";
+            reset_UC();
+            UC_danh_sach_san_pham.Visible = true;
+            set_color(1, 0, 0);
         }
 
         private void reset_UC()
@@ -55,10 +47,12 @@ namespace grocery_store.GUI
             {
                 btn_san_pham.BaseColor = Color.FromArgb(109, 125, 229);
                 btn_san_pham.ForeColor = Color.White;
+                btn_san_pham.OnHoverBaseColor = Color.White;
             } else
             {
-                btn_san_pham.BaseColor = Color.White;
+                btn_san_pham.BaseColor = Color.FromArgb(196, 211, 249);
                 btn_san_pham.ForeColor = Color.FromArgb(109, 125, 229);
+                btn_san_pham.OnHoverBaseColor = Color.FromArgb(196, 211, 249);
             }
 
             // Định dang cho nút phân loại
@@ -66,11 +60,13 @@ namespace grocery_store.GUI
             {
                 btn_phan_loai.BaseColor = Color.FromArgb(109, 125, 229);
                 btn_phan_loai.ForeColor = Color.White;
+                btn_phan_loai.OnHoverBaseColor = Color.White;
             }
             else
             {
-                btn_phan_loai.BaseColor = Color.White;
+                btn_phan_loai.BaseColor = Color.FromArgb(196, 211, 249);
                 btn_phan_loai.ForeColor = Color.FromArgb(109, 125, 229);
+                btn_phan_loai.OnHoverBaseColor = Color.FromArgb(196, 211, 249);
             }
 
             // Định dang cho nút nhập kho
@@ -78,11 +74,13 @@ namespace grocery_store.GUI
             {
                 btn_nhap_hang.BaseColor = Color.FromArgb(109, 125, 229);
                 btn_nhap_hang.ForeColor = Color.White;
+                btn_nhap_hang.OnHoverBaseColor = Color.White;
             }
             else
             {
-                btn_nhap_hang.BaseColor = Color.White;
+                btn_nhap_hang.BaseColor = Color.FromArgb(196, 211, 249);
                 btn_nhap_hang.ForeColor = Color.FromArgb(109, 125, 229);
+                btn_nhap_hang.OnHoverBaseColor = Color.FromArgb(196, 211, 249);
             }
 
         }
@@ -92,6 +90,7 @@ namespace grocery_store.GUI
             reset_UC();
             UC_danh_sach_san_pham.Visible = true;
             set_color(1,0,0);
+            lb_name_control.Text = "DANH SÁCH SẢN PHẨM";
         }
 
         private void btn_phan_loai_Click(object sender, EventArgs e)
@@ -99,6 +98,7 @@ namespace grocery_store.GUI
             reset_UC();
             UC_danh_sach_phan_loai.Visible = true;
             set_color(0, 1, 0);
+            lb_name_control.Text = "DANH SÁCH PHÂN LOẠI";
         }
 
         private void btn_nhap_hang_Click(object sender, EventArgs e)
@@ -106,6 +106,7 @@ namespace grocery_store.GUI
             reset_UC();
             UC_nhap_kho.Visible = true;
             set_color(0, 0, 1);
+            lb_name_control.Text = "NHẬP HÀNG";
         }
 
 
