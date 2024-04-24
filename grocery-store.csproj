@@ -96,6 +96,9 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuUserControl">
       <HintPath>Frameworks\Bufinu\Bunifu.UI.WinForms.BunifuUserControl.dll</HintPath>
     </Reference>
+    <Reference Include="Guna.UI">
+      <HintPath>Frameworks\Guna.UI.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -192,6 +195,7 @@
     <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.IdentityModel.Tokens.5.5.0\lib\net461\Microsoft.IdentityModel.Tokens.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.Win32.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Win32.Primitives.4.3.0\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
       <Private>True</Private>
@@ -420,6 +424,23 @@
     <Compile Include="GUI\Dashboard\QuanLy.Designer.cs">
       <DependentUpon>QuanLy.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\HangHoa_\DanhSachPhanLoai.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\HangHoa_\DanhSachPhanLoai.Designer.cs">
+      <DependentUpon>DanhSachPhanLoai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HangHoa_\DanhSachSanPham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\HangHoa_\DanhSachSanPham.Designer.cs">
+      <DependentUpon>DanhSachSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HangHoa_\NhapKho.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\HangHoa_\NhapKho.Designer.cs">
+      <DependentUpon>NhapKho.cs</DependentUpon>
     <Compile Include="GUI\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -470,8 +491,19 @@
     <EmbeddedResource Include="GUI\Dashboard\QuanLy.resx">
       <DependentUpon>QuanLy.cs</DependentUpon>
     </EmbeddedResource>
+
+    <EmbeddedResource Include="GUI\HangHoa_\DanhSachPhanLoai.resx">
+      <DependentUpon>DanhSachPhanLoai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HangHoa_\DanhSachSanPham.resx">
+      <DependentUpon>DanhSachSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HangHoa_\NhapKho.resx">
+      <DependentUpon>NhapKho.cs</DependentUpon>
+
     <EmbeddedResource Include="GUI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
