@@ -19,7 +19,7 @@ namespace grocery_store.Models
         public decimal? CostPrice { get; set; }
         public int? QuantityInStock { get; set; }
         public string Sku { get; set; }
-        public decimal MarketPrice { get; set; }
+        public decimal? MarketPrice { get; set; }
         public DateTime? Expiry { get; set; }
         public int? SupplierId { get; set; }
         public int? CategoryId { get; set; }

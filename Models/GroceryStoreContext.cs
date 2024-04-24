@@ -34,7 +34,8 @@ namespace grocery_store.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=localhost;Database=GroceryStore;Trusted_Connection=True;");
+                // optionsBuilder.UseSqlServer("Server=localhost;Database=GroceryStore;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=LAPTOP-DFD1KE5V\\HOAITRONG;Database=GroceryStore;Trusted_Connection=True;");
             }
         }
 
@@ -67,7 +68,7 @@ namespace grocery_store.Models
 
             modelBuilder.Entity<EmployeeTimekeeping>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => new { e.EmployeeId, e.TimekeepingId });
 
                 entity.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
 
@@ -203,7 +204,11 @@ namespace grocery_store.Models
             {
                 entity.Property(e => e.TimekeepingId).HasColumnName("TimekeepingID");
 
-                entity.Property(e => e.Checkout).HasColumnType("decimal(18, 0)");
+                entity.Property(e => e.Checkin).HasColumnType("datetime");
+
+                entity.Property(e => e.Checkout).HasColumnType("datetime");
+
+                entity.Property(e => e.Salary).HasColumnType("money");
             });
 
             OnModelCreatingPartial(modelBuilder);

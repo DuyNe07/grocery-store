@@ -10,8 +10,8 @@ namespace grocery_store.Models
     public partial class Timekeeping
     {
         public int TimekeepingId { get; set; }
-        public TimeSpan? Checkin { get; set; }
-        public decimal? Checkout { get; set; }
-        public int? Completed { get; set; }
+        public DateTime? Checkin { get; set; }
+        public DateTime? Checkout { get; set; }
+        public decimal? Salary { get; set; }
     }
 }
