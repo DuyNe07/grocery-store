@@ -24,6 +24,7 @@ namespace grocery_store.GUI
         private void btn_close_Click(object sender, EventArgs e)
         {
             this.Close();
+            Application.Exit();
         }
 
         private void btn_minimize_Click(object sender, EventArgs e)

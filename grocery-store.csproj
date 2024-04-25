@@ -96,6 +96,12 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuUserControl">
       <HintPath>Frameworks\Bufinu\Bunifu.UI.WinForms.BunifuUserControl.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu_UI_v1.5.3">
+      <HintPath>Frameworks\Bunifu_UI_v1.5.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI">
+      <HintPath>Frameworks\Guna.UI.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -192,6 +198,7 @@
     <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.IdentityModel.Tokens.5.5.0\lib\net461\Microsoft.IdentityModel.Tokens.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.Win32.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Win32.Primitives.4.3.0\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
       <Private>True</Private>
@@ -390,6 +397,12 @@
     <Compile Include="GUI\BanHang\Item.Designer.cs">
       <DependentUpon>Item.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\BanHang\PayUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\BanHang\PayUC.Designer.cs">
+      <DependentUpon>PayUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Dashboard\BanHang.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -454,6 +467,9 @@
     <Compile Include="Settings.cs" />
     <EmbeddedResource Include="GUI\BanHang\Item.resx">
       <DependentUpon>Item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\BanHang\PayUC.resx">
+      <DependentUpon>PayUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Dashboard\BanHang.resx">
       <DependentUpon>BanHang.cs</DependentUpon>
@@ -577,6 +593,7 @@
     <Folder Include="Image\BarCode\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\text.png" />
     <Content Include="takeeasy_1.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

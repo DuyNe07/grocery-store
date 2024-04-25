@@ -1,5 +1,6 @@
 ﻿using AForge.Video;
 using AForge.Video.DirectShow;
+using grocery_store.API;
 using grocery_store.GUI.BanHang;
 using grocery_store.Models;
 using Microsoft.EntityFrameworkCore;
@@ -89,51 +90,51 @@ namespace grocery_store.GUI.Dashboard
         // INFO : Sự kiện khi nhấn nút xác nhận
         private void btn_enterCode_Click(object sender, EventArgs e)
         {
-            if (txtbox_enterCode.Text == "")
+            if (X.Text == "")
             {
-                MessageBox.Show("Vui lòng nhập mã sản phẩm");
+                MessageBox.Show("Vui lòng nhập mã sản phẩm", "Thông báo", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             else
             {
-                addItem(txtbox_enterCode.Text);
+                addItem(X.Text);
             }
         }
 
         private async void btn_pay_Click(object sender, EventArgs e)
         {
-            Payment payment = await db.Payment.FirstOrDefaultAsync(p => p.PaymentId == 2);
+            if (items.Count == 0)
+            {
+                MessageBox.Show("Vui lòng thêm sản phẩm vào giỏ hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            // tạo ra 1 picturebox để in ra mã QR từ payment trực tiếp chứ không lưu ra 1 file ảnh
-            PictureBox pictureBox = new PictureBox();
-            pictureBox.Size = new Size(500, 500);
-            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox.Location = new Point(100, 100);
-            pictureBox.Image = Image.FromStream(new System.IO.MemoryStream(payment.Qr));
-            this.Controls.Add(pictureBox);
-            pictureBox.BringToFront();
+            int pay = comboBox_paymentMethod.SelectedIndex + 1;
+            Payment payment = await db.Payment.FirstOrDefaultAsync(p => p.PaymentId == pay);
 
-            ShopOrder shopOrder = new ShopOrder();
-            shopOrder.OrderDate = DateTime.Now;
-            shopOrder.SubTotal = int.Parse(label_totalPrice.Text.Replace(".", ""));
-            shopOrder.PaymentId = payment.PaymentId;
+            if(payment == null)
+            {
+                MessageBox.Show("Phương thức thanh toán không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            Main main = (Main)this.Parent.Parent;
-            shopOrder.EmployeeId = main.Employee.EmployeeId;
-
-            List<OrderLine> orderLines = await CreateOrderLinesAsync(shopOrder);
-            shopOrder.OrderLine = orderLines;
-
-
-            db.ShopOrder.Add(shopOrder);
-            db.OrderLine.AddRange(orderLines);
-            await db.SaveChangesAsync();
-            await UpdateStockProduct();
-
-            MessageBox.Show("Thanh toán thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            items.Clear();
-            refresh();
-            updateTotal();
+            PayUC payUC = new PayUC(Image.FromStream(new System.IO.MemoryStream(payment.Qr)));
+            payUC.Location = new Point(350, 200);
+            payUC.OKClick += async (s, args) =>
+            {
+                await UpdateOrder(payment);
+                items.Clear();
+                refresh();
+                updateTotal();
+            };
+            payUC.CancelClick += (s, args) =>
+            {
+                payUC.Dispose();
+                this.Controls.Remove(payUC);
+            };
+            this.Controls.Add(payUC);
+            payUC.BringToFront();
         }
 
         #endregion
@@ -153,8 +154,8 @@ namespace grocery_store.GUI.Dashboard
             int total = 0;
             foreach (Item item in items)
             {
-                int price = int.Parse(item.Price.Replace(".", ""));
-                int quantity = int.Parse(item.Quantity);
+                int price = int.Parse(item.Price.Replace(",", ""));
+                int quantity = item.Quantity;
                 total += price * quantity;
             }
             return total;
@@ -189,7 +190,7 @@ namespace grocery_store.GUI.Dashboard
                 item.Location = new Point(70, y_start);
                 item.BackColor = Color.White;
                 updateUnitPrice();
-                item.label_marketPrice.Location = new Point(490 - (item.label_price.Width / 2), 30);
+                item.label_marketPrice.Location = new Point(490 - (item.label_price.Width / 2), 35);
                 panel_products.Controls.Add(item);
                 y_start += 90;
             }
@@ -200,13 +201,13 @@ namespace grocery_store.GUI.Dashboard
         {
             foreach (Item item in items)
             {
-                int quantity = int.Parse(item.domainUpDown_quantity.Text);
-                int marketPrice = int.Parse(item.label_marketPrice.Text.Replace(".", ""));
+                int quantity = item.Quantity;
+                int marketPrice = int.Parse(item.label_marketPrice.Text.Replace(",", ""));
                 int unit_price = quantity * marketPrice;
 
                 string formattedTotal = unit_price.ToString("N0");
                 item.label_price.Text = formattedTotal;
-                item.label_price.Location = new Point(715 - (item.label_price.Width / 2), 30);
+                item.label_price.Location = new Point(715 - (item.label_price.Width / 2), 35);
             }
         }
 
@@ -232,7 +233,7 @@ namespace grocery_store.GUI.Dashboard
                     MessageBox.Show("Sản phẩm không đủ hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                item.Quantity = (int.Parse(item.Quantity) + 1).ToString();
+                item.Quantity += 1;
             }
             else
             {
@@ -264,12 +265,19 @@ namespace grocery_store.GUI.Dashboard
             item.QuantityChanged += async (s, args) =>
             {
                 //INFO: Kiểm tra xem sản phẩm còn hàng không và cập nhật giá tiền
+
+                if (item.Num_quantity.Text == "" || !int.TryParse(item.Num_quantity.Text, out int quantity) || item.Quantity < 0)
+                {
+                    item.Num_quantity.Text = "0";
+                    return;
+                }
+
                 bool check = await CheckQuantityInStock(item);
                 if (!check)
                 {
                     MessageBox.Show("Sản phẩm không đủ hàng", "Thông báo",
                                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    item.domainUpDown_quantity.Text = 0 + "";
+                    item.Quantity = 0;
                 }
                 else
                 {
@@ -286,13 +294,32 @@ namespace grocery_store.GUI.Dashboard
         private async Task<bool> CheckQuantityInStock(Item item)
         {
             Product product = await db.Product.FirstOrDefaultAsync(p => p.Name == item.NameProduct);
-            return product.QuantityInStock >= int.Parse(item.domainUpDown_quantity.Text);
+            return product.QuantityInStock >= item.Quantity;
         }
 
         #endregion
 
         #region DataLayer
 
+        private async Task UpdateOrder(Payment payment)
+        {
+            ShopOrder shopOrder = new ShopOrder();
+            shopOrder.OrderDate = DateTime.Now;
+            shopOrder.SubTotal = int.Parse(label_totalPrice.Text.Replace(".", ""));
+            shopOrder.Payment = payment;
+
+            Main main = (Main)this.Parent.Parent;
+            shopOrder.EmployeeId = main.Employee.EmployeeId;
+
+            List<OrderLine> orderLines = await CreateOrderLinesAsync(shopOrder);
+            shopOrder.OrderLine = orderLines;
+
+
+            db.ShopOrder.Add(shopOrder);
+            db.OrderLine.AddRange(orderLines);
+            await db.SaveChangesAsync();
+            await UpdateStockProduct();
+        }
         private async Task<List<OrderLine>> CreateOrderLinesAsync(ShopOrder shopOrder)
         {
             List<OrderLine> orderLines = new List<OrderLine>();
@@ -301,7 +328,7 @@ namespace grocery_store.GUI.Dashboard
                 OrderLine orderLine = new OrderLine();
                 orderLine.Price = int.Parse(item.Price.Replace(".", ""));
                 orderLine.Product = await db.Product.FirstOrDefaultAsync(p => p.Name == item.NameProduct);
-                orderLine.Quantity = int.Parse(item.Quantity);
+                orderLine.Quantity = item.Quantity;
                 orderLine.ShopOrder = shopOrder;
                 orderLines.Add(orderLine);
             }
@@ -316,7 +343,7 @@ namespace grocery_store.GUI.Dashboard
             foreach (Item item in items)
             {
                 Product product = products[item.Product.ProductId];
-                product.QuantityInStock -= int.Parse(item.domainUpDown_quantity.Text);
+                product.QuantityInStock -= item.Quantity;
                 db.Product.Update(product);
             }
             await db.SaveChangesAsync();

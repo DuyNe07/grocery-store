@@ -16,10 +16,10 @@ namespace grocery_store.GUI.BanHang
         public event EventHandler RemoveClick;
         public event EventHandler QuantityChanged;
         public Product Product { get; set; }
-        public string Quantity
+        public int Quantity
         {
-            get => domainUpDown_quantity.Text;
-            set => domainUpDown_quantity.Text = value;
+            get => int.Parse(Num_quantity.Text);
+            set => Num_quantity.Text = value.ToString();
         }
         public string NameProduct
         {
@@ -34,27 +34,17 @@ namespace grocery_store.GUI.BanHang
         public Item(Product product)
         {
             InitializeComponent();
-            generateQuantity();
 
             this.Product = product;
 
             this.btn_del.Click += (sender, e) => RemoveClick?.Invoke(this, e);
-            this.domainUpDown_quantity.TextChanged += (sender, e) => QuantityChanged?.Invoke(this, e);
-            this.Quantity = "1";
+            this.Num_quantity.TextChanged += (sender, e) => QuantityChanged?.Invoke(this, e);
+            this.Quantity = 1;
             this.NameProduct = product.Name;
-
-            System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("vi-VN");
-            string formattedPrice = product.MarketPrice.ToString("N0");
+            this.label_nameProduct.Location = new Point(120 - (label_nameProduct.Width / 2), 40);
+            System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
+            string formattedPrice = product.MarketPrice.ToString("N0", culture);
             this.Price = formattedPrice;
-        }
-
-        private void generateQuantity()
-        {
-            domainUpDown_quantity.Items.Clear();
-            for (int i = 99; i >= 0; i--)
-            {
-                domainUpDown_quantity.Items.Add(i.ToString());
-            }
         }
     }
 }
