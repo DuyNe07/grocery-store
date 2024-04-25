@@ -23,6 +23,7 @@ namespace grocery_store.Models
 
         public virtual Job Job { get; set; }
         public virtual ICollection<ShopOrder> ShopOrder { get; set; }
+        public string Password { get; internal set; }
 
         public static async Task<Employee> Login(int ID)
         {

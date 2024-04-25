@@ -37,6 +37,12 @@
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges7 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.panel_UC = new System.Windows.Forms.Panel();
+            this.UC_Sell = new grocery_store.GUI.Dashboard.BanHang();
+            this.UC_Manager = new grocery_store.GUI.Dashboard.QuanLy();
+            this.UC_Staff = new grocery_store.GUI.Dashboard.NhanVien();
+            this.UC_Statistical = new grocery_store.GUI.ThongKe();
+            this.UC_Invoice = new grocery_store.GUI.HoaDon();
+            this.UC_Good = new grocery_store.GUI.HangHoa();
             this.panel_header = new Bunifu.UI.WinForms.BunifuPanel();
             this.btn_minimize = new Bunifu.UI.WinForms.BunifuImageButton();
             this.btn_close = new Bunifu.UI.WinForms.BunifuImageButton();
@@ -51,12 +57,6 @@
             this.btn_invoice = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.btn_sell = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.Logo = new System.Windows.Forms.PictureBox();
-            this.UC_Sell = new grocery_store.GUI.Dashboard.BanHang();
-            this.UC_Manager = new grocery_store.GUI.Dashboard.QuanLy();
-            this.UC_Staff = new grocery_store.GUI.Dashboard.NhanVien();
-            this.UC_Statistical = new grocery_store.GUI.ThongKe();
-            this.UC_Invoice = new grocery_store.GUI.HoaDon();
-            this.UC_Good = new grocery_store.GUI.HangHoa();
             this.panel_UC.SuspendLayout();
             this.panel_header.SuspendLayout();
             this.panel_control.SuspendLayout();
@@ -76,6 +76,61 @@
             this.panel_UC.Name = "panel_UC";
             this.panel_UC.Size = new System.Drawing.Size(1620, 1050);
             this.panel_UC.TabIndex = 2;
+            // 
+            // UC_Sell
+            // 
+            this.UC_Sell.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.UC_Sell.Location = new System.Drawing.Point(0, 0);
+            this.UC_Sell.Name = "UC_Sell";
+            this.UC_Sell.Size = new System.Drawing.Size(1620, 1050);
+            this.UC_Sell.TabIndex = 0;
+            // 
+            // UC_Manager
+            // 
+            this.UC_Manager.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.UC_Manager.Location = new System.Drawing.Point(0, 0);
+            this.UC_Manager.Margin = new System.Windows.Forms.Padding(0);
+            this.UC_Manager.Name = "UC_Manager";
+            this.UC_Manager.Size = new System.Drawing.Size(1620, 1050);
+            this.UC_Manager.TabIndex = 5;
+            // 
+            // UC_Staff
+            // 
+            this.UC_Staff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.UC_Staff.Location = new System.Drawing.Point(0, 0);
+            this.UC_Staff.Margin = new System.Windows.Forms.Padding(0);
+            this.UC_Staff.Name = "UC_Staff";
+            this.UC_Staff.Size = new System.Drawing.Size(1620, 1050);
+            this.UC_Staff.TabIndex = 4;
+            // 
+            // UC_Statistical
+            // 
+            this.UC_Statistical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.UC_Statistical.Location = new System.Drawing.Point(0, 0);
+            this.UC_Statistical.Margin = new System.Windows.Forms.Padding(0);
+            this.UC_Statistical.Name = "UC_Statistical";
+            this.UC_Statistical.Size = new System.Drawing.Size(1620, 1050);
+            this.UC_Statistical.TabIndex = 3;
+            // 
+            // UC_Invoice
+            // 
+            this.UC_Invoice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.UC_Invoice.Location = new System.Drawing.Point(0, 0);
+            this.UC_Invoice.Margin = new System.Windows.Forms.Padding(0);
+            this.UC_Invoice.Name = "UC_Invoice";
+            this.UC_Invoice.Size = new System.Drawing.Size(1620, 1050);
+            this.UC_Invoice.TabIndex = 1;
+            // 
+            // UC_Good
+            // 
+            this.UC_Good.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.UC_Good.Location = new System.Drawing.Point(0, 0);
+            this.UC_Good.Margin = new System.Windows.Forms.Padding(0);
+            this.UC_Good.Name = "UC_Good";
+            this.UC_Good.Size = new System.Drawing.Size(1620, 1050);
+            this.UC_Good.TabIndex = 2;
             // 
             // panel_header
             // 
@@ -870,61 +925,6 @@
             this.Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Logo.TabIndex = 1;
             this.Logo.TabStop = false;
-            // 
-            // UC_Sell
-            // 
-            this.UC_Sell.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.UC_Sell.Location = new System.Drawing.Point(0, 0);
-            this.UC_Sell.Name = "UC_Sell";
-            this.UC_Sell.Size = new System.Drawing.Size(1620, 1050);
-            this.UC_Sell.TabIndex = 0;
-            // 
-            // UC_Manager
-            // 
-            this.UC_Manager.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.UC_Manager.Location = new System.Drawing.Point(0, 0);
-            this.UC_Manager.Margin = new System.Windows.Forms.Padding(0);
-            this.UC_Manager.Name = "UC_Manager";
-            this.UC_Manager.Size = new System.Drawing.Size(1620, 1050);
-            this.UC_Manager.TabIndex = 5;
-            // 
-            // UC_Staff
-            // 
-            this.UC_Staff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.UC_Staff.Location = new System.Drawing.Point(0, 0);
-            this.UC_Staff.Margin = new System.Windows.Forms.Padding(0);
-            this.UC_Staff.Name = "UC_Staff";
-            this.UC_Staff.Size = new System.Drawing.Size(1620, 1050);
-            this.UC_Staff.TabIndex = 4;
-            // 
-            // UC_Statistical
-            // 
-            this.UC_Statistical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.UC_Statistical.Location = new System.Drawing.Point(0, 0);
-            this.UC_Statistical.Margin = new System.Windows.Forms.Padding(0);
-            this.UC_Statistical.Name = "UC_Statistical";
-            this.UC_Statistical.Size = new System.Drawing.Size(1620, 1050);
-            this.UC_Statistical.TabIndex = 3;
-            // 
-            // UC_Invoice
-            // 
-            this.UC_Invoice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.UC_Invoice.Location = new System.Drawing.Point(0, 0);
-            this.UC_Invoice.Margin = new System.Windows.Forms.Padding(0);
-            this.UC_Invoice.Name = "UC_Invoice";
-            this.UC_Invoice.Size = new System.Drawing.Size(1620, 1050);
-            this.UC_Invoice.TabIndex = 1;
-            // 
-            // UC_Good
-            // 
-            this.UC_Good.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.UC_Good.Location = new System.Drawing.Point(0, 0);
-            this.UC_Good.Margin = new System.Windows.Forms.Padding(0);
-            this.UC_Good.Name = "UC_Good";
-            this.UC_Good.Size = new System.Drawing.Size(1620, 1050);
-            this.UC_Good.TabIndex = 2;
             // 
             // Main
             // 

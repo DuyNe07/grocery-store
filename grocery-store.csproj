@@ -387,6 +387,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\GenarateBarCode.cs" />
+    <Compile Include="API\PaymentQR.cs" />
     <Compile Include="GUI\BanHang\Item.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -614,6 +615,8 @@
     <None Include="Image\edit.png" />
     <None Include="Image\save.png" />
     <None Include="Image\cancel.png" />
+    <None Include="Resources\login.jpg" />
+    <None Include="Resources\logo.png" />
     <Content Include="takeeasy_1.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

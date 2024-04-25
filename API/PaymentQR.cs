@@ -12,8 +12,8 @@ namespace grocery_store.API
         GroceryStoreContext db = new GroceryStoreContext();
         public void Genarate()
         {
-            Payment payment = db.Payment.Where(p => p.PaymentId == 2).FirstOrDefault();
-            payment.Qr = System.IO.File.ReadAllBytes("C:\\Users\\luong\\UTE\\hk2\\Win\\grocery-store\\Image\\banking.jpg");
+            Payment payment = db.Payment.Where(p => p.PaymentId == 4).FirstOrDefault();
+            payment.Qr = System.IO.File.ReadAllBytes("D:\\SPKT\\Nam3\\HK2\\Winform\\DA\\grocery-store\\Image\\code (2).png");
             db.Payment.Update(payment);
             db.SaveChanges();
         }
