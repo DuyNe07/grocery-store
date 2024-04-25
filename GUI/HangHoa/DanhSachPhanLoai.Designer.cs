@@ -1,4 +1,4 @@
-﻿namespace grocery_store.GUI.HangHoa_
+﻿namespace grocery_store.GUI.HangHoa
 {
     partial class DanhSachPhanLoai
     {

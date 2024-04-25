@@ -390,6 +390,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\GenarateBarCode.cs" />
+    <Compile Include="API\PaymentQR.cs" />
     <Compile Include="GUI\BanHang\Item.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -449,6 +450,12 @@
     </Compile>
     <Compile Include="GUI\HangHoa\NhapKho.Designer.cs">
       <DependentUpon>NhapKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HangHoa\SanPham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\HangHoa\SanPham.Designer.cs">
+      <DependentUpon>SanPham.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Login.cs">
       <SubType>Form</SubType>
@@ -511,6 +518,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\HangHoa\NhapKho.resx">
       <DependentUpon>NhapKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HangHoa\SanPham.resx">
+      <DependentUpon>SanPham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
