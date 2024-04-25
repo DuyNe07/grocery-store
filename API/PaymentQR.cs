@@ -13,7 +13,7 @@ namespace grocery_store.API
         public void Genarate()
         {
             Payment payment = db.Payment.Where(p => p.PaymentId == 2).FirstOrDefault();
-            payment.Qr = System.IO.File.ReadAllBytes("C:\\Users\\luong\\UTE\\hk2\\Win\\grocery-store\\Image\\banking.jpg");
+            payment.Qr = System.IO.File.ReadAllBytes("D:\\HOC\\2023_2024\\HK2\\WindowProgramming\\DO_AN\\grocery-store\\Image\\banking.jpg");
             db.Payment.Update(payment);
             db.SaveChanges();
         }

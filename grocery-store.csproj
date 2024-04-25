@@ -390,6 +390,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\GenarateBarCode.cs" />
+    <Compile Include="API\PaymentQR.cs" />
     <Compile Include="GUI\BanHang\Item.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -449,6 +450,12 @@
     </Compile>
     <Compile Include="GUI\HangHoa\NhapKho.Designer.cs">
       <DependentUpon>NhapKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HangHoa\SanPham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\HangHoa\SanPham.Designer.cs">
+      <DependentUpon>SanPham.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Login.cs">
       <SubType>Form</SubType>
@@ -512,6 +519,9 @@
     <EmbeddedResource Include="GUI\HangHoa\NhapKho.resx">
       <DependentUpon>NhapKho.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HangHoa\SanPham.resx">
+      <DependentUpon>SanPham.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -525,18 +535,12 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <SubType>Designer</SubType>
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <DependentUpon>Resources.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>

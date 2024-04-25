@@ -1,4 +1,4 @@
-﻿namespace grocery_store.GUI.HangHoa_
+﻿namespace grocery_store.GUI.HangHoa
 {
     partial class DanhSachSanPham
     {
@@ -47,6 +47,7 @@
             this.ten_san_pham = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phan_loai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nha_cung_cap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.so_luong_ton_kho = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gia_nhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gia_ban = new System.Windows.Forms.DataGridViewTextBoxColumn();
             gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
@@ -138,6 +139,7 @@
             this.btn_them.Size = new System.Drawing.Size(135, 50);
             this.btn_them.TabIndex = 8;
             this.btn_them.Text = "Thêm";
+            this.btn_them.Click += new System.EventHandler(this.btn_them_Click);
             // 
             // btn_sua
             // 
@@ -236,6 +238,7 @@
             this.ten_san_pham,
             this.phan_loai,
             this.nha_cung_cap,
+            this.so_luong_ton_kho,
             this.gia_nhap,
             this.gia_ban});
             this.gridview_danh_sach_san_pham.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -333,7 +336,7 @@
             // 
             // id
             // 
-            this.id.DataPropertyName = "id";
+            this.id.DataPropertyName = "ProductId";
             this.id.HeaderText = "ID";
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
@@ -341,7 +344,7 @@
             // 
             // ten_san_pham
             // 
-            this.ten_san_pham.DataPropertyName = "ten_san_pham";
+            this.ten_san_pham.DataPropertyName = "Name";
             this.ten_san_pham.HeaderText = "Tên Sản Phẩm";
             this.ten_san_pham.MinimumWidth = 6;
             this.ten_san_pham.Name = "ten_san_pham";
@@ -349,7 +352,7 @@
             // 
             // phan_loai
             // 
-            this.phan_loai.DataPropertyName = "phan_loai";
+            this.phan_loai.DataPropertyName = "Category";
             this.phan_loai.HeaderText = "Phân Loại";
             this.phan_loai.MinimumWidth = 6;
             this.phan_loai.Name = "phan_loai";
@@ -357,15 +360,23 @@
             // 
             // nha_cung_cap
             // 
-            this.nha_cung_cap.DataPropertyName = "nha_cung_cap";
+            this.nha_cung_cap.DataPropertyName = "Supplier";
             this.nha_cung_cap.HeaderText = "Nhà Cung Cấp";
             this.nha_cung_cap.MinimumWidth = 6;
             this.nha_cung_cap.Name = "nha_cung_cap";
             this.nha_cung_cap.ReadOnly = true;
             // 
+            // so_luong_ton_kho
+            // 
+            this.so_luong_ton_kho.DataPropertyName = "QuantityInStock";
+            this.so_luong_ton_kho.HeaderText = "Tồn Kho";
+            this.so_luong_ton_kho.MinimumWidth = 6;
+            this.so_luong_ton_kho.Name = "so_luong_ton_kho";
+            this.so_luong_ton_kho.ReadOnly = true;
+            // 
             // gia_nhap
             // 
-            this.gia_nhap.DataPropertyName = "gia_nhap";
+            this.gia_nhap.DataPropertyName = "CostPrice";
             this.gia_nhap.HeaderText = "Giá Nhập";
             this.gia_nhap.MinimumWidth = 6;
             this.gia_nhap.Name = "gia_nhap";
@@ -373,7 +384,7 @@
             // 
             // gia_ban
             // 
-            this.gia_ban.DataPropertyName = "gia_ban";
+            this.gia_ban.DataPropertyName = "MarketPrice";
             this.gia_ban.HeaderText = "Giá Bán";
             this.gia_ban.MinimumWidth = 6;
             this.gia_ban.Name = "gia_ban";
@@ -413,6 +424,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ten_san_pham;
         private System.Windows.Forms.DataGridViewTextBoxColumn phan_loai;
         private System.Windows.Forms.DataGridViewTextBoxColumn nha_cung_cap;
+        private System.Windows.Forms.DataGridViewTextBoxColumn so_luong_ton_kho;
         private System.Windows.Forms.DataGridViewTextBoxColumn gia_nhap;
         private System.Windows.Forms.DataGridViewTextBoxColumn gia_ban;
     }

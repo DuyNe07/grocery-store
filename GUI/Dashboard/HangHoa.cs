@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace grocery_store.GUI
+namespace grocery_store.GUI.Dashboard
 {
     public partial class HangHoa : UserControl
     {
