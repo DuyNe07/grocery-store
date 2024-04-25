@@ -122,7 +122,7 @@ namespace grocery_store.Models
             {
                 entity.Property(e => e.PaymentId).HasColumnName("PaymentID");
 
-                entity.Property(e => e.Name).HasMaxLength(50);
+                entity.Property(e => e.Name).HasColumnName("Name").HasMaxLength(50);
 
                 entity.Property(e => e.Qr)
                     .HasColumnName("QR")

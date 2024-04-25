@@ -96,6 +96,9 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuUserControl">
       <HintPath>Frameworks\Bufinu\Bunifu.UI.WinForms.BunifuUserControl.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu_UI_v1.5.3">
+      <HintPath>Frameworks\Bunifu_UI_v1.5.3.dll</HintPath>
+    </Reference>
     <Reference Include="Guna.UI">
       <HintPath>Frameworks\Guna.UI.dll</HintPath>
     </Reference>
@@ -393,6 +396,12 @@
     <Compile Include="GUI\BanHang\Item.Designer.cs">
       <DependentUpon>Item.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\BanHang\PayUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\BanHang\PayUC.Designer.cs">
+      <DependentUpon>PayUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Dashboard\BanHang.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -475,6 +484,9 @@
     <Compile Include="Settings.cs" />
     <EmbeddedResource Include="GUI\BanHang\Item.resx">
       <DependentUpon>Item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\BanHang\PayUC.resx">
+      <DependentUpon>PayUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Dashboard\BanHang.resx">
       <DependentUpon>BanHang.cs</DependentUpon>
@@ -607,6 +619,7 @@
     <Folder Include="Image\BarCode\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\text.png" />
     <None Include="Resources\Image1.bmp" />
     <None Include="Resources\Search.png" />
     <None Include="Image\delete.png" />
