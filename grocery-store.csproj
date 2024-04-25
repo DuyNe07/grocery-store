@@ -390,7 +390,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\GenarateBarCode.cs" />
-    <Compile Include="API\PaymentQR.cs" />
     <Compile Include="GUI\BanHang\Item.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -432,6 +431,24 @@
     </Compile>
     <Compile Include="GUI\Dashboard\QuanLy.Designer.cs">
       <DependentUpon>QuanLy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HangHoa\DanhSachPhanLoai.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\HangHoa\DanhSachPhanLoai.Designer.cs">
+      <DependentUpon>DanhSachPhanLoai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HangHoa\DanhSachSanPham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\HangHoa\DanhSachSanPham.Designer.cs">
+      <DependentUpon>DanhSachSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HangHoa\NhapKho.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\HangHoa\NhapKho.Designer.cs">
+      <DependentUpon>NhapKho.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Login.cs">
       <SubType>Form</SubType>
@@ -485,6 +502,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Dashboard\QuanLy.resx">
       <DependentUpon>QuanLy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HangHoa\DanhSachPhanLoai.resx">
+      <DependentUpon>DanhSachPhanLoai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HangHoa\DanhSachSanPham.resx">
+      <DependentUpon>DanhSachSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HangHoa\NhapKho.resx">
+      <DependentUpon>NhapKho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -594,6 +620,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\text.png" />
+    <None Include="Resources\Image1.bmp" />
+    <None Include="Resources\Search.png" />
+    <None Include="Image\delete.png" />
+    <None Include="Image\add.png" />
+    <None Include="Image\edit.png" />
+    <None Include="Image\save.png" />
+    <None Include="Image\cancel.png" />
     <Content Include="takeeasy_1.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
