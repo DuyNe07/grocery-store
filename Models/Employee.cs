@@ -20,6 +20,8 @@ namespace grocery_store.Models
         public string Role { get; set; }
         public int? JobId { get; set; }
 
+        public byte[] Img { get; set; }
+
         public virtual Job Job { get; set; }
         public virtual ICollection<ShopOrder> ShopOrder { get; set; }
     }

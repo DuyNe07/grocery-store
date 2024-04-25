@@ -60,6 +60,9 @@ namespace grocery_store.Models
 
                 entity.Property(e => e.Role).HasMaxLength(50);
 
+                entity.Property(e => e.Img).HasColumnName("img")
+                    .HasMaxLength(20);
+
                 entity.HasOne(d => d.Job)
                     .WithMany(p => p.Employee)
                     .HasForeignKey(d => d.JobId)

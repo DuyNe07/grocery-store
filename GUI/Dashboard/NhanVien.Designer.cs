@@ -50,6 +50,8 @@
             this.elipse_ptb_emp = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.timer_online = new System.Windows.Forms.Timer(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel_user_inshift = new System.Windows.Forms.Panel();
+            this.lb_number = new System.Windows.Forms.Label();
             this.lb_timeend = new System.Windows.Forms.Label();
             this.lb_timestart = new System.Windows.Forms.Label();
             this.panel_shift = new System.Windows.Forms.Panel();
@@ -71,6 +73,7 @@
             this.bt_save.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_emp)).BeginInit();
             this.panel3.SuspendLayout();
+            this.panel_user_inshift.SuspendLayout();
             this.panel_shift.SuspendLayout();
             this.panel_rootendshift.SuspendLayout();
             this.panel_rootready.SuspendLayout();
@@ -104,7 +107,7 @@
             this.tb_firstname.Name = "tb_firstname";
             this.tb_firstname.ReadOnly = true;
             this.tb_firstname.Size = new System.Drawing.Size(279, 38);
-            this.tb_firstname.TabIndex = 4;
+            this.tb_firstname.TabIndex = 1;
             // 
             // tb_role
             // 
@@ -112,7 +115,7 @@
             this.tb_role.Name = "tb_role";
             this.tb_role.ReadOnly = true;
             this.tb_role.Size = new System.Drawing.Size(279, 38);
-            this.tb_role.TabIndex = 4;
+            this.tb_role.TabIndex = 2;
             // 
             // tb_timeonline
             // 
@@ -130,7 +133,7 @@
             this.tb_jobname.Name = "tb_jobname";
             this.tb_jobname.ReadOnly = true;
             this.tb_jobname.Size = new System.Drawing.Size(1180, 38);
-            this.tb_jobname.TabIndex = 4;
+            this.tb_jobname.TabIndex = 3;
             // 
             // tb_lastname
             // 
@@ -138,7 +141,7 @@
             this.tb_lastname.Name = "tb_lastname";
             this.tb_lastname.ReadOnly = true;
             this.tb_lastname.Size = new System.Drawing.Size(261, 38);
-            this.tb_lastname.TabIndex = 4;
+            this.tb_lastname.TabIndex = 0;
             // 
             // label2
             // 
@@ -164,11 +167,11 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(1192, 68);
+            this.label5.Location = new System.Drawing.Point(1151, 68);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(98, 38);
+            this.label5.Size = new System.Drawing.Size(139, 38);
             this.label5.TabIndex = 1;
-            this.label5.Text = "Vị trí: ";
+            this.label5.Text = "Chức vụ: ";
             // 
             // label4
             // 
@@ -260,6 +263,7 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.panel_user_inshift);
             this.panel3.Controls.Add(this.lb_timeend);
             this.panel3.Controls.Add(this.lb_timestart);
             this.panel3.Controls.Add(this.panel_shift);
@@ -275,6 +279,24 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1675, 259);
             this.panel3.TabIndex = 2;
+            // 
+            // panel_user_inshift
+            // 
+            this.panel_user_inshift.Controls.Add(this.lb_number);
+            this.panel_user_inshift.Location = new System.Drawing.Point(222, 207);
+            this.panel_user_inshift.Name = "panel_user_inshift";
+            this.panel_user_inshift.Size = new System.Drawing.Size(1428, 40);
+            this.panel_user_inshift.TabIndex = 8;
+            // 
+            // lb_number
+            // 
+            this.lb_number.AutoSize = true;
+            this.lb_number.Location = new System.Drawing.Point(1370, 5);
+            this.lb_number.Name = "lb_number";
+            this.lb_number.Size = new System.Drawing.Size(54, 31);
+            this.lb_number.TabIndex = 0;
+            this.lb_number.Text = "+10";
+            this.lb_number.Visible = false;
             // 
             // lb_timeend
             // 
@@ -463,6 +485,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptb_emp)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel_user_inshift.ResumeLayout(false);
+            this.panel_user_inshift.PerformLayout();
             this.panel_shift.ResumeLayout(false);
             this.panel_rootendshift.ResumeLayout(false);
             this.panel_rootready.ResumeLayout(false);
@@ -510,5 +534,7 @@
         private System.Windows.Forms.Label lb_timeend;
         private System.Windows.Forms.Label lb_timestart;
         private System.Windows.Forms.Timer timer_timekeeping;
+        private System.Windows.Forms.Panel panel_user_inshift;
+        private System.Windows.Forms.Label lb_number;
     }
 }

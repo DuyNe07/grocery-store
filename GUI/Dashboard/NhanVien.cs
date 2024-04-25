@@ -1,4 +1,5 @@
-﻿using grocery_store.Models;
+﻿using Bunifu.Framework.UI;
+using grocery_store.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.Design.Behavior;
 
 namespace grocery_store.GUI.Dashboard
 {
@@ -33,26 +35,97 @@ namespace grocery_store.GUI.Dashboard
         public bool delay_state = false;
         public TimeSpan time_delay = new TimeSpan(0,0,0);
 
+
+
+        private void uo_click(object sender, EventArgs e)
+        {
+            PictureBox uo = (PictureBox)sender;
+            MessageBox.Show(uo.Tag.ToString(),"Thông tin",MessageBoxButtons.OK,MessageBoxIcon.Information);
+        }
+
         public NhanVien()
         {
             InitializeComponent();
 
-            employee = gs_context.Employee.Include(e => e.Job).ToList()[1];
+            employee = gs_context.Employee.Include(e => e.Job).ToList()[5];
             
 
             // Setup hình ảnh employee
-            string employee_imgpath = "./Employee_img";
-            if (!Directory.Exists(employee_imgpath))
-            {
-                Directory.CreateDirectory(employee_imgpath);
-            }
-            string filename = employee_imgpath + employee.EmployeeId.ToString() + "-" + employee.FirstName + ".png";
-            if (!File.Exists(filename))
+            if (employee.Img == null)
             {
                 ptb_emp.BackgroundImage = grocery_store.Properties.Resources.user_img;
             } else
             {
-                ptb_emp.BackgroundImage = Image.FromFile(filename);
+                using (MemoryStream ms = new MemoryStream(employee.Img))
+                {
+                    Image image = Image.FromStream(ms);
+
+                    // Hiển thị hình ảnh trong PictureBox
+                    ptb_emp.BackgroundImage = image;
+                }
+            }
+
+            // Setup employee cùng ca
+            panel_user_inshift.Controls.Clear();
+            lb_number.Visible = false;
+            List<Employee> employees = gs_context.Employee.Include(e => e.Job).ToList();
+            int number = 0;
+            int hidden = 0;
+            foreach (Employee e in employees)
+            {
+                bool check = false;
+                if (employee.Job.Name == "FullTime")
+                {
+                    check = true;
+                }
+                else if (e.Job.Name == employee.Job.Name || e.Job.Name == "FullTime")
+                {
+                    check = true;
+                }
+                if (e.EmployeeId == employee.EmployeeId)
+                {
+                    check = false;
+                }
+                if (check)
+                {
+                    if (number * 40 + 5 < 1365)
+                    {
+                        PictureBox uo = new PictureBox();
+                        int size = panel_user_inshift.Size.Height;
+                        uo.Size = new Size(size, size);
+                        uo.Location = new Point(number * size + 40, 0);
+                        if (e.Img == null)
+                        {
+                            uo.BackgroundImage = grocery_store.Properties.Resources.user_img;
+                        }
+                        else
+                        {
+                            using (MemoryStream ms = new MemoryStream(e.Img))
+                            {
+                                Image image = Image.FromStream(ms);
+
+                                // Hiển thị hình ảnh trong PictureBox
+                                uo.BackgroundImage = image;
+                            }
+                        }
+                        uo.BackgroundImageLayout = ImageLayout.Stretch;
+                        BunifuElipse elip = new BunifuElipse();
+                        elip.TargetControl = uo;
+                        elip.ElipseRadius = 140;
+                        uo.Tag = "Họ tên: " + e.FirstName + " " + e.LastName + "\nCa làm: " + e.Role;
+                        uo.Click += uo_click;
+                        uo.Cursor = Cursors.Hand;
+                        panel_user_inshift.Controls.Add(uo);
+                        number++;
+                    }
+                    else
+                    {
+                        hidden++;
+                        lb_number.Visible = true;
+                        lb_number.Text = "+" + hidden;
+                    }
+
+                }
             }
 
             // Setup thông tin employee
@@ -177,16 +250,16 @@ namespace grocery_store.GUI.Dashboard
 
                 try
                 {
-                    // Load ảnh từ tập tin
-                    Image image = Image.FromFile(filePath);
-                    string employee_imgpath = "./Employee_img";
-                    if (!Directory.Exists(employee_imgpath))
+                    Employee emp = gs_context.Employee.Find(employee.EmployeeId);
+                    emp.Img = File.ReadAllBytes(filePath);
+                    gs_context.SaveChanges();
+                    using (MemoryStream ms = new MemoryStream(employee.Img))
                     {
-                        Directory.CreateDirectory(employee_imgpath);
+                        Image image = Image.FromStream(ms);
+
+                        // Hiển thị hình ảnh trong PictureBox
+                        ptb_emp.BackgroundImage = image;
                     }
-                    string filename = employee_imgpath + employee.EmployeeId.ToString() + "-" + employee.FirstName + ".png";
-                    image.Save(filename, System.Drawing.Imaging.ImageFormat.Png);
-                    ptb_emp.BackgroundImage = image;
                 }
                 catch (Exception ex)
                 {
@@ -230,6 +303,8 @@ namespace grocery_store.GUI.Dashboard
         public Panel panel_delay_timekeeping = new Panel();
 
 
+
+        public bool stop = false;
         public void Timekeeping_lineupdate()
         {
             TimeSpan now = DateTime.Now.TimeOfDay;
@@ -237,6 +312,7 @@ namespace grocery_store.GUI.Dashboard
             {
                 if ((now > timeend_shift.Add(TimeSpan.FromMinutes(30)) || now < timestart_shift.Subtract(TimeSpan.FromMinutes(30))))
                 {
+                    stop = true;
                     lb_status.ForeColor = Color.Red;
                     lb_status.Text = "Đã qua hoặc chưa đến ca của bạn!";
                     panel_ready.Size = new Size(200, 50);
@@ -255,6 +331,7 @@ namespace grocery_store.GUI.Dashboard
                 }
                 else
                 {
+                    stop = false;
                     reset_panelstate();
                     if (now >= timestart_shift.Subtract(TimeSpan.FromMinutes(30)) && now < timestart_shift)
                     {
@@ -347,12 +424,12 @@ namespace grocery_store.GUI.Dashboard
                 if (timekeeping_state == true)
                 {
                     bt_timekeeping.BackColor = Color.OrangeRed;
-                    lb_timekeeping.Text = "Kết thúc chấm công";
+                    lb_timekeeping.Text = "        Kết thúc ca   ";
                 }
                 else
                 {
                     bt_timekeeping.BackColor = Color.MediumSeaGreen;
-                    lb_timekeeping.Text = " Bắt đầu chấm công";
+                    lb_timekeeping.Text = "           Vào ca     ";
                 }
             } else
             {
@@ -391,7 +468,7 @@ namespace grocery_store.GUI.Dashboard
 
         private void bt_timekeeping_Click(object sender, EventArgs e)
         {
-            if (finish == false)
+            if (finish == false && stop == false)
             {
                 if (timekeeping_state == true)
                 {
@@ -433,14 +510,22 @@ namespace grocery_store.GUI.Dashboard
                 }
             } else
             {
-                string notice = "Thời gian online: " + tb_timeonline.Text + "\n";
-                notice += "Thời gian làm việc: " + Math.Round(Checkout.TotalHours - time_delay.TotalHours - timestart_shift.TotalHours,1).ToString() + " Giờ\n";
-                if (delay_state == true)
+                if (stop==false)
                 {
-                    notice += "Thời gian trễ ca: " + Math.Round(time_delay.TotalMinutes,1).ToString() + " Phút";
+                    string notice = "Thời gian online: " + tb_timeonline.Text + "\n";
+                    notice += "Thời gian làm việc: " + Math.Round(Checkout.TotalHours - time_delay.TotalHours - timestart_shift.TotalHours, 1).ToString() + " Giờ\n";
+                    if (delay_state == true)
+                    {
+                        notice += "Thời gian trễ ca: " + Math.Round(time_delay.TotalMinutes, 1).ToString() + " Phút";
+                    }
+                    MessageBox.Show(notice, "Tổng kết!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                } else
+                {
+                    MessageBox.Show("Đã qua ca hoặc chưa đến ca của bạn!");
                 }
-                MessageBox.Show(notice,"Tổng kết!",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                
             }
+            Update_bt_timekeeping();
         }
     }
 }
