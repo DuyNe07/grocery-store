@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace grocery_store.GUI.HangHoa_
+namespace grocery_store.GUI.HangHoa
 {
     public partial class DanhSachPhanLoai : UserControl
     {

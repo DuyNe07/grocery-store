@@ -1,4 +1,4 @@
-﻿namespace grocery_store.GUI
+﻿namespace grocery_store.GUI.Dashboard
 {
     partial class HangHoa
     {
@@ -33,9 +33,9 @@
             this.btn_phan_loai = new Guna.UI.WinForms.GunaButton();
             this.btn_nhap_hang = new Guna.UI.WinForms.GunaButton();
             this.panel_hang_hoa = new Guna.UI.WinForms.GunaPanel();
-            this.UC_danh_sach_san_pham = new grocery_store.GUI.HangHoa_.DanhSachSanPham();
-            this.UC_nhap_kho = new grocery_store.GUI.HangHoa_.NhapKho();
-            this.UC_danh_sach_phan_loai = new grocery_store.GUI.HangHoa_.DanhSachPhanLoai();
+            this.UC_danh_sach_san_pham = new grocery_store.GUI.HangHoa.DanhSachSanPham();
+            this.UC_nhap_kho = new grocery_store.GUI.HangHoa.NhapKho();
+            this.UC_danh_sach_phan_loai = new grocery_store.GUI.HangHoa.DanhSachPhanLoai();
             this.lb_name_control = new Guna.UI.WinForms.GunaLabel();
             this.gunaPanel1.SuspendLayout();
             this.panel_hang_hoa.SuspendLayout();
@@ -198,9 +198,9 @@
         private Guna.UI.WinForms.GunaButton btn_phan_loai;
         private Guna.UI.WinForms.GunaButton btn_nhap_hang;
         private Guna.UI.WinForms.GunaPanel panel_hang_hoa;
-        private HangHoa_.NhapKho UC_nhap_kho;
-        private HangHoa_.DanhSachPhanLoai UC_danh_sach_phan_loai;
-        private HangHoa_.DanhSachSanPham UC_danh_sach_san_pham;
+        private GUI.HangHoa.NhapKho UC_nhap_kho;
+        private GUI.HangHoa.DanhSachPhanLoai UC_danh_sach_phan_loai;
+        private GUI.HangHoa.DanhSachSanPham UC_danh_sach_san_pham;
         private Guna.UI.WinForms.GunaLabel lb_name_control;
     }
 }
