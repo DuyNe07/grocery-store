@@ -1,4 +1,5 @@
 ﻿using grocery_store.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,20 +20,22 @@ namespace grocery_store.GUI
             InitializeComponent();
         }
 
-        private async Task<bool> checkLogin(string ID)
+        private async Task<bool> checkLogin(string Login, string Pass)
         {
-            int id = int.Parse(ID);
-            Employee = await Employee.Login(id);
-            if (Employee == null)
+            using(var db = new GroceryStoreContext())
             {
+                Employee = await db.Employee.Where(e => e.Login == Login && e.Password == Pass).FirstOrDefaultAsync();
+                if (Employee != null)
+                {
+                    return true;
+                }
                 return false;
             }
-            return true;
         }
 
         private async void btn_login_Click(object sender, EventArgs e)
         {
-            if (await checkLogin(txtbox_ID.Text))
+            if (await checkLogin(txtbox_Login.Text, txtbox_Pass.Text))
             {
                 Main main = new Main();
                 main.Employee = Employee;
@@ -43,11 +46,10 @@ namespace grocery_store.GUI
             else
             {
                 MessageBox.Show("Đăng nhập thất bại");
-                txtbox_ID.Text = "";
+                txtbox_Login.Text = "";
             }
         }
 
-        // kiểm tra điều kiện nếu form Main tắt thì hiển thị lại form đăng nhập
         private void Main_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Show();
