@@ -54,6 +54,9 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuColorTransition">
       <HintPath>Frameworks\Bufinu\Bunifu.UI.WinForms.BunifuColorTransition.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDataGridView">
+      <HintPath>Frameworks\Bufinu\Bunifu.UI.WinForms.BunifuDataGridView.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuGauge">
       <HintPath>Frameworks\Bufinu\Bunifu.UI.WinForms.BunifuGauge.dll</HintPath>
     </Reference>

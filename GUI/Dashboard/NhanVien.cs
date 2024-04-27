@@ -47,7 +47,7 @@ namespace grocery_store.GUI.Dashboard
         {
             InitializeComponent();
 
-            employee = gs_context.Employee.Include(e => e.Job).ToList()[5];
+            employee = gs_context.Employee.Include(e => e.Job).ToList()[1];
             
 
             // Setup hình ảnh employee
@@ -112,7 +112,7 @@ namespace grocery_store.GUI.Dashboard
                         BunifuElipse elip = new BunifuElipse();
                         elip.TargetControl = uo;
                         elip.ElipseRadius = 140;
-                        uo.Tag = "Họ tên: " + e.FirstName + " " + e.LastName + "\nCa làm: " + e.Role;
+                        uo.Tag = "Họ tên: " + e.FirstName + " " + e.LastName + "\nCa làm: " + e.Job.Name;
                         uo.Click += uo_click;
                         uo.Cursor = Cursors.Hand;
                         panel_user_inshift.Controls.Add(uo);
@@ -219,13 +219,7 @@ namespace grocery_store.GUI.Dashboard
             }
         }
 
-        private void NhanVien_Load(object sender, EventArgs e)
-        {
-            panel_delay_timekeeping.Size = new Size(0, 50);
-            panel_delay_timekeeping.BackColor = Color.Red;
-            panel_delay_timekeeping.Location = new Point(-1, 0);
-            panel_shift.Controls.Add(panel_delay_timekeeping);
-        }
+
 
         private void timer_online_Tick(object sender, EventArgs e)
         {
@@ -526,6 +520,128 @@ namespace grocery_store.GUI.Dashboard
                 
             }
             Update_bt_timekeeping();
+        }
+
+        public DateTime startjob = new DateTime();
+        public DateTime endnow = new DateTime();
+        private async void NhanVien_Load(object sender, EventArgs e)
+        {
+            panel_delay_timekeeping.Size = new Size(0, 50);
+            panel_delay_timekeeping.BackColor = Color.Red;
+            panel_delay_timekeeping.Location = new Point(-1, 0);
+            panel_shift.Controls.Add(panel_delay_timekeeping);
+
+            Employee emp = await gs_context.Employee.Include(i => i.Job).Where(i => i.EmployeeId == employee.EmployeeId).FirstOrDefaultAsync();
+            startjob = emp.Job.JoinDate.Value;
+            endnow = new DateTime();
+            if (emp.Job.EndDate.HasValue)
+            {
+                endnow = emp.Job.EndDate.Value;
+            }
+            else { endnow = DateTime.Now; }
+
+            for (int i = startjob.Year; i<= endnow.Year;i++)
+            {
+                cbb_year.Items.Add(i);
+            }
+            cbb_year.SelectedIndexChanged += cbb_year_SelectedIndexChanged;
+            cbb_year.SelectedIndex = 0;
+
+        }
+
+        private void cbb_year_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbb_month.Items.Clear();
+            int year = (int)cbb_year.SelectedIndex;
+            if (startjob.Year != endnow.Year)
+            {
+                if (year == startjob.Year)
+                {
+                    for (int i = startjob.Month; i <= 12; i++)
+                    {
+                        cbb_month.Items.Add(i);
+                    }
+                }
+                else
+                {
+                    for (int i = 1; i <= endnow.Month; i++)
+                    {
+                        cbb_month.Items.Add(i);
+                    }
+                }
+            } else
+            {
+                for (int i = startjob.Month;i<= endnow.Month;i++)
+                {
+                    cbb_month.Items.Add(i);
+                }
+            }
+            cbb_month.SelectedIndex = 0;
+        }
+
+        private async void cbb_month_SelectedValueChanged(object sender, EventArgs e)
+        {
+            List<EmployeeTimekeeping> employeetimekeepings = await gs_context.EmployeeTimekeeping.Include(et => et.Employee)
+                .Include(et => et.Timekeeping)
+                .Where(et => et.Employee.EmployeeId == employee.EmployeeId)
+                .Where(et => et.Timekeeping.Checkin.Value.Month == (int)cbb_month.SelectedItem).ToListAsync();
+
+            // Tạo một DataTable mới và đặt tên là "dt"
+            DataTable dt = new DataTable();
+
+            // Thêm các cột vào DataTable
+            dt.Columns.Add("Date", typeof(string)); 
+            dt.Columns.Add("Checkin", typeof(string)); 
+            dt.Columns.Add("Checkoutt", typeof(string)); 
+            dt.Columns.Add("DelayTime", typeof(string)); 
+            dt.Columns.Add("TimeWork", typeof(string)); 
+            dt.Columns.Add("Note", typeof(string));
+
+            // Summary
+            double total_worktime = 0;
+            double total_delaytime = 0;
+
+
+            for (int i = 1; i<= DateTime.DaysInMonth((int)cbb_year.SelectedItem,(int)cbb_month.SelectedItem);i++)
+            {
+                DateTime d = new DateTime((int)cbb_year.SelectedItem, (int)cbb_month.SelectedItem, i);
+                string date = d.ToString("dd/MM/yyyy");
+                string checkin = "";
+                string checkout = "";
+                string delaytime = "";
+                string timework = "";
+                string note = "Không đi làm";
+                foreach (EmployeeTimekeeping emptime  in employeetimekeepings)
+                {
+                    if (emptime.Timekeeping.Checkin.Value.Day == i)
+                    {
+                        note = "";
+                        checkin = emptime.Timekeeping.Checkin.Value.ToString("HH:mm:ss");
+                        if (emptime.Timekeeping.Checkout.HasValue)
+                        {
+                            checkout = emptime.Timekeeping.Checkout.Value.ToString("HH:mm:ss");
+                            timework = Math.Round((emptime.Timekeeping.Checkout.Value.TimeOfDay - emptime.Timekeeping.Checkin.Value.TimeOfDay).TotalHours,2) + " giờ";
+                            total_worktime += (emptime.Timekeeping.Checkout.Value.TimeOfDay - emptime.Timekeeping.Checkin.Value.TimeOfDay).TotalHours;
+                        } else
+                        {
+                            note += "Không kết thúc ca! ";
+                        }
+                        if (emptime.Timekeeping.Checkin.Value.TimeOfDay > timestart_shift)
+                        {
+                            delaytime = Math.Round((emptime.Timekeeping.Checkin.Value.TimeOfDay - timestart_shift).TotalMinutes,2).ToString() + " phút";
+                            note += " Đi trễ!";
+                            total_delaytime += (emptime.Timekeeping.Checkin.Value.TimeOfDay - timestart_shift).TotalMinutes;
+                        }
+                        break;
+                    }
+                }
+                dt.Rows.Add(date, checkin, checkout, delaytime, timework, note);
+            }
+            dtgv_history.DataSource = dt;
+            tb_worktime.Text = Math.Round(total_worktime, 2).ToString();
+            tb_delaytime.Text = Math.Round(total_delaytime).ToString();
+            tb_evaluate.Text = Math.Round((total_worktime / ((timeend_shift - timestart_shift).TotalHours * DateTime.DaysInMonth((int)cbb_year.SelectedItem, (int)cbb_month.SelectedItem)) * 3), 1).ToString() + "/3";
+            tb_checksalary.Text = (24000 * Math.Round(total_worktime)).ToString();
         }
     }
 }

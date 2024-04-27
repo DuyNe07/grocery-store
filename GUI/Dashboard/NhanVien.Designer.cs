@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NhanVien));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tb_firstname = new System.Windows.Forms.TextBox();
             this.tb_role = new System.Windows.Forms.TextBox();
@@ -68,6 +71,31 @@
             this.label7 = new System.Windows.Forms.Label();
             this.elipse_bt_timekeeping = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.timer_timekeeping = new System.Windows.Forms.Timer(this.components);
+            this.panel_history = new System.Windows.Forms.Panel();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tb_checksalary = new System.Windows.Forms.TextBox();
+            this.tb_evaluate = new System.Windows.Forms.TextBox();
+            this.tb_delaytime = new System.Windows.Forms.TextBox();
+            this.tb_worktime = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.cbb_year = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cbb_month = new System.Windows.Forms.ComboBox();
+            this.dtgv_history = new Bunifu.UI.WinForms.BunifuDataGridView();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Checkin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Checkoutt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DelayTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TimeWork = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.bt_save.SuspendLayout();
@@ -78,6 +106,8 @@
             this.panel_rootendshift.SuspendLayout();
             this.panel_rootready.SuspendLayout();
             this.bt_timekeeping.SuspendLayout();
+            this.panel_history.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_history)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -466,11 +496,323 @@
             this.timer_timekeeping.Interval = 1000;
             this.timer_timekeeping.Tick += new System.EventHandler(this.timer_timekeeping_Tick);
             // 
+            // panel_history
+            // 
+            this.panel_history.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_history.Controls.Add(this.textBox5);
+            this.panel_history.Controls.Add(this.tb_checksalary);
+            this.panel_history.Controls.Add(this.tb_evaluate);
+            this.panel_history.Controls.Add(this.tb_delaytime);
+            this.panel_history.Controls.Add(this.tb_worktime);
+            this.panel_history.Controls.Add(this.label18);
+            this.panel_history.Controls.Add(this.label17);
+            this.panel_history.Controls.Add(this.label16);
+            this.panel_history.Controls.Add(this.label15);
+            this.panel_history.Controls.Add(this.label14);
+            this.panel_history.Controls.Add(this.panel4);
+            this.panel_history.Controls.Add(this.label12);
+            this.panel_history.Controls.Add(this.cbb_year);
+            this.panel_history.Controls.Add(this.label10);
+            this.panel_history.Controls.Add(this.cbb_month);
+            this.panel_history.Controls.Add(this.dtgv_history);
+            this.panel_history.Controls.Add(this.label13);
+            this.panel_history.Controls.Add(this.label9);
+            this.panel_history.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel_history.Location = new System.Drawing.Point(25, 585);
+            this.panel_history.Name = "panel_history";
+            this.panel_history.Size = new System.Drawing.Size(1674, 383);
+            this.panel_history.TabIndex = 3;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(1523, 302);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(142, 38);
+            this.textBox5.TabIndex = 11;
+            this.textBox5.Text = "Không";
+            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // tb_checksalary
+            // 
+            this.tb_checksalary.Location = new System.Drawing.Point(1523, 245);
+            this.tb_checksalary.Name = "tb_checksalary";
+            this.tb_checksalary.ReadOnly = true;
+            this.tb_checksalary.Size = new System.Drawing.Size(142, 38);
+            this.tb_checksalary.TabIndex = 11;
+            this.tb_checksalary.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // tb_evaluate
+            // 
+            this.tb_evaluate.Location = new System.Drawing.Point(1523, 185);
+            this.tb_evaluate.Name = "tb_evaluate";
+            this.tb_evaluate.ReadOnly = true;
+            this.tb_evaluate.Size = new System.Drawing.Size(142, 38);
+            this.tb_evaluate.TabIndex = 11;
+            this.tb_evaluate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // tb_delaytime
+            // 
+            this.tb_delaytime.Location = new System.Drawing.Point(1520, 127);
+            this.tb_delaytime.Name = "tb_delaytime";
+            this.tb_delaytime.ReadOnly = true;
+            this.tb_delaytime.Size = new System.Drawing.Size(142, 38);
+            this.tb_delaytime.TabIndex = 11;
+            this.tb_delaytime.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // tb_worktime
+            // 
+            this.tb_worktime.Location = new System.Drawing.Point(1520, 70);
+            this.tb_worktime.Name = "tb_worktime";
+            this.tb_worktime.ReadOnly = true;
+            this.tb_worktime.Size = new System.Drawing.Size(142, 38);
+            this.tb_worktime.TabIndex = 11;
+            this.tb_worktime.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(1154, 305);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(343, 31);
+            this.label18.TabIndex = 10;
+            this.label18.Text = "Lương thực tế (Liên hệ quản lý): ";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(1154, 248);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(167, 31);
+            this.label17.TabIndex = 10;
+            this.label17.Text = "Lương dự kiến:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(1154, 188);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(111, 31);
+            this.label16.TabIndex = 10;
+            this.label16.Text = "Đánh giá:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(1151, 130);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(271, 31);
+            this.label15.TabIndex = 10;
+            this.label15.Text = "Tổng thời gian trễ (phút):";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(1151, 73);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(267, 31);
+            this.label14.TabIndex = 10;
+            this.label14.Text = "Tổng thời gian làm (giờ):";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Black;
+            this.panel4.Location = new System.Drawing.Point(1141, 10);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(3, 358);
+            this.panel4.TabIndex = 9;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(918, 32);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(74, 31);
+            this.label12.TabIndex = 8;
+            this.label12.Text = "Năm: ";
+            // 
+            // cbb_year
+            // 
+            this.cbb_year.FormattingEnabled = true;
+            this.cbb_year.Location = new System.Drawing.Point(1004, 28);
+            this.cbb_year.Name = "cbb_year";
+            this.cbb_year.Size = new System.Drawing.Size(108, 39);
+            this.cbb_year.TabIndex = 7;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(723, 31);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(89, 31);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "Tháng: ";
+            // 
+            // cbb_month
+            // 
+            this.cbb_month.FormattingEnabled = true;
+            this.cbb_month.Location = new System.Drawing.Point(824, 28);
+            this.cbb_month.Name = "cbb_month";
+            this.cbb_month.Size = new System.Drawing.Size(74, 39);
+            this.cbb_month.TabIndex = 7;
+            this.cbb_month.SelectedValueChanged += new System.EventHandler(this.cbb_month_SelectedValueChanged);
+            // 
+            // dtgv_history
+            // 
+            this.dtgv_history.AllowCustomTheming = false;
+            this.dtgv_history.AllowUserToAddRows = false;
+            this.dtgv_history.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.dtgv_history.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dtgv_history.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgv_history.BackgroundColor = System.Drawing.Color.AliceBlue;
+            this.dtgv_history.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtgv_history.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dtgv_history.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgv_history.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dtgv_history.ColumnHeadersHeight = 40;
+            this.dtgv_history.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Date,
+            this.Checkin,
+            this.Checkoutt,
+            this.DelayTime,
+            this.TimeWork,
+            this.Note});
+            this.dtgv_history.CurrentTheme.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.dtgv_history.CurrentTheme.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dtgv_history.CurrentTheme.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.dtgv_history.CurrentTheme.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            this.dtgv_history.CurrentTheme.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dtgv_history.CurrentTheme.BackColor = System.Drawing.Color.White;
+            this.dtgv_history.CurrentTheme.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.dtgv_history.CurrentTheme.HeaderStyle.BackColor = System.Drawing.Color.DodgerBlue;
+            this.dtgv_history.CurrentTheme.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
+            this.dtgv_history.CurrentTheme.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dtgv_history.CurrentTheme.HeaderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
+            this.dtgv_history.CurrentTheme.HeaderStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.dtgv_history.CurrentTheme.Name = null;
+            this.dtgv_history.CurrentTheme.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dtgv_history.CurrentTheme.RowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dtgv_history.CurrentTheme.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.dtgv_history.CurrentTheme.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            this.dtgv_history.CurrentTheme.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgv_history.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dtgv_history.EnableHeadersVisualStyles = false;
+            this.dtgv_history.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.dtgv_history.HeaderBackColor = System.Drawing.Color.DodgerBlue;
+            this.dtgv_history.HeaderBgColor = System.Drawing.Color.Empty;
+            this.dtgv_history.HeaderForeColor = System.Drawing.Color.White;
+            this.dtgv_history.Location = new System.Drawing.Point(24, 73);
+            this.dtgv_history.Name = "dtgv_history";
+            this.dtgv_history.ReadOnly = true;
+            this.dtgv_history.RowHeadersVisible = false;
+            this.dtgv_history.RowHeadersWidth = 51;
+            this.dtgv_history.RowTemplate.Height = 40;
+            this.dtgv_history.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgv_history.Size = new System.Drawing.Size(1088, 287);
+            this.dtgv_history.TabIndex = 6;
+            this.dtgv_history.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(1151, 10);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(184, 50);
+            this.label13.TabIndex = 5;
+            this.label13.Text = "Thống kê";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(15, 10);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(271, 50);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Dữ liệu lịch sử";
+            // 
+            // Date
+            // 
+            this.Date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Date.DataPropertyName = "Date";
+            this.Date.HeaderText = "Ngày";
+            this.Date.MinimumWidth = 6;
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            this.Date.Width = 86;
+            // 
+            // Checkin
+            // 
+            this.Checkin.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Checkin.DataPropertyName = "Checkin";
+            this.Checkin.HeaderText = "Checkin";
+            this.Checkin.MinimumWidth = 6;
+            this.Checkin.Name = "Checkin";
+            this.Checkin.ReadOnly = true;
+            this.Checkin.Width = 111;
+            // 
+            // Checkoutt
+            // 
+            this.Checkoutt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Checkoutt.DataPropertyName = "Checkoutt";
+            this.Checkoutt.HeaderText = "Checkout";
+            this.Checkoutt.MinimumWidth = 6;
+            this.Checkoutt.Name = "Checkoutt";
+            this.Checkoutt.ReadOnly = true;
+            this.Checkoutt.Width = 125;
+            // 
+            // DelayTime
+            // 
+            this.DelayTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.DelayTime.DataPropertyName = "DelayTime";
+            this.DelayTime.HeaderText = "Thời gian trễ";
+            this.DelayTime.MinimumWidth = 6;
+            this.DelayTime.Name = "DelayTime";
+            this.DelayTime.ReadOnly = true;
+            this.DelayTime.Width = 155;
+            // 
+            // TimeWork
+            // 
+            this.TimeWork.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.TimeWork.DataPropertyName = "TimeWork";
+            this.TimeWork.HeaderText = "Thời gian làm việc";
+            this.TimeWork.MinimumWidth = 6;
+            this.TimeWork.Name = "TimeWork";
+            this.TimeWork.ReadOnly = true;
+            this.TimeWork.Width = 204;
+            // 
+            // Note
+            // 
+            this.Note.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Note.DataPropertyName = "Note";
+            this.Note.HeaderText = "Ghi chú";
+            this.Note.MinimumWidth = 6;
+            this.Note.Name = "Note";
+            this.Note.ReadOnly = true;
+            // 
             // NhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.Controls.Add(this.panel_history);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(0);
@@ -492,6 +834,9 @@
             this.panel_rootready.ResumeLayout(false);
             this.bt_timekeeping.ResumeLayout(false);
             this.bt_timekeeping.PerformLayout();
+            this.panel_history.ResumeLayout(false);
+            this.panel_history.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_history)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -536,5 +881,30 @@
         private System.Windows.Forms.Timer timer_timekeeping;
         private System.Windows.Forms.Panel panel_user_inshift;
         private System.Windows.Forms.Label lb_number;
+        private System.Windows.Forms.Panel panel_history;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cbb_month;
+        private Bunifu.UI.WinForms.BunifuDataGridView dtgv_history;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox cbb_year;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox tb_worktime;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox tb_checksalary;
+        private System.Windows.Forms.TextBox tb_evaluate;
+        private System.Windows.Forms.TextBox tb_delaytime;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Checkin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Checkoutt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DelayTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TimeWork;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Note;
     }
 }
