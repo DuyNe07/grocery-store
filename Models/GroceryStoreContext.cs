@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -29,6 +29,7 @@ namespace grocery_store.Models
         public virtual DbSet<ShopOrder> ShopOrder { get; set; }
         public virtual DbSet<Supplier> Supplier { get; set; }
         public virtual DbSet<Timekeeping> Timekeeping { get; set; }
+        public virtual DbSet<ViewInvoice> ViewInvoice { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -40,6 +41,7 @@ namespace grocery_store.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
             modelBuilder.Entity<Category>(entity =>
             {
                 entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
@@ -56,6 +58,10 @@ namespace grocery_store.Models
                 entity.Property(e => e.JobId).HasColumnName("JobID");
 
                 entity.Property(e => e.LastName).HasMaxLength(50);
+
+                entity.Property(e => e.Login).HasMaxLength(50);
+
+                entity.Property(e => e.Password).HasMaxLength(50);
 
                 entity.Property(e => e.Role).HasMaxLength(50);
 
@@ -83,6 +89,7 @@ namespace grocery_store.Models
                     .HasForeignKey(d => d.TimekeepingId)
                     .HasConstraintName("FK_Timekeeping_Employee");
             });
+
 
             modelBuilder.Entity<Job>(entity =>
             {
@@ -162,6 +169,8 @@ namespace grocery_store.Models
                     .HasConstraintName("FK_Product_Supplier");
             });
 
+            
+
             modelBuilder.Entity<ShopOrder>(entity =>
             {
                 entity.Property(e => e.ShopOrderId).HasColumnName("ShopOrderID");
@@ -203,7 +212,32 @@ namespace grocery_store.Models
             {
                 entity.Property(e => e.TimekeepingId).HasColumnName("TimekeepingID");
 
-                entity.Property(e => e.Checkout).HasColumnType("decimal(18, 0)");
+                entity.Property(e => e.Checkin).HasColumnType("datetime");
+
+                entity.Property(e => e.Checkout).HasColumnType("datetime");
+            });
+
+            modelBuilder.Entity<ViewInvoice>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("VIEW_Invoice");
+
+                entity.Property(e => e.MarketPrice).HasColumnType("money");
+
+                entity.Property(e => e.NameEmp).HasMaxLength(101);
+
+                entity.Property(e => e.OrderDate).HasColumnType("datetime");
+
+                entity.Property(e => e.PaymentMethod).HasMaxLength(50);
+
+                entity.Property(e => e.PriceLine).HasColumnType("money");
+
+                entity.Property(e => e.ProductName).HasMaxLength(50);
+
+                entity.Property(e => e.ShopOrderId).HasColumnName("ShopOrderID");
+
+                entity.Property(e => e.SubTotal).HasColumnType("money");
             });
 
             OnModelCreatingPartial(modelBuilder);
