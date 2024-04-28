@@ -1,7 +1,7 @@
 ﻿using AForge.Video;
 using AForge.Video.DirectShow;
-using grocery_store.API;
 using grocery_store.GUI.BanHang;
+using grocery_store.GUI.HoaDon;
 using grocery_store.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -19,7 +19,7 @@ namespace grocery_store.GUI.Dashboard
     public partial class BanHang : UserControl
     {
         #region Biến cần thiết
-        System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("vi-VN");
+        System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("vi-VI");
         List<Item> items = new List<Item>();
         GroceryStoreContext db = new GroceryStoreContext();
         private VideoCaptureDevice FinalFrame = null;
@@ -92,7 +92,7 @@ namespace grocery_store.GUI.Dashboard
         {
             if (X.Text == "")
             {
-                MessageBox.Show("Vui lòng nhập mã sản phẩm", "Thông báo", 
+                MessageBox.Show("Vui lòng nhập mã sản phẩm", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
@@ -113,20 +113,23 @@ namespace grocery_store.GUI.Dashboard
             int pay = comboBox_paymentMethod.SelectedIndex + 1;
             Payment payment = await db.Payment.FirstOrDefaultAsync(p => p.PaymentId == pay);
 
-            if(payment == null)
+            if (payment == null)
             {
                 MessageBox.Show("Phương thức thanh toán không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            PayUC payUC = new PayUC(Image.FromStream(new System.IO.MemoryStream(payment.Qr)));
-            payUC.Location = new Point(350, 200);
+            PayUC payUC = new PayUC(Image.FromStream(new System.IO.MemoryStream(payment.Qr)), 
+                items, payment.Name);
+            payUC.Location = new Point(150, 100);
             payUC.OKClick += async (s, args) =>
             {
                 await UpdateOrder(payment);
                 items.Clear();
+                this.Controls.Remove(payUC);
                 refresh();
                 updateTotal();
+                comboBox_paymentMethod.SelectedIndex = -1;
             };
             payUC.CancelClick += (s, args) =>
             {
@@ -154,7 +157,7 @@ namespace grocery_store.GUI.Dashboard
             int total = 0;
             foreach (Item item in items)
             {
-                int price = int.Parse(item.Price.Replace(",", ""));
+                int price = int.Parse(item.Price.Replace(".", ""));
                 int quantity = item.Quantity;
                 total += price * quantity;
             }
@@ -171,7 +174,7 @@ namespace grocery_store.GUI.Dashboard
                 this.Invoke(new Action<int>(UpdateUITotal), total);
                 return;
             }
-            string formattedTotal = total.ToString("N0");
+            string formattedTotal = total.ToString("N0", culture);
 
             label_totalPrice.Text = formattedTotal;
             label_totalPrice.Location = new Point(1075 - label_totalPrice.Width / 2, 763);
@@ -190,7 +193,7 @@ namespace grocery_store.GUI.Dashboard
                 item.Location = new Point(70, y_start);
                 item.BackColor = Color.White;
                 updateUnitPrice();
-                item.label_marketPrice.Location = new Point(490 - (item.label_price.Width / 2), 35);
+                item.label_marketPrice.Location = new Point(490 - (item.label_totalLine.Width / 2), 35);
                 panel_products.Controls.Add(item);
                 y_start += 90;
             }
@@ -202,12 +205,12 @@ namespace grocery_store.GUI.Dashboard
             foreach (Item item in items)
             {
                 int quantity = item.Quantity;
-                int marketPrice = int.Parse(item.label_marketPrice.Text.Replace(",", ""));
+                int marketPrice = int.Parse(item.label_marketPrice.Text.Replace(".", ""));
                 int unit_price = quantity * marketPrice;
 
-                string formattedTotal = unit_price.ToString("N0");
-                item.label_price.Text = formattedTotal;
-                item.label_price.Location = new Point(715 - (item.label_price.Width / 2), 35);
+                string formattedTotal = unit_price.ToString("N0", culture);
+                item.label_totalLine.Text = formattedTotal;
+                item.label_totalLine.Location = new Point(715 - (item.label_totalLine.Width / 2), 35);
             }
         }
 
@@ -309,7 +312,8 @@ namespace grocery_store.GUI.Dashboard
             shopOrder.Payment = payment;
 
             Main main = (Main)this.Parent.Parent;
-            shopOrder.EmployeeId = main.Employee.EmployeeId;
+            // Modify this later
+            shopOrder.EmployeeId = 1; //main.Employee.EmployeeId; 
 
             List<OrderLine> orderLines = await CreateOrderLinesAsync(shopOrder);
             shopOrder.OrderLine = orderLines;
@@ -326,7 +330,7 @@ namespace grocery_store.GUI.Dashboard
             foreach (Item item in items)
             {
                 OrderLine orderLine = new OrderLine();
-                orderLine.Price = int.Parse(item.Price.Replace(".", ""));
+                orderLine.Price = int.Parse(item.Price.Replace(".", "")) * int.Parse(item.Num_quantity.Value.ToString());
                 orderLine.Product = await db.Product.FirstOrDefaultAsync(p => p.Name == item.NameProduct);
                 orderLine.Quantity = item.Quantity;
                 orderLine.ShopOrder = shopOrder;
@@ -350,5 +354,22 @@ namespace grocery_store.GUI.Dashboard
         }
 
         #endregion
+
+        //private async void gunaButton1_Click_1(object sender, EventArgs e)
+        //{
+        //    if (this.Controls.ContainsKey("Bill"))
+        //    {
+        //        this.Controls.RemoveByKey("Bill");
+        //        return;
+        //    }
+        //    Employee employee = await db.Employee.FindAsync(3);
+        //    List<OrderLine> orderLines = await CreateOrderLinesAsync(new ShopOrder());
+        //    Bill bill = new Bill(2);
+        //    bill.Location = new Point(500, 200);
+        //    bill.AutoSize = true;
+        //    bill.AutoScroll = false;
+        //    this.Controls.Add(bill);
+        //    bill.BringToFront();
+        //}
     }
 }

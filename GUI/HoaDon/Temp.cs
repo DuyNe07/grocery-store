@@ -8,13 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace grocery_store.GUI.Dashboard
+namespace grocery_store.GUI.HoaDon
 {
-    public partial class HoaDon : UserControl
+    public partial class Temp : UserControl
     {
-        public HoaDon()
+
+        public Temp()
         {
             InitializeComponent();
+            SqlServerTypes.Utilities.LoadNativeAssemblies(AppDomain.CurrentDomain.BaseDirectory);
         }
     }
 }
