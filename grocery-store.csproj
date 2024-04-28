@@ -455,6 +455,12 @@
     <Compile Include="GUI\Dashboard\QuanLy.Designer.cs">
       <DependentUpon>QuanLy.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\HangHoa\DanhSachNhaCungCap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\HangHoa\DanhSachNhaCungCap.Designer.cs">
+      <DependentUpon>DanhSachNhaCungCap.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\HangHoa\DanhSachPhanLoai.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -532,6 +538,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Dashboard\QuanLy.resx">
       <DependentUpon>QuanLy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HangHoa\DanhSachNhaCungCap.resx">
+      <DependentUpon>DanhSachNhaCungCap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\HangHoa\DanhSachPhanLoai.resx">
       <DependentUpon>DanhSachPhanLoai.cs</DependentUpon>

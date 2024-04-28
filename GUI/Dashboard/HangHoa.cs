@@ -22,25 +22,20 @@ namespace grocery_store.GUI.Dashboard
         {
             reset_UC();
             UC_danh_sach_san_pham.Visible = true;
-            set_color(1, 0, 0);
+            set_color(1, 0, 0, 0);
             lb_name_control.Text = "DANH SÁCH SẢN PHẨM";
         }
 
-        private void txtbox_tim_kiem_MouseClick(object sender, MouseEventArgs e)
-        {
-            reset_UC();
-            UC_danh_sach_san_pham.Visible = true;
-            set_color(1, 0, 0);
-        }
 
         private void reset_UC()
         {
             UC_nhap_kho.Visible = false;
             UC_danh_sach_phan_loai.Visible = false;
             UC_danh_sach_san_pham.Visible = false;
+            UC_danh_sach_nha_cung_cap.Visible = false;
         }
 
-        private void set_color(int san_pham, int phan_loai, int nhap_kho)
+        private void set_color(int san_pham, int phan_loai,int nha_cung_cap, int nhap_kho)
         {
             // Định dang cho nút sản phẩm
             if (san_pham == 0)
@@ -69,6 +64,20 @@ namespace grocery_store.GUI.Dashboard
                 btn_phan_loai.OnHoverBaseColor = Color.FromArgb(196, 211, 249);
             }
 
+            // Định dang cho nút nhà cung cấp
+            if (nha_cung_cap == 0)
+            {
+                btn_nha_cung_cap.BaseColor = Color.FromArgb(109, 125, 229);
+                btn_nha_cung_cap.OnHoverBaseColor = Color.FromArgb(72, 83, 152);
+                btn_nha_cung_cap.ForeColor = Color.White;
+            }
+            else
+            {
+                btn_nha_cung_cap.BaseColor = Color.FromArgb(196, 211, 249);
+                btn_nha_cung_cap.ForeColor = Color.FromArgb(109, 125, 229);
+                btn_nha_cung_cap.OnHoverBaseColor = Color.FromArgb(196, 211, 249);
+            }
+
             // Định dang cho nút nhập kho
             if (nhap_kho == 0)
             {
@@ -89,7 +98,7 @@ namespace grocery_store.GUI.Dashboard
         {
             reset_UC();
             UC_danh_sach_san_pham.Visible = true;
-            set_color(1,0,0);
+            set_color(1,0,0,0);
             lb_name_control.Text = "DANH SÁCH SẢN PHẨM";
         }
 
@@ -97,15 +106,23 @@ namespace grocery_store.GUI.Dashboard
         {
             reset_UC();
             UC_danh_sach_phan_loai.Visible = true;
-            set_color(0, 1, 0);
-            lb_name_control.Text = "DANH SÁCH PHÂN LOẠI";
+            set_color(0, 1, 0, 0);
+            lb_name_control.Text = "PHÂN LOẠI";
+        }
+
+        private void btn_nha_cung_cap_Click(object sender, EventArgs e)
+        {
+            reset_UC();
+            UC_danh_sach_nha_cung_cap.Visible = true;
+            set_color(0, 0, 1, 0);
+            lb_name_control.Text = "NHÀ CUNG CẤP";
         }
 
         private void btn_nhap_hang_Click(object sender, EventArgs e)
         {
             reset_UC();
             UC_nhap_kho.Visible = true;
-            set_color(0, 0, 1);
+            set_color(0, 0, 0, 1);
             lb_name_control.Text = "NHẬP HÀNG";
         }
 
