@@ -79,7 +79,7 @@ namespace grocery_store.GUI.Dashboard
             // 
             // X
             // 
-            this.X.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(255)))), ((int)(((byte)(213)))));
+            this.X.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(238)))), ((int)(((byte)(189)))));
             this.X.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.X.Location = new System.Drawing.Point(133, 64);
             this.X.Name = "X";

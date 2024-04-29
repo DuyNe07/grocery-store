@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics.Tracing;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace grocery_store.GUI.Dashboard
@@ -43,7 +36,8 @@ namespace grocery_store.GUI.Dashboard
                 btn_san_pham.BaseColor = Color.FromArgb(109, 125, 229);
                 btn_san_pham.OnHoverBaseColor = Color.FromArgb(72, 83, 152);
                 btn_san_pham.ForeColor = Color.White;
-            } else
+            }
+            else
             {
                 btn_san_pham.BaseColor = Color.FromArgb(196, 211, 249);
                 btn_san_pham.ForeColor = Color.FromArgb(109, 125, 229);
