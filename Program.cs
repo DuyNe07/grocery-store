@@ -20,7 +20,7 @@ namespace grocery_store
             //genarateBarCode.Genarate();
             //API.PaymentQR paymentQR = new API.PaymentQR();
             //paymentQR.Genarate();
-            Application.Run(new GUI.Login());
+            Application.Run(new GUI.Main());
         }
     }
 

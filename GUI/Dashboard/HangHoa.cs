@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics.Tracing;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace grocery_store.GUI.Dashboard
@@ -21,7 +14,7 @@ namespace grocery_store.GUI.Dashboard
         private void HangHoa_Load(object sender, EventArgs e)
         {
             reset_UC();
-            UC_danh_sach_san_pham.Visible = true;
+            //UC_san_pham.Visible = true;
             set_color(1, 0, 0);
             lb_name_control.Text = "DANH SÁCH SẢN PHẨM";
         }
@@ -29,7 +22,7 @@ namespace grocery_store.GUI.Dashboard
         private void txtbox_tim_kiem_MouseClick(object sender, MouseEventArgs e)
         {
             reset_UC();
-            UC_danh_sach_san_pham.Visible = true;
+            //UC_san_pham.Visible = true;
             set_color(1, 0, 0);
         }
 
@@ -37,7 +30,7 @@ namespace grocery_store.GUI.Dashboard
         {
             UC_nhap_kho.Visible = false;
             UC_danh_sach_phan_loai.Visible = false;
-            UC_danh_sach_san_pham.Visible = false;
+            //UC_san_pham.Visible = false;
         }
 
         private void set_color(int san_pham, int phan_loai, int nhap_kho)
@@ -48,7 +41,8 @@ namespace grocery_store.GUI.Dashboard
                 btn_san_pham.BaseColor = Color.FromArgb(109, 125, 229);
                 btn_san_pham.OnHoverBaseColor = Color.FromArgb(72, 83, 152);
                 btn_san_pham.ForeColor = Color.White;
-            } else
+            }
+            else
             {
                 btn_san_pham.BaseColor = Color.FromArgb(196, 211, 249);
                 btn_san_pham.ForeColor = Color.FromArgb(109, 125, 229);
@@ -88,8 +82,8 @@ namespace grocery_store.GUI.Dashboard
         private void btn_san_pham_Click(object sender, EventArgs e)
         {
             reset_UC();
-            UC_danh_sach_san_pham.Visible = true;
-            set_color(1,0,0);
+            //UC_san_pham.Visible = true;
+            set_color(1, 0, 0);
             lb_name_control.Text = "DANH SÁCH SẢN PHẨM";
         }
 

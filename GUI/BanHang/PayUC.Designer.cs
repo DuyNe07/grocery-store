@@ -32,6 +32,7 @@
             this.pictureBox_QR = new System.Windows.Forms.PictureBox();
             this.btn_OK = new Guna.UI.WinForms.GunaButton();
             this.btn_Cancel = new Guna.UI.WinForms.GunaButton();
+            //this.reportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_QR)).BeginInit();
             this.SuspendLayout();
             // 
@@ -39,7 +40,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(36, 32);
+            this.label1.Location = new System.Drawing.Point(648, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(413, 38);
             this.label1.TabIndex = 0;
@@ -47,7 +48,7 @@
             // 
             // pictureBox_QR
             // 
-            this.pictureBox_QR.Location = new System.Drawing.Point(70, 95);
+            this.pictureBox_QR.Location = new System.Drawing.Point(682, 203);
             this.pictureBox_QR.Name = "pictureBox_QR";
             this.pictureBox_QR.Size = new System.Drawing.Size(350, 350);
             this.pictureBox_QR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -64,7 +65,7 @@
             this.btn_OK.ForeColor = System.Drawing.Color.Black;
             this.btn_OK.Image = null;
             this.btn_OK.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_OK.Location = new System.Drawing.Point(43, 472);
+            this.btn_OK.Location = new System.Drawing.Point(682, 689);
             this.btn_OK.Name = "btn_OK";
             this.btn_OK.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(148)))), ((int)(((byte)(118)))));
             this.btn_OK.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -72,7 +73,7 @@
             this.btn_OK.OnHoverImage = null;
             this.btn_OK.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(85)))), ((int)(((byte)(68)))));
             this.btn_OK.Radius = 15;
-            this.btn_OK.Size = new System.Drawing.Size(169, 50);
+            this.btn_OK.Size = new System.Drawing.Size(158, 50);
             this.btn_OK.TabIndex = 11;
             this.btn_OK.Text = "Hoàn thành";
             this.btn_OK.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -87,7 +88,7 @@
             this.btn_Cancel.ForeColor = System.Drawing.Color.Black;
             this.btn_Cancel.Image = null;
             this.btn_Cancel.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_Cancel.Location = new System.Drawing.Point(280, 472);
+            this.btn_Cancel.Location = new System.Drawing.Point(874, 689);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
             this.btn_Cancel.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -95,7 +96,7 @@
             this.btn_Cancel.OnHoverImage = null;
             this.btn_Cancel.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(50)))), ((int)(((byte)(44)))));
             this.btn_Cancel.Radius = 15;
-            this.btn_Cancel.Size = new System.Drawing.Size(169, 50);
+            this.btn_Cancel.Size = new System.Drawing.Size(158, 50);
             this.btn_Cancel.TabIndex = 12;
             this.btn_Cancel.Text = "Thoát";
             this.btn_Cancel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -110,7 +111,7 @@
             this.Controls.Add(this.pictureBox_QR);
             this.Controls.Add(this.label1);
             this.Name = "PayUC";
-            this.Size = new System.Drawing.Size(490, 542);
+            this.Size = new System.Drawing.Size(1087, 834);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_QR)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
