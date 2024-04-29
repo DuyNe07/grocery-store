@@ -402,6 +402,12 @@
     <Compile Include="API\GenarateBarCode.cs" />
     <Compile Include="API\GenerateProductCode.cs" />
     <Compile Include="API\PaymentQR.cs" />
+    <Compile Include="GUI\HangHoa\PhanLoai.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\HangHoa\PhanLoai.Designer.cs">
+      <DependentUpon>PhanLoai.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\HoaDon\Bill.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -530,6 +536,9 @@
     </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="GUI\HangHoa\PhanLoai.resx">
+      <DependentUpon>PhanLoai.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\HoaDon\Bill.resx">
       <DependentUpon>Bill.cs</DependentUpon>
     </EmbeddedResource>

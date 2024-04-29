@@ -44,21 +44,98 @@ namespace grocery_store.GUI.HangHoa
         #region Chức năng thêm phân loại
         private void btn_them_Click(object sender, EventArgs e)
         {
+            PhanLoai UC_phan_loai = new PhanLoai(null);
+            UC_phan_loai.lb_name_control.Text = "THÊM PHÂN LOẠI";
+            UC_phan_loai.Location = new Point(0, 0);
+            UC_phan_loai.HuyClick += (S, args) =>
+            {
+                this.Controls.Remove(UC_phan_loai);
+            };
 
+            UC_phan_loai.LuuClick += async (S, args) =>
+            {
+                try
+                {
+                    UC_phan_loai.Them();
+                    this.Controls.Remove(UC_phan_loai);
+                    gridview_danh_sach_phan_loai.DataSource = await GetCategopryTable();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Đã xảy ra lỗi: " + ex.Message + "\nVui lòng thực hiện lại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            };
+            this.Controls.Add(UC_phan_loai);
+            UC_phan_loai.BringToFront();
         }
         #endregion
 
         #region Chức năng sửa phân loại
         private void btn_sua_Click(object sender, EventArgs e)
         {
+            PhanLoai UC_phan_loai = new PhanLoai(currentCategory);
+            UC_phan_loai.lb_name_control.Text = "SỬA PHÂN LOẠI";
+            UC_phan_loai.Location = new Point(0, 0);
+            UC_phan_loai.HuyClick += (S, args) =>
+            {
+                this.Controls.Remove(UC_phan_loai);
+            };
+
+            UC_phan_loai.LuuClick += async (S, args) =>
+            {
+                try
+                {
+                    await UC_phan_loai.Sua(currentCategory);
+                    this.Controls.Remove(UC_phan_loai);
+                    gridview_danh_sach_phan_loai.DataSource = await GetCategopryTable();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Đã xảy ra lỗi: " + ex.Message + "\nVui lòng thực hiện lại", "Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
+            };
+            this.Controls.Add(UC_phan_loai);
+            UC_phan_loai.BringToFront();
 
         }
         #endregion
 
         #region Chức năng xóa phân loại
-        private void btn_xoa_Click(object sender, EventArgs e)
+        private async void btn_xoa_ClickAsync(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("Xóa phân loại " + currentCategory.Name, "Xác Nhận", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                await DeleteCategoryByID(currentCategory.CategoryId);
+                gridview_danh_sach_phan_loai.DataSource = await GetCategopryTable();
+                UpdateSoDong();
+            }
+        }
 
+        private async Task DeleteCategoryByID(int categoryID)
+        {
+            using (var dbContext = new GroceryStoreContext())
+            {
+                Category categoryToDelete = await dbContext.Category.FindAsync(categoryID);
+                if (categoryToDelete != null)
+                {
+                    try
+                    {
+                        dbContext.Category.Remove(categoryToDelete);
+                        await dbContext.SaveChangesAsync();
+                        MessageBox.Show("Phân loại đã được xóa thành công.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Không thể xóa phân loại." +
+                            $"\nVui lòng thử xóa các sản phẩm thuộc phân loại {categoryToDelete.Name} trước", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy phân loại cần xóa.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
         #endregion
 
