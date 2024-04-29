@@ -110,14 +110,6 @@ namespace grocery_store.GUI.Dashboard
             lb_name_control.Text = "PHÂN LOẠI";
         }
 
-        private void btn_nha_cung_cap_Click(object sender, EventArgs e)
-        {
-            reset_UC();
-            UC_danh_sach_nha_cung_cap.Visible = true;
-            set_color(0, 0, 1, 0);
-            lb_name_control.Text = "NHÀ CUNG CẤP";
-        }
-
         private void btn_nhap_hang_Click(object sender, EventArgs e)
         {
             reset_UC();
@@ -126,6 +118,12 @@ namespace grocery_store.GUI.Dashboard
             lb_name_control.Text = "NHẬP HÀNG";
         }
 
-
+        private void btn_nha_cung_cap_Click(object sender, EventArgs e)
+        {
+            reset_UC();
+            UC_danh_sach_nha_cung_cap.Visible = true;
+            set_color(0, 0, 1, 0);
+            lb_name_control.Text = "NHÀ CUNG CẤP";
+        }
     }
 }

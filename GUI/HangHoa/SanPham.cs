@@ -31,7 +31,7 @@ namespace grocery_store.GUI.HangHoa
             this.curentProduct = product;
         }
 
-        private  void SanPham_Load(object sender, EventArgs e)
+        private  async void SanPham_Load(object sender, EventArgs e)
         {
             if (curentProduct == null)
             {
@@ -39,7 +39,7 @@ namespace grocery_store.GUI.HangHoa
             }
             else
             {
-                LoadFormSuaAsync();
+                await LoadFormSuaAsync();
             }
         }
 
@@ -60,7 +60,7 @@ namespace grocery_store.GUI.HangHoa
                 supplier.SupplierId = int.Parse(cbb_nha_cung_cap.SelectedValue.ToString());
 
                 GenerateProductCode ProductUtil = new GenerateProductCode();
-                string Sku = await ProductUtil.GenerateSKU(tb_ten_san_pham.Text, cbb_phan_loai.SelectedText, cbb_nha_cung_cap.SelectedText);
+                string Sku = ProductUtil.GenerateSKU(tb_ten_san_pham.Text, cbb_phan_loai.SelectedText, cbb_nha_cung_cap.SelectedText);
 
                 Product productCheck = dbContext.Product.FirstOrDefault(p => p.Sku == Sku);
                 if (productCheck == null)
@@ -96,67 +96,71 @@ namespace grocery_store.GUI.HangHoa
 
             if (string.IsNullOrWhiteSpace(ErrorMessage))
             {
-                var dbContext = new GroceryStoreContext();
-                Category category = new Category();
-                Supplier supplier = new Supplier();
-                category.Name = cbb_phan_loai.Text;
-                category.CategoryId = int.Parse(cbb_phan_loai.SelectedValue.ToString());
-                supplier.Name = cbb_nha_cung_cap.Text;
-                supplier.SupplierId = int.Parse(cbb_nha_cung_cap.SelectedValue.ToString());
-
-                productToUpdate = await dbContext.Product.FindAsync(product.ProductId);
-                if (productToUpdate != null)
+                using (var dbContext = new GroceryStoreContext())
                 {
-                    productToUpdate.Name = tb_ten_san_pham.Text;
-                    productToUpdate.Category = category;
-                    productToUpdate.CategoryId = category.CategoryId;
-                    productToUpdate.Supplier = supplier;
-                    productToUpdate.SupplierId = supplier.SupplierId;
-                    productToUpdate.QuantityInStock = int.Parse(input_ton_kho.Value.ToString());
-                    productToUpdate.CostPrice = decimal.Parse(input_gia_nhap.Value.ToString());
-                    productToUpdate.MarketPrice = decimal.Parse(input_gia_ban.Value.ToString());
+                    Category category = new Category();
+                    Supplier supplier = new Supplier();
+                    category.Name = cbb_phan_loai.Text;
+                    category.CategoryId = int.Parse(cbb_phan_loai.SelectedValue.ToString());
+                    supplier.Name = cbb_nha_cung_cap.Text;
+                    supplier.SupplierId = int.Parse(cbb_nha_cung_cap.SelectedValue.ToString());
 
-                    DateTime.TryParseExact(input_han_su_dung.Text, "MM/dd/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime HanSuDung);
-                    productToUpdate.Expiry = HanSuDung;
+                    productToUpdate = await dbContext.Product.FindAsync(product.ProductId);
+                    if (productToUpdate != null)
+                    {
+                        productToUpdate.Name = tb_ten_san_pham.Text;
+                        productToUpdate.Category = category;
+                        productToUpdate.CategoryId = category.CategoryId;
+                        productToUpdate.Supplier = supplier;
+                        productToUpdate.SupplierId = supplier.SupplierId;
+                        productToUpdate.QuantityInStock = int.Parse(input_ton_kho.Value.ToString());
+                        productToUpdate.CostPrice = decimal.Parse(input_gia_nhap.Value.ToString());
+                        productToUpdate.MarketPrice = decimal.Parse(input_gia_ban.Value.ToString());
 
-                    GenerateProductCode ProductUtil = new GenerateProductCode();
-                    productToUpdate.Sku = await ProductUtil.GenerateSKU(productToUpdate.Name, category.Name, supplier.Name);
-                    await dbContext.SaveChangesAsync();
+                        DateTime.TryParseExact(input_han_su_dung.Text, "MM/dd/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime HanSuDung);
+                        productToUpdate.Expiry = HanSuDung;
+
+                        GenerateProductCode ProductUtil = new GenerateProductCode();
+                        productToUpdate.Sku = ProductUtil.GenerateSKU(productToUpdate.Name, category.Name, supplier.Name);
+                        await dbContext.SaveChangesAsync();
+                    }
                 }
             }
             else
             {
-                MessageBox.Show(CheckInput(), "Thông tin bị thiếu hoặc chưa chính xác");
+                MessageBox.Show(ErrorMessage, "Thông tin bị thiếu hoặc chưa chính xác");
             }
             return productToUpdate;
         }
+
 
 
         #region Xử Lý Giao Diện
         private async Task LoadFormSuaAsync()
         {
             ClearForm();
-            LoadCombobox();
+            await LoadCombobox();
+            using(var dbContext = new GroceryStoreContext())
+            {
+                List<Category> categories = await dbContext.Category.ToListAsync();
+                List<Supplier> suppliers = await dbContext.Supplier.ToListAsync();
 
-            var dbContext = new GroceryStoreContext();
-            List<Category> categories = await dbContext.Category.ToListAsync();
-            List<Supplier> suppliers = await dbContext.Supplier.ToListAsync();
+                tb_ten_san_pham.Text = curentProduct.Name;
+                cbb_phan_loai.SelectedIndex = GetIndex(categories, curentProduct.Category.Name);
+                cbb_nha_cung_cap.SelectedIndex = GetIndex(suppliers, curentProduct.Supplier.Name);
+                input_ton_kho.Value = decimal.Parse(curentProduct.QuantityInStock.ToString());
+                input_gia_nhap.Value = decimal.Parse(curentProduct.CostPrice.ToString());
+                input_gia_ban.Value = decimal.Parse(curentProduct.MarketPrice.ToString());
 
-            tb_ten_san_pham.Text = curentProduct.Name;
-            cbb_phan_loai.SelectedIndex = GetIndex(categories, curentProduct.Category.Name);
-            cbb_nha_cung_cap.SelectedIndex = GetIndex(suppliers, curentProduct.Supplier.Name);
-            input_ton_kho.Value = decimal.Parse(curentProduct.QuantityInStock.ToString());
-            input_gia_nhap.Value = decimal.Parse(curentProduct.CostPrice.ToString());
-            input_gia_ban.Value = decimal.Parse(curentProduct.MarketPrice.ToString());
-
-            DateTime.TryParseExact(curentProduct.Expiry.ToString(), "MM/dd/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime HanSuDung);
-            input_han_su_dung.Text = HanSuDung.ToString("MM/dd/yyyy");
-            Console.WriteLine(curentProduct.Expiry);
+                DateTime.TryParseExact(curentProduct.Expiry.ToString(), "MM/dd/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime HanSuDung);
+                input_han_su_dung.Text = HanSuDung.ToString("MM/dd/yyyy");
+                Console.WriteLine(curentProduct.Expiry);
+            }
         }
-        private void LoadFormThem()
+        private async void LoadFormThem()
         {
+            await LoadCombobox();
             ClearForm();
-            LoadCombobox();
         }
 
         private void ClearForm()
@@ -166,39 +170,36 @@ namespace grocery_store.GUI.HangHoa
             input_gia_nhap.Value = 0;
             input_gia_ban.Value = 0;
         }
-        private async void LoadCombobox()
+        private async Task LoadCombobox()
         {
+            using (var dbContext = new GroceryStoreContext())
+            {
+                // Thực hiện các tác vụ trên DbContext
+                var categories = await dbContext.Category.ToListAsync();
+                var suppliers = await dbContext.Supplier.ToListAsync();
 
-            List<Category> categoriesWithDefault = new List<Category>();
-            List<Supplier> suppliersWithDefault = new List<Supplier>();
+                // Thêm mục mặc định vào danh sách
+                categories.Insert(0, new Category { CategoryId = -1, Name = "Phân loại (All)" });
+                suppliers.Insert(0, new Supplier { SupplierId = -1, Name = "Nhà Cung Cấp (All)" });
 
-            var dbContext = new GroceryStoreContext();
-            List<Category> categories = await dbContext.Category.ToListAsync();
-            List<Supplier> suppliers = await dbContext.Supplier.ToListAsync();
-     
-            categoriesWithDefault.Add(new Category { CategoryId = -1, Name = "Phân loại" });
-            suppliersWithDefault.Add(new Supplier { SupplierId = -1, Name = "Nhà Cung Cấp" });
-            categoriesWithDefault.AddRange(categories);
-            suppliersWithDefault.AddRange(suppliers);
 
-            // Set DisplayMember and ValueMember
-            cbb_nha_cung_cap.DisplayMember = "Name";
-            cbb_nha_cung_cap.ValueMember = "SupplierID";
+                cbb_nha_cung_cap.DisplayMember = "Name";
+                cbb_nha_cung_cap.ValueMember = "SupplierID";
+                cbb_nha_cung_cap.DataSource = suppliers;
 
-            cbb_phan_loai.DisplayMember = "name";
-            cbb_phan_loai.ValueMember = "CategoryId";
+                cbb_phan_loai.DisplayMember = "Name";
+                cbb_phan_loai.ValueMember = "CategoryId";
+                cbb_phan_loai.DataSource = categories;
 
-            // Add suppliers to the ComboBox efficiently
-            cbb_nha_cung_cap.DataSource = suppliersWithDefault;
-            cbb_phan_loai.DataSource = categoriesWithDefault;
-
-            cbb_phan_loai.SelectedIndex = 0;
-            cbb_nha_cung_cap.SelectedIndex = 0;
+                // Chọn mục đầu tiên là mục mặc định
+                cbb_phan_loai.SelectedIndex = 0;
+                cbb_nha_cung_cap.SelectedIndex = 0;
+            }
         }
         #endregion
 
         #region Kiểm Tra Trị Nhập Vào
-          
+
         public string CheckInput()
         {
             string ErrorMessage = "";
