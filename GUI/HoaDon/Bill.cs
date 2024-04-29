@@ -36,10 +36,10 @@ namespace grocery_store.GUI.HoaDon
 
                 }).ToList();
 
-                reportViewer_invoice.LocalReport.DataSources.Clear();
-                reportViewer_invoice.LocalReport.DataSources.Add(new Microsoft.Reporting.WinForms.ReportDataSource("DataSet_Invoice", formattedInvoices));
+                //reportViewer_invoice.LocalReport.DataSources.Clear();
+                //reportViewer_invoice.LocalReport.DataSources.Add(new Microsoft.Reporting.WinForms.ReportDataSource("DataSet_Invoice", formattedInvoices));
 
-                reportViewer_invoice.RefreshReport();
+                //reportViewer_invoice.RefreshReport();
             }
         }
                
@@ -52,7 +52,6 @@ namespace grocery_store.GUI.HoaDon
                 Height = 100,
                 Width = 300
             };
-            //Bitmap bitmap = writer.Write(product.Sku);
         }
 
         private void Bill_Load(object sender, System.EventArgs e)

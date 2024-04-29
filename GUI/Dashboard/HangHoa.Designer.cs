@@ -26,17 +26,17 @@
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        private void InitializeComponent() 
         {
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
+            this.lb_name_control = new Guna.UI.WinForms.GunaLabel();
             this.btn_san_pham = new Guna.UI.WinForms.GunaButton();
             this.btn_phan_loai = new Guna.UI.WinForms.GunaButton();
             this.btn_nhap_hang = new Guna.UI.WinForms.GunaButton();
             this.panel_hang_hoa = new Guna.UI.WinForms.GunaPanel();
-            this.UC_danh_sach_san_pham = new grocery_store.GUI.HangHoa.DanhSachSanPham();
-            this.UC_nhap_kho = new grocery_store.GUI.HangHoa.NhapKho();
             this.UC_danh_sach_phan_loai = new grocery_store.GUI.HangHoa.DanhSachPhanLoai();
-            this.lb_name_control = new Guna.UI.WinForms.GunaLabel();
+            this.UC_nhap_kho = new grocery_store.GUI.HangHoa.NhapKho();
+            //this.UC_san_pham = new grocery_store.GUI.HangHoa.DanhSachSanPham();
             this.gunaPanel1.SuspendLayout();
             this.panel_hang_hoa.SuspendLayout();
             this.SuspendLayout();
@@ -50,6 +50,17 @@
             this.gunaPanel1.Name = "gunaPanel1";
             this.gunaPanel1.Size = new System.Drawing.Size(1720, 100);
             this.gunaPanel1.TabIndex = 1;
+            // 
+            // lb_name_control
+            // 
+            this.lb_name_control.AutoSize = true;
+            this.lb_name_control.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold);
+            this.lb_name_control.ForeColor = System.Drawing.Color.White;
+            this.lb_name_control.Location = new System.Drawing.Point(1210, 30);
+            this.lb_name_control.Name = "lb_name_control";
+            this.lb_name_control.Size = new System.Drawing.Size(380, 41);
+            this.lb_name_control.TabIndex = 3;
+            this.lb_name_control.Text = "DANH SÁCH SẢN PHẨM";
             // 
             // btn_san_pham
             // 
@@ -125,31 +136,22 @@
             // 
             // panel_hang_hoa
             // 
-            this.panel_hang_hoa.Controls.Add(this.UC_danh_sach_san_pham);
+            this.panel_hang_hoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.panel_hang_hoa.Controls.Add(this.UC_nhap_kho);
             this.panel_hang_hoa.Controls.Add(this.UC_danh_sach_phan_loai);
-            this.panel_hang_hoa.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_hang_hoa.Location = new System.Drawing.Point(0, 100);
             this.panel_hang_hoa.Name = "panel_hang_hoa";
             this.panel_hang_hoa.Size = new System.Drawing.Size(1720, 950);
-            this.panel_hang_hoa.TabIndex = 5;
-            // 
-            // UC_danh_sach_san_pham
-            // 
-            this.UC_danh_sach_san_pham.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(211)))), ((int)(((byte)(249)))));
-            this.UC_danh_sach_san_pham.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.UC_danh_sach_san_pham.Location = new System.Drawing.Point(0, 0);
-            this.UC_danh_sach_san_pham.Name = "UC_danh_sach_san_pham";
-            this.UC_danh_sach_san_pham.Size = new System.Drawing.Size(1730, 950);
-            this.UC_danh_sach_san_pham.TabIndex = 3;
-            // 
-            // UC_nhap_kho
-            // 
-            this.UC_nhap_kho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(211)))), ((int)(((byte)(249)))));
-            this.UC_nhap_kho.Location = new System.Drawing.Point(0, 0);
-            this.UC_nhap_kho.Name = "UC_nhap_kho";
-            this.UC_nhap_kho.Size = new System.Drawing.Size(1730, 950);
-            this.UC_nhap_kho.TabIndex = 2;
+            this.panel_hang_hoa.TabIndex = 0;
+            //// 
+            //// UC_danh_sach_san_pham
+            //// 
+            //this.UC_san_pham.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(211)))), ((int)(((byte)(249)))));
+            //this.UC_san_pham.ForeColor = System.Drawing.SystemColors.ControlText;
+            //this.UC_san_pham.Location = new System.Drawing.Point(0, 0);
+            //this.UC_san_pham.Name = "UC_san_pham";
+            //this.UC_san_pham.Size = new System.Drawing.Size(1730, 950);
+            //this.UC_san_pham.TabIndex = 3;
             // 
             // UC_danh_sach_phan_loai
             // 
@@ -157,18 +159,15 @@
             this.UC_danh_sach_phan_loai.Location = new System.Drawing.Point(0, 0);
             this.UC_danh_sach_phan_loai.Name = "UC_danh_sach_phan_loai";
             this.UC_danh_sach_phan_loai.Size = new System.Drawing.Size(1730, 950);
-            this.UC_danh_sach_phan_loai.TabIndex = 1;
+            this.UC_danh_sach_phan_loai.TabIndex = 0;
             // 
-            // lb_name_control
+            // UC_nhap_kho
             // 
-            this.lb_name_control.AutoSize = true;
-            this.lb_name_control.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold);
-            this.lb_name_control.ForeColor = System.Drawing.Color.White;
-            this.lb_name_control.Location = new System.Drawing.Point(1210, 30);
-            this.lb_name_control.Name = "lb_name_control";
-            this.lb_name_control.Size = new System.Drawing.Size(380, 41);
-            this.lb_name_control.TabIndex = 3;
-            this.lb_name_control.Text = "DANH SÁCH SẢN PHẨM";
+            this.UC_nhap_kho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(211)))), ((int)(((byte)(249)))));
+            this.UC_nhap_kho.Location = new System.Drawing.Point(0, 0);
+            this.UC_nhap_kho.Name = "UC_nhap_kho";
+            this.UC_nhap_kho.Size = new System.Drawing.Size(1730, 950);
+            this.UC_nhap_kho.TabIndex = 1;
             // 
             // HangHoa
             // 
@@ -198,9 +197,9 @@
         private Guna.UI.WinForms.GunaButton btn_phan_loai;
         private Guna.UI.WinForms.GunaButton btn_nhap_hang;
         private Guna.UI.WinForms.GunaPanel panel_hang_hoa;
-        private GUI.HangHoa.NhapKho UC_nhap_kho;
-        private GUI.HangHoa.DanhSachPhanLoai UC_danh_sach_phan_loai;
-        private GUI.HangHoa.DanhSachSanPham UC_danh_sach_san_pham;
+        //private GUI.HangHoa.DanhSachSanPham UC_san_pham;
         private Guna.UI.WinForms.GunaLabel lb_name_control;
+        private GUI.HangHoa.DanhSachPhanLoai UC_danh_sach_phan_loai;
+        private GUI.HangHoa.NhapKho UC_nhap_kho;
     }
 }

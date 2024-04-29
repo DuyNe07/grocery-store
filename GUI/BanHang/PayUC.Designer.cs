@@ -32,7 +32,7 @@
             this.pictureBox_QR = new System.Windows.Forms.PictureBox();
             this.btn_OK = new Guna.UI.WinForms.GunaButton();
             this.btn_Cancel = new Guna.UI.WinForms.GunaButton();
-            this.reportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
+            //this.reportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_QR)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,21 +101,11 @@
             this.btn_Cancel.Text = "Thoát";
             this.btn_Cancel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // reportViewer
-            // 
-            this.reportViewer.LocalReport.ReportEmbeddedResource = "grocery_store.GUI.BanHang.ShopOrderReport.rdlc";
-            this.reportViewer.Location = new System.Drawing.Point(43, 32);
-            this.reportViewer.Name = "reportViewer";
-            //this.reportViewer.ServerReport.BearerToken = null;
-            this.reportViewer.Size = new System.Drawing.Size(585, 761);
-            this.reportViewer.TabIndex = 13;
-            // 
             // PayUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Controls.Add(this.reportViewer);
             this.Controls.Add(this.btn_Cancel);
             this.Controls.Add(this.btn_OK);
             this.Controls.Add(this.pictureBox_QR);
@@ -134,6 +124,5 @@
         private System.Windows.Forms.PictureBox pictureBox_QR;
         private Guna.UI.WinForms.GunaButton btn_OK;
         private Guna.UI.WinForms.GunaButton btn_Cancel;
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer;
     }
 }

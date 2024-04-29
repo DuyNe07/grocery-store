@@ -54,7 +54,7 @@
             this.UC_Sell = new grocery_store.GUI.Dashboard.BanHang();
             this.UC_Manager = new grocery_store.GUI.Dashboard.QuanLy();
             this.UC_Staff = new grocery_store.GUI.Dashboard.NhanVien();
-            this.UC_Statistical = new grocery_store.GUI.ThongKe();
+            this.UC_Statistical = new grocery_store.GUI.Dashboard.ThongKe();
             this.UC_Invoice = new grocery_store.GUI.Dashboard.HoaDon();
             this.UC_Good = new grocery_store.GUI.Dashboard.HangHoa();
             this.panel_UC.SuspendLayout();
@@ -974,7 +974,7 @@
         private Dashboard.BanHang UC_Sell;
         private Dashboard.HoaDon UC_Invoice;
         private Dashboard.HangHoa UC_Good;
-        private ThongKe UC_Statistical;
+        private Dashboard.ThongKe UC_Statistical;
         private Dashboard.NhanVien UC_Staff;
         private Dashboard.QuanLy UC_Manager;
     }

@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Reporting.WinForms;
 
 
 
@@ -31,24 +30,24 @@ namespace grocery_store.GUI.BanHang
             this.btn_OK.Click += (sender, e) => OKClick?.Invoke(this, e);
             this.btn_Cancel.Click += (sender, e) => CancelClick?.Invoke(this, e);
 
-            reportViewer.LocalReport.DataSources.Add(new ReportDataSource("DataSetItem", items));
+            //reportViewer.LocalReport.DataSources.Add(new ReportDataSource("DataSetItem", items));
 
-            ReportParameter employeeNameParam = new ReportParameter();
-            employeeNameParam.Name = "EmployeeName";
-            employeeNameParam.Values.Add("Lương Vũ Đình Duy");
-            reportViewer.LocalReport.SetParameters(employeeNameParam);
+            //ReportParameter employeeNameParam = new ReportParameter();
+            //employeeNameParam.Name = "EmployeeName";
+            //employeeNameParam.Values.Add("Lương Vũ Đình Duy");
+            //reportViewer.LocalReport.SetParameters(employeeNameParam);
 
-            ReportParameter paymentMethodParam = new ReportParameter();
-            paymentMethodParam.Name = "PaymentMethod";
-            paymentMethodParam.Values.Add(paymentMethod);
-            reportViewer.LocalReport.SetParameters(paymentMethodParam);
+            //ReportParameter paymentMethodParam = new ReportParameter();
+            //paymentMethodParam.Name = "PaymentMethod";
+            //paymentMethodParam.Values.Add(paymentMethod);
+            //reportViewer.LocalReport.SetParameters(paymentMethodParam);
 
-            ReportParameter orderDate = new ReportParameter();
-            orderDate.Name = "OrderDate";
-            orderDate.Values.Add(DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
-            reportViewer.LocalReport.SetParameters(orderDate);
+            //ReportParameter orderDate = new ReportParameter();
+            //orderDate.Name = "OrderDate";
+            //orderDate.Values.Add(DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
+            //reportViewer.LocalReport.SetParameters(orderDate);
 
-            reportViewer.RefreshReport();
+            //reportViewer.RefreshReport();
             
         }
     }
