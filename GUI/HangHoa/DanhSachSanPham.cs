@@ -20,6 +20,15 @@ namespace grocery_store.GUI.HangHoa
         public DanhSachSanPham()
         {
             InitializeComponent();
+            LoadCombobox();
+        }
+        private async void DanhSachSanPham_VisibleChanged(object sender, EventArgs e)
+        {
+            if (this.Visible)
+            {
+                gridview_danh_sach_san_pham.DataSource = await GetProducTable();
+                UpdateSoDong();
+            }
         }
 
         #region Chức năng thêm sản phẩm
@@ -135,17 +144,11 @@ namespace grocery_store.GUI.HangHoa
 
 
         #region Xử Lý Giao Diện
-        private async void DanhSachSanPham_Load(object sender, EventArgs e)
-        {
-            gridview_danh_sach_san_pham.DataSource = await GetProducTable();
-            await LoadCombobox();
-            UpdateSoDong();
-        }
         private void UpdateSoDong()
         {
             lb_so_dong.Text = gridview_danh_sach_san_pham.RowCount.ToString();
         }
-        private async Task LoadCombobox()
+        private async void LoadCombobox()
         {
             using (var dbContext = new GroceryStoreContext())
             {
@@ -232,8 +235,8 @@ namespace grocery_store.GUI.HangHoa
             }
             return products;
         }
-        #endregion
 
+        #endregion
 
     }
 }

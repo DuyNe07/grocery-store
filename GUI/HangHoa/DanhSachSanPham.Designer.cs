@@ -122,8 +122,8 @@
             // 
             this.lb_so_dong.AutoSize = true;
             this.lb_so_dong.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_so_dong.ForeColor = System.Drawing.Color.Red;
-            this.lb_so_dong.Location = new System.Drawing.Point(93, 119);
+            this.lb_so_dong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(125)))), ((int)(((byte)(229)))));
+            this.lb_so_dong.Location = new System.Drawing.Point(110, 119);
             this.lb_so_dong.Name = "lb_so_dong";
             this.lb_so_dong.Size = new System.Drawing.Size(0, 17);
             this.lb_so_dong.TabIndex = 14;
@@ -132,12 +132,12 @@
             // 
             this.lb_tong_so_dong.AutoSize = true;
             this.lb_tong_so_dong.Font = new System.Drawing.Font("Segoe UI", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_tong_so_dong.ForeColor = System.Drawing.Color.Red;
+            this.lb_tong_so_dong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(125)))), ((int)(((byte)(229)))));
             this.lb_tong_so_dong.Location = new System.Drawing.Point(47, 119);
             this.lb_tong_so_dong.Name = "lb_tong_so_dong";
-            this.lb_tong_so_dong.Size = new System.Drawing.Size(50, 17);
+            this.lb_tong_so_dong.Size = new System.Drawing.Size(60, 17);
             this.lb_tong_so_dong.TabIndex = 13;
-            this.lb_tong_so_dong.Text = "Result:";
+            this.lb_tong_so_dong.Text = "Kết quả:";
             // 
             // cbb_phan_loai
             // 
@@ -429,7 +429,7 @@
             this.Controls.Add(this.danh_sach_san_pham_main);
             this.Name = "DanhSachSanPham";
             this.Size = new System.Drawing.Size(1730, 1050);
-            this.Load += new System.EventHandler(this.DanhSachSanPham_Load);
+            this.VisibleChanged += new System.EventHandler(this.DanhSachSanPham_VisibleChanged);
             gunaPanel1.ResumeLayout(false);
             gunaPanel1.PerformLayout();
             this.danh_sach_san_pham_main.ResumeLayout(false);

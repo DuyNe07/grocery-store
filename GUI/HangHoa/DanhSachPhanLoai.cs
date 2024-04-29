@@ -1,4 +1,6 @@
-﻿using System;
+﻿using grocery_store.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,24 +14,96 @@ namespace grocery_store.GUI.HangHoa
 {
     public partial class DanhSachPhanLoai : UserControl
     {
+        private Category currentCategory;
+        private int indexCurrentRow;
         public DanhSachPhanLoai()
         {
             InitializeComponent();
         }
 
-        private void txtbox_tim_kiem_Enter(object sender, EventArgs e)
+        private async void DanhSachPhanLoai_VisibleChanged(object sender, EventArgs e)
         {
-            txtbox_tim_kiem.Text = "";
+            if (this.Visible == true)
+            {
+                gridview_danh_sach_phan_loai.DataSource = await GetCategopryTable();
+                UpdateSoDong();
+            }
         }
 
-        private void txtbox_tim_kiem_Leave(object sender, EventArgs e)
+        private async void gridview_danh_sach_phan_loai_RowEnterAsync(object sender, DataGridViewCellEventArgs e)
         {
-            txtbox_tim_kiem.Text = "Tìm Kiếm";
+            indexCurrentRow = e.RowIndex;
+
+            DataGridViewRow selectedRow = gridview_danh_sach_phan_loai.Rows[indexCurrentRow];
+
+            if (selectedRow != null)
+            {
+                int categoryID = Convert.ToInt32(selectedRow.Cells[0].Value);
+                using (var dbContext = new GroceryStoreContext())
+                {
+                    currentCategory = await dbContext.Category.FirstOrDefaultAsync(p => p.CategoryId == categoryID);
+                }
+            }
         }
 
-        private void gridview_danh_sach_loai_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        #region Chức năng thêm phân loại
+        private void btn_them_Click(object sender, EventArgs e)
         {
 
         }
+        #endregion
+
+        #region Chức năng sửa phân loại
+        private void btn_sua_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
+
+        #region Chức năng xóa phân loại
+        private void btn_xoa_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
+
+        #region DB Util
+        private async Task<DataTable> GetCategopryTable()
+        {
+            DataTable CategoryTable = new DataTable();
+            CategoryTable.Columns.Add("CategoryID", typeof(int));
+            CategoryTable.Columns.Add("CategoryName", typeof(string));
+            CategoryTable.Columns.Add("NumOfProducts", typeof(int));
+
+            List<Category> categories = await GetCategoryList();
+
+            foreach (Category category in categories)
+            {
+                CategoryTable.Rows.Add(category.CategoryId,
+                            category.Name,
+                            category.Product.Count
+                            );
+            }
+            return CategoryTable;
+        }
+        private async Task<List<Category>> GetCategoryList()
+        {
+            List<Category> categories;
+            using (var dbContext = new GroceryStoreContext())
+            {
+                categories = await dbContext.Category.Include(p => p.Product).ToListAsync();
+            }
+            return categories;
+        }
+        #endregion
+
+        #region Util
+        private void UpdateSoDong()
+        {
+            lb_so_luong_phan_loai.Text = gridview_danh_sach_phan_loai.RowCount.ToString();
+        }
+        #endregion
+
+
     }
 }
