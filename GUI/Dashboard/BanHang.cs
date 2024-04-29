@@ -118,7 +118,7 @@ namespace grocery_store.GUI.Dashboard
                 MessageBox.Show("Phương thức thanh toán không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
+            await updateBarCode();
             PayUC payUC = new PayUC(Image.FromStream(new System.IO.MemoryStream(payment.Qr)), 
                 items, payment.Name);
             payUC.Location = new Point(150, 100);
@@ -138,6 +138,14 @@ namespace grocery_store.GUI.Dashboard
             };
             this.Controls.Add(payUC);
             payUC.BringToFront();
+        }
+
+        private async Task updateBarCode()
+        {
+            foreach (Item item in items)
+            {
+                item.generate_barcode();
+            }
         }
 
         #endregion
@@ -206,9 +214,9 @@ namespace grocery_store.GUI.Dashboard
             {
                 int quantity = item.Quantity;
                 int marketPrice = int.Parse(item.label_marketPrice.Text.Replace(".", ""));
-                int unit_price = quantity * marketPrice;
+                int lineTotal = quantity * marketPrice;
 
-                string formattedTotal = unit_price.ToString("N0", culture);
+                string formattedTotal = lineTotal.ToString("N0", culture);
                 item.label_totalLine.Text = formattedTotal;
                 item.label_totalLine.Location = new Point(715 - (item.label_totalLine.Width / 2), 35);
             }
