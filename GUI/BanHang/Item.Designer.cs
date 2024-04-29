@@ -32,7 +32,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label_nameProduct = new System.Windows.Forms.Label();
-            this.label_price = new System.Windows.Forms.Label();
+            this.label_totalLine = new System.Windows.Forms.Label();
             this.btn_del = new System.Windows.Forms.Button();
             this.label_marketPrice = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -80,16 +80,16 @@
             this.label_nameProduct.TabIndex = 13;
             this.label_nameProduct.Text = "Cocacola";
             // 
-            // label_price
+            // label_totalLine
             // 
-            this.label_price.AutoSize = true;
-            this.label_price.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
-            this.label_price.Location = new System.Drawing.Point(875, 40);
-            this.label_price.Name = "label_price";
-            this.label_price.Size = new System.Drawing.Size(145, 38);
-            this.label_price.TabIndex = 15;
-            this.label_price.Text = "2.000.000";
-            this.label_price.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_totalLine.AutoSize = true;
+            this.label_totalLine.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
+            this.label_totalLine.Location = new System.Drawing.Point(875, 40);
+            this.label_totalLine.Name = "label_totalLine";
+            this.label_totalLine.Size = new System.Drawing.Size(145, 38);
+            this.label_totalLine.TabIndex = 15;
+            this.label_totalLine.Text = "2.000.000";
+            this.label_totalLine.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btn_del
             // 
@@ -139,7 +139,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label_marketPrice);
             this.Controls.Add(this.btn_del);
-            this.Controls.Add(this.label_price);
+            this.Controls.Add(this.label_totalLine);
             this.Controls.Add(this.label_nameProduct);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -157,7 +157,7 @@
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label label_nameProduct;
-        public System.Windows.Forms.Label label_price;
+        public System.Windows.Forms.Label label_totalLine;
         public System.Windows.Forms.Button btn_del;
         public System.Windows.Forms.Label label_marketPrice;
         public System.Windows.Forms.Label label5;

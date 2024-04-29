@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ZXing;
-using ZXing.QrCode;
 using ZXing.Common;
 using grocery_store.Models;
 

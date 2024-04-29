@@ -26,7 +26,7 @@
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        private void InitializeComponent() 
         {
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
             this.lb_name_control = new Guna.UI.WinForms.GunaLabel();
@@ -142,7 +142,6 @@
             this.panel_hang_hoa.Controls.Add(this.UC_danh_sach_san_pham);
             this.panel_hang_hoa.Controls.Add(this.UC_nhap_kho);
             this.panel_hang_hoa.Controls.Add(this.UC_danh_sach_phan_loai);
-            this.panel_hang_hoa.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_hang_hoa.Location = new System.Drawing.Point(0, 100);
             this.panel_hang_hoa.Name = "panel_hang_hoa";
             this.panel_hang_hoa.Size = new System.Drawing.Size(1720, 950);
@@ -194,7 +193,7 @@
             this.UC_danh_sach_phan_loai.Location = new System.Drawing.Point(0, 0);
             this.UC_danh_sach_phan_loai.Name = "UC_danh_sach_phan_loai";
             this.UC_danh_sach_phan_loai.Size = new System.Drawing.Size(1730, 950);
-            this.UC_danh_sach_phan_loai.TabIndex = 1;
+            this.UC_danh_sach_phan_loai.TabIndex = 0;
             // 
             // UC_danh_sach_nha_cung_cap
             // 
