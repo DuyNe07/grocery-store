@@ -35,10 +35,6 @@
             this.btn_nhap_hang = new Guna.UI.WinForms.GunaButton();
             this.panel_hang_hoa = new Guna.UI.WinForms.GunaPanel();
             this.btn_nha_cung_cap = new Guna.UI.WinForms.GunaButton();
-            this.UC_danh_sach_san_pham = new grocery_store.GUI.HangHoa.DanhSachSanPham();
-            this.UC_nhap_kho = new grocery_store.GUI.HangHoa.NhapKho();
-            this.UC_danh_sach_phan_loai = new grocery_store.GUI.HangHoa.DanhSachPhanLoai();
-            this.UC_danh_sach_nha_cung_cap = new grocery_store.GUI.HangHoa.DanhSachNhaCungCap();
             this.gunaPanel1.SuspendLayout();
             this.panel_hang_hoa.SuspendLayout();
             this.SuspendLayout();
@@ -138,10 +134,6 @@
             // 
             // panel_hang_hoa
             // 
-            this.panel_hang_hoa.Controls.Add(this.UC_danh_sach_nha_cung_cap);
-            this.panel_hang_hoa.Controls.Add(this.UC_danh_sach_san_pham);
-            this.panel_hang_hoa.Controls.Add(this.UC_nhap_kho);
-            this.panel_hang_hoa.Controls.Add(this.UC_danh_sach_phan_loai);
             this.panel_hang_hoa.Location = new System.Drawing.Point(0, 100);
             this.panel_hang_hoa.Name = "panel_hang_hoa";
             this.panel_hang_hoa.Size = new System.Drawing.Size(1720, 950);
@@ -170,38 +162,6 @@
             this.btn_nha_cung_cap.Text = "Nhà Cung Cấp";
             this.btn_nha_cung_cap.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn_nha_cung_cap.Click += new System.EventHandler(this.btn_nha_cung_cap_Click);
-            // 
-            // UC_danh_sach_san_pham
-            // 
-            this.UC_danh_sach_san_pham.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(211)))), ((int)(((byte)(249)))));
-            this.UC_danh_sach_san_pham.Location = new System.Drawing.Point(0, 0);
-            this.UC_danh_sach_san_pham.Name = "UC_danh_sach_san_pham";
-            this.UC_danh_sach_san_pham.Size = new System.Drawing.Size(1730, 1050);
-            this.UC_danh_sach_san_pham.TabIndex = 11;
-            // 
-            // UC_nhap_kho
-            // 
-            this.UC_nhap_kho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(211)))), ((int)(((byte)(249)))));
-            this.UC_nhap_kho.Location = new System.Drawing.Point(0, 0);
-            this.UC_nhap_kho.Name = "UC_nhap_kho";
-            this.UC_nhap_kho.Size = new System.Drawing.Size(1730, 950);
-            this.UC_nhap_kho.TabIndex = 2;
-            // 
-            // UC_danh_sach_phan_loai
-            // 
-            this.UC_danh_sach_phan_loai.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(211)))), ((int)(((byte)(249)))));
-            this.UC_danh_sach_phan_loai.Location = new System.Drawing.Point(0, 0);
-            this.UC_danh_sach_phan_loai.Name = "UC_danh_sach_phan_loai";
-            this.UC_danh_sach_phan_loai.Size = new System.Drawing.Size(1730, 950);
-            this.UC_danh_sach_phan_loai.TabIndex = 0;
-            // 
-            // UC_danh_sach_nha_cung_cap
-            // 
-            this.UC_danh_sach_nha_cung_cap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(211)))), ((int)(((byte)(249)))));
-            this.UC_danh_sach_nha_cung_cap.Location = new System.Drawing.Point(0, 0);
-            this.UC_danh_sach_nha_cung_cap.Name = "UC_danh_sach_nha_cung_cap";
-            this.UC_danh_sach_nha_cung_cap.Size = new System.Drawing.Size(1730, 950);
-            this.UC_danh_sach_nha_cung_cap.TabIndex = 10;
             // 
             // HangHoa
             // 
@@ -232,11 +192,7 @@
         private Guna.UI.WinForms.GunaButton btn_phan_loai;
         private Guna.UI.WinForms.GunaButton btn_nhap_hang;
         private Guna.UI.WinForms.GunaPanel panel_hang_hoa;
-        private GUI.HangHoa.NhapKho UC_nhap_kho;
-        private GUI.HangHoa.DanhSachPhanLoai UC_danh_sach_phan_loai;
-        private GUI.HangHoa.DanhSachNhaCungCap UC_danh_sach_nha_cung_cap;
         private Guna.UI.WinForms.GunaLabel lb_name_control;
         private Guna.UI.WinForms.GunaButton btn_nha_cung_cap;
-        private GUI.HangHoa.DanhSachSanPham UC_danh_sach_san_pham;
     }
 }
