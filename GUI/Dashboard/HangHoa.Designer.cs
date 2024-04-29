@@ -34,9 +34,11 @@
             this.btn_phan_loai = new Guna.UI.WinForms.GunaButton();
             this.btn_nhap_hang = new Guna.UI.WinForms.GunaButton();
             this.panel_hang_hoa = new Guna.UI.WinForms.GunaPanel();
-            this.UC_danh_sach_phan_loai = new grocery_store.GUI.HangHoa.DanhSachPhanLoai();
+            this.btn_nha_cung_cap = new Guna.UI.WinForms.GunaButton();
+            this.UC_danh_sach_san_pham = new grocery_store.GUI.HangHoa.DanhSachSanPham();
             this.UC_nhap_kho = new grocery_store.GUI.HangHoa.NhapKho();
-            //this.UC_san_pham = new grocery_store.GUI.HangHoa.DanhSachSanPham();
+            this.UC_danh_sach_phan_loai = new grocery_store.GUI.HangHoa.DanhSachPhanLoai();
+            this.UC_danh_sach_nha_cung_cap = new grocery_store.GUI.HangHoa.DanhSachNhaCungCap();
             this.gunaPanel1.SuspendLayout();
             this.panel_hang_hoa.SuspendLayout();
             this.SuspendLayout();
@@ -120,7 +122,7 @@
             this.btn_nhap_hang.ForeColor = System.Drawing.Color.White;
             this.btn_nhap_hang.Image = null;
             this.btn_nhap_hang.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_nhap_hang.Location = new System.Drawing.Point(500, 0);
+            this.btn_nhap_hang.Location = new System.Drawing.Point(750, 0);
             this.btn_nhap_hang.Name = "btn_nhap_hang";
             this.btn_nhap_hang.OnHoverBaseColor = System.Drawing.Color.White;
             this.btn_nhap_hang.OnHoverBorderColor = System.Drawing.Color.White;
@@ -136,22 +138,54 @@
             // 
             // panel_hang_hoa
             // 
-            this.panel_hang_hoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.panel_hang_hoa.Controls.Add(this.UC_danh_sach_nha_cung_cap);
+            this.panel_hang_hoa.Controls.Add(this.UC_danh_sach_san_pham);
             this.panel_hang_hoa.Controls.Add(this.UC_nhap_kho);
             this.panel_hang_hoa.Controls.Add(this.UC_danh_sach_phan_loai);
             this.panel_hang_hoa.Location = new System.Drawing.Point(0, 100);
             this.panel_hang_hoa.Name = "panel_hang_hoa";
             this.panel_hang_hoa.Size = new System.Drawing.Size(1720, 950);
-            this.panel_hang_hoa.TabIndex = 0;
-            //// 
-            //// UC_danh_sach_san_pham
-            //// 
-            //this.UC_san_pham.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(211)))), ((int)(((byte)(249)))));
-            //this.UC_san_pham.ForeColor = System.Drawing.SystemColors.ControlText;
-            //this.UC_san_pham.Location = new System.Drawing.Point(0, 0);
-            //this.UC_san_pham.Name = "UC_san_pham";
-            //this.UC_san_pham.Size = new System.Drawing.Size(1730, 950);
-            //this.UC_san_pham.TabIndex = 3;
+            this.panel_hang_hoa.TabIndex = 5;
+            // 
+            // btn_nha_cung_cap
+            // 
+            this.btn_nha_cung_cap.AnimationHoverSpeed = 0.07F;
+            this.btn_nha_cung_cap.AnimationSpeed = 0.03F;
+            this.btn_nha_cung_cap.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(125)))), ((int)(((byte)(229)))));
+            this.btn_nha_cung_cap.BorderColor = System.Drawing.Color.Black;
+            this.btn_nha_cung_cap.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_nha_cung_cap.ForeColor = System.Drawing.Color.White;
+            this.btn_nha_cung_cap.Image = null;
+            this.btn_nha_cung_cap.ImageSize = new System.Drawing.Size(20, 20);
+            this.btn_nha_cung_cap.Location = new System.Drawing.Point(500, 0);
+            this.btn_nha_cung_cap.Name = "btn_nha_cung_cap";
+            this.btn_nha_cung_cap.OnHoverBaseColor = System.Drawing.Color.White;
+            this.btn_nha_cung_cap.OnHoverBorderColor = System.Drawing.Color.White;
+            this.btn_nha_cung_cap.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(125)))), ((int)(((byte)(229)))));
+            this.btn_nha_cung_cap.OnHoverImage = null;
+            this.btn_nha_cung_cap.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(211)))), ((int)(((byte)(249)))));
+            this.btn_nha_cung_cap.OnPressedDepth = 50;
+            this.btn_nha_cung_cap.Size = new System.Drawing.Size(250, 100);
+            this.btn_nha_cung_cap.TabIndex = 6;
+            this.btn_nha_cung_cap.Text = "Nhà Cung Cấp";
+            this.btn_nha_cung_cap.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_nha_cung_cap.Click += new System.EventHandler(this.btn_nha_cung_cap_Click);
+            // 
+            // UC_danh_sach_san_pham
+            // 
+            this.UC_danh_sach_san_pham.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(211)))), ((int)(((byte)(249)))));
+            this.UC_danh_sach_san_pham.Location = new System.Drawing.Point(0, 0);
+            this.UC_danh_sach_san_pham.Name = "UC_danh_sach_san_pham";
+            this.UC_danh_sach_san_pham.Size = new System.Drawing.Size(1730, 1050);
+            this.UC_danh_sach_san_pham.TabIndex = 11;
+            // 
+            // UC_nhap_kho
+            // 
+            this.UC_nhap_kho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(211)))), ((int)(((byte)(249)))));
+            this.UC_nhap_kho.Location = new System.Drawing.Point(0, 0);
+            this.UC_nhap_kho.Name = "UC_nhap_kho";
+            this.UC_nhap_kho.Size = new System.Drawing.Size(1730, 950);
+            this.UC_nhap_kho.TabIndex = 2;
             // 
             // UC_danh_sach_phan_loai
             // 
@@ -161,19 +195,20 @@
             this.UC_danh_sach_phan_loai.Size = new System.Drawing.Size(1730, 950);
             this.UC_danh_sach_phan_loai.TabIndex = 0;
             // 
-            // UC_nhap_kho
+            // UC_danh_sach_nha_cung_cap
             // 
-            this.UC_nhap_kho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(211)))), ((int)(((byte)(249)))));
-            this.UC_nhap_kho.Location = new System.Drawing.Point(0, 0);
-            this.UC_nhap_kho.Name = "UC_nhap_kho";
-            this.UC_nhap_kho.Size = new System.Drawing.Size(1730, 950);
-            this.UC_nhap_kho.TabIndex = 1;
+            this.UC_danh_sach_nha_cung_cap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(211)))), ((int)(((byte)(249)))));
+            this.UC_danh_sach_nha_cung_cap.Location = new System.Drawing.Point(0, 0);
+            this.UC_danh_sach_nha_cung_cap.Name = "UC_danh_sach_nha_cung_cap";
+            this.UC_danh_sach_nha_cung_cap.Size = new System.Drawing.Size(1730, 950);
+            this.UC_danh_sach_nha_cung_cap.TabIndex = 10;
             // 
             // HangHoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.btn_nha_cung_cap);
             this.Controls.Add(this.panel_hang_hoa);
             this.Controls.Add(this.btn_nhap_hang);
             this.Controls.Add(this.btn_phan_loai);
@@ -197,9 +232,11 @@
         private Guna.UI.WinForms.GunaButton btn_phan_loai;
         private Guna.UI.WinForms.GunaButton btn_nhap_hang;
         private Guna.UI.WinForms.GunaPanel panel_hang_hoa;
-        //private GUI.HangHoa.DanhSachSanPham UC_san_pham;
-        private Guna.UI.WinForms.GunaLabel lb_name_control;
-        private GUI.HangHoa.DanhSachPhanLoai UC_danh_sach_phan_loai;
         private GUI.HangHoa.NhapKho UC_nhap_kho;
+        private GUI.HangHoa.DanhSachPhanLoai UC_danh_sach_phan_loai;
+        private GUI.HangHoa.DanhSachNhaCungCap UC_danh_sach_nha_cung_cap;
+        private Guna.UI.WinForms.GunaLabel lb_name_control;
+        private Guna.UI.WinForms.GunaButton btn_nha_cung_cap;
+        private GUI.HangHoa.DanhSachSanPham UC_danh_sach_san_pham;
     }
 }

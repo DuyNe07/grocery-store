@@ -34,17 +34,21 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.cbb_phan_loai = new Guna.UI.WinForms.GunaComboBox();
-            this.cbb_nha_san_xuat = new Guna.UI.WinForms.GunaComboBox();
+            this.txtbox_tim_kiem = new Guna.UI.WinForms.GunaTextBox();
+            this.btn_tim_kiem = new Guna.UI.WinForms.GunaButton();
+            this.lb_so_dong = new System.Windows.Forms.Label();
+            this.lb_tong_so_dong = new System.Windows.Forms.Label();
+            this.cbb_phan_loai = new System.Windows.Forms.ComboBox();
+            this.cbb_nha_cung_cap = new System.Windows.Forms.ComboBox();
             this.btn_them = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btn_sua = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btn_xoa = new Guna.UI.WinForms.GunaAdvenceButton();
             this.danh_sach_san_pham_main = new Guna.UI.WinForms.GunaPanel();
             this.gridview_danh_sach_san_pham = new Guna.UI.WinForms.GunaDataGridView();
-            this.txtbox_tim_kiem = new Guna.UI.WinForms.GunaTextBox();
-            this.btn_tim_kiem = new Guna.UI.WinForms.GunaButton();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sku = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ten_san_pham = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.han_su_dung = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phan_loai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nha_cung_cap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.so_luong_ton_kho = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,57 +62,103 @@
             // 
             // gunaPanel1
             // 
+            gunaPanel1.Controls.Add(this.txtbox_tim_kiem);
+            gunaPanel1.Controls.Add(this.btn_tim_kiem);
+            gunaPanel1.Controls.Add(this.lb_so_dong);
+            gunaPanel1.Controls.Add(this.lb_tong_so_dong);
             gunaPanel1.Controls.Add(this.cbb_phan_loai);
-            gunaPanel1.Controls.Add(this.cbb_nha_san_xuat);
+            gunaPanel1.Controls.Add(this.cbb_nha_cung_cap);
             gunaPanel1.Controls.Add(this.btn_them);
             gunaPanel1.Controls.Add(this.btn_sua);
             gunaPanel1.Controls.Add(this.btn_xoa);
             gunaPanel1.Location = new System.Drawing.Point(0, 0);
             gunaPanel1.Name = "gunaPanel1";
             gunaPanel1.Size = new System.Drawing.Size(1730, 150);
-            gunaPanel1.TabIndex = 7;
+            gunaPanel1.TabIndex = 8;
+            // 
+            // txtbox_tim_kiem
+            // 
+            this.txtbox_tim_kiem.BaseColor = System.Drawing.Color.White;
+            this.txtbox_tim_kiem.BorderColor = System.Drawing.Color.Silver;
+            this.txtbox_tim_kiem.BorderSize = 0;
+            this.txtbox_tim_kiem.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtbox_tim_kiem.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtbox_tim_kiem.FocusedBorderColor = System.Drawing.Color.White;
+            this.txtbox_tim_kiem.FocusedForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.txtbox_tim_kiem.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbox_tim_kiem.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.txtbox_tim_kiem.Location = new System.Drawing.Point(120, 50);
+            this.txtbox_tim_kiem.Name = "txtbox_tim_kiem";
+            this.txtbox_tim_kiem.PasswordChar = '\0';
+            this.txtbox_tim_kiem.Size = new System.Drawing.Size(450, 50);
+            this.txtbox_tim_kiem.TabIndex = 16;
+            this.txtbox_tim_kiem.Text = "Tìm Kiếm";
+            this.txtbox_tim_kiem.TextOffsetX = 15;
+            this.txtbox_tim_kiem.Enter += new System.EventHandler(this.txtbox_tim_kiem_Enter);
+            this.txtbox_tim_kiem.Leave += new System.EventHandler(this.txtbox_tim_kiem_Leave);
+            // 
+            // btn_tim_kiem
+            // 
+            this.btn_tim_kiem.AnimationHoverSpeed = 0.07F;
+            this.btn_tim_kiem.AnimationSpeed = 0.03F;
+            this.btn_tim_kiem.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_tim_kiem.BorderColor = System.Drawing.Color.White;
+            this.btn_tim_kiem.BorderSize = 3;
+            this.btn_tim_kiem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_tim_kiem.ForeColor = System.Drawing.Color.White;
+            this.btn_tim_kiem.Image = global::grocery_store.Properties.Resources.Search;
+            this.btn_tim_kiem.ImageSize = new System.Drawing.Size(30, 30);
+            this.btn_tim_kiem.Location = new System.Drawing.Point(50, 50);
+            this.btn_tim_kiem.Name = "btn_tim_kiem";
+            this.btn_tim_kiem.OnHoverBaseColor = System.Drawing.Color.Gray;
+            this.btn_tim_kiem.OnHoverBorderColor = System.Drawing.Color.White;
+            this.btn_tim_kiem.OnHoverForeColor = System.Drawing.Color.White;
+            this.btn_tim_kiem.OnHoverImage = null;
+            this.btn_tim_kiem.OnPressedColor = System.Drawing.Color.Black;
+            this.btn_tim_kiem.Size = new System.Drawing.Size(70, 50);
+            this.btn_tim_kiem.TabIndex = 15;
+            // 
+            // lb_so_dong
+            // 
+            this.lb_so_dong.AutoSize = true;
+            this.lb_so_dong.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_so_dong.ForeColor = System.Drawing.Color.Red;
+            this.lb_so_dong.Location = new System.Drawing.Point(93, 119);
+            this.lb_so_dong.Name = "lb_so_dong";
+            this.lb_so_dong.Size = new System.Drawing.Size(0, 17);
+            this.lb_so_dong.TabIndex = 14;
+            // 
+            // lb_tong_so_dong
+            // 
+            this.lb_tong_so_dong.AutoSize = true;
+            this.lb_tong_so_dong.Font = new System.Drawing.Font("Segoe UI", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_tong_so_dong.ForeColor = System.Drawing.Color.Red;
+            this.lb_tong_so_dong.Location = new System.Drawing.Point(47, 119);
+            this.lb_tong_so_dong.Name = "lb_tong_so_dong";
+            this.lb_tong_so_dong.Size = new System.Drawing.Size(50, 17);
+            this.lb_tong_so_dong.TabIndex = 13;
+            this.lb_tong_so_dong.Text = "Result:";
             // 
             // cbb_phan_loai
             // 
-            this.cbb_phan_loai.BackColor = System.Drawing.Color.Transparent;
-            this.cbb_phan_loai.BaseColor = System.Drawing.Color.White;
-            this.cbb_phan_loai.BorderColor = System.Drawing.Color.Silver;
-            this.cbb_phan_loai.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbb_phan_loai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbb_phan_loai.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbb_phan_loai.ForeColor = System.Drawing.Color.Black;
+            this.cbb_phan_loai.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbb_phan_loai.FormattingEnabled = true;
-            this.cbb_phan_loai.Items.AddRange(new object[] {
-            "Phân Loại (All)",
-            "COCA",
-            "PEPSI"});
-            this.cbb_phan_loai.Location = new System.Drawing.Point(920, 60);
+            this.cbb_phan_loai.ItemHeight = 22;
+            this.cbb_phan_loai.Location = new System.Drawing.Point(957, 62);
             this.cbb_phan_loai.Name = "cbb_phan_loai";
-            this.cbb_phan_loai.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.cbb_phan_loai.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.cbb_phan_loai.Size = new System.Drawing.Size(270, 33);
-            this.cbb_phan_loai.TabIndex = 10;
+            this.cbb_phan_loai.Size = new System.Drawing.Size(270, 30);
+            this.cbb_phan_loai.TabIndex = 12;
             // 
-            // cbb_nha_san_xuat
+            // cbb_nha_cung_cap
             // 
-            this.cbb_nha_san_xuat.BackColor = System.Drawing.Color.Transparent;
-            this.cbb_nha_san_xuat.BaseColor = System.Drawing.Color.White;
-            this.cbb_nha_san_xuat.BorderColor = System.Drawing.Color.Silver;
-            this.cbb_nha_san_xuat.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbb_nha_san_xuat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbb_nha_san_xuat.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbb_nha_san_xuat.ForeColor = System.Drawing.Color.Black;
-            this.cbb_nha_san_xuat.FormattingEnabled = true;
-            this.cbb_nha_san_xuat.Items.AddRange(new object[] {
-            "Nhà sản xuất (All)",
-            "COCA",
-            "PEPSI"});
-            this.cbb_nha_san_xuat.Location = new System.Drawing.Point(620, 60);
-            this.cbb_nha_san_xuat.Name = "cbb_nha_san_xuat";
-            this.cbb_nha_san_xuat.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.cbb_nha_san_xuat.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.cbb_nha_san_xuat.Size = new System.Drawing.Size(270, 33);
-            this.cbb_nha_san_xuat.TabIndex = 9;
+            this.cbb_nha_cung_cap.BackColor = System.Drawing.Color.White;
+            this.cbb_nha_cung_cap.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbb_nha_cung_cap.ForeColor = System.Drawing.Color.Black;
+            this.cbb_nha_cung_cap.FormattingEnabled = true;
+            this.cbb_nha_cung_cap.Location = new System.Drawing.Point(615, 62);
+            this.cbb_nha_cung_cap.Name = "cbb_nha_cung_cap";
+            this.cbb_nha_cung_cap.Size = new System.Drawing.Size(270, 30);
+            this.cbb_nha_cung_cap.TabIndex = 11;
             // 
             // btn_them
             // 
@@ -170,6 +220,7 @@
             this.btn_sua.Size = new System.Drawing.Size(120, 50);
             this.btn_sua.TabIndex = 7;
             this.btn_sua.Text = "Sửa";
+            this.btn_sua.Click += new System.EventHandler(this.btn_sua_Click);
             // 
             // btn_xoa
             // 
@@ -195,11 +246,12 @@
             this.btn_xoa.OnHoverForeColor = System.Drawing.Color.White;
             this.btn_xoa.OnHoverImage = null;
             this.btn_xoa.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.btn_xoa.OnPressedColor = System.Drawing.Color.Black;
+            this.btn_xoa.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(70)))));
             this.btn_xoa.Radius = 10;
             this.btn_xoa.Size = new System.Drawing.Size(120, 50);
             this.btn_xoa.TabIndex = 6;
             this.btn_xoa.Text = "Xóa";
+            this.btn_xoa.Click += new System.EventHandler(this.btn_xoa_ClickAsync);
             // 
             // danh_sach_san_pham_main
             // 
@@ -207,13 +259,12 @@
             this.danh_sach_san_pham_main.Location = new System.Drawing.Point(0, 150);
             this.danh_sach_san_pham_main.Name = "danh_sach_san_pham_main";
             this.danh_sach_san_pham_main.Size = new System.Drawing.Size(1730, 750);
-            this.danh_sach_san_pham_main.TabIndex = 1;
+            this.danh_sach_san_pham_main.TabIndex = 10;
             // 
             // gridview_danh_sach_san_pham
             // 
             this.gridview_danh_sach_san_pham.AllowUserToAddRows = false;
             this.gridview_danh_sach_san_pham.AllowUserToDeleteRows = false;
-            this.gridview_danh_sach_san_pham.AllowUserToResizeColumns = false;
             this.gridview_danh_sach_san_pham.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.gridview_danh_sach_san_pham.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
@@ -235,7 +286,9 @@
             this.gridview_danh_sach_san_pham.ColumnHeadersHeight = 50;
             this.gridview_danh_sach_san_pham.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
+            this.sku,
             this.ten_san_pham,
+            this.han_su_dung,
             this.phan_loai,
             this.nha_cung_cap,
             this.so_luong_ton_kho,
@@ -245,13 +298,13 @@
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.gridview_danh_sach_san_pham.DefaultCellStyle = dataGridViewCellStyle3;
             this.gridview_danh_sach_san_pham.EnableHeadersVisualStyles = false;
-            this.gridview_danh_sach_san_pham.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(211)))), ((int)(((byte)(249)))));
+            this.gridview_danh_sach_san_pham.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gridview_danh_sach_san_pham.Location = new System.Drawing.Point(45, 0);
             this.gridview_danh_sach_san_pham.MultiSelect = false;
             this.gridview_danh_sach_san_pham.Name = "gridview_danh_sach_san_pham";
@@ -266,9 +319,10 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.gridview_danh_sach_san_pham.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.gridview_danh_sach_san_pham.RowTemplate.Height = 50;
+            this.gridview_danh_sach_san_pham.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.gridview_danh_sach_san_pham.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridview_danh_sach_san_pham.Size = new System.Drawing.Size(1640, 750);
-            this.gridview_danh_sach_san_pham.TabIndex = 0;
+            this.gridview_danh_sach_san_pham.TabIndex = 10;
             this.gridview_danh_sach_san_pham.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Guna;
             this.gridview_danh_sach_san_pham.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.gridview_danh_sach_san_pham.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -276,7 +330,7 @@
             this.gridview_danh_sach_san_pham.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.gridview_danh_sach_san_pham.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
             this.gridview_danh_sach_san_pham.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.gridview_danh_sach_san_pham.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(211)))), ((int)(((byte)(249)))));
+            this.gridview_danh_sach_san_pham.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gridview_danh_sach_san_pham.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.gridview_danh_sach_san_pham.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.gridview_danh_sach_san_pham.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -287,52 +341,12 @@
             this.gridview_danh_sach_san_pham.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.gridview_danh_sach_san_pham.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridview_danh_sach_san_pham.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.gridview_danh_sach_san_pham.ThemeStyle.RowsStyle.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.gridview_danh_sach_san_pham.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.gridview_danh_sach_san_pham.ThemeStyle.RowsStyle.Height = 50;
             this.gridview_danh_sach_san_pham.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gridview_danh_sach_san_pham.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
-            // txtbox_tim_kiem
-            // 
-            this.txtbox_tim_kiem.BaseColor = System.Drawing.Color.White;
-            this.txtbox_tim_kiem.BorderColor = System.Drawing.Color.Silver;
-            this.txtbox_tim_kiem.BorderSize = 0;
-            this.txtbox_tim_kiem.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtbox_tim_kiem.FocusedBaseColor = System.Drawing.Color.White;
-            this.txtbox_tim_kiem.FocusedBorderColor = System.Drawing.Color.White;
-            this.txtbox_tim_kiem.FocusedForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.txtbox_tim_kiem.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbox_tim_kiem.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.txtbox_tim_kiem.Location = new System.Drawing.Point(120, 50);
-            this.txtbox_tim_kiem.Name = "txtbox_tim_kiem";
-            this.txtbox_tim_kiem.PasswordChar = '\0';
-            this.txtbox_tim_kiem.Size = new System.Drawing.Size(450, 50);
-            this.txtbox_tim_kiem.TabIndex = 4;
-            this.txtbox_tim_kiem.Text = "Tìm Kiếm";
-            this.txtbox_tim_kiem.TextOffsetX = 15;
-            this.txtbox_tim_kiem.Enter += new System.EventHandler(this.txtbox_tim_kiem_Enter);
-            this.txtbox_tim_kiem.Leave += new System.EventHandler(this.txtbox_tim_kiem_Leave);
-            // 
-            // btn_tim_kiem
-            // 
-            this.btn_tim_kiem.AnimationHoverSpeed = 0.07F;
-            this.btn_tim_kiem.AnimationSpeed = 0.03F;
-            this.btn_tim_kiem.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btn_tim_kiem.BorderColor = System.Drawing.Color.White;
-            this.btn_tim_kiem.BorderSize = 3;
-            this.btn_tim_kiem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_tim_kiem.ForeColor = System.Drawing.Color.White;
-            this.btn_tim_kiem.Image = global::grocery_store.Properties.Resources.Search;
-            this.btn_tim_kiem.ImageSize = new System.Drawing.Size(30, 30);
-            this.btn_tim_kiem.Location = new System.Drawing.Point(50, 50);
-            this.btn_tim_kiem.Name = "btn_tim_kiem";
-            this.btn_tim_kiem.OnHoverBaseColor = System.Drawing.Color.Gray;
-            this.btn_tim_kiem.OnHoverBorderColor = System.Drawing.Color.White;
-            this.btn_tim_kiem.OnHoverForeColor = System.Drawing.Color.White;
-            this.btn_tim_kiem.OnHoverImage = null;
-            this.btn_tim_kiem.OnPressedColor = System.Drawing.Color.Black;
-            this.btn_tim_kiem.Size = new System.Drawing.Size(70, 50);
-            this.btn_tim_kiem.TabIndex = 3;
+            this.gridview_danh_sach_san_pham.VirtualMode = true;
+            this.gridview_danh_sach_san_pham.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridview_danh_sach_san_pham_RowEnter);
             // 
             // id
             // 
@@ -342,6 +356,14 @@
             this.id.Name = "id";
             this.id.ReadOnly = true;
             // 
+            // sku
+            // 
+            this.sku.DataPropertyName = "SKU";
+            this.sku.HeaderText = "SKU";
+            this.sku.MinimumWidth = 6;
+            this.sku.Name = "sku";
+            this.sku.ReadOnly = true;
+            // 
             // ten_san_pham
             // 
             this.ten_san_pham.DataPropertyName = "Name";
@@ -349,6 +371,14 @@
             this.ten_san_pham.MinimumWidth = 6;
             this.ten_san_pham.Name = "ten_san_pham";
             this.ten_san_pham.ReadOnly = true;
+            // 
+            // han_su_dung
+            // 
+            this.han_su_dung.DataPropertyName = "Expiry";
+            this.han_su_dung.HeaderText = "Hạn Sử Dụng";
+            this.han_su_dung.MinimumWidth = 6;
+            this.han_su_dung.Name = "han_su_dung";
+            this.han_su_dung.ReadOnly = true;
             // 
             // phan_loai
             // 
@@ -395,15 +425,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(211)))), ((int)(((byte)(249)))));
-            this.Controls.Add(this.btn_tim_kiem);
-            this.Controls.Add(this.txtbox_tim_kiem);
-            this.Controls.Add(this.danh_sach_san_pham_main);
             this.Controls.Add(gunaPanel1);
-            this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Controls.Add(this.danh_sach_san_pham_main);
             this.Name = "DanhSachSanPham";
-            this.Size = new System.Drawing.Size(1730, 950);
+            this.Size = new System.Drawing.Size(1730, 1050);
             this.Load += new System.EventHandler(this.DanhSachSanPham_Load);
             gunaPanel1.ResumeLayout(false);
+            gunaPanel1.PerformLayout();
             this.danh_sach_san_pham_main.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridview_danh_sach_san_pham)).EndInit();
             this.ResumeLayout(false);
@@ -411,17 +439,22 @@
         }
 
         #endregion
-        private Guna.UI.WinForms.GunaPanel danh_sach_san_pham_main;
-        private Guna.UI.WinForms.GunaAdvenceButton btn_xoa;
+
+        private System.Windows.Forms.Label lb_so_dong;
+        private System.Windows.Forms.Label lb_tong_so_dong;
+        private System.Windows.Forms.ComboBox cbb_phan_loai;
+        private System.Windows.Forms.ComboBox cbb_nha_cung_cap;
         private Guna.UI.WinForms.GunaAdvenceButton btn_them;
         private Guna.UI.WinForms.GunaAdvenceButton btn_sua;
-        private Guna.UI.WinForms.GunaComboBox cbb_nha_san_xuat;
-        private Guna.UI.WinForms.GunaComboBox cbb_phan_loai;
+        private Guna.UI.WinForms.GunaAdvenceButton btn_xoa;
         private Guna.UI.WinForms.GunaTextBox txtbox_tim_kiem;
         private Guna.UI.WinForms.GunaButton btn_tim_kiem;
+        private Guna.UI.WinForms.GunaPanel danh_sach_san_pham_main;
         private Guna.UI.WinForms.GunaDataGridView gridview_danh_sach_san_pham;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sku;
         private System.Windows.Forms.DataGridViewTextBoxColumn ten_san_pham;
+        private System.Windows.Forms.DataGridViewTextBoxColumn han_su_dung;
         private System.Windows.Forms.DataGridViewTextBoxColumn phan_loai;
         private System.Windows.Forms.DataGridViewTextBoxColumn nha_cung_cap;
         private System.Windows.Forms.DataGridViewTextBoxColumn so_luong_ton_kho;

@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace grocery_store.GUI.HangHoa
 {
-    public partial class NhapKho : UserControl
+    public partial class DanhSachNhaCungCap : UserControl
     {
-        public NhapKho()
+        public DanhSachNhaCungCap()
         {
             InitializeComponent();
         }
-
     }
 }
