@@ -20,16 +20,11 @@ namespace grocery_store.GUI.HangHoa
         {
             InitializeComponent();
         }
-
-        private async void DanhSachPhanLoai_VisibleChanged(object sender, EventArgs e)
+        private async void DanhSachPhanLoai_Load(object sender, EventArgs e)
         {
-            if (this.Visible == true)
-            {
-                gridview_danh_sach_phan_loai.DataSource = await GetCategopryTable();
-                UpdateSoDong();
-            }
+            gridview_danh_sach_phan_loai.DataSource = await GetCategopryTable();
+            UpdateSoDong();
         }
-
         private async void gridview_danh_sach_phan_loai_RowEnterAsync(object sender, DataGridViewCellEventArgs e)
         {
             indexCurrentRow = e.RowIndex;
@@ -102,6 +97,7 @@ namespace grocery_store.GUI.HangHoa
         {
             lb_so_luong_phan_loai.Text = gridview_danh_sach_phan_loai.RowCount.ToString();
         }
+
         #endregion
 
 

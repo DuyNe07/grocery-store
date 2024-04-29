@@ -22,13 +22,10 @@ namespace grocery_store.GUI.HangHoa
             InitializeComponent();
             LoadCombobox();
         }
-        private async void DanhSachSanPham_VisibleChanged(object sender, EventArgs e)
+        private async void DanhSachSanPham_Load(object sender, EventArgs e)
         {
-            if (this.Visible)
-            {
-                gridview_danh_sach_san_pham.DataSource = await GetProducTable();
-                UpdateSoDong();
-            }
+            gridview_danh_sach_san_pham.DataSource = await GetProducTable();
+            UpdateSoDong();
         }
 
         #region Chức năng thêm sản phẩm
@@ -237,6 +234,7 @@ namespace grocery_store.GUI.HangHoa
         }
 
         #endregion
+
 
     }
 }

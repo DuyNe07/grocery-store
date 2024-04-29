@@ -297,7 +297,7 @@
             this.Controls.Add(this.danh_sach_san_pham_main);
             this.Name = "DanhSachPhanLoai";
             this.Size = new System.Drawing.Size(1730, 950);
-            this.VisibleChanged += new System.EventHandler(this.DanhSachPhanLoai_VisibleChanged);
+            this.Load += new System.EventHandler(this.DanhSachPhanLoai_Load);
             this.danh_sach_san_pham_main.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridview_danh_sach_phan_loai)).EndInit();
             this.gunaPanel1.ResumeLayout(false);

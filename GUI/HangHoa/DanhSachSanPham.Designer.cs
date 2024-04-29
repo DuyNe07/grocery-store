@@ -429,7 +429,7 @@
             this.Controls.Add(this.danh_sach_san_pham_main);
             this.Name = "DanhSachSanPham";
             this.Size = new System.Drawing.Size(1730, 1050);
-            this.VisibleChanged += new System.EventHandler(this.DanhSachSanPham_VisibleChanged);
+            this.Load += new System.EventHandler(this.DanhSachSanPham_Load);
             gunaPanel1.ResumeLayout(false);
             gunaPanel1.PerformLayout();
             this.danh_sach_san_pham_main.ResumeLayout(false);
