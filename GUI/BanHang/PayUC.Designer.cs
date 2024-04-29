@@ -32,7 +32,7 @@
             this.pictureBox_QR = new System.Windows.Forms.PictureBox();
             this.btn_OK = new Guna.UI.WinForms.GunaButton();
             this.btn_Cancel = new Guna.UI.WinForms.GunaButton();
-            //this.reportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.reportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_QR)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,7 +65,7 @@
             this.btn_OK.ForeColor = System.Drawing.Color.Black;
             this.btn_OK.Image = null;
             this.btn_OK.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_OK.Location = new System.Drawing.Point(682, 689);
+            this.btn_OK.Location = new System.Drawing.Point(682, 662);
             this.btn_OK.Name = "btn_OK";
             this.btn_OK.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(148)))), ((int)(((byte)(118)))));
             this.btn_OK.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -88,7 +88,7 @@
             this.btn_Cancel.ForeColor = System.Drawing.Color.Black;
             this.btn_Cancel.Image = null;
             this.btn_Cancel.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_Cancel.Location = new System.Drawing.Point(874, 689);
+            this.btn_Cancel.Location = new System.Drawing.Point(874, 662);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
             this.btn_Cancel.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -101,17 +101,27 @@
             this.btn_Cancel.Text = "Thoát";
             this.btn_Cancel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // reportViewer
+            // 
+            this.reportViewer.LocalReport.ReportEmbeddedResource = "grocery_store.GUI.BanHang.ShopOrderReport.rdlc";
+            this.reportViewer.Location = new System.Drawing.Point(40, 48);
+            this.reportViewer.Name = "reportViewer";
+            this.reportViewer.ServerReport.BearerToken = null;
+            this.reportViewer.Size = new System.Drawing.Size(588, 691);
+            this.reportViewer.TabIndex = 13;
+            // 
             // PayUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.reportViewer);
             this.Controls.Add(this.btn_Cancel);
             this.Controls.Add(this.btn_OK);
             this.Controls.Add(this.pictureBox_QR);
             this.Controls.Add(this.label1);
             this.Name = "PayUC";
-            this.Size = new System.Drawing.Size(1087, 834);
+            this.Size = new System.Drawing.Size(1087, 770);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_QR)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -124,5 +134,6 @@
         private System.Windows.Forms.PictureBox pictureBox_QR;
         private Guna.UI.WinForms.GunaButton btn_OK;
         private Guna.UI.WinForms.GunaButton btn_Cancel;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer;
     }
 }
