@@ -58,6 +58,9 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuButton">
       <HintPath>Frameworks\Bufinu\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDatePicker">
+      <HintPath>Frameworks\Bufinu\Bunifu.UI.WinForms.BunifuDatePicker.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuGauge">
       <HintPath>Frameworks\Bufinu\Bunifu.UI.WinForms.BunifuGauge.dll</HintPath>
     </Reference>
@@ -397,6 +400,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\GenarateBarCode.cs" />
+    <Compile Include="API\GenerateProductCode.cs" />
     <Compile Include="API\PaymentQR.cs" />
     <Compile Include="GUI\HoaDon\Bill.cs">
       <SubType>UserControl</SubType>
@@ -445,6 +449,12 @@
     </Compile>
     <Compile Include="GUI\Dashboard\QuanLy.Designer.cs">
       <DependentUpon>QuanLy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HangHoa\DanhSachNhaCungCap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\HangHoa\DanhSachNhaCungCap.Designer.cs">
+      <DependentUpon>DanhSachNhaCungCap.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\HangHoa\DanhSachPhanLoai.cs">
       <SubType>UserControl</SubType>
@@ -543,6 +553,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Dashboard\QuanLy.resx">
       <DependentUpon>QuanLy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HangHoa\DanhSachNhaCungCap.resx">
+      <DependentUpon>DanhSachNhaCungCap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\HangHoa\DanhSachPhanLoai.resx">
       <DependentUpon>DanhSachPhanLoai.cs</DependentUpon>
