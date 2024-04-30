@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
 // If you have enabled NRTs for your project, then un-comment the following line:
@@ -22,8 +25,15 @@ namespace grocery_store.Models
         public string Password { get; set; }
         public string Login { get; set; }
         public byte[] Img { get; set; }
-
         public virtual Job Job { get; set; }
         public virtual ICollection<ShopOrder> ShopOrder { get; set; }
+
+        public static async Task<Employee> LoginCheck(int ID)
+        {
+            using (var db = new GroceryStoreContext())
+            {
+                return await db.Employee.FindAsync(ID);
+            }
+        }
     }
 }

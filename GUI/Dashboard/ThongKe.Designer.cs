@@ -1,4 +1,4 @@
-﻿namespace grocery_store.GUI
+﻿namespace grocery_store.GUI.Dashboard
 {
     partial class ThongKe
     {

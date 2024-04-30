@@ -15,7 +15,7 @@ namespace grocery_store.Models
         public int? ShopOrderId { get; set; }
         public int? ProductId { get; set; }
 
-        public virtual Product ShopOrder { get; set; }
-        public virtual ShopOrder ShopOrderNavigation { get; set; }
+        public virtual Product Product { get; set; }
+        public virtual ShopOrder ShopOrder { get; set; }
     }
 }

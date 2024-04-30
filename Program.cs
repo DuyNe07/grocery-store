@@ -1,8 +1,4 @@
-﻿using grocery_store.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
 
 namespace grocery_store
@@ -15,10 +11,17 @@ namespace grocery_store
         [STAThread]
         static void Main()
         {
+            System.Globalization.CultureInfo.DefaultThreadCurrentCulture = new System.Globalization.CultureInfo("vi-VI");
+            System.Globalization.CultureInfo.DefaultThreadCurrentUICulture = new System.Globalization.CultureInfo("vi-VI");
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            //API.GenarateBarCode genarateBarCode = new API.GenarateBarCode();
+            //genarateBarCode.Genarate();
+            //API.PaymentQR paymentQR = new API.PaymentQR();
+            //paymentQR.Genarate();
             Application.Run(new GUI.Main());
         }
     }
-    
+
 }

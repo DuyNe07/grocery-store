@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -29,6 +29,7 @@ namespace grocery_store.Models
         public virtual DbSet<ShopOrder> ShopOrder { get; set; }
         public virtual DbSet<Supplier> Supplier { get; set; }
         public virtual DbSet<Timekeeping> Timekeeping { get; set; }
+        public virtual DbSet<ViewInvoice> ViewInvoice { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -41,6 +42,7 @@ namespace grocery_store.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
             modelBuilder.Entity<Category>(entity =>
             {
                 entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
@@ -57,6 +59,10 @@ namespace grocery_store.Models
                 entity.Property(e => e.JobId).HasColumnName("JobID");
 
                 entity.Property(e => e.LastName).HasMaxLength(50);
+
+                entity.Property(e => e.Login).HasMaxLength(50);
+
+                entity.Property(e => e.Password).HasMaxLength(50);
 
                 entity.Property(e => e.Role).HasMaxLength(50);
                 entity.Property(e => e.Login).HasMaxLength(50);
@@ -91,6 +97,7 @@ namespace grocery_store.Models
                     .HasConstraintName("FK_Timekeeping_Employee");
             });
 
+
             modelBuilder.Entity<Job>(entity =>
             {
                 entity.Property(e => e.JobId).HasColumnName("JobID");
@@ -117,19 +124,19 @@ namespace grocery_store.Models
                 entity.HasOne(d => d.ShopOrder)
                     .WithMany(p => p.OrderLine)
                     .HasForeignKey(d => d.ShopOrderId)
-                    .HasConstraintName("FK_OrderLine_ProductID");
-
-                entity.HasOne(d => d.ShopOrderNavigation)
-                    .WithMany(p => p.OrderLine)
-                    .HasForeignKey(d => d.ShopOrderId)
                     .HasConstraintName("FK_OrderLine_ShopOrder");
+
+                entity.HasOne(d => d.Product)
+                    .WithMany(p => p.OrderLine)
+                    .HasForeignKey(d => d.ProductId)
+                    .HasConstraintName("FK_OrderLine_ProductID");
             });
 
             modelBuilder.Entity<Payment>(entity =>
             {
                 entity.Property(e => e.PaymentId).HasColumnName("PaymentID");
 
-                entity.Property(e => e.Name).HasMaxLength(50);
+                entity.Property(e => e.Name).HasColumnName("Name").HasMaxLength(50);
 
                 entity.Property(e => e.Qr)
                     .HasColumnName("QR")
@@ -168,6 +175,8 @@ namespace grocery_store.Models
                     .HasForeignKey(d => d.SupplierId)
                     .HasConstraintName("FK_Product_Supplier");
             });
+
+            
 
             modelBuilder.Entity<ShopOrder>(entity =>
             {
@@ -215,6 +224,29 @@ namespace grocery_store.Models
                 entity.Property(e => e.Checkout).HasColumnType("datetime");
 
                 entity.Property(e => e.Salary).HasColumnType("money");
+            });
+
+            modelBuilder.Entity<ViewInvoice>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("VIEW_Invoice");
+
+                entity.Property(e => e.MarketPrice).HasColumnType("money");
+
+                entity.Property(e => e.NameEmp).HasMaxLength(101);
+
+                entity.Property(e => e.OrderDate).HasColumnType("datetime");
+
+                entity.Property(e => e.PaymentMethod).HasMaxLength(50);
+
+                entity.Property(e => e.PriceLine).HasColumnType("money");
+
+                entity.Property(e => e.ProductName).HasMaxLength(50);
+
+                entity.Property(e => e.ShopOrderId).HasColumnName("ShopOrderID");
+
+                entity.Property(e => e.SubTotal).HasColumnType("money");
             });
 
             OnModelCreatingPartial(modelBuilder);
