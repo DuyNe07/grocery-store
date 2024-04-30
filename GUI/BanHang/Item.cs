@@ -1,4 +1,5 @@
-﻿using System;
+﻿using grocery_store.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -41,7 +42,7 @@ namespace grocery_store.GUI.BanHang
             get => label_totalLine.Text;
             set => label_totalLine.Text = value;
         }
-        public Item(int quantity)
+        public Item(Product product)
         {
             InitializeComponent();
             this.Product = product;

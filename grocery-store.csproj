@@ -66,6 +66,7 @@
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuDataGridView">
       <HintPath>Frameworks\Bufinu\Bunifu.UI.WinForms.BunifuDataGridView.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuDatePicker">
       <HintPath>Frameworks\Bufinu\Bunifu.UI.WinForms.BunifuDatePicker.dll</HintPath>
     </Reference>
@@ -554,11 +555,7 @@
     <Compile Include="Models\ViewInvoice.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="GUI\HangHoa\PhanLoai.resx">
@@ -622,7 +619,6 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <SubType>Designer</SubType>
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Invoice.xsc">
       <DependentUpon>Invoice.xsd</DependentUpon>
@@ -724,6 +720,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Image\BarCode\" />
+    <Folder Include="SqlServerTypes\x64\" />
+    <Folder Include="SqlServerTypes\x86\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\user_img.bmp" />
@@ -739,18 +737,6 @@
     <None Include="Image\save.png" />
     <None Include="Image\cancel.png" />
     <Content Include="SqlServerTypes\readme.htm" />
-    <Content Include="SqlServerTypes\x64\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="takeeasy_1.ico" />
   </ItemGroup>
   <ItemGroup>

@@ -50,7 +50,6 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::grocery_store.Properties.Resources.search;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(313, 28);
             this.pictureBox1.Name = "pictureBox1";

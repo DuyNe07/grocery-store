@@ -49,8 +49,8 @@
             this.bt_save = new System.Windows.Forms.Panel();
             this.lb_save = new System.Windows.Forms.Label();
             this.ptb_emp = new System.Windows.Forms.PictureBox();
-            this.elipse_bt_save = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.elipse_ptb_emp = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.elipse_bt_save = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.elipse_ptb_emp = new Guna.UI.WinForms.GunaElipse(this.components);
             this.timer_online = new System.Windows.Forms.Timer(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel_user_inshift = new System.Windows.Forms.Panel();
@@ -69,7 +69,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.elipse_bt_timekeeping = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.elipse_bt_timekeeping = new Guna.UI.WinForms.GunaElipse(this.components);
             this.timer_timekeeping = new System.Windows.Forms.Timer(this.components);
             this.panel_history = new System.Windows.Forms.Panel();
             this.textBox5 = new System.Windows.Forms.TextBox();
@@ -88,14 +88,14 @@
             this.label10 = new System.Windows.Forms.Label();
             this.cbb_month = new System.Windows.Forms.ComboBox();
             this.dtgv_history = new Bunifu.UI.WinForms.BunifuDataGridView();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Checkin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Checkoutt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DelayTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TimeWork = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.bt_save.SuspendLayout();
@@ -277,12 +277,12 @@
             // 
             // elipse_bt_save
             // 
-            this.elipse_bt_save.ElipseRadius = 40;
+            this.elipse_bt_save.Radius = 20;
             this.elipse_bt_save.TargetControl = this.bt_save;
             // 
             // elipse_ptb_emp
             // 
-            this.elipse_ptb_emp.ElipseRadius = 100;
+            this.elipse_ptb_emp.Radius = 30;
             this.elipse_ptb_emp.TargetControl = this.ptb_emp;
             // 
             // timer_online
@@ -488,7 +488,7 @@
             // 
             // elipse_bt_timekeeping
             // 
-            this.elipse_bt_timekeeping.ElipseRadius = 40;
+            this.elipse_bt_timekeeping.Radius = 20;
             this.elipse_bt_timekeeping.TargetControl = this.bt_timekeeping;
             // 
             // timer_timekeeping
@@ -728,26 +728,6 @@
             this.dtgv_history.TabIndex = 6;
             this.dtgv_history.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(1151, 10);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(184, 50);
-            this.label13.TabIndex = 5;
-            this.label13.Text = "Thống kê";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(15, 10);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(271, 50);
-            this.label9.TabIndex = 5;
-            this.label9.Text = "Dữ liệu lịch sử";
-            // 
             // Date
             // 
             this.Date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -807,6 +787,26 @@
             this.Note.Name = "Note";
             this.Note.ReadOnly = true;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(1151, 10);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(184, 50);
+            this.label13.TabIndex = 5;
+            this.label13.Text = "Thống kê";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(15, 10);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(271, 50);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Dữ liệu lịch sử";
+            // 
             // NhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -846,8 +846,8 @@
         private System.Windows.Forms.PictureBox ptb_emp;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private Bunifu.Framework.UI.BunifuElipse elipse_bt_save;
-        private Bunifu.Framework.UI.BunifuElipse elipse_ptb_emp;
+        private Guna.UI.WinForms.GunaElipse elipse_bt_save;
+        private Guna.UI.WinForms.GunaElipse elipse_ptb_emp;
         private System.Windows.Forms.Panel bt_save;
         private System.Windows.Forms.Label lb_save;
         private System.Windows.Forms.Label label1;
@@ -868,7 +868,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel bt_timekeeping;
         private System.Windows.Forms.Label lb_timekeeping;
-        private Bunifu.Framework.UI.BunifuElipse elipse_bt_timekeeping;
+        private Guna.UI.WinForms.GunaElipse elipse_bt_timekeeping;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel_rootready;
         private System.Windows.Forms.Panel panel_shift;

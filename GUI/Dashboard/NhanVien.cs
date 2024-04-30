@@ -1,5 +1,6 @@
 ﻿using Bunifu.Framework.UI;
 using grocery_store.Models;
+using Guna.UI.WinForms;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -109,9 +110,9 @@ namespace grocery_store.GUI.Dashboard
                             }
                         }
                         uo.BackgroundImageLayout = ImageLayout.Stretch;
-                        BunifuElipse elip = new BunifuElipse();
+                        GunaElipse elip = new GunaElipse();
                         elip.TargetControl = uo;
-                        elip.ElipseRadius = 140;
+                        elip.Radius = 140;
                         uo.Tag = "Họ tên: " + e.FirstName + " " + e.LastName + "\nCa làm: " + e.Job.Name;
                         uo.Click += uo_click;
                         uo.Cursor = Cursors.Hand;
