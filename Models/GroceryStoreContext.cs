@@ -59,8 +59,11 @@ namespace grocery_store.Models
                 entity.Property(e => e.LastName).HasMaxLength(50);
 
                 entity.Property(e => e.Role).HasMaxLength(50);
+                entity.Property(e => e.Login).HasMaxLength(50);
 
-                entity.Property(e => e.Img).HasColumnName("img")
+                entity.Property(e => e.Password).HasMaxLength(50);
+
+                entity.Property(e => e.Img).HasColumnName("Img")
                     .HasMaxLength(20);
 
                 entity.HasOne(d => d.Job)
