@@ -58,9 +58,12 @@ namespace grocery_store.GUI.HangHoa
             {
                 try
                 {
-                    UC_phan_loai.Them();
-                    this.Controls.Remove(UC_phan_loai);
-                    gridview_danh_sach_phan_loai.DataSource = await GetCategopryTable();
+                    int success = await UC_phan_loai.Them();
+                    if (success == 0)
+                    {
+                        this.Controls.Remove(UC_phan_loai);
+                        gridview_danh_sach_phan_loai.DataSource = await GetCategopryTable();
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -86,9 +89,12 @@ namespace grocery_store.GUI.HangHoa
             {
                 try
                 {
-                    await UC_phan_loai.Sua();
-                    this.Controls.Remove(UC_phan_loai);
-                    gridview_danh_sach_phan_loai.DataSource = await GetCategopryTable();
+                    int success = await UC_phan_loai.Sua();
+                    if (success == 0)
+                    {
+                        this.Controls.Remove(UC_phan_loai);
+                        gridview_danh_sach_phan_loai.DataSource = await GetCategopryTable();
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -174,7 +180,8 @@ namespace grocery_store.GUI.HangHoa
         #region Util
         private void UpdateSoDong()
         {
-            lb_so_luong_phan_loai.Text = gridview_danh_sach_phan_loai.RowCount.ToString();
+
+            lb_so_luong_phan_loai.Text = "Số Lượng Phân Loại: " + gridview_danh_sach_phan_loai.RowCount.ToString();
         }
 
 

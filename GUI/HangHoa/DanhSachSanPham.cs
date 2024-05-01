@@ -141,7 +141,7 @@ namespace grocery_store.GUI.HangHoa
         #region Xử Lý Giao Diện
         private void UpdateSoDong()
         {
-            lb_so_dong.Text = gridview_danh_sach_san_pham.RowCount.ToString();
+            lb_tong_so_dong.Text = "Kết quả: " + gridview_danh_sach_san_pham.RowCount.ToString();
         }
         private async void LoadCombobox()
         {

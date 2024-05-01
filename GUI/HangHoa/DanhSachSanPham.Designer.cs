@@ -30,14 +30,13 @@
         {
             Guna.UI.WinForms.GunaPanel gunaPanel1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhSachSanPham));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.lb_tong_so_dong = new System.Windows.Forms.Label();
             this.txtbox_tim_kiem = new Guna.UI.WinForms.GunaTextBox();
             this.btn_tim_kiem = new Guna.UI.WinForms.GunaButton();
-            this.lb_so_dong = new System.Windows.Forms.Label();
-            this.lb_tong_so_dong = new System.Windows.Forms.Label();
             this.cbb_phan_loai = new System.Windows.Forms.ComboBox();
             this.cbb_nha_cung_cap = new System.Windows.Forms.ComboBox();
             this.btn_them = new Guna.UI.WinForms.GunaAdvenceButton();
@@ -62,10 +61,9 @@
             // 
             // gunaPanel1
             // 
+            gunaPanel1.Controls.Add(this.lb_tong_so_dong);
             gunaPanel1.Controls.Add(this.txtbox_tim_kiem);
             gunaPanel1.Controls.Add(this.btn_tim_kiem);
-            gunaPanel1.Controls.Add(this.lb_so_dong);
-            gunaPanel1.Controls.Add(this.lb_tong_so_dong);
             gunaPanel1.Controls.Add(this.cbb_phan_loai);
             gunaPanel1.Controls.Add(this.cbb_nha_cung_cap);
             gunaPanel1.Controls.Add(this.btn_them);
@@ -75,6 +73,17 @@
             gunaPanel1.Name = "gunaPanel1";
             gunaPanel1.Size = new System.Drawing.Size(1730, 150);
             gunaPanel1.TabIndex = 8;
+            // 
+            // lb_tong_so_dong
+            // 
+            this.lb_tong_so_dong.AutoSize = true;
+            this.lb_tong_so_dong.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_tong_so_dong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(125)))), ((int)(((byte)(229)))));
+            this.lb_tong_so_dong.Location = new System.Drawing.Point(44, 102);
+            this.lb_tong_so_dong.Name = "lb_tong_so_dong";
+            this.lb_tong_so_dong.Size = new System.Drawing.Size(76, 23);
+            this.lb_tong_so_dong.TabIndex = 13;
+            this.lb_tong_so_dong.Text = "Kết quả:";
             // 
             // txtbox_tim_kiem
             // 
@@ -87,7 +96,7 @@
             this.txtbox_tim_kiem.FocusedForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.txtbox_tim_kiem.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbox_tim_kiem.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.txtbox_tim_kiem.Location = new System.Drawing.Point(120, 50);
+            this.txtbox_tim_kiem.Location = new System.Drawing.Point(117, 42);
             this.txtbox_tim_kiem.Name = "txtbox_tim_kiem";
             this.txtbox_tim_kiem.PasswordChar = '\0';
             this.txtbox_tim_kiem.Size = new System.Drawing.Size(450, 50);
@@ -108,7 +117,7 @@
             this.btn_tim_kiem.ForeColor = System.Drawing.Color.White;
             this.btn_tim_kiem.Image = global::grocery_store.Properties.Resources.Search;
             this.btn_tim_kiem.ImageSize = new System.Drawing.Size(30, 30);
-            this.btn_tim_kiem.Location = new System.Drawing.Point(50, 50);
+            this.btn_tim_kiem.Location = new System.Drawing.Point(47, 42);
             this.btn_tim_kiem.Name = "btn_tim_kiem";
             this.btn_tim_kiem.OnHoverBaseColor = System.Drawing.Color.Gray;
             this.btn_tim_kiem.OnHoverBorderColor = System.Drawing.Color.White;
@@ -117,27 +126,6 @@
             this.btn_tim_kiem.OnPressedColor = System.Drawing.Color.Black;
             this.btn_tim_kiem.Size = new System.Drawing.Size(70, 50);
             this.btn_tim_kiem.TabIndex = 15;
-            // 
-            // lb_so_dong
-            // 
-            this.lb_so_dong.AutoSize = true;
-            this.lb_so_dong.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_so_dong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(125)))), ((int)(((byte)(229)))));
-            this.lb_so_dong.Location = new System.Drawing.Point(110, 119);
-            this.lb_so_dong.Name = "lb_so_dong";
-            this.lb_so_dong.Size = new System.Drawing.Size(0, 17);
-            this.lb_so_dong.TabIndex = 14;
-            // 
-            // lb_tong_so_dong
-            // 
-            this.lb_tong_so_dong.AutoSize = true;
-            this.lb_tong_so_dong.Font = new System.Drawing.Font("Segoe UI", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_tong_so_dong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(125)))), ((int)(((byte)(229)))));
-            this.lb_tong_so_dong.Location = new System.Drawing.Point(47, 119);
-            this.lb_tong_so_dong.Name = "lb_tong_so_dong";
-            this.lb_tong_so_dong.Size = new System.Drawing.Size(60, 17);
-            this.lb_tong_so_dong.TabIndex = 13;
-            this.lb_tong_so_dong.Text = "Kết quả:";
             // 
             // cbb_phan_loai
             // 
@@ -268,8 +256,8 @@
             this.gridview_danh_sach_san_pham.AllowUserToAddRows = false;
             this.gridview_danh_sach_san_pham.AllowUserToDeleteRows = false;
             this.gridview_danh_sach_san_pham.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.gridview_danh_sach_san_pham.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            this.gridview_danh_sach_san_pham.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.gridview_danh_sach_san_pham.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridview_danh_sach_san_pham.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -277,14 +265,14 @@
             this.gridview_danh_sach_san_pham.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridview_danh_sach_san_pham.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridview_danh_sach_san_pham.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridview_danh_sach_san_pham.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridview_danh_sach_san_pham.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.gridview_danh_sach_san_pham.ColumnHeadersHeight = 50;
             this.gridview_danh_sach_san_pham.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -297,14 +285,14 @@
             this.gia_nhap,
             this.gia_ban});
             this.gridview_danh_sach_san_pham.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridview_danh_sach_san_pham.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridview_danh_sach_san_pham.DefaultCellStyle = dataGridViewCellStyle11;
             this.gridview_danh_sach_san_pham.EnableHeadersVisualStyles = false;
             this.gridview_danh_sach_san_pham.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gridview_danh_sach_san_pham.Location = new System.Drawing.Point(45, 0);
@@ -314,12 +302,12 @@
             this.gridview_danh_sach_san_pham.RowHeadersVisible = false;
             this.gridview_danh_sach_san_pham.RowHeadersWidth = 51;
             this.gridview_danh_sach_san_pham.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(211)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridview_danh_sach_san_pham.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(211)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridview_danh_sach_san_pham.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.gridview_danh_sach_san_pham.RowTemplate.Height = 50;
             this.gridview_danh_sach_san_pham.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.gridview_danh_sach_san_pham.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -441,8 +429,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lb_so_dong;
         private System.Windows.Forms.Label lb_tong_so_dong;
         private System.Windows.Forms.ComboBox cbb_phan_loai;
         private System.Windows.Forms.ComboBox cbb_nha_cung_cap;

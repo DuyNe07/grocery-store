@@ -59,9 +59,12 @@ namespace grocery_store.GUI.HangHoa
             {
                 try
                 {
-                    UC_Nha_Cung_cap.Them();
-                    this.Controls.Remove(UC_Nha_Cung_cap);
-                    gridview_danh_sach_nha_cung_cap.DataSource = await GetSupplierTable();
+                    int success = await UC_Nha_Cung_cap.Them();
+                    if(success == 0)
+                    {
+                        this.Controls.Remove(UC_Nha_Cung_cap);
+                        gridview_danh_sach_nha_cung_cap.DataSource = await GetSupplierTable();
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -87,9 +90,12 @@ namespace grocery_store.GUI.HangHoa
             {
                 try
                 {
-                    await UC_Nha_Cung_cap.Sua();
-                    this.Controls.Remove(UC_Nha_Cung_cap);
-                    gridview_danh_sach_nha_cung_cap.DataSource = await GetSupplierTable();
+                    int success = await UC_Nha_Cung_cap.Sua();
+                    if (success == 0)
+                    {
+                        this.Controls.Remove(UC_Nha_Cung_cap);
+                        gridview_danh_sach_nha_cung_cap.DataSource = await GetSupplierTable();
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -145,7 +151,7 @@ namespace grocery_store.GUI.HangHoa
         #region Util
         private void UpdateSoDong()
         {
-            lb_so_luong_nha_cung_cap.Text = gridview_danh_sach_nha_cung_cap.RowCount.ToString();
+            lb_so_luong_nha_cung_cap.Text = "Số Lượng Nhà Cung Cấp: " + gridview_danh_sach_nha_cung_cap.RowCount.ToString();
         }
         #endregion
 

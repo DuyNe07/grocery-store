@@ -86,6 +86,7 @@ namespace grocery_store.GUI.HangHoa
             else
             {
                 newProduct = null;
+                MessageBox.Show(ErrorMessage, "Thông tin bị thiếu hoặc chưa chính xác");
             }
             
             return newProduct;

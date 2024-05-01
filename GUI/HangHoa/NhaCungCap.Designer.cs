@@ -85,9 +85,8 @@
             this.lb_erro_so_dien_thoai.ForeColor = System.Drawing.Color.Red;
             this.lb_erro_so_dien_thoai.Location = new System.Drawing.Point(240, 348);
             this.lb_erro_so_dien_thoai.Name = "lb_erro_so_dien_thoai";
-            this.lb_erro_so_dien_thoai.Size = new System.Drawing.Size(34, 20);
+            this.lb_erro_so_dien_thoai.Size = new System.Drawing.Size(0, 20);
             this.lb_erro_so_dien_thoai.TabIndex = 31;
-            this.lb_erro_so_dien_thoai.Text = "ERR";
             // 
             // gunaLabel3
             // 
@@ -113,6 +112,7 @@
             this.tb_so_dien_thoai.PasswordChar = '\0';
             this.tb_so_dien_thoai.Size = new System.Drawing.Size(311, 37);
             this.tb_so_dien_thoai.TabIndex = 29;
+            this.tb_so_dien_thoai.TextChanged += new System.EventHandler(this.tb_so_dien_thoai_TextChanged);
             // 
             // lb_error_email
             // 
@@ -121,9 +121,8 @@
             this.lb_error_email.ForeColor = System.Drawing.Color.Red;
             this.lb_error_email.Location = new System.Drawing.Point(240, 256);
             this.lb_error_email.Name = "lb_error_email";
-            this.lb_error_email.Size = new System.Drawing.Size(34, 20);
+            this.lb_error_email.Size = new System.Drawing.Size(0, 20);
             this.lb_error_email.TabIndex = 28;
-            this.lb_error_email.Text = "ERR";
             // 
             // gunaLabel2
             // 
@@ -149,6 +148,7 @@
             this.tb_email.PasswordChar = '\0';
             this.tb_email.Size = new System.Drawing.Size(311, 37);
             this.tb_email.TabIndex = 26;
+            this.tb_email.TextChanged += new System.EventHandler(this.tb_email_TextChanged);
             // 
             // lb_name_error
             // 
@@ -157,9 +157,8 @@
             this.lb_name_error.ForeColor = System.Drawing.Color.Red;
             this.lb_name_error.Location = new System.Drawing.Point(240, 170);
             this.lb_name_error.Name = "lb_name_error";
-            this.lb_name_error.Size = new System.Drawing.Size(34, 20);
+            this.lb_name_error.Size = new System.Drawing.Size(0, 20);
             this.lb_name_error.TabIndex = 25;
-            this.lb_name_error.Text = "ERR";
             // 
             // btn_luu
             // 
@@ -258,6 +257,7 @@
             this.tb_ten_nha_cung_cap.PasswordChar = '\0';
             this.tb_ten_nha_cung_cap.Size = new System.Drawing.Size(311, 37);
             this.tb_ten_nha_cung_cap.TabIndex = 0;
+            this.tb_ten_nha_cung_cap.TextChanged += new System.EventHandler(this.tb_ten_nha_cung_cap_TextChanged);
             // 
             // NhaCungCap
             // 

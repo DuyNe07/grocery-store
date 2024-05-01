@@ -34,13 +34,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
+            this.lb_so_luong_nha_cung_cap = new System.Windows.Forms.Label();
             this.btn_them = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btn_sua = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btn_xoa = new Guna.UI.WinForms.GunaAdvenceButton();
             this.danh_sach_san_pham_main = new Guna.UI.WinForms.GunaPanel();
             this.gridview_danh_sach_nha_cung_cap = new Guna.UI.WinForms.GunaDataGridView();
-            this.lb_so_luong_nha_cung_cap = new System.Windows.Forms.Label();
-            this.so_luong_phan_loai = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nha_cung_cap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,7 +52,6 @@
             // 
             // gunaPanel1
             // 
-            this.gunaPanel1.Controls.Add(this.so_luong_phan_loai);
             this.gunaPanel1.Controls.Add(this.lb_so_luong_nha_cung_cap);
             this.gunaPanel1.Controls.Add(this.btn_them);
             this.gunaPanel1.Controls.Add(this.btn_sua);
@@ -62,6 +60,17 @@
             this.gunaPanel1.Name = "gunaPanel1";
             this.gunaPanel1.Size = new System.Drawing.Size(1730, 150);
             this.gunaPanel1.TabIndex = 10;
+            // 
+            // lb_so_luong_nha_cung_cap
+            // 
+            this.lb_so_luong_nha_cung_cap.AutoSize = true;
+            this.lb_so_luong_nha_cung_cap.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_so_luong_nha_cung_cap.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(125)))), ((int)(((byte)(229)))));
+            this.lb_so_luong_nha_cung_cap.Location = new System.Drawing.Point(39, 50);
+            this.lb_so_luong_nha_cung_cap.Name = "lb_so_luong_nha_cung_cap";
+            this.lb_so_luong_nha_cung_cap.Size = new System.Drawing.Size(274, 31);
+            this.lb_so_luong_nha_cung_cap.TabIndex = 11;
+            this.lb_so_luong_nha_cung_cap.Text = "Số Lượng Nhà Cung Cấp:";
             // 
             // btn_them
             // 
@@ -246,29 +255,6 @@
             this.gridview_danh_sach_nha_cung_cap.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.gridview_danh_sach_nha_cung_cap.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridview_danh_sach_nha_cung_cap_RowEnter);
             // 
-            // lb_so_luong_nha_cung_cap
-            // 
-            this.lb_so_luong_nha_cung_cap.AutoSize = true;
-            this.lb_so_luong_nha_cung_cap.BackColor = System.Drawing.Color.Transparent;
-            this.lb_so_luong_nha_cung_cap.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_so_luong_nha_cung_cap.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(125)))), ((int)(((byte)(229)))));
-            this.lb_so_luong_nha_cung_cap.Location = new System.Drawing.Point(319, 50);
-            this.lb_so_luong_nha_cung_cap.Name = "lb_so_luong_nha_cung_cap";
-            this.lb_so_luong_nha_cung_cap.Size = new System.Drawing.Size(40, 31);
-            this.lb_so_luong_nha_cung_cap.TabIndex = 12;
-            this.lb_so_luong_nha_cung_cap.Text = "11";
-            // 
-            // so_luong_phan_loai
-            // 
-            this.so_luong_phan_loai.AutoSize = true;
-            this.so_luong_phan_loai.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.so_luong_phan_loai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(125)))), ((int)(((byte)(229)))));
-            this.so_luong_phan_loai.Location = new System.Drawing.Point(39, 50);
-            this.so_luong_phan_loai.Name = "so_luong_phan_loai";
-            this.so_luong_phan_loai.Size = new System.Drawing.Size(274, 31);
-            this.so_luong_phan_loai.TabIndex = 11;
-            this.so_luong_phan_loai.Text = "Số Lượng Nhà Cung Cấp:";
-            // 
             // ID
             // 
             this.ID.DataPropertyName = "SupplierID";
@@ -336,7 +322,6 @@
         private Guna.UI.WinForms.GunaPanel danh_sach_san_pham_main;
         private Guna.UI.WinForms.GunaDataGridView gridview_danh_sach_nha_cung_cap;
         private System.Windows.Forms.Label lb_so_luong_nha_cung_cap;
-        private System.Windows.Forms.Label so_luong_phan_loai;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn nha_cung_cap;
         private System.Windows.Forms.DataGridViewTextBoxColumn email;

@@ -40,7 +40,6 @@
             this.NumOfProducts = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
             this.lb_so_luong_phan_loai = new System.Windows.Forms.Label();
-            this.so_luong_phan_loai = new System.Windows.Forms.Label();
             this.btn_them = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btn_sua = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btn_xoa = new Guna.UI.WinForms.GunaAdvenceButton();
@@ -163,7 +162,6 @@
             // 
             // gunaPanel1
             // 
-            this.gunaPanel1.Controls.Add(this.so_luong_phan_loai);
             this.gunaPanel1.Controls.Add(this.lb_so_luong_phan_loai);
             this.gunaPanel1.Controls.Add(this.btn_them);
             this.gunaPanel1.Controls.Add(this.btn_sua);
@@ -176,24 +174,13 @@
             // lb_so_luong_phan_loai
             // 
             this.lb_so_luong_phan_loai.AutoSize = true;
-            this.lb_so_luong_phan_loai.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_so_luong_phan_loai.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_so_luong_phan_loai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(125)))), ((int)(((byte)(229)))));
-            this.lb_so_luong_phan_loai.Location = new System.Drawing.Point(269, 60);
+            this.lb_so_luong_phan_loai.Location = new System.Drawing.Point(39, 59);
             this.lb_so_luong_phan_loai.Name = "lb_so_luong_phan_loai";
-            this.lb_so_luong_phan_loai.Size = new System.Drawing.Size(27, 31);
-            this.lb_so_luong_phan_loai.TabIndex = 10;
-            this.lb_so_luong_phan_loai.Text = "0";
-            // 
-            // so_luong_phan_loai
-            // 
-            this.so_luong_phan_loai.AutoSize = true;
-            this.so_luong_phan_loai.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.so_luong_phan_loai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(125)))), ((int)(((byte)(229)))));
-            this.so_luong_phan_loai.Location = new System.Drawing.Point(39, 60);
-            this.so_luong_phan_loai.Name = "so_luong_phan_loai";
-            this.so_luong_phan_loai.Size = new System.Drawing.Size(225, 31);
-            this.so_luong_phan_loai.TabIndex = 9;
-            this.so_luong_phan_loai.Text = "Số Lượng Phân Loại:";
+            this.lb_so_luong_phan_loai.Size = new System.Drawing.Size(225, 31);
+            this.lb_so_luong_phan_loai.TabIndex = 9;
+            this.lb_so_luong_phan_loai.Text = "Số Lượng Phân Loại:";
             // 
             // btn_them
             // 
@@ -316,7 +303,6 @@
         private Guna.UI.WinForms.GunaAdvenceButton btn_sua;
         private Guna.UI.WinForms.GunaAdvenceButton btn_xoa;
         private System.Windows.Forms.Label lb_so_luong_phan_loai;
-        private System.Windows.Forms.Label so_luong_phan_loai;
         private System.Windows.Forms.DataGridViewTextBoxColumn CategoryID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CategoryName;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumOfProducts;
