@@ -35,8 +35,7 @@ namespace grocery_store.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                // optionsBuilder.UseSqlServer("Server=localhost;Database=GroceryStore;Trusted_Connection=True;");
-                optionsBuilder.UseSqlServer("Server=LAPTOP-DFD1KE5V\\HOAITRONG;Database=GroceryStore;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=localhost;Database=GroceryStore;Trusted_Connection=True;");
             }
         }
 
@@ -65,12 +64,6 @@ namespace grocery_store.Models
                 entity.Property(e => e.Password).HasMaxLength(50);
 
                 entity.Property(e => e.Role).HasMaxLength(50);
-                entity.Property(e => e.Login).HasMaxLength(50);
-
-                entity.Property(e => e.Password).HasMaxLength(50);
-
-                entity.Property(e => e.Img).HasColumnName("Img")
-                    .HasMaxLength(20);
 
                 entity.HasOne(d => d.Job)
                     .WithMany(p => p.Employee)
@@ -80,7 +73,7 @@ namespace grocery_store.Models
 
             modelBuilder.Entity<EmployeeTimekeeping>(entity =>
             {
-                entity.HasKey(e => new { e.EmployeeId, e.TimekeepingId });
+                entity.HasNoKey();
 
                 entity.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
 
@@ -222,8 +215,6 @@ namespace grocery_store.Models
                 entity.Property(e => e.Checkin).HasColumnType("datetime");
 
                 entity.Property(e => e.Checkout).HasColumnType("datetime");
-
-                entity.Property(e => e.Salary).HasColumnType("money");
             });
 
             modelBuilder.Entity<ViewInvoice>(entity =>
