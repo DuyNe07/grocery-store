@@ -117,30 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="gunaGradientPanel1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAAXSURBVChTY2hZ2fOfGDyqEC+mtsKe/wCCSQ/wGW/7OwAA
-        AABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="gunaGradientPanel2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAAYSURBVChTY6g/fvM/MXhUIV5MbYU3/wMAYAU3yMAkcb8A
-        AAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="gunaGradientPanel3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAETSURBVChTJdBZS0JRGEbh/n0QBVHRRBPN85xNUiZhEdJF
-        lIjpccgOBzUzG+hutQ7dP6z9fruHx17I9UNhCEpjUJmC+jyEK9DYhLd96CQQ9kF+EJ5HIJiE2qxwEaJ1
-        aO5A+xC6Z8KnAaG14rhwWmjtdVW4BS1r7RNhUpizlh8VWivPCZd81lq0KzyC9zNhKobD7rNWmnHfgs9a
-        C7fdd+A+a50L+EoL41rBAwJr1WXhxn+tkfDZc/hICTMxnPAQa4EH1NbcZy3ygOap0Fr3Gr5vY2it6AFl
-        azW/I9wTWmsl3XclzMBPVljwO4rWKh7w4neE1hoe0Lp0n7XPO+F9DK0FHlC1Vvc7omOhtXbafTfuy8Lv
-        A3/q0WQt9ALoewAAAABJRU5ErkJggg==
-</value>
-  </data>
 </root>

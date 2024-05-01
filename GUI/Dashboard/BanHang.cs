@@ -316,7 +316,7 @@ namespace grocery_store.GUI.Dashboard
         {
             ShopOrder shopOrder = new ShopOrder();
             shopOrder.OrderDate = DateTime.Now;
-            shopOrder.SubTotal = int.Parse(label_totalPrice.Text.Replace(".", ""));
+            shopOrder.SubTotal = int.Parse(label_totalPrice.Text.Replace(",", ""));
             shopOrder.Payment = payment;
 
             Main main = (Main)this.Parent.Parent;
