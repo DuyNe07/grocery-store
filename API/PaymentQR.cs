@@ -1,21 +1,25 @@
-﻿using System;
+﻿using grocery_store.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using grocery_store.Models;
 
 namespace grocery_store.API
 {
     internal class PaymentQR
     {
         GroceryStoreContext db = new GroceryStoreContext();
-        public void Genarate()
+        public async void Genarate()
         {
-            Payment payment = db.Payment.Where(p => p.PaymentId == 4).FirstOrDefault();
-            payment.Qr = System.IO.File.ReadAllBytes("C:\\Users\\luong\\UTE\\hk2\\Win\\grocery-store\\Image\\credit-card.png");
-            db.Payment.Update(payment);
-            db.SaveChanges();
+            List<Payment> payments = await db.Payment.ToListAsync();
+
+            payments.Where(p => p.Name == "Momo").FirstOrDefault().Qr = System.IO.File.ReadAllBytes(".\\Image\\momo.jpg");
+            payments.Where(p => p.Name == "Ngân hàng").FirstOrDefault().Qr = System.IO.File.ReadAllBytes(".\\Image\\banking.jpg");
+            payments.Where(p => p.Name == "Tiền").FirstOrDefault().Qr = System.IO.File.ReadAllBytes(".\\Image\\cash.png");
+            payments.Where(p => p.Name == "Thẻ").FirstOrDefault().Qr = System.IO.File.ReadAllBytes(".\\Image\\credit-card.png");
+
+            db.UpdateRange(payments);
+            await db.SaveChangesAsync();
         }
+
     }
 }

@@ -607,6 +607,7 @@
     <EmbeddedResource Include="GUI\Dashboard\ThongKe.resx">
       <DependentUpon>ThongKe.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ThongKe\statistical.rdlc" />
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <SubType>Designer</SubType>
@@ -625,10 +626,7 @@
       <DependentUpon>Invoice.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\grocery_store.GUI.BanHang.Item.datasource" />
-    <None Include="Properties\DataSources\grocery_store.Models.Employee.datasource" />
-    <None Include="Properties\DataSources\grocery_store.Models.OrderLine.datasource" />
-    <None Include="Properties\DataSources\grocery_store.Models.Product.datasource" />
+    <None Include="Properties\DataSources\grocery_store.Models.ShopOrder.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -722,18 +720,16 @@
     <None Include="Image\add.png" />
     <None Include="Image\edit.png" />
     <None Include="Image\save.png" />
-    <None Include="Image\cancel.png" />
-    <Content Include="SqlServerTypes\readme.htm" />
-    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+    <None Include="Image\cancel.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+    </None>
+    <None Include="Image\revenue.png" />
+    <None Include="Image\profit.png" />
+    <None Include="Image\cart-2.png" />
+    <Content Include="Image\banking.jpg" />
+    <Content Include="Image\cash.png" />
+    <Content Include="Image\credit-card.png" />
+    <Content Include="Image\momo.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="SqlServerTypes\readme.htm" />

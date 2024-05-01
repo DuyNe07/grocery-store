@@ -15,8 +15,8 @@ namespace grocery_store.Models
         }
 
         public int ShopOrderId { get; set; }
-        public decimal? SubTotal { get; set; }
-        public DateTime? OrderDate { get; set; }
+        public decimal SubTotal { get; set; }
+        public DateTime OrderDate { get; set; }
         public int? PaymentId { get; set; }
         public int? EmployeeId { get; set; }
 
