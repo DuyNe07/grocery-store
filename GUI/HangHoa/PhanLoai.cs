@@ -26,7 +26,7 @@ namespace grocery_store.GUI.HangHoa
             this.curentCategory = category;
         }
 
-        public async Task Sua(Category category)
+        public async Task<int> Sua()
         {
             Category categoryToUpdate;
             string ErrorMessage = CheckInput();
@@ -34,7 +34,7 @@ namespace grocery_store.GUI.HangHoa
             {
                 using (var dbContext = new GroceryStoreContext())
                 {
-                    categoryToUpdate = await dbContext.Category.FindAsync(category.CategoryId);
+                    categoryToUpdate = await dbContext.Category.FindAsync(curentCategory.CategoryId);
 
                     if (categoryToUpdate != null)
                     {
@@ -43,9 +43,15 @@ namespace grocery_store.GUI.HangHoa
                     }
                 }
             }
+            else
+            {
+                MessageBox.Show(ErrorMessage, "Thông tin bị thiếu hoặc chưa chính xác");
+                return 1;
+            }
+            return 0;
         }
 
-        public async void Them()
+        public async Task<int> Them()
         {
             Category newCategory;
             string ErrorMessage = CheckInput();
@@ -61,16 +67,24 @@ namespace grocery_store.GUI.HangHoa
                     await dbContext.SaveChangesAsync();
                 }  
             }
+            else
+            {
+                MessageBox.Show(ErrorMessage, "Thông tin bị thiếu hoặc chưa chính xác");
+                return 1;
+            }
+            return 0;
         }
 
         private void PhanLoai_Load(object sender, EventArgs e)
         {
             if (curentCategory == null)
             {
+                lb_name_control.Text = "THÊM PHÂN LOẠI";
                 LoadFormThem();
             }
             else
             {
+                lb_name_control.Text = "SỬA PHÂN LOẠI";
                 LoadFormSua();
             }
         }
