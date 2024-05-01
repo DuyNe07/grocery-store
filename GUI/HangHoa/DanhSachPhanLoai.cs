@@ -20,6 +20,8 @@ namespace grocery_store.GUI.HangHoa
         {
             InitializeComponent();
         }
+
+        #region Load
         private async void DanhSachPhanLoai_Load(object sender, EventArgs e)
         {
             gridview_danh_sach_phan_loai.DataSource = await GetCategopryTable();
@@ -40,12 +42,12 @@ namespace grocery_store.GUI.HangHoa
                 }
             }
         }
+        #endregion
 
         #region Chức năng thêm phân loại
         private void btn_them_Click(object sender, EventArgs e)
         {
             PhanLoai UC_phan_loai = new PhanLoai(null);
-            UC_phan_loai.lb_name_control.Text = "THÊM PHÂN LOẠI";
             UC_phan_loai.Location = new Point(0, 0);
             UC_phan_loai.HuyClick += (S, args) =>
             {
@@ -74,7 +76,6 @@ namespace grocery_store.GUI.HangHoa
         private void btn_sua_Click(object sender, EventArgs e)
         {
             PhanLoai UC_phan_loai = new PhanLoai(currentCategory);
-            UC_phan_loai.lb_name_control.Text = "SỬA PHÂN LOẠI";
             UC_phan_loai.Location = new Point(0, 0);
             UC_phan_loai.HuyClick += (S, args) =>
             {
@@ -85,7 +86,7 @@ namespace grocery_store.GUI.HangHoa
             {
                 try
                 {
-                    await UC_phan_loai.Sua(currentCategory);
+                    await UC_phan_loai.Sua();
                     this.Controls.Remove(UC_phan_loai);
                     gridview_danh_sach_phan_loai.DataSource = await GetCategopryTable();
                 }
@@ -127,6 +128,7 @@ namespace grocery_store.GUI.HangHoa
                     }
                     catch (Exception ex)
                     {
+                        Console.WriteLine(ex.ToString());
                         MessageBox.Show($"Không thể xóa phân loại." +
                             $"\nVui lòng thử xóa các sản phẩm thuộc phân loại {categoryToDelete.Name} trước", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
@@ -175,8 +177,8 @@ namespace grocery_store.GUI.HangHoa
             lb_so_luong_phan_loai.Text = gridview_danh_sach_phan_loai.RowCount.ToString();
         }
 
-        #endregion
 
+        #endregion
 
     }
 }

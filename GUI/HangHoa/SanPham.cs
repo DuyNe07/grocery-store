@@ -35,10 +35,12 @@ namespace grocery_store.GUI.HangHoa
         {
             if (curentProduct == null)
             {
+                lb_name_control.Text = "THÊM SẢN PHẨM";
                 LoadFormThem();
             }
             else
             {
+                lb_name_control.Text = "SỬA SẢN PHẨM";
                 await LoadFormSuaAsync();
             }
         }
@@ -88,7 +90,7 @@ namespace grocery_store.GUI.HangHoa
             
             return newProduct;
         }
-        public async Task<Product> Sua(Product product)
+        public async Task<Product> Sua()
         {
             Product productToUpdate = null;
             string ErrorMessage = CheckInput();
@@ -104,7 +106,7 @@ namespace grocery_store.GUI.HangHoa
                     supplier.Name = cbb_nha_cung_cap.Text;
                     supplier.SupplierId = int.Parse(cbb_nha_cung_cap.SelectedValue.ToString());
 
-                    productToUpdate = await dbContext.Product.FindAsync(product.ProductId);
+                    productToUpdate = await dbContext.Product.FindAsync(curentProduct.ProductId);
                     if (productToUpdate != null)
                     {
                         productToUpdate.Name = tb_ten_san_pham.Text;

@@ -32,7 +32,6 @@ namespace grocery_store.GUI.HangHoa
         private void btn_them_Click(object sender, EventArgs e)
         {
             SanPham UC_san_pham = new SanPham(null);
-            UC_san_pham.lb_name_control.Text = "THÊM SẢN PHẨM";
             UC_san_pham.Location = new Point(0, 0);
 
             // Hủy
@@ -62,7 +61,6 @@ namespace grocery_store.GUI.HangHoa
         private void btn_sua_Click(object sender, EventArgs e)
         {
             SanPham UC_san_pham = new SanPham(currentProduct);
-            UC_san_pham.lb_name_control.Text = "SỬA SẢN PHẨM";
             UC_san_pham.Location = new Point(0, 0);
             UC_san_pham.HuyClick += (s, args) =>
             {
@@ -70,7 +68,7 @@ namespace grocery_store.GUI.HangHoa
             };
             UC_san_pham.LuuClick += async (s, args) =>
             {
-                Product productUpdate = await UC_san_pham.Sua(currentProduct);
+                Product productUpdate = await UC_san_pham.Sua();
 
                 if (productUpdate != null)
                 {
@@ -233,8 +231,11 @@ namespace grocery_store.GUI.HangHoa
             return products;
         }
 
+
         #endregion
 
-
+        #region Util
+       
+        #endregion
     }
 }
