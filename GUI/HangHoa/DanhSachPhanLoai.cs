@@ -20,6 +20,8 @@ namespace grocery_store.GUI.HangHoa
         {
             InitializeComponent();
         }
+
+        #region Load
         private async void DanhSachPhanLoai_Load(object sender, EventArgs e)
         {
             gridview_danh_sach_phan_loai.DataSource = await GetCategopryTable();
@@ -40,12 +42,12 @@ namespace grocery_store.GUI.HangHoa
                 }
             }
         }
+        #endregion
 
         #region Chức năng thêm phân loại
         private void btn_them_Click(object sender, EventArgs e)
         {
             PhanLoai UC_phan_loai = new PhanLoai(null);
-            UC_phan_loai.lb_name_control.Text = "THÊM PHÂN LOẠI";
             UC_phan_loai.Location = new Point(0, 0);
             UC_phan_loai.HuyClick += (S, args) =>
             {
@@ -56,9 +58,12 @@ namespace grocery_store.GUI.HangHoa
             {
                 try
                 {
-                    UC_phan_loai.Them();
-                    this.Controls.Remove(UC_phan_loai);
-                    gridview_danh_sach_phan_loai.DataSource = await GetCategopryTable();
+                    int success = await UC_phan_loai.Them();
+                    if (success == 0)
+                    {
+                        this.Controls.Remove(UC_phan_loai);
+                        gridview_danh_sach_phan_loai.DataSource = await GetCategopryTable();
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -74,7 +79,6 @@ namespace grocery_store.GUI.HangHoa
         private void btn_sua_Click(object sender, EventArgs e)
         {
             PhanLoai UC_phan_loai = new PhanLoai(currentCategory);
-            UC_phan_loai.lb_name_control.Text = "SỬA PHÂN LOẠI";
             UC_phan_loai.Location = new Point(0, 0);
             UC_phan_loai.HuyClick += (S, args) =>
             {
@@ -85,9 +89,12 @@ namespace grocery_store.GUI.HangHoa
             {
                 try
                 {
-                    await UC_phan_loai.Sua(currentCategory);
-                    this.Controls.Remove(UC_phan_loai);
-                    gridview_danh_sach_phan_loai.DataSource = await GetCategopryTable();
+                    int success = await UC_phan_loai.Sua();
+                    if (success == 0)
+                    {
+                        this.Controls.Remove(UC_phan_loai);
+                        gridview_danh_sach_phan_loai.DataSource = await GetCategopryTable();
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -127,6 +134,7 @@ namespace grocery_store.GUI.HangHoa
                     }
                     catch (Exception ex)
                     {
+                        Console.WriteLine(ex.ToString());
                         MessageBox.Show($"Không thể xóa phân loại." +
                             $"\nVui lòng thử xóa các sản phẩm thuộc phân loại {categoryToDelete.Name} trước", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
@@ -172,11 +180,12 @@ namespace grocery_store.GUI.HangHoa
         #region Util
         private void UpdateSoDong()
         {
-            lb_so_luong_phan_loai.Text = gridview_danh_sach_phan_loai.RowCount.ToString();
+
+            lb_so_luong_phan_loai.Text = "Số Lượng Phân Loại: " + gridview_danh_sach_phan_loai.RowCount.ToString();
         }
 
-        #endregion
 
+        #endregion
 
     }
 }

@@ -38,7 +38,6 @@
             this.btn_huy = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btn_luu = new Guna.UI.WinForms.GunaAdvenceButton();
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
-            this.input_han_su_dung = new System.Windows.Forms.MaskedTextBox();
             this.gunaLabel9 = new Guna.UI.WinForms.GunaLabel();
             this.lb_inventory_error = new System.Windows.Forms.Label();
             this.lb_maket_price_error = new System.Windows.Forms.Label();
@@ -56,6 +55,7 @@
             this.gunaLabel6 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
+            this.input_han_su_dung = new System.Windows.Forms.DateTimePicker();
             this.gunaPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.input_gia_nhap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.input_gia_ban)).BeginInit();
@@ -224,16 +224,6 @@
             this.gunaPanel1.Size = new System.Drawing.Size(600, 700);
             this.gunaPanel1.TabIndex = 6;
             // 
-            // input_han_su_dung
-            // 
-            this.input_han_su_dung.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.input_han_su_dung.Location = new System.Drawing.Point(244, 527);
-            this.input_han_su_dung.Mask = "00/00/0000";
-            this.input_han_su_dung.Name = "input_han_su_dung";
-            this.input_han_su_dung.Size = new System.Drawing.Size(181, 34);
-            this.input_han_su_dung.TabIndex = 35;
-            this.input_han_su_dung.ValidatingType = typeof(System.DateTime);
-            // 
             // gunaLabel9
             // 
             this.gunaLabel9.AutoSize = true;
@@ -308,6 +298,7 @@
             // cbb_nha_cung_cap
             // 
             this.cbb_nha_cung_cap.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbb_nha_cung_cap.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_nha_cung_cap.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.cbb_nha_cung_cap.FormattingEnabled = true;
             this.cbb_nha_cung_cap.Location = new System.Drawing.Point(244, 241);
@@ -319,6 +310,7 @@
             // cbb_phan_loai
             // 
             this.cbb_phan_loai.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbb_phan_loai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_phan_loai.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.cbb_phan_loai.ItemHeight = 28;
             this.cbb_phan_loai.Location = new System.Drawing.Point(244, 172);
@@ -443,6 +435,17 @@
             this.gunaLabel4.TabIndex = 12;
             this.gunaLabel4.Text = "Tồn Kho:";
             // 
+            // input_han_su_dung
+            // 
+            this.input_han_su_dung.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.input_han_su_dung.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.input_han_su_dung.Location = new System.Drawing.Point(244, 533);
+            this.input_han_su_dung.MinDate = new System.DateTime(2024, 5, 1, 0, 0, 0, 0);
+            this.input_han_su_dung.Name = "input_han_su_dung";
+            this.input_han_su_dung.Size = new System.Drawing.Size(233, 34);
+            this.input_han_su_dung.TabIndex = 0;
+            this.input_han_su_dung.Value = new System.DateTime(2024, 5, 1, 9, 51, 12, 0);
+            // 
             // SanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -490,6 +493,6 @@
         private System.Windows.Forms.Label lb_category_error;
         private System.Windows.Forms.Label lb_inventory_error;
         private Guna.UI.WinForms.GunaLabel gunaLabel9;
-        private System.Windows.Forms.MaskedTextBox input_han_su_dung;
+        private System.Windows.Forms.DateTimePicker input_han_su_dung;
     }
 }
