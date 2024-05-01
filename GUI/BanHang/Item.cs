@@ -45,6 +45,7 @@ namespace grocery_store.GUI.BanHang
         public Item(Product product)
         {
             InitializeComponent();
+
             this.Product = product;
             this.btn_del.Click += (sender, e) => RemoveClick?.Invoke(this, e);
             this.Num_quantity.TextChanged += (sender, e) => QuantityChanged?.Invoke(this, e);
