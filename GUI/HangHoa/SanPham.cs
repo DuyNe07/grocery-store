@@ -72,8 +72,7 @@ namespace grocery_store.GUI.HangHoa
                     newProduct.QuantityInStock = int.Parse(input_ton_kho.Value.ToString());
                     newProduct.CostPrice = decimal.Parse(input_gia_nhap.Value.ToString());
                     newProduct.MarketPrice = decimal.Parse(input_gia_ban.Value.ToString());
-                    DateTime.TryParseExact(input_han_su_dung.Text, "MM/dd/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime HanSuDung);
-                    newProduct.Expiry = HanSuDung;
+                    newProduct.Expiry = input_han_su_dung.Value;
 
                     await dbContext.AddAsync(newProduct);
                     await dbContext.SaveChangesAsync();
@@ -116,9 +115,7 @@ namespace grocery_store.GUI.HangHoa
                         productToUpdate.QuantityInStock = int.Parse(input_ton_kho.Value.ToString());
                         productToUpdate.CostPrice = decimal.Parse(input_gia_nhap.Value.ToString());
                         productToUpdate.MarketPrice = decimal.Parse(input_gia_ban.Value.ToString());
-
-                        DateTime.TryParseExact(input_han_su_dung.Text, "MM/dd/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime HanSuDung);
-                        productToUpdate.Expiry = HanSuDung;
+                        productToUpdate.Expiry = input_han_su_dung.Value;
 
                         GenerateProductCode ProductUtil = new GenerateProductCode();
                         productToUpdate.Sku = ProductUtil.GenerateSKU(productToUpdate.Name, category.Name, supplier.Name);
@@ -151,9 +148,7 @@ namespace grocery_store.GUI.HangHoa
                 input_ton_kho.Value = decimal.Parse(curentProduct.QuantityInStock.ToString());
                 input_gia_nhap.Value = decimal.Parse(curentProduct.CostPrice.ToString());
                 input_gia_ban.Value = decimal.Parse(curentProduct.MarketPrice.ToString());
-
-                DateTime.TryParseExact(curentProduct.Expiry.ToString(), "MM/dd/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime HanSuDung);
-                input_han_su_dung.Text = HanSuDung.ToString("MM/dd/yyyy");
+                input_han_su_dung.Value = (DateTime)curentProduct.Expiry;
                 Console.WriteLine(curentProduct.Expiry);
             }
         }
