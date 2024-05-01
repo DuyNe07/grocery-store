@@ -152,7 +152,7 @@ namespace grocery_store.GUI.Dashboard
             this.btn_scan.BorderColor = System.Drawing.Color.Black;
             this.btn_scan.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
             this.btn_scan.ForeColor = System.Drawing.Color.Black;
-            this.btn_scan.Image = global::grocery_store.Properties.Resources.scanner;
+            //this.btn_scan.Image = global::grocery_store.Properties.Resources.scanner;
             this.btn_scan.ImageSize = new System.Drawing.Size(50, 50);
             this.btn_scan.Location = new System.Drawing.Point(1310, 41);
             this.btn_scan.Name = "btn_scan";
@@ -178,7 +178,7 @@ namespace grocery_store.GUI.Dashboard
             this.btn_enterCode.BorderColor = System.Drawing.Color.Black;
             this.btn_enterCode.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
             this.btn_enterCode.ForeColor = System.Drawing.Color.Black;
-            this.btn_enterCode.Image = global::grocery_store.Properties.Resources.text;
+            //this.btn_enterCode.Image = global::grocery_store.Properties.Resources.text;
             this.btn_enterCode.ImageSize = new System.Drawing.Size(50, 50);
             this.btn_enterCode.Location = new System.Drawing.Point(692, 41);
             this.btn_enterCode.Name = "btn_enterCode";

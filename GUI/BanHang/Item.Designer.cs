@@ -76,7 +76,7 @@
             this.label_nameProduct.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label_nameProduct.Location = new System.Drawing.Point(83, 40);
             this.label_nameProduct.Name = "label_nameProduct";
-            this.label_nameProduct.Size = new System.Drawing.Size(132, 38);
+            this.label_nameProduct.Size = new System.Drawing.Size(161, 46);
             this.label_nameProduct.TabIndex = 13;
             this.label_nameProduct.Text = "Cocacola";
             // 
@@ -97,7 +97,7 @@
             this.btn_del.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btn_del.Location = new System.Drawing.Point(1103, 26);
             this.btn_del.Name = "btn_del";
-            this.btn_del.Size = new System.Drawing.Size(166, 54);
+            this.btn_del.Size = new System.Drawing.Size(225, 70);
             this.btn_del.TabIndex = 16;
             this.btn_del.Text = "Xoá";
             this.btn_del.UseVisualStyleBackColor = false;

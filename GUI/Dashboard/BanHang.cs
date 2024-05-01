@@ -195,15 +195,15 @@ namespace grocery_store.GUI.Dashboard
         private void refresh()
         {
             panel_products.Controls.Clear();
-            int y_start = 30;
+            int y_start = 80;
             foreach (Item item in items)
             {
-                item.Location = new Point(70, y_start);
+                item.Location = new Point(95, y_start);
                 item.BackColor = Color.White;
                 updateUnitPrice();
                 item.label_marketPrice.Location = new Point(490 - (item.label_totalLine.Width / 2), 35);
                 panel_products.Controls.Add(item);
-                y_start += 90;
+                y_start += 150;
             }
         }
 
