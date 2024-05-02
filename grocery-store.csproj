@@ -417,6 +417,11 @@
     <Compile Include="API\GenarateBarCode.cs" />
     <Compile Include="API\GenerateProductCode.cs" />
     <Compile Include="API\PaymentQR.cs" />
+    <Compile Include="GroceryStoreDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GroceryStoreDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="GUI\HangHoa\NhaCungCap.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -544,10 +549,12 @@
     <Compile Include="Models\OrderLine.cs" />
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductDetail.cs" />
     <Compile Include="Models\ShopOrder.cs" />
     <Compile Include="Models\Supplier.cs" />
     <Compile Include="Models\Timekeeping.cs" />
     <Compile Include="Models\ViewInvoice.cs" />
+    <Compile Include="Models\ViewStatistical.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -563,7 +570,9 @@
     <EmbeddedResource Include="GUI\HangHoa\PhanLoai.resx">
       <DependentUpon>PhanLoai.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\BanHang\ShopOrderReport.rdlc" />
+    <EmbeddedResource Include="GUI\BanHang\ShopOrderReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\HoaDon\Bill.resx">
       <DependentUpon>Bill.cs</DependentUpon>
     </EmbeddedResource>
@@ -623,6 +632,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="GroceryStoreDataSet.xsc">
+      <DependentUpon>GroceryStoreDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GroceryStoreDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GroceryStoreDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GroceryStoreDataSet.xss">
+      <DependentUpon>GroceryStoreDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Invoice.xsc">
       <DependentUpon>Invoice.xsd</DependentUpon>
     </None>
@@ -635,7 +655,7 @@
       <DependentUpon>Invoice.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\grocery_store.Models.ShopOrder.datasource" />
+    <None Include="Properties\DataSources\grocery_store.GUI.BanHang.Item.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace grocery_store
@@ -14,7 +15,7 @@ namespace grocery_store
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static async Task Main()
         {
             //API.GenarateBarCode genarateBarCode = new API.GenarateBarCode();
             //genarateBarCode.Genarate();
@@ -24,12 +25,12 @@ namespace grocery_store
             Application.Run(new GUI.Main());
         }
 
-        static async void updatePayment()
+        static void updatePayment()
         {
             using(GroceryStoreContext db = new GroceryStoreContext())
             {
-                Payment payment = await db.Payment.FindAsync(1);
-                if(payment.Qr == null)
+                Payment payment = db.Payment.Find(1);
+                if (payment.Qr == null)
                 {
                     PaymentQR paymentQR = new PaymentQR();
                     paymentQR.Genarate();
@@ -38,6 +39,7 @@ namespace grocery_store
                 {
                     return;
                 }
+                return;
             }
         }
 
