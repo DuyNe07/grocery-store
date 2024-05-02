@@ -422,6 +422,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GroceryStoreDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="GUI\HangHoa\ChiTietSanPham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\HangHoa\ChiTietSanPham.Designer.cs">
+      <DependentUpon>ChiTietSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HangHoa\DanhSachChiTietSanPham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\HangHoa\DanhSachChiTietSanPham.Designer.cs">
+      <DependentUpon>DanhSachChiTietSanPham.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\HangHoa\NhaCungCap.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -564,6 +576,12 @@
     </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="GUI\HangHoa\ChiTietSanPham.resx">
+      <DependentUpon>ChiTietSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HangHoa\DanhSachChiTietSanPham.resx">
+      <DependentUpon>DanhSachChiTietSanPham.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\HangHoa\NhaCungCap.resx">
       <DependentUpon>NhaCungCap.cs</DependentUpon>
     </EmbeddedResource>
