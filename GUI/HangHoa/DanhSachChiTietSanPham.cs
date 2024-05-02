@@ -92,9 +92,39 @@ namespace grocery_store.GUI.HangHoa
             UC_ChiTietSanPham.BringToFront();
         }
 
-        private void btn_xoa_Click(object sender, EventArgs e)
+        private async void btn_xoa_Click(object sender, EventArgs e)
         {
-
+            DialogResult result = MessageBox.Show("Xóa  " + currentProductDetail.BarCode, "Xác Nhận", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                await DeleteProductDetailByBarcode(currentProductDetail.BarCode);
+                gridview_danh_sach_chi_tiet_san_pham.DataSource = await GetProductDetailTable();
+            }
+        }
+        private async Task DeleteProductDetailByBarcode(string barcode)
+        {
+            using (var dbContext = new GroceryStoreContext())
+            {
+                ProductDetail productDetail = await dbContext.ProductDetail.FirstOrDefaultAsync(x => x.BarCode == barcode);
+                if (productDetail != null)
+                {
+                    try
+                    {
+                        dbContext.ProductDetail.Remove(productDetail);
+                        await dbContext.SaveChangesAsync();
+                        MessageBox.Show("Xóa thành công.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.ToString());
+                        MessageBox.Show($"Không thể xóa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy sản phẩm cần xóa.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
         #endregion
 
@@ -104,6 +134,7 @@ namespace grocery_store.GUI.HangHoa
             DataTable productDetailTable = new DataTable();
             productDetailTable.Columns.Add("Expiry", typeof(string));
             productDetailTable.Columns.Add("QuantityInStock", typeof(int));
+            productDetailTable.Columns.Add("Barcode", typeof(string));
 
 
             List<ProductDetail> productDetails = await GetProductDetailList();
@@ -114,7 +145,8 @@ namespace grocery_store.GUI.HangHoa
                 string formatedExpiry = expiry.ToString();
 
                 productDetailTable.Rows.Add(formatedExpiry,
-                            productDetail.QuantityInStock
+                            productDetail.QuantityInStock,
+                            productDetail.BarCode
                             );
             }
             return productDetailTable;
@@ -145,12 +177,10 @@ namespace grocery_store.GUI.HangHoa
 
             if (selectedRow != null)
             {
-                string sku = selectedRow.Cells[0].Value.ToString();
-                DateTime expiry;
-                DateTime.TryParseExact(selectedRow.Cells[1].Value.ToString(), "MM/dd/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out expiry);
+                string barcode = selectedRow.Cells[2].Value.ToString();
                 using (var dbContext = new GroceryStoreContext())
                 {
-                    currentProductDetail = await dbContext.ProductDetail.FirstOrDefaultAsync(x => x.Sku == sku );
+                    currentProductDetail = await dbContext.ProductDetail.FirstOrDefaultAsync(x => x.BarCode == barcode);
                 }
             }
         }

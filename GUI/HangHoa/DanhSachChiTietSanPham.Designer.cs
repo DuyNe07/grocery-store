@@ -43,6 +43,7 @@
             this.gridview_danh_sach_chi_tiet_san_pham = new Guna.UI.WinForms.GunaDataGridView();
             this.han_su_dung = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.so_luong_ton_kho = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
             gunaPanel1.SuspendLayout();
             this.danh_sach_san_pham_main.SuspendLayout();
@@ -229,7 +230,8 @@
             this.gridview_danh_sach_chi_tiet_san_pham.ColumnHeadersHeight = 50;
             this.gridview_danh_sach_chi_tiet_san_pham.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.han_su_dung,
-            this.so_luong_ton_kho});
+            this.so_luong_ton_kho,
+            this.barcode});
             this.gridview_danh_sach_chi_tiet_san_pham.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
@@ -300,6 +302,14 @@
             this.so_luong_ton_kho.Name = "so_luong_ton_kho";
             this.so_luong_ton_kho.ReadOnly = true;
             // 
+            // barcode
+            // 
+            this.barcode.DataPropertyName = "Barcode";
+            this.barcode.HeaderText = "Barcode";
+            this.barcode.MinimumWidth = 6;
+            this.barcode.Name = "barcode";
+            this.barcode.ReadOnly = true;
+            // 
             // DanhSachChiTietSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -326,8 +336,9 @@
         private Guna.UI.WinForms.GunaPanel danh_sach_san_pham_main;
         private Guna.UI.WinForms.GunaDataGridView gridview_danh_sach_chi_tiet_san_pham;
         private System.Windows.Forms.Label lb_ten_va_sku;
+        private Guna.UI.WinForms.GunaAdvenceButton btn_tro_ve;
         private System.Windows.Forms.DataGridViewTextBoxColumn han_su_dung;
         private System.Windows.Forms.DataGridViewTextBoxColumn so_luong_ton_kho;
-        private Guna.UI.WinForms.GunaAdvenceButton btn_tro_ve;
+        private System.Windows.Forms.DataGridViewTextBoxColumn barcode;
     }
 }
