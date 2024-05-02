@@ -12,20 +12,20 @@ namespace grocery_store.Models
         public Product()
         {
             OrderLine = new HashSet<OrderLine>();
+            ProductDetail = new HashSet<ProductDetail>();
         }
 
         public int ProductId { get; set; }
         public string Name { get; set; }
-        public decimal? CostPrice { get; set; }
-        public int? QuantityInStock { get; set; }
+        public decimal CostPrice { get; set; }
         public string Sku { get; set; }
         public decimal MarketPrice { get; set; }
-        public DateTime? Expiry { get; set; }
         public int? SupplierId { get; set; }
         public int? CategoryId { get; set; }
 
         public virtual Category Category { get; set; }
         public virtual Supplier Supplier { get; set; }
         public virtual ICollection<OrderLine> OrderLine { get; set; }
+        public virtual ICollection<ProductDetail> ProductDetail { get; set; }
     }
 }
