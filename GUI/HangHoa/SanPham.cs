@@ -71,10 +71,10 @@ namespace grocery_store.GUI.HangHoa
                     newProduct.Name = tb_ten_san_pham.Text;
                     newProduct.CategoryId = category.CategoryId;
                     newProduct.SupplierId = supplier.SupplierId;
-                    newProduct.QuantityInStock = int.Parse(input_ton_kho.Value.ToString());
+                    //newProduct.QuantityInStock = int.Parse(input_ton_kho.Value.ToString());
                     newProduct.CostPrice = decimal.Parse(input_gia_nhap.Value.ToString());
                     newProduct.MarketPrice = decimal.Parse(input_gia_ban.Value.ToString());
-                    newProduct.Expiry = input_han_su_dung.Value;
+                    //newProduct.Expiry = input_han_su_dung.Value;
 
                     await dbContext.AddAsync(newProduct);
                     await dbContext.SaveChangesAsync();
@@ -115,10 +115,10 @@ namespace grocery_store.GUI.HangHoa
                         productToUpdate.CategoryId = category.CategoryId;
                         productToUpdate.Supplier = supplier;
                         productToUpdate.SupplierId = supplier.SupplierId;
-                        productToUpdate.QuantityInStock = int.Parse(input_ton_kho.Value.ToString());
+                        //productToUpdate.QuantityInStock = int.Parse(input_ton_kho.Value.ToString());
                         productToUpdate.CostPrice = decimal.Parse(input_gia_nhap.Value.ToString());
                         productToUpdate.MarketPrice = decimal.Parse(input_gia_ban.Value.ToString());
-                        productToUpdate.Expiry = input_han_su_dung.Value;
+                        //productToUpdate.Expiry = input_han_su_dung.Value;
 
                         GenerateProductCode ProductUtil = new GenerateProductCode();
                         productToUpdate.Sku = ProductUtil.GenerateSKU(productToUpdate.Name, category.Name, supplier.Name);
@@ -148,11 +148,11 @@ namespace grocery_store.GUI.HangHoa
                 tb_ten_san_pham.Text = curentProduct.Name;
                 cbb_phan_loai.SelectedIndex = GetIndex(categories, curentProduct.Category.Name);
                 cbb_nha_cung_cap.SelectedIndex = GetIndex(suppliers, curentProduct.Supplier.Name);
-                input_ton_kho.Value = decimal.Parse(curentProduct.QuantityInStock.ToString());
+                //input_ton_kho.Value = decimal.Parse(curentProduct.QuantityInStock.ToString());
                 input_gia_nhap.Value = decimal.Parse(curentProduct.CostPrice.ToString());
                 input_gia_ban.Value = decimal.Parse(curentProduct.MarketPrice.ToString());
-                input_han_su_dung.Value = (DateTime)curentProduct.Expiry;
-                Console.WriteLine(curentProduct.Expiry);
+                //input_han_su_dung.Value = (DateTime)curentProduct.Expiry;
+                
             }
         }
         private async void LoadFormThem()
@@ -164,7 +164,6 @@ namespace grocery_store.GUI.HangHoa
         private void ClearForm()
         {
             tb_ten_san_pham.Text = string.Empty;
-            input_ton_kho.Value = 0;
             input_gia_nhap.Value = 0;
             input_gia_ban.Value = 0;
         }
@@ -220,12 +219,6 @@ namespace grocery_store.GUI.HangHoa
             if (input_gia_ban.Value == 0)
             {
                 ErrorMessage += "- Vui lòng thêm thông tin Giá bán.\n";
-            }
-            string str_ton_kho = input_ton_kho.Value.ToString();
-            if (str_ton_kho.Contains(".") || str_ton_kho.Contains(","))
-            {
-                input_ton_kho.Value = 0;
-                ErrorMessage += "- Vui lòng nhập số số tồn kho là số nguyên.\n";
             }
             return ErrorMessage;
         }
@@ -290,19 +283,6 @@ namespace grocery_store.GUI.HangHoa
 
         }
 
-        private void lb_inventory_error_Validating(object sender, CancelEventArgs e)
-        {
-            string str_ton_kho = input_ton_kho.Value.ToString();
-            if(str_ton_kho.Contains(".") || str_ton_kho.Contains(","))
-            {
-                input_ton_kho.Value = 0;
-                lb_inventory_error.Text = "Vui lòng nhập số nguyên dương.";
-            }
-            else
-            {
-                lb_inventory_error.Text = string.Empty;
-            }
-        }
         #endregion
 
         #region Util
