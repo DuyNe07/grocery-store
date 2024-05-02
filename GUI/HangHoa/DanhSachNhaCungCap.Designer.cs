@@ -230,7 +230,7 @@
             this.gridview_danh_sach_nha_cung_cap.RowTemplate.Height = 50;
             this.gridview_danh_sach_nha_cung_cap.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridview_danh_sach_nha_cung_cap.Size = new System.Drawing.Size(1640, 750);
-            this.gridview_danh_sach_nha_cung_cap.TabIndex = 4;
+            this.gridview_danh_sach_nha_cung_cap.TabIndex = 100;
             this.gridview_danh_sach_nha_cung_cap.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Guna;
             this.gridview_danh_sach_nha_cung_cap.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.gridview_danh_sach_nha_cung_cap.ThemeStyle.AlternatingRowsStyle.Font = null;

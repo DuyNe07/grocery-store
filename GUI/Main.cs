@@ -90,7 +90,8 @@ namespace grocery_store.GUI
 
             #endregion
 
-            SetView(1, 0, 0, 0, 0, 0);
+            //SetView(1, 0, 0, 0, 0, 0);
+            SetView(0, 0, 1, 0, 0, 0);
         }
 
         

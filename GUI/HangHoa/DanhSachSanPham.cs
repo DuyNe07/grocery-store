@@ -121,6 +121,27 @@ namespace grocery_store.GUI.HangHoa
 
         #endregion
 
+        #region Chức năng xem chi tiết sản phẩm
+        private void gridview_danh_sach_san_pham_DoubleClick(object sender, EventArgs e)
+        {
+            DataGridViewRow selectedRow = gridview_danh_sach_san_pham.Rows[indexCurrentRow];
+            if (selectedRow != null)
+            {
+                DanhSachChiTietSanPham UC_Danh_Sach_Chi_Tiet_San_Pham = new DanhSachChiTietSanPham(currentProduct);
+                UC_Danh_Sach_Chi_Tiet_San_Pham.Location = new Point(0, 0);
+
+                UC_Danh_Sach_Chi_Tiet_San_Pham.TroVeClick += (s, args) =>
+                {
+                    this.Controls.Remove(UC_Danh_Sach_Chi_Tiet_San_Pham);
+                };
+
+                this.Controls.Add(UC_Danh_Sach_Chi_Tiet_San_Pham);
+                UC_Danh_Sach_Chi_Tiet_San_Pham.BringToFront();
+
+            }
+        }
+        #endregion
+
         private async void gridview_danh_sach_san_pham_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             indexCurrentRow = e.RowIndex;
@@ -136,6 +157,7 @@ namespace grocery_store.GUI.HangHoa
                 }
             }
         }
+
 
 
         #region Xử Lý Giao Diện
@@ -187,7 +209,6 @@ namespace grocery_store.GUI.HangHoa
             ProductTable.Columns.Add("ProductId", typeof(int));
             ProductTable.Columns.Add("SKU", typeof(string));
             ProductTable.Columns.Add("Name", typeof(string));
-            ProductTable.Columns.Add("Expiry", typeof(string));
             ProductTable.Columns.Add("Category", typeof(string));
             ProductTable.Columns.Add("Supplier", typeof(string));
             ProductTable.Columns.Add("QuantityInStock", typeof(int));
@@ -200,20 +221,27 @@ namespace grocery_store.GUI.HangHoa
             {
                 string formattedCostPrice = string.Format("{0:N0}", product.CostPrice);
                 string formattedMarketPrice = string.Format("{0:N0}", product.MarketPrice);
-                DateTime expiry = (DateTime)product.Expiry;
-                string formatedExpiry = expiry.Month + "/" + expiry.Day + "/" + expiry.Year;
+                int QuantityInStock = await GetQtyInStock(product.Sku);
 
                 ProductTable.Rows.Add(product.ProductId,
                             product.Sku,
                             product.Name,
-                            formatedExpiry,
                             product.Category.Name,
                             product.Supplier.Name,
-                            product.QuantityInStock,
+                            QuantityInStock,
                             formattedCostPrice,
                             formattedMarketPrice);
             }
             return ProductTable;
+        }
+        private async Task<int> GetQtyInStock(string Sku)
+        {
+            int total = 0;
+            using (var dbContext = new GroceryStoreContext())
+            {
+                total = (int)await dbContext.ProductDetail.Where(x => x.Sku == Sku).Select(x => x.QuantityInStock).SumAsync();
+            }
+            return total;
         }
         private async Task<List<Product>> GetProductList()
         {
@@ -230,12 +258,8 @@ namespace grocery_store.GUI.HangHoa
             }
             return products;
         }
-
-
         #endregion
 
-        #region Util
-       
-        #endregion
+
     }
 }

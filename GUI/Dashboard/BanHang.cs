@@ -305,7 +305,8 @@ namespace grocery_store.GUI.Dashboard
         private async Task<bool> CheckQuantityInStock(Item item)
         {
             Product product = await db.Product.FirstOrDefaultAsync(p => p.Name == item.NameProduct);
-            return product.QuantityInStock >= item.Quantity;
+            //return product.QuantityInStock >= item.Quantity;
+            return true;
         }
 
         #endregion
@@ -355,7 +356,7 @@ namespace grocery_store.GUI.Dashboard
             foreach (Item item in items)
             {
                 Product product = products[item.Product.ProductId];
-                product.QuantityInStock -= item.Quantity;
+                //product.QuantityInStock -= item.Quantity;
                 db.Product.Update(product);
             }
             await db.SaveChangesAsync();
