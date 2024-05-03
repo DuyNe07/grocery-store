@@ -1,5 +1,6 @@
 ﻿using grocery_store.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,9 +25,10 @@ namespace grocery_store.GUI.HangHoa
         }
         private async void DanhSachSanPham_Load(object sender, EventArgs e)
         {
-            gridview_danh_sach_san_pham.DataSource = await GetProducTable();
+            gridview_danh_sach_san_pham.DataSource = await GetProducTable(null, -1, -1);
             UpdateSoDong();
         }
+
 
         #region Chức năng thêm sản phẩm
         private void btn_them_Click(object sender, EventArgs e)
@@ -48,7 +50,7 @@ namespace grocery_store.GUI.HangHoa
                 if (newProdcut != null)
                 {
                     this.Controls.Remove(UC_san_pham);
-                    gridview_danh_sach_san_pham.DataSource = await GetProducTable();
+                    gridview_danh_sach_san_pham.DataSource = await GetProducTable(null, -1, -1);
                     UpdateSoDong();
                 }
             };
@@ -73,7 +75,7 @@ namespace grocery_store.GUI.HangHoa
                 if (productUpdate != null)
                 {
                     this.Controls.Remove(UC_san_pham);
-                    gridview_danh_sach_san_pham.DataSource = await GetProducTable();
+                    gridview_danh_sach_san_pham.DataSource = await GetProducTable(null, -1, -1);
                     currentProduct = productUpdate;
                 }
             };
@@ -90,7 +92,7 @@ namespace grocery_store.GUI.HangHoa
             if (result == DialogResult.Yes)
             {
                 await DeleteProductByID(currentProduct.ProductId);
-                gridview_danh_sach_san_pham.DataSource = await GetProducTable();
+                gridview_danh_sach_san_pham.DataSource = await GetProducTable(null, -1, -1);
                 UpdateSoDong();
             }
         }
@@ -165,7 +167,7 @@ namespace grocery_store.GUI.HangHoa
         {
             lb_tong_so_dong.Text = "Kết quả: " + gridview_danh_sach_san_pham.RowCount.ToString();
         }
-        private async void LoadCombobox()
+        public async void LoadCombobox()
         {
             using (var dbContext = new GroceryStoreContext())
             {
@@ -191,19 +193,10 @@ namespace grocery_store.GUI.HangHoa
                 cbb_nha_cung_cap.SelectedIndex = 0;
             }
         }
-        private void txtbox_tim_kiem_Enter(object sender, EventArgs e)
-        {
-            txtbox_tim_kiem.Text = "";
-        }
-
-        private void txtbox_tim_kiem_Leave(object sender, EventArgs e)
-        {
-            txtbox_tim_kiem.Text = "Tìm Kiếm";
-        }
         #endregion
 
         #region DB Util
-        private async Task<DataTable> GetProducTable()
+        private async Task<DataTable> GetProducTable(string ProductName, int CategoryID, int SupplierID)
         {
             DataTable ProductTable = new DataTable();
             ProductTable.Columns.Add("ProductId", typeof(int));
@@ -215,7 +208,7 @@ namespace grocery_store.GUI.HangHoa
             ProductTable.Columns.Add("CostPrice", typeof(string));
             ProductTable.Columns.Add("MarketPrice", typeof(string));
 
-            List<Product> products = await GetProductList();
+            List<Product> products = await GetProductList(ProductName, CategoryID, SupplierID);
 
             foreach (Product product in products)
             {
@@ -243,23 +236,59 @@ namespace grocery_store.GUI.HangHoa
             }
             return total;
         }
-        private async Task<List<Product>> GetProductList()
+
+
+        private async Task<List<Product>> GetProductList(string ProductName, int CategoryID, int SupplierID)
         {
             List<Product> products;
             using (var dbContext = new GroceryStoreContext())
             {
-                products = await dbContext.Product
-                    .Include(p => p.Category)
-                    .Include(p => p.Supplier)
-                    //.Where(p => p.Name == ProductName?)
-                    //.Where(p => p.CategoryId == CategoryID?)
-                    //.Where(p => p.SupplierId == SupplierID?)
-                    .ToListAsync();
+                IQueryable<Product> query = dbContext.Product.Include(p => p.Category).Include(p => p.Supplier);
+
+                if (!string.IsNullOrEmpty(ProductName))
+                {
+                    query = query.Where(p => p.Name == ProductName);
+                }
+
+                if (CategoryID != -1 && CategoryID != null)
+                {
+                    query = query.Where(p => p.CategoryId == CategoryID);
+                }
+
+                if (SupplierID != -1 && SupplierID != null)
+                {
+                    query = query.Where(p => p.SupplierId == SupplierID);
+                }
+
+                products = await query.ToListAsync();
             }
             return products;
         }
+
+
+
         #endregion
 
+        private async void btn_tim_kiem_Click(object sender, EventArgs e)
+        {
+            gridview_danh_sach_san_pham.DataSource = await GetProducTable(txtbox_tim_kiem.Text, (int)cbb_phan_loai.SelectedValue, (int)cbb_nha_cung_cap.SelectedValue);
+        }
 
+        private async void cbb_nha_cung_cap_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int phanLoaiId = cbb_phan_loai.SelectedValue != null ? (int)cbb_phan_loai.SelectedValue : 0;
+            int nhaCungCapId = cbb_nha_cung_cap.SelectedValue != null ? (int)cbb_nha_cung_cap.SelectedValue : 0;
+
+            gridview_danh_sach_san_pham.DataSource = await GetProducTable(txtbox_tim_kiem.Text, phanLoaiId, nhaCungCapId);
+
+        }
+
+        private async void cbb_phan_loai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int phanLoaiId = cbb_phan_loai.SelectedValue != null ? (int)cbb_phan_loai.SelectedValue : 0;
+            int nhaCungCapId = cbb_nha_cung_cap.SelectedValue != null ? (int)cbb_nha_cung_cap.SelectedValue : 0;
+
+            gridview_danh_sach_san_pham.DataSource = await GetProducTable(txtbox_tim_kiem.Text, phanLoaiId, nhaCungCapId);
+        }
     }
 }

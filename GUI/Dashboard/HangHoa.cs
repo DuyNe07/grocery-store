@@ -67,6 +67,7 @@ namespace grocery_store.GUI.Dashboard
             }
             else
             {
+                UC_danh_sach_san_pham.LoadCombobox();
                 this.panel_hang_hoa.Controls.Add(UC_danh_sach_san_pham);
                 btn_san_pham.BaseColor = Color.FromArgb(196, 211, 249);
                 btn_san_pham.ForeColor = Color.FromArgb(109, 125, 229);
