@@ -22,6 +22,7 @@ namespace grocery_store.GUI.BanHang
         private System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("vi-VI");
         public byte[] BarCode { get; set; }
         public Product Product { get; set; }
+        public string inputBarCode { get; set; }
         public int Quantity
         {
             get => int.Parse(Num_quantity.Text);

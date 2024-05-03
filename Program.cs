@@ -21,7 +21,7 @@ namespace grocery_store
             //genarateBarCode.Genarate();
             //API.PaymentQR paymentQR = new API.PaymentQR();
             //paymentQR.Genarate();
-            //updatePayment();
+            updatePayment();
             Application.Run(new GUI.Main());
         }
 

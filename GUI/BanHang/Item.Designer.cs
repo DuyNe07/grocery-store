@@ -126,15 +126,16 @@
             // Num_quantity
             // 
             this.Num_quantity.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.Num_quantity.Location = new System.Drawing.Point(352, 42);
+            this.Num_quantity.Location = new System.Drawing.Point(349, 43);
             this.Num_quantity.Name = "Num_quantity";
-            this.Num_quantity.Size = new System.Drawing.Size(65, 43);
+            this.Num_quantity.Size = new System.Drawing.Size(82, 43);
             this.Num_quantity.TabIndex = 25;
             // 
             // Item
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.Num_quantity);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label_marketPrice);
@@ -145,7 +146,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Item";
-            this.Size = new System.Drawing.Size(1300, 102);
+            this.Size = new System.Drawing.Size(1298, 100);
             ((System.ComponentModel.ISupportInitialize)(this.Num_quantity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -7,20 +7,13 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>34db12ab-eb63-45e3-8d08-fd83d72d1910</rd:DataSourceID>
-    </DataSource>
-    <DataSource Name="grocery_storeGUIBanHang1">
-      <ConnectionProperties>
-        <DataProvider>System.Data.DataSet</DataProvider>
-        <ConnectString>/* Local Connection */</ConnectString>
-      </ConnectionProperties>
-      <rd:DataSourceID>75c8f32f-b4af-4d7a-a237-046e41a5b8e3</rd:DataSourceID>
+      <rd:DataSourceID>5f0cbf82-93c1-40d8-bcd4-01598ae439ec</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="DataSetItem">
       <Query>
-        <DataSourceName>grocery_storeGUIBanHang1</DataSourceName>
+        <DataSourceName>grocery_storeGUIBanHang</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -397,38 +390,6 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Textbox Name="NameEmp">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Parameters!EmployeeName.Value</Value>
-                    <Style />
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Right</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>NameEmp</rd:DefaultName>
-            <Top>3.13626cm</Top>
-            <Left>5.78903cm</Left>
-            <Height>0.6cm</Height>
-            <Width>4.33331cm</Width>
-            <ZIndex>6</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
           <Tablix Name="Tablix5">
             <TablixBody>
               <TablixColumns>
@@ -704,6 +665,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -733,7 +695,7 @@
             <Left>0.79967cm</Left>
             <Height>2.1525cm</Height>
             <Width>9.32266cm</Width>
-            <ZIndex>7</ZIndex>
+            <ZIndex>6</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -763,7 +725,7 @@
             <Left>5.78903cm</Left>
             <Height>0.6cm</Height>
             <Width>4.33331cm</Width>
-            <ZIndex>8</ZIndex>
+            <ZIndex>7</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -779,7 +741,7 @@
             <Left>0.79967cm</Left>
             <Height>0cm</Height>
             <Width>9.32267cm</Width>
-            <ZIndex>9</ZIndex>
+            <ZIndex>8</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -791,7 +753,7 @@
             <Left>0.79967cm</Left>
             <Height>0cm</Height>
             <Width>9.32267cm</Width>
-            <ZIndex>10</ZIndex>
+            <ZIndex>9</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -803,7 +765,7 @@
             <Left>0.79967cm</Left>
             <Height>0cm</Height>
             <Width>9.32267cm</Width>
-            <ZIndex>11</ZIndex>
+            <ZIndex>10</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -815,7 +777,7 @@
             <Left>0.79967cm</Left>
             <Height>0cm</Height>
             <Width>9.32267cm</Width>
-            <ZIndex>12</ZIndex>
+            <ZIndex>11</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -843,7 +805,7 @@
             <Left>0.79967cm</Left>
             <Height>0.6cm</Height>
             <Width>4.36267cm</Width>
-            <ZIndex>13</ZIndex>
+            <ZIndex>12</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -875,7 +837,7 @@
             <Left>5.78903cm</Left>
             <Height>0.6cm</Height>
             <Width>4.33331cm</Width>
-            <ZIndex>14</ZIndex>
+            <ZIndex>13</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -891,7 +853,7 @@
             <Left>0.79967cm</Left>
             <Height>0cm</Height>
             <Width>9.32267cm</Width>
-            <ZIndex>15</ZIndex>
+            <ZIndex>14</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -906,7 +868,7 @@
             <Left>1.18067cm</Left>
             <Height>0.91863cm</Height>
             <Width>0.9566cm</Width>
-            <ZIndex>16</ZIndex>
+            <ZIndex>15</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -922,7 +884,7 @@
             <Left>0.79967cm</Left>
             <Height>1.5cm</Height>
             <Width>9.32266cm</Width>
-            <ZIndex>17</ZIndex>
+            <ZIndex>16</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -934,7 +896,7 @@
             <Left>0.79966cm</Left>
             <Height>0cm</Height>
             <Width>9.32267cm</Width>
-            <ZIndex>18</ZIndex>
+            <ZIndex>17</ZIndex>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -962,7 +924,7 @@
             <Left>2.36082cm</Left>
             <Height>0.6cm</Height>
             <Width>5.9925cm</Width>
-            <ZIndex>19</ZIndex>
+            <ZIndex>18</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -991,6 +953,38 @@
             </Paragraphs>
             <rd:DefaultName>SubTotal1</rd:DefaultName>
             <Top>8.27271cm</Top>
+            <Left>5.78903cm</Left>
+            <Height>0.6cm</Height>
+            <Width>4.33331cm</Width>
+            <ZIndex>19</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="NameEmp">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Parameters!EmployeeName.Value</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>NameEmp</rd:DefaultName>
+            <Top>3.13626cm</Top>
             <Left>5.78903cm</Left>
             <Height>0.6cm</Height>
             <Width>4.33331cm</Width>
@@ -1023,16 +1017,21 @@
     </ReportSection>
   </ReportSections>
   <ReportParameters>
-    <ReportParameter Name="OrderDate">
-      <DataType>DateTime</DataType>
+    <ReportParameter Name="PaymentMethod">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
     <ReportParameter Name="EmployeeName">
       <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
-    <ReportParameter Name="PaymentMethod">
-      <DataType>String</DataType>
+    <ReportParameter Name="OrderDate">
+      <DataType>DateTime</DataType>
+      <Nullable>true</Nullable>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
     <ReportParameter Name="OrderTotal">
@@ -1048,7 +1047,7 @@
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>OrderDate</ParameterName>
+          <ParameterName>PaymentMethod</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>1</ColumnIndex>
@@ -1058,7 +1057,7 @@
         <CellDefinition>
           <ColumnIndex>2</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>PaymentMethod</ParameterName>
+          <ParameterName>OrderDate</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>3</ColumnIndex>

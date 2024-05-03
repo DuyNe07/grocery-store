@@ -10,9 +10,8 @@ namespace grocery_store.Models
     public partial class ProductDetail
     {
         public string Sku { get; set; }
-        public int? QuantityInStock { get; set; }
+        public int QuantityInStock { get; set; }
         public DateTime Expiry { get; set; }
-
         public string BarCode { get; set; }
         public virtual Product SkuNavigation { get; set; }
 
