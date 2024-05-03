@@ -156,7 +156,7 @@ namespace grocery_store.GUI.HangHoa
             List<ProductDetail> productDetails;
             using (var dbContext = new GroceryStoreContext())
             {
-                productDetails = await dbContext.ProductDetail.ToListAsync();
+                productDetails = await dbContext.ProductDetail.Where(pd => pd.Sku == currentProduct.Sku).ToListAsync();
             }
             return productDetails;
         }

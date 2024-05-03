@@ -32,11 +32,9 @@
             this.lb_name_control = new Guna.UI.WinForms.GunaLabel();
             this.btn_san_pham = new Guna.UI.WinForms.GunaButton();
             this.btn_phan_loai = new Guna.UI.WinForms.GunaButton();
-            this.btn_nhap_hang = new Guna.UI.WinForms.GunaButton();
             this.panel_hang_hoa = new Guna.UI.WinForms.GunaPanel();
             this.btn_nha_cung_cap = new Guna.UI.WinForms.GunaButton();
             this.gunaPanel1.SuspendLayout();
-            this.panel_hang_hoa.SuspendLayout();
             this.SuspendLayout();
             // 
             // gunaPanel1
@@ -108,30 +106,6 @@
             this.btn_phan_loai.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn_phan_loai.Click += new System.EventHandler(this.btn_phan_loai_Click);
             // 
-            // btn_nhap_hang
-            // 
-            this.btn_nhap_hang.AnimationHoverSpeed = 0.07F;
-            this.btn_nhap_hang.AnimationSpeed = 0.03F;
-            this.btn_nhap_hang.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(125)))), ((int)(((byte)(229)))));
-            this.btn_nhap_hang.BorderColor = System.Drawing.Color.Black;
-            this.btn_nhap_hang.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_nhap_hang.ForeColor = System.Drawing.Color.White;
-            this.btn_nhap_hang.Image = null;
-            this.btn_nhap_hang.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_nhap_hang.Location = new System.Drawing.Point(750, 0);
-            this.btn_nhap_hang.Name = "btn_nhap_hang";
-            this.btn_nhap_hang.OnHoverBaseColor = System.Drawing.Color.White;
-            this.btn_nhap_hang.OnHoverBorderColor = System.Drawing.Color.White;
-            this.btn_nhap_hang.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(125)))), ((int)(((byte)(229)))));
-            this.btn_nhap_hang.OnHoverImage = null;
-            this.btn_nhap_hang.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(211)))), ((int)(((byte)(249)))));
-            this.btn_nhap_hang.OnPressedDepth = 50;
-            this.btn_nhap_hang.Size = new System.Drawing.Size(250, 100);
-            this.btn_nhap_hang.TabIndex = 4;
-            this.btn_nhap_hang.Text = "Nhập Hàng";
-            this.btn_nhap_hang.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btn_nhap_hang.Click += new System.EventHandler(this.btn_nhap_hang_Click);
-            // 
             // panel_hang_hoa
             // 
             this.panel_hang_hoa.Location = new System.Drawing.Point(0, 100);
@@ -170,7 +144,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.btn_nha_cung_cap);
             this.Controls.Add(this.panel_hang_hoa);
-            this.Controls.Add(this.btn_nhap_hang);
             this.Controls.Add(this.btn_phan_loai);
             this.Controls.Add(this.btn_san_pham);
             this.Controls.Add(this.gunaPanel1);
@@ -180,7 +153,6 @@
             this.Load += new System.EventHandler(this.HangHoa_Load);
             this.gunaPanel1.ResumeLayout(false);
             this.gunaPanel1.PerformLayout();
-            this.panel_hang_hoa.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -190,7 +162,6 @@
         private Guna.UI.WinForms.GunaPanel gunaPanel1;
         private Guna.UI.WinForms.GunaButton btn_san_pham;
         private Guna.UI.WinForms.GunaButton btn_phan_loai;
-        private Guna.UI.WinForms.GunaButton btn_nhap_hang;
         private Guna.UI.WinForms.GunaPanel panel_hang_hoa;
         private Guna.UI.WinForms.GunaLabel lb_name_control;
         private Guna.UI.WinForms.GunaButton btn_nha_cung_cap;

@@ -297,6 +297,7 @@
             this.gridview_danh_sach_san_pham.MultiSelect = false;
             this.gridview_danh_sach_san_pham.Name = "gridview_danh_sach_san_pham";
             this.gridview_danh_sach_san_pham.ReadOnly = true;
+            this.gridview_danh_sach_san_pham.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.gridview_danh_sach_san_pham.RowHeadersVisible = false;
             this.gridview_danh_sach_san_pham.RowHeadersWidth = 51;
             this.gridview_danh_sach_san_pham.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
