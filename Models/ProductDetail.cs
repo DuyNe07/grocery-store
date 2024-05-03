@@ -15,5 +15,14 @@ namespace grocery_store.Models
 
         public string BarCode { get; set; }
         public virtual Product SkuNavigation { get; set; }
+
+        public void generateBarCode()
+        {
+            if (Sku == null) { return; }
+            else
+            {
+                BarCode = Sku + Expiry.ToString("yyMMdd");
+            }
+        }
     }
 }
