@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Composition.Primitives;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -54,6 +55,7 @@ namespace grocery_store.GUI.HangHoa
                     newProductDetail.Sku = currentSKU;
                     newProductDetail.Expiry = input_han_su_dung.Value;
                     newProductDetail.QuantityInStock = (int?)input_ton_kho.Value;
+                    newProductDetail.generateBarCode();
                     await dbContext.AddAsync(newProductDetail);
                     await dbContext.SaveChangesAsync();
                 }
@@ -72,10 +74,12 @@ namespace grocery_store.GUI.HangHoa
         {
             if (await CheckProductDetail(currentSKU, input_han_su_dung.Value))
             {
-                ProductDetail productDetailToUpdate = await GetProductDetail(currentSKU, input_han_su_dung.Value);
-                productDetailToUpdate.QuantityInStock = (int?)input_ton_kho.Value;
+               
                 using(var dbContext = new GroceryStoreContext())
                 {
+                    ProductDetail productDetailToUpdate = await dbContext.ProductDetail.FirstOrDefaultAsync(x => x.BarCode == curentProductDetail.BarCode);
+                    productDetailToUpdate.QuantityInStock = (int?)input_ton_kho.Value;
+                    productDetailToUpdate.generateBarCode();
                     await dbContext.SaveChangesAsync();
                 }
             }
@@ -117,16 +121,7 @@ namespace grocery_store.GUI.HangHoa
             }
 
         }
-        public async Task<ProductDetail> GetProductDetail(string sku, DateTime expiry)
-        {
-            ProductDetail productDetail;
-            using (var dbContext = new GroceryStoreContext())
-            {
-                // Lấy đối tượng ProductDetail đầu tiên khớp với SKU và Expiry đã cho
-                productDetail = await dbContext.ProductDetail.FirstOrDefaultAsync(x => x.Sku == sku && x.Expiry == expiry);
-            }
-            return productDetail;
-        }
+       
 
         #endregion
     }
