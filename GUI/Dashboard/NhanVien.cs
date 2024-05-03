@@ -533,7 +533,7 @@ namespace grocery_store.GUI.Dashboard
             panel_shift.Controls.Add(panel_delay_timekeeping);
 
             Employee emp = await gs_context.Employee.Include(i => i.Job).Where(i => i.EmployeeId == employee.EmployeeId).FirstOrDefaultAsync();
-            startjob = emp.Job.JoinDate.Value;
+            startjob = emp.Job.JoinDate;
             endnow = new DateTime();
             if (emp.Job.EndDate.HasValue)
             {
