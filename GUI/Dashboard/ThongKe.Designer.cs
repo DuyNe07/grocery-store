@@ -28,61 +28,60 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThongKe));
-            this.reportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.gunaGradientPanel1 = new Guna.UI.WinForms.GunaGradientPanel();
+            this.panel_profit = new Guna.UI.WinForms.GunaGradientPanel();
             this.label2 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.label_increase_profit = new System.Windows.Forms.Label();
+            this.header_profit = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label_profit = new System.Windows.Forms.Label();
-            this.gunaGradientPanel2 = new Guna.UI.WinForms.GunaGradientPanel();
+            this.panel_revenue = new Guna.UI.WinForms.GunaGradientPanel();
             this.label8 = new System.Windows.Forms.Label();
             this.label_increase_revenue = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label_revenue = new System.Windows.Forms.Label();
             this.header_renueve = new System.Windows.Forms.Label();
-            this.gunaGradientPanel3 = new Guna.UI.WinForms.GunaGradientPanel();
+            this.panel_numOfOrder = new Guna.UI.WinForms.GunaGradientPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.label_increase_numOrder = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label_numOfOrder = new System.Windows.Forms.Label();
             this.header_numOrder = new System.Windows.Forms.Label();
-            this.gunaGradientPanel1.SuspendLayout();
+            this.ElipseRevenue = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.ElipseProfit = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.ElipseNum = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.reportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.input_dateStart = new System.Windows.Forms.DateTimePicker();
+            this.input_dateEnd = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel_profit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.gunaGradientPanel2.SuspendLayout();
+            this.panel_revenue.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.gunaGradientPanel3.SuspendLayout();
+            this.panel_numOfOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
-            // reportViewer
+            // panel_profit
             // 
-            this.reportViewer.LocalReport.ReportEmbeddedResource = "grocery_store.GUI.ThongKe.statistical.rdlc";
-            this.reportViewer.Location = new System.Drawing.Point(82, 255);
-            this.reportViewer.Name = "reportViewer";
-            this.reportViewer.ServerReport.BearerToken = null;
-            this.reportViewer.Size = new System.Drawing.Size(1588, 730);
-            this.reportViewer.TabIndex = 0;
-            // 
-            // gunaGradientPanel1
-            // 
-            this.gunaGradientPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gunaGradientPanel1.BackgroundImage")));
-            this.gunaGradientPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.gunaGradientPanel1.Controls.Add(this.label2);
-            this.gunaGradientPanel1.Controls.Add(this.label9);
-            this.gunaGradientPanel1.Controls.Add(this.label11);
-            this.gunaGradientPanel1.Controls.Add(this.pictureBox4);
-            this.gunaGradientPanel1.Controls.Add(this.label_profit);
-            this.gunaGradientPanel1.GradiantColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(169)))), ((int)(((byte)(140)))));
-            this.gunaGradientPanel1.GradiantColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(169)))), ((int)(((byte)(140)))));
-            this.gunaGradientPanel1.GradiantColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(169)))), ((int)(((byte)(140)))));
-            this.gunaGradientPanel1.GradiantColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(169)))), ((int)(((byte)(140)))));
-            this.gunaGradientPanel1.Location = new System.Drawing.Point(687, 52);
-            this.gunaGradientPanel1.Name = "gunaGradientPanel1";
-            this.gunaGradientPanel1.Size = new System.Drawing.Size(400, 170);
-            this.gunaGradientPanel1.TabIndex = 8;
-            this.gunaGradientPanel1.Text = "gunaGradientPanel1";
+            this.panel_profit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel_profit.BackgroundImage")));
+            this.panel_profit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel_profit.Controls.Add(this.label2);
+            this.panel_profit.Controls.Add(this.label_increase_profit);
+            this.panel_profit.Controls.Add(this.header_profit);
+            this.panel_profit.Controls.Add(this.pictureBox4);
+            this.panel_profit.Controls.Add(this.label_profit);
+            this.panel_profit.GradiantColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(169)))), ((int)(((byte)(140)))));
+            this.panel_profit.GradiantColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(169)))), ((int)(((byte)(140)))));
+            this.panel_profit.GradiantColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(169)))), ((int)(((byte)(140)))));
+            this.panel_profit.GradiantColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(169)))), ((int)(((byte)(140)))));
+            this.panel_profit.Location = new System.Drawing.Point(505, 52);
+            this.panel_profit.Name = "panel_profit";
+            this.panel_profit.Size = new System.Drawing.Size(400, 170);
+            this.panel_profit.TabIndex = 8;
+            this.panel_profit.Text = "gunaGradientPanel1";
             // 
             // label2
             // 
@@ -97,28 +96,28 @@
             this.label2.TabIndex = 14;
             this.label2.Text = "so với tháng trước";
             // 
-            // label9
+            // label_increase_profit
             // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label9.Location = new System.Drawing.Point(143, 121);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(51, 25);
-            this.label9.TabIndex = 13;
-            this.label9.Text = "↗2%";
+            this.label_increase_profit.AutoSize = true;
+            this.label_increase_profit.BackColor = System.Drawing.Color.Transparent;
+            this.label_increase_profit.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label_increase_profit.Location = new System.Drawing.Point(143, 121);
+            this.label_increase_profit.Name = "label_increase_profit";
+            this.label_increase_profit.Size = new System.Drawing.Size(51, 25);
+            this.label_increase_profit.TabIndex = 13;
+            this.label_increase_profit.Text = "↗2%";
             // 
-            // label11
+            // header_profit
             // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label11.Location = new System.Drawing.Point(187, 25);
-            this.label11.Name = "label11";
-            this.label11.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label11.Size = new System.Drawing.Size(177, 31);
-            this.label11.TabIndex = 10;
-            this.label11.Text = "Tổng lợi nhuận";
+            this.header_profit.AutoSize = true;
+            this.header_profit.BackColor = System.Drawing.Color.Transparent;
+            this.header_profit.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.header_profit.Location = new System.Drawing.Point(187, 25);
+            this.header_profit.Name = "header_profit";
+            this.header_profit.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.header_profit.Size = new System.Drawing.Size(177, 31);
+            this.header_profit.TabIndex = 10;
+            this.header_profit.Text = "Tổng lợi nhuận";
             // 
             // pictureBox4
             // 
@@ -146,24 +145,24 @@
             this.label_profit.Text = "10,000,000,000";
             this.label_profit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // gunaGradientPanel2
+            // panel_revenue
             // 
-            this.gunaGradientPanel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gunaGradientPanel2.BackgroundImage")));
-            this.gunaGradientPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.gunaGradientPanel2.Controls.Add(this.label8);
-            this.gunaGradientPanel2.Controls.Add(this.label_increase_revenue);
-            this.gunaGradientPanel2.Controls.Add(this.pictureBox1);
-            this.gunaGradientPanel2.Controls.Add(this.label_revenue);
-            this.gunaGradientPanel2.Controls.Add(this.header_renueve);
-            this.gunaGradientPanel2.GradiantColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
-            this.gunaGradientPanel2.GradiantColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
-            this.gunaGradientPanel2.GradiantColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
-            this.gunaGradientPanel2.GradiantColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
-            this.gunaGradientPanel2.Location = new System.Drawing.Point(82, 52);
-            this.gunaGradientPanel2.Name = "gunaGradientPanel2";
-            this.gunaGradientPanel2.Size = new System.Drawing.Size(400, 170);
-            this.gunaGradientPanel2.TabIndex = 9;
-            this.gunaGradientPanel2.Text = "gunaGradientPanel2";
+            this.panel_revenue.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel_revenue.BackgroundImage")));
+            this.panel_revenue.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel_revenue.Controls.Add(this.label8);
+            this.panel_revenue.Controls.Add(this.label_increase_revenue);
+            this.panel_revenue.Controls.Add(this.pictureBox1);
+            this.panel_revenue.Controls.Add(this.label_revenue);
+            this.panel_revenue.Controls.Add(this.header_renueve);
+            this.panel_revenue.GradiantColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
+            this.panel_revenue.GradiantColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
+            this.panel_revenue.GradiantColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
+            this.panel_revenue.GradiantColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(199)))), ((int)(((byte)(217)))));
+            this.panel_revenue.Location = new System.Drawing.Point(59, 52);
+            this.panel_revenue.Name = "panel_revenue";
+            this.panel_revenue.Size = new System.Drawing.Size(400, 170);
+            this.panel_revenue.TabIndex = 9;
+            this.panel_revenue.Text = "gunaGradientPanel2";
             // 
             // label8
             // 
@@ -225,24 +224,24 @@
             this.header_renueve.TabIndex = 5;
             this.header_renueve.Text = "Tổng doanh thu";
             // 
-            // gunaGradientPanel3
+            // panel_numOfOrder
             // 
-            this.gunaGradientPanel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gunaGradientPanel3.BackgroundImage")));
-            this.gunaGradientPanel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.gunaGradientPanel3.Controls.Add(this.label5);
-            this.gunaGradientPanel3.Controls.Add(this.label_increase_numOrder);
-            this.gunaGradientPanel3.Controls.Add(this.pictureBox3);
-            this.gunaGradientPanel3.Controls.Add(this.label_numOfOrder);
-            this.gunaGradientPanel3.Controls.Add(this.header_numOrder);
-            this.gunaGradientPanel3.GradiantColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(187)))), ((int)(((byte)(112)))));
-            this.gunaGradientPanel3.GradiantColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(218)))));
-            this.gunaGradientPanel3.GradiantColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(236)))), ((int)(((byte)(158)))));
-            this.gunaGradientPanel3.GradiantColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(218)))));
-            this.gunaGradientPanel3.Location = new System.Drawing.Point(1270, 52);
-            this.gunaGradientPanel3.Name = "gunaGradientPanel3";
-            this.gunaGradientPanel3.Size = new System.Drawing.Size(400, 170);
-            this.gunaGradientPanel3.TabIndex = 10;
-            this.gunaGradientPanel3.Text = "gunaGradientPanel3";
+            this.panel_numOfOrder.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel_numOfOrder.BackgroundImage")));
+            this.panel_numOfOrder.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel_numOfOrder.Controls.Add(this.label5);
+            this.panel_numOfOrder.Controls.Add(this.label_increase_numOrder);
+            this.panel_numOfOrder.Controls.Add(this.pictureBox3);
+            this.panel_numOfOrder.Controls.Add(this.label_numOfOrder);
+            this.panel_numOfOrder.Controls.Add(this.header_numOrder);
+            this.panel_numOfOrder.GradiantColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(236)))), ((int)(((byte)(158)))));
+            this.panel_numOfOrder.GradiantColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(236)))), ((int)(((byte)(158)))));
+            this.panel_numOfOrder.GradiantColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(236)))), ((int)(((byte)(158)))));
+            this.panel_numOfOrder.GradiantColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(236)))), ((int)(((byte)(158)))));
+            this.panel_numOfOrder.Location = new System.Drawing.Point(953, 52);
+            this.panel_numOfOrder.Name = "panel_numOfOrder";
+            this.panel_numOfOrder.Size = new System.Drawing.Size(400, 170);
+            this.panel_numOfOrder.TabIndex = 10;
+            this.panel_numOfOrder.Text = "gunaGradientPanel3";
             // 
             // label5
             // 
@@ -306,52 +305,144 @@
             this.header_numOrder.TabIndex = 10;
             this.header_numOrder.Text = "Số đơn hàng";
             // 
+            // ElipseRevenue
+            // 
+            this.ElipseRevenue.Radius = 20;
+            this.ElipseRevenue.TargetControl = this.panel_revenue;
+            // 
+            // ElipseProfit
+            // 
+            this.ElipseProfit.Radius = 20;
+            this.ElipseProfit.TargetControl = this.panel_profit;
+            // 
+            // ElipseNum
+            // 
+            this.ElipseNum.Radius = 20;
+            this.ElipseNum.TargetControl = this.panel_numOfOrder;
+            // 
+            // reportViewer
+            // 
+            this.reportViewer.LocalReport.ReportEmbeddedResource = "grocery_store.GUI.ThongKe.statistical.rdlc";
+            this.reportViewer.Location = new System.Drawing.Point(59, 252);
+            this.reportViewer.Name = "reportViewer";
+            this.reportViewer.ServerReport.BearerToken = null;
+            this.reportViewer.ShowBackButton = false;
+            this.reportViewer.ShowFindControls = false;
+            this.reportViewer.ShowPageNavigationControls = false;
+            this.reportViewer.ShowPrintButton = false;
+            this.reportViewer.ShowStopButton = false;
+            this.reportViewer.ShowZoomControl = false;
+            this.reportViewer.Size = new System.Drawing.Size(1625, 768);
+            this.reportViewer.TabIndex = 11;
+            // 
+            // input_dateStart
+            // 
+            this.input_dateStart.CalendarTrailingForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.input_dateStart.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.input_dateStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.input_dateStart.Location = new System.Drawing.Point(1407, 80);
+            this.input_dateStart.MinDate = new System.DateTime(2024, 1, 1, 0, 0, 0, 0);
+            this.input_dateStart.Name = "input_dateStart";
+            this.input_dateStart.Size = new System.Drawing.Size(233, 47);
+            this.input_dateStart.TabIndex = 10;
+            this.input_dateStart.Value = new System.DateTime(2024, 4, 1, 0, 0, 0, 0);
+            // 
+            // input_dateEnd
+            // 
+            this.input_dateEnd.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.input_dateEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.input_dateEnd.Location = new System.Drawing.Point(1407, 175);
+            this.input_dateEnd.MinDate = new System.DateTime(2024, 5, 1, 0, 0, 0, 0);
+            this.input_dateEnd.Name = "input_dateEnd";
+            this.input_dateEnd.Size = new System.Drawing.Size(233, 47);
+            this.input_dateEnd.TabIndex = 12;
+            this.input_dateEnd.Value = new System.DateTime(2024, 5, 1, 9, 51, 12, 0);
+            this.input_dateEnd.ValueChanged += new System.EventHandler(this.input_dateEnd_ValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label1.Location = new System.Drawing.Point(1407, 52);
+            this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label1.Size = new System.Drawing.Size(78, 25);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Từ ngày";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label3.Location = new System.Drawing.Point(1407, 143);
+            this.label3.Name = "label3";
+            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label3.Size = new System.Drawing.Size(91, 25);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Đến ngày";
+            // 
             // ThongKe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.Controls.Add(this.gunaGradientPanel3);
-            this.Controls.Add(this.gunaGradientPanel2);
-            this.Controls.Add(this.gunaGradientPanel1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.input_dateEnd);
+            this.Controls.Add(this.input_dateStart);
             this.Controls.Add(this.reportViewer);
+            this.Controls.Add(this.panel_numOfOrder);
+            this.Controls.Add(this.panel_revenue);
+            this.Controls.Add(this.panel_profit);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ThongKe";
             this.Size = new System.Drawing.Size(1720, 1050);
             this.Load += new System.EventHandler(this.ThongKe_Load);
-            this.gunaGradientPanel1.ResumeLayout(false);
-            this.gunaGradientPanel1.PerformLayout();
+            this.panel_profit.ResumeLayout(false);
+            this.panel_profit.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.gunaGradientPanel2.ResumeLayout(false);
-            this.gunaGradientPanel2.PerformLayout();
+            this.panel_revenue.ResumeLayout(false);
+            this.panel_revenue.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.gunaGradientPanel3.ResumeLayout(false);
-            this.gunaGradientPanel3.PerformLayout();
+            this.panel_numOfOrder.ResumeLayout(false);
+            this.panel_numOfOrder.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer;
-        private Guna.UI.WinForms.GunaGradientPanel gunaGradientPanel1;
+        private Guna.UI.WinForms.GunaGradientPanel panel_profit;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label_increase_profit;
+        private System.Windows.Forms.Label header_profit;
         private System.Windows.Forms.PictureBox pictureBox4;
         public System.Windows.Forms.Label label_profit;
-        private Guna.UI.WinForms.GunaGradientPanel gunaGradientPanel2;
+        private Guna.UI.WinForms.GunaGradientPanel panel_revenue;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label_increase_revenue;
         private System.Windows.Forms.PictureBox pictureBox1;
         public System.Windows.Forms.Label label_revenue;
         private System.Windows.Forms.Label header_renueve;
-        private Guna.UI.WinForms.GunaGradientPanel gunaGradientPanel3;
+        private Guna.UI.WinForms.GunaGradientPanel panel_numOfOrder;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label_increase_numOrder;
         private System.Windows.Forms.PictureBox pictureBox3;
         public System.Windows.Forms.Label label_numOfOrder;
         private System.Windows.Forms.Label header_numOrder;
+        private Guna.UI.WinForms.GunaElipse ElipseRevenue;
+        private Guna.UI.WinForms.GunaElipse ElipseProfit;
+        private Guna.UI.WinForms.GunaElipse ElipseNum;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer;
+        private System.Windows.Forms.DateTimePicker input_dateStart;
+        private System.Windows.Forms.DateTimePicker input_dateEnd;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
     }
 }

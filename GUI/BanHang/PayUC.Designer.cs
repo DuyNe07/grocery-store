@@ -106,7 +106,12 @@
             this.reportViewer.LocalReport.ReportEmbeddedResource = "grocery_store.GUI.BanHang.ShopOrderReport.rdlc";
             this.reportViewer.Location = new System.Drawing.Point(40, 48);
             this.reportViewer.Name = "reportViewer";
-            this.reportViewer.ServerReport.BearerToken = null;
+            this.reportViewer.ShowBackButton = false;
+            this.reportViewer.ShowFindControls = false;
+            this.reportViewer.ShowPageNavigationControls = false;
+            this.reportViewer.ShowPrintButton = false;
+            this.reportViewer.ShowStopButton = false;
+            this.reportViewer.ShowZoomControl = false;
             this.reportViewer.Size = new System.Drawing.Size(588, 691);
             this.reportViewer.TabIndex = 13;
             // 
