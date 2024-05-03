@@ -272,6 +272,7 @@ namespace grocery_store.GUI.HangHoa
         private async void btn_tim_kiem_Click(object sender, EventArgs e)
         {
             gridview_danh_sach_san_pham.DataSource = await GetProducTable(txtbox_tim_kiem.Text, (int)cbb_phan_loai.SelectedValue, (int)cbb_nha_cung_cap.SelectedValue);
+            UpdateSoDong();
         }
 
         private async void cbb_nha_cung_cap_SelectedIndexChanged(object sender, EventArgs e)
@@ -280,6 +281,7 @@ namespace grocery_store.GUI.HangHoa
             int nhaCungCapId = cbb_nha_cung_cap.SelectedValue != null ? (int)cbb_nha_cung_cap.SelectedValue : 0;
 
             gridview_danh_sach_san_pham.DataSource = await GetProducTable(txtbox_tim_kiem.Text, phanLoaiId, nhaCungCapId);
+            UpdateSoDong();
 
         }
 
@@ -289,6 +291,7 @@ namespace grocery_store.GUI.HangHoa
             int nhaCungCapId = cbb_nha_cung_cap.SelectedValue != null ? (int)cbb_nha_cung_cap.SelectedValue : 0;
 
             gridview_danh_sach_san_pham.DataSource = await GetProducTable(txtbox_tim_kiem.Text, phanLoaiId, nhaCungCapId);
+            UpdateSoDong();
         }
     }
 }
