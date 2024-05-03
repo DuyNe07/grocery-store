@@ -54,7 +54,7 @@ namespace grocery_store.GUI.HangHoa
 
                     newProductDetail.Sku = currentSKU;
                     newProductDetail.Expiry = input_han_su_dung.Value;
-                    newProductDetail.QuantityInStock = (int?)input_ton_kho.Value;
+                    newProductDetail.QuantityInStock = (int)input_ton_kho.Value;
                     newProductDetail.generateBarCode();
                     await dbContext.AddAsync(newProductDetail);
                     await dbContext.SaveChangesAsync();
@@ -78,7 +78,7 @@ namespace grocery_store.GUI.HangHoa
                 using(var dbContext = new GroceryStoreContext())
                 {
                     ProductDetail productDetailToUpdate = await dbContext.ProductDetail.FirstOrDefaultAsync(x => x.BarCode == curentProductDetail.BarCode);
-                    productDetailToUpdate.QuantityInStock = (int?)input_ton_kho.Value;
+                    productDetailToUpdate.QuantityInStock = (int)input_ton_kho.Value;
                     productDetailToUpdate.generateBarCode();
                     await dbContext.SaveChangesAsync();
                 }

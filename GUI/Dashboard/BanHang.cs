@@ -33,58 +33,75 @@ namespace grocery_store.GUI.Dashboard
 
         #region Event Control
         // INFO : Sự kiện khi nhấn nút quét mã vạch
-        private async void btn_scan_Click(object sender, EventArgs e)
+        private void btn_scan_Click(object sender, EventArgs e)
         {
-            if (FinalFrame != null && FinalFrame.IsRunning)
+            ScanBarCode scanBarCode = new ScanBarCode();
+            this.Controls.Add(scanBarCode);
+            scanBarCode.BringToFront();
+            scanBarCode.Location = new Point(0, 0);
+            scanBarCode.CancelClick += (s, args) =>
             {
-                FinalFrame.SignalToStop();
-                FinalFrame.WaitForStop();
-                FinalFrame = null;
-                this.pictureBox_ScanCode.Visible = false;
-                return;
-            }
-
-            this.pictureBox_ScanCode.Visible = true;
-            this.pictureBox_ScanCode.BringToFront();
-            this.pictureBox_ScanCode.Location = new Point(100, 100);
-            cancellationTokenSource = new CancellationTokenSource();
-
-            // Khởi chạy webcam ở luồng chính
-            this.pictureBox_ScanCode.Visible = true;
-            FilterInfoCollection CaptureDevice = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-            FinalFrame = new VideoCaptureDevice(CaptureDevice[0].MonikerString);
-            FinalFrame.NewFrame += new NewFrameEventHandler(async (s, eventArgs) =>
+                scanBarCode.StopWebcam();
+                scanBarCode.Dispose();
+                this.Controls.Remove(scanBarCode);
+            };
+            scanBarCode.ScanBarCodeAsync().ContinueWith((task) =>
             {
-                Bitmap frame = (Bitmap)eventArgs.Frame.Clone();
-                frame.RotateFlip(RotateFlipType.RotateNoneFlipX);
-                this.pictureBox_ScanCode.Image = frame;
-                BarcodeReader reader = new BarcodeReader();
-                var result = reader.Decode((Bitmap)eventArgs.Frame.Clone());
-
-                // Khi phát hiện ra mã vạch
-                if (result != null)
-                {
-                    // Khởi chạy 1 luồng mới để chạy ZXing nhận dạng mã vạch
-                    string barcode = await Task.Run(() => result.Text);
-
-                    // Dừng luồng webcam
-                    FinalFrame.SignalToStop();
-                    FinalFrame.WaitForStop();
-                    FinalFrame = null;
-                    cancellationTokenSource.Cancel();
-
-                    // Dừng webcam và thêm sản phẩm vào danh sách
-                    this.Invoke((MethodInvoker)delegate
-                    {
-                        this.pictureBox_ScanCode.Visible = false;
-                        addItem(barcode);
-                    });
-
-                    return;
-                }
-                await Task.Delay(1);
+                string barcode = task.Result;
+                addItem(barcode);
+                scanBarCode.StopWebcam();
+                this.Controls.Remove(scanBarCode);
             });
-            FinalFrame.Start();
+            //if (FinalFrame != null && FinalFrame.IsRunning)
+            //{
+            //    FinalFrame.SignalToStop();
+            //    FinalFrame.WaitForStop();
+            //    FinalFrame = null;
+            //    this.pictureBox_ScanCode.Visible = false;
+            //    return;
+            //}
+
+            //this.pictureBox_ScanCode.Visible = true;
+            //this.pictureBox_ScanCode.BringToFront();
+            //this.pictureBox_ScanCode.Location = new Point(100, 100);
+            //cancellationTokenSource = new CancellationTokenSource();
+
+            //// Khởi chạy webcam ở luồng chính
+            //this.pictureBox_ScanCode.Visible = true;
+            //FilterInfoCollection CaptureDevice = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            //FinalFrame = new VideoCaptureDevice(CaptureDevice[0].MonikerString);
+            //FinalFrame.NewFrame += new NewFrameEventHandler(async (s, eventArgs) =>
+            //{
+            //    Bitmap frame = (Bitmap)eventArgs.Frame.Clone();
+            //    frame.RotateFlip(RotateFlipType.RotateNoneFlipX);
+            //    this.pictureBox_ScanCode.Image = frame;
+            //    BarcodeReader reader = new BarcodeReader();
+            //    var result = reader.Decode((Bitmap)eventArgs.Frame.Clone());
+
+            //    // Khi phát hiện ra mã vạch
+            //    if (result != null)
+            //    {
+            //        // Khởi chạy 1 luồng mới để chạy ZXing nhận dạng mã vạch
+            //        string barcode = await Task.Run(() => result.Text);
+
+            //        // Dừng luồng webcam
+            //        FinalFrame.SignalToStop();
+            //        FinalFrame.WaitForStop();
+            //        FinalFrame = null;
+            //        cancellationTokenSource.Cancel();
+
+            //        // Dừng webcam và thêm sản phẩm vào danh sách
+            //        this.Invoke((MethodInvoker)delegate
+            //        {
+            //            this.pictureBox_ScanCode.Visible = false;
+            //            addItem(barcode);
+            //        });
+
+            //        return;
+            //    }
+            //    await Task.Delay(1);
+            //});
+            //FinalFrame.Start();
         }
 
         // INFO : Sự kiện khi nhấn nút xác nhận
@@ -120,7 +137,7 @@ namespace grocery_store.GUI.Dashboard
             }
             await updateBarCode();
             PayUC payUC = new PayUC(Image.FromStream(new System.IO.MemoryStream(payment.Qr)), 
-                items, payment.Name);
+                items, payment.Name, "Lương Vũ Đình Duy");
             payUC.Location = new Point(150, 100);
             payUC.OKClick += async (s, args) =>
             {
@@ -227,15 +244,20 @@ namespace grocery_store.GUI.Dashboard
 
         #region Item
         // INFO : Kiểm tra Item và thêm Item vào danh sách
-        private async void addItem(string productSKU)
+        private async void addItem(string productBarCode)
         {
-            Product product = db.Product.Include(p => p).FirstOrDefault(p => p.Sku == productSKU);
+            Product product = await db.Product
+                .Include(p => p.ProductDetail)
+                .Where(p => p.ProductDetail.Any(pd => pd.BarCode == productBarCode))
+                .FirstAsync();
+
             if (product == null)
             {
                 MessageBox.Show("Không tìm thấy sản phẩm");
                 return;
             }
-
+            
+            //int quantityInStock = product.ProductDetail.First(pd => pd.BarCode == productBarCode).QuantityInStock;
             if (items.Any(i => i.NameProduct == product.Name))
             {
                 var item = items.First(i => i.NameProduct == product.Name);
@@ -249,6 +271,7 @@ namespace grocery_store.GUI.Dashboard
             else
             {
                 Item newItem = new Item(product);
+                newItem.inputBarCode = productBarCode;
                 if (!await CheckQuantityInStock(newItem))
                 {
                     MessageBox.Show("Sản phẩm không đủ hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -304,9 +327,9 @@ namespace grocery_store.GUI.Dashboard
         // INFO : Kiểm tra số lượng hàng còn trong kho
         private async Task<bool> CheckQuantityInStock(Item item)
         {
-            Product product = await db.Product.FirstOrDefaultAsync(p => p.Name == item.NameProduct);
-            //return product.QuantityInStock >= item.Quantity;
-            return true;
+            ProductDetail productDetail = db.ProductDetail.First(pd => pd.BarCode == item.inputBarCode);
+
+            return productDetail.QuantityInStock >= item.Quantity;
         }
 
         #endregion
@@ -322,7 +345,7 @@ namespace grocery_store.GUI.Dashboard
 
             Main main = (Main)this.Parent.Parent;
             // Modify this later
-            shopOrder.EmployeeId = 1; //main.Employee.EmployeeId; 
+            shopOrder.EmployeeId = 17; //main.Employee.EmployeeId; 
 
             List<OrderLine> orderLines = await CreateOrderLinesAsync(shopOrder);
             shopOrder.OrderLine = orderLines;
@@ -355,9 +378,9 @@ namespace grocery_store.GUI.Dashboard
 
             foreach (Item item in items)
             {
-                Product product = products[item.Product.ProductId];
-                //product.QuantityInStock -= item.Quantity;
-                db.Product.Update(product);
+                ProductDetail productDetail = db.ProductDetail.First(pd => pd.BarCode == item.inputBarCode);
+                productDetail.QuantityInStock -= item.Quantity;
+                db.ProductDetail.Update(productDetail);
             }
             await db.SaveChangesAsync();
         }

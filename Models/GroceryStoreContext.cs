@@ -1,4 +1,6 @@
 ﻿ using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -32,6 +34,8 @@ namespace grocery_store.Models
         public virtual DbSet<Timekeeping> Timekeeping { get; set; }
         public virtual DbSet<ViewInvoice> ViewInvoice { get; set; }
         public virtual DbSet<ViewStatistical> ViewStatistical { get; set; }
+
+        public virtual DbSet<RevenueTime> RevenueTime { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -279,8 +283,26 @@ namespace grocery_store.Models
                 entity.Property(e => e.SubTotal).HasColumnType("money");
             });
 
+            modelBuilder.Entity<RevenueTime>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToView("RevenueTime");
+
+                entity.Property(e => e.OrderDate).HasColumnType("datetime");
+
+                entity.Property(e => e.ProductName).HasMaxLength(50);
+
+                entity.Property(e => e.Revenue).HasColumnType("money");
+
+                entity.Property(e => e.SubTotal).HasColumnType("money");
+            });
+
+
             OnModelCreatingPartial(modelBuilder);
         }
+
+
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }

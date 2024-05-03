@@ -16,7 +16,6 @@ namespace grocery_store.GUI.HoaDon
         public Temp()
         {
             InitializeComponent();
-            SqlServerTypes.Utilities.LoadNativeAssemblies(AppDomain.CurrentDomain.BaseDirectory);
         }
     }
 }
