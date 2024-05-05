@@ -45,8 +45,8 @@ namespace grocery_store.GUI
             }
             else
             {
-                MessageBox.Show("Đăng nhập thất bại");
-                txtbox_Login.Text = "";
+                MessageBox.Show("Đăng nhập thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtbox_Pass.Text = "";
             }
         }
 
