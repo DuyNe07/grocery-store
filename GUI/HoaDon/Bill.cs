@@ -4,6 +4,9 @@ using System.Windows.Forms;
 using ZXing;
 using ZXing.Common;
 using System.Linq;
+using System;
+using System.Drawing;
+using System.IO;
 
 namespace grocery_store.GUI.HoaDon
 {
@@ -11,10 +14,12 @@ namespace grocery_store.GUI.HoaDon
     {
         private int ShopOrderID;
         System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("vi-VI");
+        public event EventHandler CloseClick;
         public Bill(int shoporderID)
         {
             InitializeComponent();
             ShopOrderID = shoporderID;
+            this.btn_close.Click += (sender, e) => CloseClick?.Invoke(this, e);
             loadData();
         }
         public void loadData()
@@ -33,30 +38,14 @@ namespace grocery_store.GUI.HoaDon
                     MarketPrice = invoice.FormattedMarketPrice,
                     PriceLine = invoice.FormattedPriceLine,
                     SubTotal = invoice.FormattedSubTotal,
-
+                    BarCode = invoice.BarCode
                 }).ToList();
 
-                //reportViewer_invoice.LocalReport.DataSources.Clear();
-                //reportViewer_invoice.LocalReport.DataSources.Add(new Microsoft.Reporting.WinForms.ReportDataSource("DataSet_Invoice", formattedInvoices));
+                reportViewer.LocalReport.DataSources.Clear();
+                reportViewer.LocalReport.DataSources.Add(new Microsoft.Reporting.WinForms.ReportDataSource("DataSet_Invoice", formattedInvoices));
 
-                //reportViewer_invoice.RefreshReport();
+                reportViewer.RefreshReport();
             }
-        }
-               
-        public void GenarateBarCode()
-        {
-            BarcodeWriter writer = new BarcodeWriter();
-            writer.Format = BarcodeFormat.CODE_128;
-            writer.Options = new EncodingOptions
-            {
-                Height = 100,
-                Width = 300
-            };
-        }
-
-        private void Bill_Load(object sender, System.EventArgs e)
-        {
-
         }
     }
 }

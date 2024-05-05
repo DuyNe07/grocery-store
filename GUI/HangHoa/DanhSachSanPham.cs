@@ -194,6 +194,7 @@ namespace grocery_store.GUI.HangHoa
         private void txtbox_tim_kiem_Enter(object sender, EventArgs e)
         {
             txtbox_tim_kiem.Text = "";
+
         }
 
         private void txtbox_tim_kiem_Leave(object sender, EventArgs e)

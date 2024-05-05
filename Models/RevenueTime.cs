@@ -12,5 +12,13 @@ namespace grocery_store.Models
         public string ProductName { get; set; }
         public decimal Revenue { get; set; }
         public decimal SubTotal { get; set; }
+
+        public string MonthYear
+        {
+            get
+            {
+                return OrderDate.ToString("MM/yyyy");
+            }
+        }
     }
 }

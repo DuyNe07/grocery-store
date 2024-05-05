@@ -34,14 +34,13 @@ namespace grocery_store.GUI.Dashboard
             this.label1 = new System.Windows.Forms.Label();
             this.label_totalPrice = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.X = new System.Windows.Forms.TextBox();
             this.panel_products = new System.Windows.Forms.Panel();
             this.comboBox_paymentMethod = new Guna.UI.WinForms.GunaComboBox();
             this.btn_pay = new Guna.UI.WinForms.GunaButton();
             this.btn_scan = new Guna.UI.WinForms.GunaButton();
             this.btn_enterCode = new Guna.UI.WinForms.GunaButton();
-            this.pictureBox_ScanCode = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ScanCode)).BeginInit();
+            this.txtbox_tim_kiem = new Guna.UI.WinForms.GunaTextBox();
+            this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
             this.SuspendLayout();
             // 
             // label1
@@ -76,15 +75,6 @@ namespace grocery_store.GUI.Dashboard
             this.label3.Size = new System.Drawing.Size(143, 38);
             this.label3.TabIndex = 9;
             this.label3.Text = "Tổng tiền";
-            // 
-            // X
-            // 
-            this.X.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(238)))), ((int)(((byte)(189)))));
-            this.X.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.X.Location = new System.Drawing.Point(133, 64);
-            this.X.Name = "X";
-            this.X.Size = new System.Drawing.Size(324, 47);
-            this.X.TabIndex = 10;
             // 
             // panel_products
             // 
@@ -195,33 +185,61 @@ namespace grocery_store.GUI.Dashboard
             this.btn_enterCode.TextOffsetX = 10;
             this.btn_enterCode.Click += new System.EventHandler(this.btn_enterCode_Click);
             // 
-            // pictureBox_ScanCode
+            // txtbox_tim_kiem
             // 
-            this.pictureBox_ScanCode.BackColor = System.Drawing.Color.Bisque;
-            this.pictureBox_ScanCode.Location = new System.Drawing.Point(30, 219);
-            this.pictureBox_ScanCode.Name = "pictureBox_ScanCode";
-            this.pictureBox_ScanCode.Size = new System.Drawing.Size(1280, 720);
-            this.pictureBox_ScanCode.TabIndex = 0;
-            this.pictureBox_ScanCode.TabStop = false;
-            this.pictureBox_ScanCode.Visible = false;
+            this.txtbox_tim_kiem.BaseColor = System.Drawing.Color.White;
+            this.txtbox_tim_kiem.BorderColor = System.Drawing.Color.Silver;
+            this.txtbox_tim_kiem.BorderSize = 0;
+            this.txtbox_tim_kiem.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtbox_tim_kiem.FocusedBaseColor = System.Drawing.Color.White;
+            this.txtbox_tim_kiem.FocusedBorderColor = System.Drawing.Color.White;
+            this.txtbox_tim_kiem.FocusedForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.txtbox_tim_kiem.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbox_tim_kiem.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.txtbox_tim_kiem.Location = new System.Drawing.Point(176, 61);
+            this.txtbox_tim_kiem.Name = "txtbox_tim_kiem";
+            this.txtbox_tim_kiem.PasswordChar = '\0';
+            this.txtbox_tim_kiem.Size = new System.Drawing.Size(350, 50);
+            this.txtbox_tim_kiem.TabIndex = 19;
+            this.txtbox_tim_kiem.TextOffsetX = 15;
+            // 
+            // gunaButton1
+            // 
+            this.gunaButton1.AnimationHoverSpeed = 0.07F;
+            this.gunaButton1.AnimationSpeed = 0.03F;
+            this.gunaButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.gunaButton1.BorderColor = System.Drawing.Color.White;
+            this.gunaButton1.BorderSize = 3;
+            this.gunaButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaButton1.ForeColor = System.Drawing.Color.White;
+            this.gunaButton1.Image = global::grocery_store.Properties.Resources.Search;
+            this.gunaButton1.ImageSize = new System.Drawing.Size(30, 30);
+            this.gunaButton1.Location = new System.Drawing.Point(106, 61);
+            this.gunaButton1.Name = "gunaButton1";
+            this.gunaButton1.OnHoverBaseColor = System.Drawing.Color.Gray;
+            this.gunaButton1.OnHoverBorderColor = System.Drawing.Color.White;
+            this.gunaButton1.OnHoverForeColor = System.Drawing.Color.White;
+            this.gunaButton1.OnHoverImage = null;
+            this.gunaButton1.OnPressedColor = System.Drawing.Color.Black;
+            this.gunaButton1.Size = new System.Drawing.Size(70, 50);
+            this.gunaButton1.TabIndex = 18;
             // 
             // BanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.txtbox_tim_kiem);
+            this.Controls.Add(this.gunaButton1);
             this.Controls.Add(this.btn_scan);
             this.Controls.Add(this.btn_enterCode);
             this.Controls.Add(this.btn_pay);
             this.Controls.Add(this.comboBox_paymentMethod);
             this.Controls.Add(this.panel_products);
-            this.Controls.Add(this.X);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label_totalPrice);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox_ScanCode);
             this.Name = "BanHang";
             this.Size = new System.Drawing.Size(1720, 1050);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ScanCode)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,12 +249,12 @@ namespace grocery_store.GUI.Dashboard
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label_totalPrice;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox X;
         private System.Windows.Forms.Panel panel_products;
-        private PictureBox pictureBox_ScanCode;
         private Guna.UI.WinForms.GunaComboBox comboBox_paymentMethod;
         private Guna.UI.WinForms.GunaButton btn_pay;
         private Guna.UI.WinForms.GunaButton btn_enterCode;
         private Guna.UI.WinForms.GunaButton btn_scan;
+        private Guna.UI.WinForms.GunaTextBox txtbox_tim_kiem;
+        private Guna.UI.WinForms.GunaButton gunaButton1;
     }
 }
