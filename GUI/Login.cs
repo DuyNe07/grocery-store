@@ -55,5 +55,38 @@ namespace grocery_store.GUI
             this.Show();
         }
 
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_minimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void show_password_Click(object sender, EventArgs e)
+        {
+
+            // hiển thị password từ * sang text đúng ký tự đã nhập trong txtbox_Pass
+            if (txtbox_Pass.PasswordChar == '*')
+            {
+                Bitmap hidePass = new Bitmap(Properties.Resources.eye_off);
+                show_password.Image = hidePass;
+                show_password.SizeMode = PictureBoxSizeMode.Zoom;
+                show_password.Size = new Size(35, 32);
+
+                txtbox_Pass.PasswordChar = '\0';
+            }
+            else
+            {
+                Bitmap showPass = new Bitmap(Properties.Resources.eye_on);
+                show_password.Image = showPass;
+                show_password.SizeMode = PictureBoxSizeMode.Zoom;
+                show_password.Size = new Size(35, 32);
+
+                txtbox_Pass.PasswordChar = '*';
+            }
+        }
     }
 }
