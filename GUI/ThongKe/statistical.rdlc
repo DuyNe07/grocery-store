@@ -9,12 +9,12 @@
       </ConnectionProperties>
       <rd:DataSourceID>65bcb2a5-b053-4412-969f-14b12c82389b</rd:DataSourceID>
     </DataSource>
-    <DataSource Name="GroceryStoreFuncRevenueTime">
+    <DataSource Name="grocery_storeModels">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>65838e8c-cf1e-4810-a80b-293d4e1c3138</rd:DataSourceID>
+      <rd:DataSourceID>db985efc-29d2-4a36-84ca-0a1273508d12</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -48,10 +48,14 @@
     </DataSet>
     <DataSet Name="DataSetRevenueTime">
       <Query>
-        <DataSourceName>GroceryStoreFuncRevenueTime</DataSourceName>
+        <DataSourceName>grocery_storeModels</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
+        <Field Name="MonthYear">
+          <DataField>MonthYear</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="OrderDate">
           <DataField>OrderDate</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
@@ -70,12 +74,9 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>GroceryStoreFuncRevenueTime</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\luong\UTE\hk2\Win\grocery-store\GroceryStoreFuncRevenueTime.xsd</rd:SchemaPath>
-        <rd:TableName>FUNC_RevenueTime</rd:TableName>
-        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
-        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>FUNC_RevenueTimeTableAdapter</rd:TableAdapterName>
+        <rd:DataSetName>grocery_store.Models</rd:DataSetName>
+        <rd:TableName>RevenueTime</rd:TableName>
+        <rd:ObjectDataSourceType>grocery_store.Models.RevenueTime, grocery-store, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -432,7 +433,7 @@
               </Style>
             </ChartNoDataMessage>
             <DataSetName>DataSetViewStatistical</DataSetName>
-            <Left>23.27487cm</Left>
+            <Left>24.60837cm</Left>
             <Height>7.667cm</Height>
             <Width>7.5cm</Width>
             <Style>
@@ -794,7 +795,7 @@
             </ChartNoDataMessage>
             <DataSetName>DataSetViewStatistical</DataSetName>
             <Top>7.667cm</Top>
-            <Left>23.27487cm</Left>
+            <Left>24.60837cm</Left>
             <Height>7.59651cm</Height>
             <Width>7.5cm</Width>
             <ZIndex>1</ZIndex>
@@ -813,15 +814,15 @@
                 <ChartMember>
                   <Group Name="Chart4_CategoryGroup">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!ProductName.Value</GroupExpression>
+                      <GroupExpression>=Fields!OrderDate.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!ProductName.Value</Value>
+                      <Value>=Fields!OrderDate.Value</Value>
                     </SortExpression>
                   </SortExpressions>
-                  <Label>=Fields!ProductName.Value</Label>
+                  <Label>=Fields!OrderDate.Value</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartCategoryHierarchy>
@@ -1154,7 +1155,7 @@
             </ChartNoDataMessage>
             <DataSetName>DataSetRevenueTime</DataSetName>
             <Top>7.667cm</Top>
-            <Left>13.36893cm</Left>
+            <Left>14.70243cm</Left>
             <Height>7.59651cm</Height>
             <Width>9.90594cm</Width>
             <ZIndex>2</ZIndex>
@@ -1173,35 +1174,35 @@
                 <ChartMember>
                   <Group Name="Chart5_CategoryGroup">
                     <GroupExpressions>
-                      <GroupExpression>=Month(Fields!OrderDate.Value)</GroupExpression>
+                      <GroupExpression>=Fields!MonthYear.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!OrderDate.Value</Value>
+                      <Value>=Fields!MonthYear.Value</Value>
                     </SortExpression>
                   </SortExpressions>
-                  <Label>=Fields!OrderDate.Value</Label>
+                  <Label>=Fields!MonthYear.Value</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartCategoryHierarchy>
             <ChartSeriesHierarchy>
               <ChartMembers>
                 <ChartMember>
-                  <Label>Sub Total</Label>
+                  <Label>Revenue</Label>
                 </ChartMember>
                 <ChartMember>
-                  <Label>Revenue</Label>
+                  <Label>Sub Total</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartSeriesHierarchy>
             <ChartData>
               <ChartSeriesCollection>
-                <ChartSeries Name="SubTotal">
+                <ChartSeries Name="Revenue">
                   <ChartDataPoints>
                     <ChartDataPoint>
                       <ChartDataPointValues>
-                        <Y>=Sum(Fields!SubTotal.Value)</Y>
+                        <Y>=Sum(Fields!Revenue.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
@@ -1231,11 +1232,11 @@
                     <MinMovingDistance>0pt</MinMovingDistance>
                   </ChartSmartLabel>
                 </ChartSeries>
-                <ChartSeries Name="Revenue">
+                <ChartSeries Name="SubTotal">
                   <ChartDataPoints>
                     <ChartDataPoint>
                       <ChartDataPointValues>
-                        <Y>=Sum(Fields!Revenue.Value)</Y>
+                        <Y>=Sum(Fields!SubTotal.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
@@ -1551,7 +1552,7 @@
             </ChartNoDataMessage>
             <DataSetName>DataSetRevenueTime</DataSetName>
             <Height>7.667cm</Height>
-            <Width>23.27487cm</Width>
+            <Width>24.60837cm</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -1912,7 +1913,7 @@
             <DataSetName>DataSetRevenueTime</DataSetName>
             <Top>7.667cm</Top>
             <Height>7.65036cm</Height>
-            <Width>13.36893cm</Width>
+            <Width>14.70243cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -1932,7 +1933,7 @@
           <BackgroundColor>White</BackgroundColor>
         </Style>
       </Body>
-      <Width>30.77487cm</Width>
+      <Width>32.10837cm</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>

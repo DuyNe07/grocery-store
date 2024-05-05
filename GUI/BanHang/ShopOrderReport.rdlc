@@ -665,7 +665,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -877,7 +876,7 @@
           </Image>
           <Image Name="BarCode">
             <Source>Database</Source>
-            <Value>=First(Fields!BarCode.Value, "DataSetItem")</Value>
+            <Value>=Fields!BarCode.Value</Value>
             <MIMEType>image/png</MIMEType>
             <Sizing>Fit</Sizing>
             <Top>11.12287cm</Top>

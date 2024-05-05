@@ -135,7 +135,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.Num_quantity);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label_marketPrice);
@@ -146,7 +145,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Item";
-            this.Size = new System.Drawing.Size(1298, 100);
+            this.Size = new System.Drawing.Size(1300, 102);
             ((System.ComponentModel.ISupportInitialize)(this.Num_quantity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

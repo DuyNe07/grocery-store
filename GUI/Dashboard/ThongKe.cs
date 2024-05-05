@@ -172,6 +172,19 @@ namespace grocery_store.GUI.Dashboard
         private void loadDataLineChart(DateTime startDate, DateTime endDate)
         {
             var result = db.Set<RevenueTime>().FromSqlRaw("SELECT * FROM FUNC_RevenueTime({0},{1})", startDate, endDate).ToList();
+
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("OrderDate", typeof(DateTime));
+            dataTable.Columns.Add("Revenue", typeof(decimal));
+            dataTable.Columns.Add("SubTotal", typeof(decimal));
+            dataTable.Columns.Add("ProductName", typeof(string));
+            dataTable.Columns.Add("MonthYear", typeof(string));
+
+            foreach (var item in result)
+            {
+                dataTable.Rows.Add(item.OrderDate, item.Revenue, item.SubTotal, item.ProductName, item.MonthYear);
+            }
+
             this.reportViewer.LocalReport.DataSources.Add(new ReportDataSource("DataSetRevenueTime", result));
             this.reportViewer.RefreshReport();
         }

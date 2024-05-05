@@ -418,12 +418,12 @@
     <Compile Include="API\GenarateBarCode.cs" />
     <Compile Include="API\GenerateProductCode.cs" />
     <Compile Include="API\PaymentQR.cs" />
-    <Compile Include="GroceryStoreDataSet.Designer.cs">
+    <Compile Include="DataSet\GroceryStoreDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GroceryStoreDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="GroceryStoreFuncRevenueTime.Designer.cs">
+    <Compile Include="DataSet\GroceryStoreFuncRevenueTime.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GroceryStoreFuncRevenueTime.xsd</DependentUpon>
@@ -560,11 +560,6 @@
     <Compile Include="GUI\Dashboard\ThongKe.Designer.cs">
       <DependentUpon>ThongKe.cs</DependentUpon>
     </Compile>
-    <Compile Include="Invoice.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Invoice.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\EmployeeTimekeeping.cs" />
@@ -646,6 +641,7 @@
       <DependentUpon>SanPham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\HoaDon\BillReport.rdlc" />
+    <EmbeddedResource Include="GUI\HoaDon\temp.rdlc" />
     <EmbeddedResource Include="GUI\HoaDon\Temp.resx">
       <DependentUpon>Temp.cs</DependentUpon>
     </EmbeddedResource>
@@ -665,41 +661,46 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="GroceryStoreDataSet.xsc">
+    <None Include="DataSet\GroceryStoreDataSet.xsc">
       <DependentUpon>GroceryStoreDataSet.xsd</DependentUpon>
     </None>
-    <None Include="GroceryStoreDataSet.xsd">
+    <None Include="DataSet\GroceryStoreDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>GroceryStoreDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="GroceryStoreDataSet.xss">
+    <None Include="DataSet\GroceryStoreDataSet.xss">
       <DependentUpon>GroceryStoreDataSet.xsd</DependentUpon>
     </None>
-    <None Include="GroceryStoreFuncRevenueTime.xsc">
+    <None Include="DataSet\GroceryStoreFuncRevenueTime.xsc">
       <DependentUpon>GroceryStoreFuncRevenueTime.xsd</DependentUpon>
     </None>
-    <None Include="GroceryStoreFuncRevenueTime.xsd">
+    <None Include="DataSet\GroceryStoreFuncRevenueTime.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>GroceryStoreFuncRevenueTime.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="GroceryStoreFuncRevenueTime.xss">
+    <None Include="DataSet\GroceryStoreFuncRevenueTime.xss">
       <DependentUpon>GroceryStoreFuncRevenueTime.xsd</DependentUpon>
-    </None>
-    <None Include="Invoice.xsc">
-      <DependentUpon>Invoice.xsd</DependentUpon>
-    </None>
-    <None Include="Invoice.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Invoice.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Invoice.xss">
-      <DependentUpon>Invoice.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\grocery_store.GUI.BanHang.Item.datasource" />
+    <None Include="Properties\DataSources\grocery_store.GUI.Dashboard.ThongKe.datasource" />
+    <None Include="Properties\DataSources\grocery_store.Models.Category.datasource" />
+    <None Include="Properties\DataSources\grocery_store.Models.Employee.datasource" />
+    <None Include="Properties\DataSources\grocery_store.Models.EmployeeTimekeeping.datasource" />
+    <None Include="Properties\DataSources\grocery_store.Models.GroceryStoreContext.datasource" />
+    <None Include="Properties\DataSources\grocery_store.Models.Job.datasource" />
+    <None Include="Properties\DataSources\grocery_store.Models.OrderLine.datasource" />
+    <None Include="Properties\DataSources\grocery_store.Models.Payment.datasource" />
+    <None Include="Properties\DataSources\grocery_store.Models.Product.datasource" />
+    <None Include="Properties\DataSources\grocery_store.Models.ProductDetail.datasource" />
+    <None Include="Properties\DataSources\grocery_store.Models.RevenueTime.datasource" />
+    <None Include="Properties\DataSources\grocery_store.Models.ShopOrder.datasource" />
+    <None Include="Properties\DataSources\grocery_store.Models.Supplier.datasource" />
+    <None Include="Properties\DataSources\grocery_store.Models.Timekeeping.datasource" />
+    <None Include="Properties\DataSources\grocery_store.Models.ViewInvoice.datasource" />
+    <None Include="Properties\DataSources\grocery_store.Models.ViewStatistical.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

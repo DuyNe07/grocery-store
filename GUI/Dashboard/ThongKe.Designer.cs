@@ -356,7 +356,7 @@
             this.input_dateEnd.Name = "input_dateEnd";
             this.input_dateEnd.Size = new System.Drawing.Size(233, 47);
             this.input_dateEnd.TabIndex = 12;
-            this.input_dateEnd.Value = new System.DateTime(2024, 5, 1, 9, 51, 12, 0);
+            this.input_dateEnd.Value = new System.DateTime(2024, 5, 30, 0, 0, 0, 0);
             this.input_dateEnd.ValueChanged += new System.EventHandler(this.input_dateEnd_ValueChanged);
             // 
             // label1

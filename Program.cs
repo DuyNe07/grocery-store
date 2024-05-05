@@ -18,10 +18,10 @@ namespace grocery_store
         static async Task Main()
         {
             //API.GenarateBarCode genarateBarCode = new API.GenarateBarCode();
-            //genarateBarCode.Genarate();
+            //genarateBarCode.test();
             //API.PaymentQR paymentQR = new API.PaymentQR();
             //paymentQR.Genarate();
-            updatePayment();
+            //updatePayment();
             Application.Run(new GUI.Main());
         }
 
