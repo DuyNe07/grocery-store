@@ -20,8 +20,9 @@ namespace grocery_store.Models
             if (Sku == null) { return; }
             else
             {
-                BarCode = Sku + Expiry.ToString("yyMMdd");
+                BarCode = Sku.Trim() + Expiry.ToString("yyMMdd");
             }
         }
+
     }
 }
