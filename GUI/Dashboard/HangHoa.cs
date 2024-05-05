@@ -40,10 +40,10 @@ namespace grocery_store.GUI.Dashboard
 
             // UC_nhap_kho
             // 
-            this.UC_nhap_kho = new GUI.HangHoa.NhapKho();
-            this.UC_nhap_kho.Location = new System.Drawing.Point(0, 0);
-            this.UC_nhap_kho.Name = "UC_nhap_kho";
-            this.UC_nhap_kho.Size = new System.Drawing.Size(1730, 950);
+            //this.UC_nhap_kho = new GUI.HangHoa.NhapKho();
+            //this.UC_nhap_kho.Location = new System.Drawing.Point(0, 0);
+            //this.UC_nhap_kho.Name = "UC_nhap_kho";
+            //this.UC_nhap_kho.Size = new System.Drawing.Size(1730, 950);
             //
         }
 
@@ -67,6 +67,7 @@ namespace grocery_store.GUI.Dashboard
             }
             else
             {
+                UC_danh_sach_san_pham.LoadCombobox();
                 this.panel_hang_hoa.Controls.Add(UC_danh_sach_san_pham);
                 btn_san_pham.BaseColor = Color.FromArgb(196, 211, 249);
                 btn_san_pham.ForeColor = Color.FromArgb(109, 125, 229);
@@ -106,20 +107,20 @@ namespace grocery_store.GUI.Dashboard
             }
 
             // Định dang cho nút nhập kho
-            if (nhap_kho == 0)
-            {
-                this.panel_hang_hoa.Controls.Remove(UC_nhap_kho);
-                btn_nhap_hang.BaseColor = Color.FromArgb(109, 125, 229);
-                btn_nhap_hang.OnHoverBaseColor = Color.FromArgb(72, 83, 152);
-                btn_nhap_hang.ForeColor = Color.White;
-            }
-            else
-            {
-                this.panel_hang_hoa.Controls.Add(UC_nhap_kho);
-                btn_nhap_hang.BaseColor = Color.FromArgb(196, 211, 249);
-                btn_nhap_hang.ForeColor = Color.FromArgb(109, 125, 229);
-                btn_nhap_hang.OnHoverBaseColor = Color.FromArgb(196, 211, 249);
-            }
+            //if (nhap_kho == 0)
+            //{
+            //    this.panel_hang_hoa.Controls.Remove(UC_nhap_kho);
+            //    btn_nhap_hang.BaseColor = Color.FromArgb(109, 125, 229);
+            //    btn_nhap_hang.OnHoverBaseColor = Color.FromArgb(72, 83, 152);
+            //    btn_nhap_hang.ForeColor = Color.White;
+            //}
+            //else
+            //{
+            //this.panel_hang_hoa.Controls.Add(UC_nhap_kho);
+            //btn_nhap_hang.BaseColor = Color.FromArgb(196, 211, 249);
+            //    btn_nhap_hang.ForeColor = Color.FromArgb(109, 125, 229);
+            //    btn_nhap_hang.OnHoverBaseColor = Color.FromArgb(196, 211, 249);
+            //}
 
         }
 
@@ -135,17 +136,18 @@ namespace grocery_store.GUI.Dashboard
             lb_name_control.Text = "PHÂN LOẠI";
         }
 
-        private void btn_nhap_hang_Click(object sender, EventArgs e)
-        {
-            SetView(0, 0, 0, 1);
-            lb_name_control.Text = "NHẬP HÀNG";
-        }
+        //private void btn_nhap_hang_Click(object sender, EventArgs e)
+        //{
+        //    SetView(0, 0, 0, 1);
+        //    lb_name_control.Text = "NHẬP HÀNG";
+        //}
 
         private void btn_nha_cung_cap_Click(object sender, EventArgs e)
         {
             SetView(0, 0, 1, 0);
             lb_name_control.Text = "NHÀ CUNG CẤP";
         }
+
     }
 
     #region design

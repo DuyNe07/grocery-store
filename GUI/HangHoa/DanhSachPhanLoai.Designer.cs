@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanhSachPhanLoai));
             this.danh_sach_san_pham_main = new Guna.UI.WinForms.GunaPanel();
             this.gridview_danh_sach_phan_loai = new Guna.UI.WinForms.GunaDataGridView();
@@ -40,7 +40,6 @@
             this.NumOfProducts = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
             this.lb_so_luong_phan_loai = new System.Windows.Forms.Label();
-            this.so_luong_phan_loai = new System.Windows.Forms.Label();
             this.btn_them = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btn_sua = new Guna.UI.WinForms.GunaAdvenceButton();
             this.btn_xoa = new Guna.UI.WinForms.GunaAdvenceButton();
@@ -63,8 +62,8 @@
             this.gridview_danh_sach_phan_loai.AllowUserToDeleteRows = false;
             this.gridview_danh_sach_phan_loai.AllowUserToResizeColumns = false;
             this.gridview_danh_sach_phan_loai.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            this.gridview_danh_sach_phan_loai.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.gridview_danh_sach_phan_loai.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.gridview_danh_sach_phan_loai.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridview_danh_sach_phan_loai.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -72,28 +71,28 @@
             this.gridview_danh_sach_phan_loai.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridview_danh_sach_phan_loai.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gridview_danh_sach_phan_loai.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridview_danh_sach_phan_loai.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridview_danh_sach_phan_loai.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gridview_danh_sach_phan_loai.ColumnHeadersHeight = 50;
             this.gridview_danh_sach_phan_loai.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CategoryID,
             this.CategoryName,
             this.NumOfProducts});
             this.gridview_danh_sach_phan_loai.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridview_danh_sach_phan_loai.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridview_danh_sach_phan_loai.DefaultCellStyle = dataGridViewCellStyle3;
             this.gridview_danh_sach_phan_loai.EnableHeadersVisualStyles = false;
             this.gridview_danh_sach_phan_loai.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(211)))), ((int)(((byte)(249)))));
             this.gridview_danh_sach_phan_loai.Location = new System.Drawing.Point(45, 0);
@@ -103,12 +102,12 @@
             this.gridview_danh_sach_phan_loai.RowHeadersVisible = false;
             this.gridview_danh_sach_phan_loai.RowHeadersWidth = 51;
             this.gridview_danh_sach_phan_loai.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(211)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridview_danh_sach_phan_loai.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(211)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridview_danh_sach_phan_loai.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.gridview_danh_sach_phan_loai.RowTemplate.Height = 50;
             this.gridview_danh_sach_phan_loai.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridview_danh_sach_phan_loai.Size = new System.Drawing.Size(1640, 750);
@@ -164,7 +163,6 @@
             // gunaPanel1
             // 
             this.gunaPanel1.Controls.Add(this.lb_so_luong_phan_loai);
-            this.gunaPanel1.Controls.Add(this.so_luong_phan_loai);
             this.gunaPanel1.Controls.Add(this.btn_them);
             this.gunaPanel1.Controls.Add(this.btn_sua);
             this.gunaPanel1.Controls.Add(this.btn_xoa);
@@ -176,24 +174,13 @@
             // lb_so_luong_phan_loai
             // 
             this.lb_so_luong_phan_loai.AutoSize = true;
-            this.lb_so_luong_phan_loai.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_so_luong_phan_loai.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_so_luong_phan_loai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(125)))), ((int)(((byte)(229)))));
-            this.lb_so_luong_phan_loai.Location = new System.Drawing.Point(269, 60);
+            this.lb_so_luong_phan_loai.Location = new System.Drawing.Point(39, 59);
             this.lb_so_luong_phan_loai.Name = "lb_so_luong_phan_loai";
-            this.lb_so_luong_phan_loai.Size = new System.Drawing.Size(27, 31);
-            this.lb_so_luong_phan_loai.TabIndex = 10;
-            this.lb_so_luong_phan_loai.Text = "0";
-            // 
-            // so_luong_phan_loai
-            // 
-            this.so_luong_phan_loai.AutoSize = true;
-            this.so_luong_phan_loai.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.so_luong_phan_loai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(125)))), ((int)(((byte)(229)))));
-            this.so_luong_phan_loai.Location = new System.Drawing.Point(39, 60);
-            this.so_luong_phan_loai.Name = "so_luong_phan_loai";
-            this.so_luong_phan_loai.Size = new System.Drawing.Size(225, 31);
-            this.so_luong_phan_loai.TabIndex = 9;
-            this.so_luong_phan_loai.Text = "Số Lượng Phân Loại:";
+            this.lb_so_luong_phan_loai.Size = new System.Drawing.Size(225, 31);
+            this.lb_so_luong_phan_loai.TabIndex = 9;
+            this.lb_so_luong_phan_loai.Text = "Số Lượng Phân Loại:";
             // 
             // btn_them
             // 
@@ -316,7 +303,6 @@
         private Guna.UI.WinForms.GunaAdvenceButton btn_sua;
         private Guna.UI.WinForms.GunaAdvenceButton btn_xoa;
         private System.Windows.Forms.Label lb_so_luong_phan_loai;
-        private System.Windows.Forms.Label so_luong_phan_loai;
         private System.Windows.Forms.DataGridViewTextBoxColumn CategoryID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CategoryName;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumOfProducts;

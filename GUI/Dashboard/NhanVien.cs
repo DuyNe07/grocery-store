@@ -1,49 +1,17 @@
-﻿using Bunifu.Framework.UI;
-using grocery_store.Models;
-using Guna.UI.WinForms;
-using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.Design.Behavior;
 
 namespace grocery_store.GUI.Dashboard
 {
     public partial class NhanVien : UserControl
     {
-        public GroceryStoreContext gs_context = new GroceryStoreContext();
-
-
-        // Vì chưa có login nên đặt đại employee
-        public Employee employee;
-
-        // Ca làm
-        // 7-> 22: FullTime, 7 -> 11h30: Morning Shift, 12h30 -> 17h: Afternoon Shift, 17h -> 22h: Night Shift
-        public TimeSpan timestart_shift;
-        public TimeSpan timeend_shift;
-
-        // Trạng thái chấm công
-        public bool timekeeping_state = false;
-        public bool finish = false;
-        public bool delay_state = false;
-        public TimeSpan time_delay = new TimeSpan(0,0,0);
-
-
-
-        private void uo_click(object sender, EventArgs e)
-        {
-            PictureBox uo = (PictureBox)sender;
-            MessageBox.Show(uo.Tag.ToString(),"Thông tin",MessageBoxButtons.OK,MessageBoxIcon.Information);
-        }
-
         public NhanVien()
         {
             InitializeComponent();

@@ -98,7 +98,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // gunaTextBox1
+            // label1
             // 
             this.gunaTextBox1.BaseColor = System.Drawing.Color.White;
             this.gunaTextBox1.BorderColor = System.Drawing.Color.Silver;
@@ -891,6 +891,7 @@
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

@@ -20,8 +20,11 @@ namespace grocery_store.GUI.BanHang
         public event EventHandler RemoveClick;
         public event EventHandler QuantityChanged;
         private System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("vi-VI");
+
+        // barcode để load lên trên rdlc
         public byte[] BarCode { get; set; }
         public Product Product { get; set; }
+        public string productBarCode { get; set; }
         public int Quantity
         {
             get => int.Parse(Num_quantity.Text);
@@ -45,17 +48,18 @@ namespace grocery_store.GUI.BanHang
         public Item(Product product)
         {
             InitializeComponent();
+
             this.Product = product;
             this.btn_del.Click += (sender, e) => RemoveClick?.Invoke(this, e);
             this.Num_quantity.TextChanged += (sender, e) => QuantityChanged?.Invoke(this, e);
             this.Quantity = 1;
             this.NameProduct = product.Name;
-            this.label_nameProduct.Location = new Point(120 - (label_nameProduct.Width / 2), 40);
+            this.label_nameProduct.Location = new Point(110 - (label_nameProduct.Width / 2), 40);
             string formattedPrice = product.MarketPrice.ToString("N0", culture);
             this.Price = formattedPrice;
         }
 
-        public void generate_barcode()
+        public void GenerateBarCode(int shopOrderID)
         {
             BarcodeWriter writer = new BarcodeWriter();
             writer.Format = BarcodeFormat.CODE_128;
@@ -65,7 +69,7 @@ namespace grocery_store.GUI.BanHang
                 Width = 360
             };
 
-            Bitmap bitmap = writer.Write(DateTime.Now.ToString("ddMMyyyyHHmm"));
+            Bitmap bitmap = writer.Write(shopOrderID.ToString());
             MemoryStream ms = new MemoryStream();
             bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
             this.BarCode = ms.ToArray();

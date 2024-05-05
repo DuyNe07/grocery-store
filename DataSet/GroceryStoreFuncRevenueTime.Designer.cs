@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace grocery_store {
+namespace grocery_store.DataSet {
     
     
     /// <summary>
@@ -20,17 +20,17 @@ namespace grocery_store {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("Invoice")]
+    [global::System.Xml.Serialization.XmlRootAttribute("GroceryStoreFuncRevenueTime")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class Invoice : global::System.Data.DataSet {
+    public partial class GroceryStoreFuncRevenueTime : global::System.Data.DataSet {
         
-        private VIEW_InvoiceDataTable tableVIEW_Invoice;
+        private FUNC_RevenueTimeDataTable tableFUNC_RevenueTime;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public Invoice() {
+        public GroceryStoreFuncRevenueTime() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace grocery_store {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected Invoice(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected GroceryStoreFuncRevenueTime(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace grocery_store {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["VIEW_Invoice"] != null)) {
-                    base.Tables.Add(new VIEW_InvoiceDataTable(ds.Tables["VIEW_Invoice"]));
+                if ((ds.Tables["FUNC_RevenueTime"] != null)) {
+                    base.Tables.Add(new FUNC_RevenueTimeDataTable(ds.Tables["FUNC_RevenueTime"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace grocery_store {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public VIEW_InvoiceDataTable VIEW_Invoice {
+        public FUNC_RevenueTimeDataTable FUNC_RevenueTime {
             get {
-                return this.tableVIEW_Invoice;
+                return this.tableFUNC_RevenueTime;
             }
         }
         
@@ -127,7 +127,7 @@ namespace grocery_store {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            Invoice cln = ((Invoice)(base.Clone()));
+            GroceryStoreFuncRevenueTime cln = ((GroceryStoreFuncRevenueTime)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace grocery_store {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["VIEW_Invoice"] != null)) {
-                    base.Tables.Add(new VIEW_InvoiceDataTable(ds.Tables["VIEW_Invoice"]));
+                if ((ds.Tables["FUNC_RevenueTime"] != null)) {
+                    base.Tables.Add(new FUNC_RevenueTimeDataTable(ds.Tables["FUNC_RevenueTime"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace grocery_store {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableVIEW_Invoice = ((VIEW_InvoiceDataTable)(base.Tables["VIEW_Invoice"]));
+            this.tableFUNC_RevenueTime = ((FUNC_RevenueTimeDataTable)(base.Tables["FUNC_RevenueTime"]));
             if ((initTable == true)) {
-                if ((this.tableVIEW_Invoice != null)) {
-                    this.tableVIEW_Invoice.InitVars();
+                if ((this.tableFUNC_RevenueTime != null)) {
+                    this.tableFUNC_RevenueTime.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace grocery_store {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "Invoice";
+            this.DataSetName = "GroceryStoreFuncRevenueTime";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/Invoice.xsd";
+            this.Namespace = "http://tempuri.org/GroceryStoreFuncRevenueTime.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableVIEW_Invoice = new VIEW_InvoiceDataTable();
-            base.Tables.Add(this.tableVIEW_Invoice);
+            this.tableFUNC_RevenueTime = new FUNC_RevenueTimeDataTable();
+            base.Tables.Add(this.tableFUNC_RevenueTime);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeVIEW_Invoice() {
+        private bool ShouldSerializeFUNC_RevenueTime() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace grocery_store {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            Invoice ds = new Invoice();
+            GroceryStoreFuncRevenueTime ds = new GroceryStoreFuncRevenueTime();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,37 +270,27 @@ namespace grocery_store {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void VIEW_InvoiceRowChangeEventHandler(object sender, VIEW_InvoiceRowChangeEvent e);
+        public delegate void FUNC_RevenueTimeRowChangeEventHandler(object sender, FUNC_RevenueTimeRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class VIEW_InvoiceDataTable : global::System.Data.TypedTableBase<VIEW_InvoiceRow> {
-            
-            private global::System.Data.DataColumn columnShopOrderID;
-            
-            private global::System.Data.DataColumn columnProductName;
+        public partial class FUNC_RevenueTimeDataTable : global::System.Data.TypedTableBase<FUNC_RevenueTimeRow> {
             
             private global::System.Data.DataColumn columnOrderDate;
             
-            private global::System.Data.DataColumn columnQuantity;
+            private global::System.Data.DataColumn columnProductName;
             
-            private global::System.Data.DataColumn columnMarketPrice;
-            
-            private global::System.Data.DataColumn columnPriceLine;
-            
-            private global::System.Data.DataColumn columnNameEmp;
+            private global::System.Data.DataColumn columnRevenue;
             
             private global::System.Data.DataColumn columnSubTotal;
             
-            private global::System.Data.DataColumn columnPaymentMethod;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VIEW_InvoiceDataTable() {
-                this.TableName = "VIEW_Invoice";
+            public FUNC_RevenueTimeDataTable() {
+                this.TableName = "FUNC_RevenueTime";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -308,7 +298,7 @@ namespace grocery_store {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal VIEW_InvoiceDataTable(global::System.Data.DataTable table) {
+            internal FUNC_RevenueTimeDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -325,16 +315,16 @@ namespace grocery_store {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected VIEW_InvoiceDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected FUNC_RevenueTimeDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ShopOrderIDColumn {
+            public global::System.Data.DataColumn OrderDateColumn {
                 get {
-                    return this.columnShopOrderID;
+                    return this.columnOrderDate;
                 }
             }
             
@@ -348,41 +338,9 @@ namespace grocery_store {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn OrderDateColumn {
+            public global::System.Data.DataColumn RevenueColumn {
                 get {
-                    return this.columnOrderDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn QuantityColumn {
-                get {
-                    return this.columnQuantity;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn MarketPriceColumn {
-                get {
-                    return this.columnMarketPrice;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn PriceLineColumn {
-                get {
-                    return this.columnPriceLine;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn NameEmpColumn {
-                get {
-                    return this.columnNameEmp;
+                    return this.columnRevenue;
                 }
             }
             
@@ -391,14 +349,6 @@ namespace grocery_store {
             public global::System.Data.DataColumn SubTotalColumn {
                 get {
                     return this.columnSubTotal;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn PaymentMethodColumn {
-                get {
-                    return this.columnPaymentMethod;
                 }
             }
             
@@ -413,60 +363,48 @@ namespace grocery_store {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VIEW_InvoiceRow this[int index] {
+            public FUNC_RevenueTimeRow this[int index] {
                 get {
-                    return ((VIEW_InvoiceRow)(this.Rows[index]));
+                    return ((FUNC_RevenueTimeRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event VIEW_InvoiceRowChangeEventHandler VIEW_InvoiceRowChanging;
+            public event FUNC_RevenueTimeRowChangeEventHandler FUNC_RevenueTimeRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event VIEW_InvoiceRowChangeEventHandler VIEW_InvoiceRowChanged;
+            public event FUNC_RevenueTimeRowChangeEventHandler FUNC_RevenueTimeRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event VIEW_InvoiceRowChangeEventHandler VIEW_InvoiceRowDeleting;
+            public event FUNC_RevenueTimeRowChangeEventHandler FUNC_RevenueTimeRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event VIEW_InvoiceRowChangeEventHandler VIEW_InvoiceRowDeleted;
+            public event FUNC_RevenueTimeRowChangeEventHandler FUNC_RevenueTimeRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddVIEW_InvoiceRow(VIEW_InvoiceRow row) {
+            public void AddFUNC_RevenueTimeRow(FUNC_RevenueTimeRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VIEW_InvoiceRow AddVIEW_InvoiceRow(int ShopOrderID, string ProductName, System.DateTime OrderDate, int Quantity, decimal MarketPrice, decimal PriceLine, string NameEmp, decimal SubTotal, string PaymentMethod) {
-                VIEW_InvoiceRow rowVIEW_InvoiceRow = ((VIEW_InvoiceRow)(this.NewRow()));
+            public FUNC_RevenueTimeRow AddFUNC_RevenueTimeRow(System.DateTime OrderDate, string ProductName, decimal Revenue, decimal SubTotal) {
+                FUNC_RevenueTimeRow rowFUNC_RevenueTimeRow = ((FUNC_RevenueTimeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        ShopOrderID,
-                        ProductName,
                         OrderDate,
-                        Quantity,
-                        MarketPrice,
-                        PriceLine,
-                        NameEmp,
-                        SubTotal,
-                        PaymentMethod};
-                rowVIEW_InvoiceRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowVIEW_InvoiceRow);
-                return rowVIEW_InvoiceRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VIEW_InvoiceRow FindByShopOrderID(int ShopOrderID) {
-                return ((VIEW_InvoiceRow)(this.Rows.Find(new object[] {
-                            ShopOrderID})));
+                        ProductName,
+                        Revenue,
+                        SubTotal};
+                rowFUNC_RevenueTimeRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowFUNC_RevenueTimeRow);
+                return rowFUNC_RevenueTimeRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                VIEW_InvoiceDataTable cln = ((VIEW_InvoiceDataTable)(base.Clone()));
+                FUNC_RevenueTimeDataTable cln = ((FUNC_RevenueTimeDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -474,78 +412,56 @@ namespace grocery_store {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new VIEW_InvoiceDataTable();
+                return new FUNC_RevenueTimeDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnShopOrderID = base.Columns["ShopOrderID"];
-                this.columnProductName = base.Columns["ProductName"];
                 this.columnOrderDate = base.Columns["OrderDate"];
-                this.columnQuantity = base.Columns["Quantity"];
-                this.columnMarketPrice = base.Columns["MarketPrice"];
-                this.columnPriceLine = base.Columns["PriceLine"];
-                this.columnNameEmp = base.Columns["NameEmp"];
+                this.columnProductName = base.Columns["ProductName"];
+                this.columnRevenue = base.Columns["Revenue"];
                 this.columnSubTotal = base.Columns["SubTotal"];
-                this.columnPaymentMethod = base.Columns["PaymentMethod"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnShopOrderID = new global::System.Data.DataColumn("ShopOrderID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnShopOrderID);
-                this.columnProductName = new global::System.Data.DataColumn("ProductName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProductName);
                 this.columnOrderDate = new global::System.Data.DataColumn("OrderDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOrderDate);
-                this.columnQuantity = new global::System.Data.DataColumn("Quantity", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnQuantity);
-                this.columnMarketPrice = new global::System.Data.DataColumn("MarketPrice", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMarketPrice);
-                this.columnPriceLine = new global::System.Data.DataColumn("PriceLine", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPriceLine);
-                this.columnNameEmp = new global::System.Data.DataColumn("NameEmp", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNameEmp);
+                this.columnProductName = new global::System.Data.DataColumn("ProductName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProductName);
+                this.columnRevenue = new global::System.Data.DataColumn("Revenue", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRevenue);
                 this.columnSubTotal = new global::System.Data.DataColumn("SubTotal", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSubTotal);
-                this.columnPaymentMethod = new global::System.Data.DataColumn("PaymentMethod", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPaymentMethod);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnShopOrderID}, true));
-                this.columnShopOrderID.AllowDBNull = false;
-                this.columnShopOrderID.Unique = true;
                 this.columnProductName.MaxLength = 50;
-                this.columnNameEmp.ReadOnly = true;
-                this.columnNameEmp.MaxLength = 101;
-                this.columnPaymentMethod.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VIEW_InvoiceRow NewVIEW_InvoiceRow() {
-                return ((VIEW_InvoiceRow)(this.NewRow()));
+            public FUNC_RevenueTimeRow NewFUNC_RevenueTimeRow() {
+                return ((FUNC_RevenueTimeRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new VIEW_InvoiceRow(builder);
+                return new FUNC_RevenueTimeRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(VIEW_InvoiceRow);
+                return typeof(FUNC_RevenueTimeRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.VIEW_InvoiceRowChanged != null)) {
-                    this.VIEW_InvoiceRowChanged(this, new VIEW_InvoiceRowChangeEvent(((VIEW_InvoiceRow)(e.Row)), e.Action));
+                if ((this.FUNC_RevenueTimeRowChanged != null)) {
+                    this.FUNC_RevenueTimeRowChanged(this, new FUNC_RevenueTimeRowChangeEvent(((FUNC_RevenueTimeRow)(e.Row)), e.Action));
                 }
             }
             
@@ -553,8 +469,8 @@ namespace grocery_store {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.VIEW_InvoiceRowChanging != null)) {
-                    this.VIEW_InvoiceRowChanging(this, new VIEW_InvoiceRowChangeEvent(((VIEW_InvoiceRow)(e.Row)), e.Action));
+                if ((this.FUNC_RevenueTimeRowChanging != null)) {
+                    this.FUNC_RevenueTimeRowChanging(this, new FUNC_RevenueTimeRowChangeEvent(((FUNC_RevenueTimeRow)(e.Row)), e.Action));
                 }
             }
             
@@ -562,8 +478,8 @@ namespace grocery_store {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.VIEW_InvoiceRowDeleted != null)) {
-                    this.VIEW_InvoiceRowDeleted(this, new VIEW_InvoiceRowChangeEvent(((VIEW_InvoiceRow)(e.Row)), e.Action));
+                if ((this.FUNC_RevenueTimeRowDeleted != null)) {
+                    this.FUNC_RevenueTimeRowDeleted(this, new FUNC_RevenueTimeRowChangeEvent(((FUNC_RevenueTimeRow)(e.Row)), e.Action));
                 }
             }
             
@@ -571,14 +487,14 @@ namespace grocery_store {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.VIEW_InvoiceRowDeleting != null)) {
-                    this.VIEW_InvoiceRowDeleting(this, new VIEW_InvoiceRowChangeEvent(((VIEW_InvoiceRow)(e.Row)), e.Action));
+                if ((this.FUNC_RevenueTimeRowDeleting != null)) {
+                    this.FUNC_RevenueTimeRowDeleting(this, new FUNC_RevenueTimeRowChangeEvent(((FUNC_RevenueTimeRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveVIEW_InvoiceRow(VIEW_InvoiceRow row) {
+            public void RemoveFUNC_RevenueTimeRow(FUNC_RevenueTimeRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -587,7 +503,7 @@ namespace grocery_store {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Invoice ds = new Invoice();
+                GroceryStoreFuncRevenueTime ds = new GroceryStoreFuncRevenueTime();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -605,7 +521,7 @@ namespace grocery_store {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "VIEW_InvoiceDataTable";
+                attribute2.FixedValue = "FUNC_RevenueTimeDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -649,25 +565,30 @@ namespace grocery_store {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class VIEW_InvoiceRow : global::System.Data.DataRow {
+        public partial class FUNC_RevenueTimeRow : global::System.Data.DataRow {
             
-            private VIEW_InvoiceDataTable tableVIEW_Invoice;
+            private FUNC_RevenueTimeDataTable tableFUNC_RevenueTime;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal VIEW_InvoiceRow(global::System.Data.DataRowBuilder rb) : 
+            internal FUNC_RevenueTimeRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableVIEW_Invoice = ((VIEW_InvoiceDataTable)(this.Table));
+                this.tableFUNC_RevenueTime = ((FUNC_RevenueTimeDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int ShopOrderID {
+            public System.DateTime OrderDate {
                 get {
-                    return ((int)(this[this.tableVIEW_Invoice.ShopOrderIDColumn]));
+                    try {
+                        return ((global::System.DateTime)(this[this.tableFUNC_RevenueTime.OrderDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'OrderDate\' in table \'FUNC_RevenueTime\' is DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tableVIEW_Invoice.ShopOrderIDColumn] = value;
+                    this[this.tableFUNC_RevenueTime.OrderDateColumn] = value;
                 }
             }
             
@@ -676,94 +597,30 @@ namespace grocery_store {
             public string ProductName {
                 get {
                     try {
-                        return ((string)(this[this.tableVIEW_Invoice.ProductNameColumn]));
+                        return ((string)(this[this.tableFUNC_RevenueTime.ProductNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ProductName\' in table \'VIEW_Invoice\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ProductName\' in table \'FUNC_RevenueTime\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableVIEW_Invoice.ProductNameColumn] = value;
+                    this[this.tableFUNC_RevenueTime.ProductNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime OrderDate {
+            public decimal Revenue {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableVIEW_Invoice.OrderDateColumn]));
+                        return ((decimal)(this[this.tableFUNC_RevenueTime.RevenueColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'OrderDate\' in table \'VIEW_Invoice\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Revenue\' in table \'FUNC_RevenueTime\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableVIEW_Invoice.OrderDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Quantity {
-                get {
-                    try {
-                        return ((int)(this[this.tableVIEW_Invoice.QuantityColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Quantity\' in table \'VIEW_Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableVIEW_Invoice.QuantityColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal MarketPrice {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableVIEW_Invoice.MarketPriceColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MarketPrice\' in table \'VIEW_Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableVIEW_Invoice.MarketPriceColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal PriceLine {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableVIEW_Invoice.PriceLineColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PriceLine\' in table \'VIEW_Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableVIEW_Invoice.PriceLineColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string NameEmp {
-                get {
-                    try {
-                        return ((string)(this[this.tableVIEW_Invoice.NameEmpColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NameEmp\' in table \'VIEW_Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableVIEW_Invoice.NameEmpColumn] = value;
+                    this[this.tableFUNC_RevenueTime.RevenueColumn] = value;
                 }
             }
             
@@ -772,127 +629,63 @@ namespace grocery_store {
             public decimal SubTotal {
                 get {
                     try {
-                        return ((decimal)(this[this.tableVIEW_Invoice.SubTotalColumn]));
+                        return ((decimal)(this[this.tableFUNC_RevenueTime.SubTotalColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'SubTotal\' in table \'VIEW_Invoice\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'SubTotal\' in table \'FUNC_RevenueTime\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableVIEW_Invoice.SubTotalColumn] = value;
+                    this[this.tableFUNC_RevenueTime.SubTotalColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string PaymentMethod {
-                get {
-                    try {
-                        return ((string)(this[this.tableVIEW_Invoice.PaymentMethodColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PaymentMethod\' in table \'VIEW_Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableVIEW_Invoice.PaymentMethodColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsProductNameNull() {
-                return this.IsNull(this.tableVIEW_Invoice.ProductNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetProductNameNull() {
-                this[this.tableVIEW_Invoice.ProductNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsOrderDateNull() {
-                return this.IsNull(this.tableVIEW_Invoice.OrderDateColumn);
+                return this.IsNull(this.tableFUNC_RevenueTime.OrderDateColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetOrderDateNull() {
-                this[this.tableVIEW_Invoice.OrderDateColumn] = global::System.Convert.DBNull;
+                this[this.tableFUNC_RevenueTime.OrderDateColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsQuantityNull() {
-                return this.IsNull(this.tableVIEW_Invoice.QuantityColumn);
+            public bool IsProductNameNull() {
+                return this.IsNull(this.tableFUNC_RevenueTime.ProductNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetQuantityNull() {
-                this[this.tableVIEW_Invoice.QuantityColumn] = global::System.Convert.DBNull;
+            public void SetProductNameNull() {
+                this[this.tableFUNC_RevenueTime.ProductNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsMarketPriceNull() {
-                return this.IsNull(this.tableVIEW_Invoice.MarketPriceColumn);
+            public bool IsRevenueNull() {
+                return this.IsNull(this.tableFUNC_RevenueTime.RevenueColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetMarketPriceNull() {
-                this[this.tableVIEW_Invoice.MarketPriceColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsPriceLineNull() {
-                return this.IsNull(this.tableVIEW_Invoice.PriceLineColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetPriceLineNull() {
-                this[this.tableVIEW_Invoice.PriceLineColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsNameEmpNull() {
-                return this.IsNull(this.tableVIEW_Invoice.NameEmpColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetNameEmpNull() {
-                this[this.tableVIEW_Invoice.NameEmpColumn] = global::System.Convert.DBNull;
+            public void SetRevenueNull() {
+                this[this.tableFUNC_RevenueTime.RevenueColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsSubTotalNull() {
-                return this.IsNull(this.tableVIEW_Invoice.SubTotalColumn);
+                return this.IsNull(this.tableFUNC_RevenueTime.SubTotalColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetSubTotalNull() {
-                this[this.tableVIEW_Invoice.SubTotalColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsPaymentMethodNull() {
-                return this.IsNull(this.tableVIEW_Invoice.PaymentMethodColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetPaymentMethodNull() {
-                this[this.tableVIEW_Invoice.PaymentMethodColumn] = global::System.Convert.DBNull;
+                this[this.tableFUNC_RevenueTime.SubTotalColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -900,22 +693,22 @@ namespace grocery_store {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class VIEW_InvoiceRowChangeEvent : global::System.EventArgs {
+        public class FUNC_RevenueTimeRowChangeEvent : global::System.EventArgs {
             
-            private VIEW_InvoiceRow eventRow;
+            private FUNC_RevenueTimeRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VIEW_InvoiceRowChangeEvent(VIEW_InvoiceRow row, global::System.Data.DataRowAction action) {
+            public FUNC_RevenueTimeRowChangeEvent(FUNC_RevenueTimeRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VIEW_InvoiceRow Row {
+            public FUNC_RevenueTimeRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -931,7 +724,7 @@ namespace grocery_store {
         }
     }
 }
-namespace grocery_store.InvoiceTableAdapters {
+namespace grocery_store.DataSet.GroceryStoreFuncRevenueTimeTableAdapters {
     
     
     /// <summary>
@@ -943,7 +736,7 @@ namespace grocery_store.InvoiceTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class VIEW_InvoiceTableAdapter : global::System.ComponentModel.Component {
+    public partial class FUNC_RevenueTimeTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -957,7 +750,7 @@ namespace grocery_store.InvoiceTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public VIEW_InvoiceTableAdapter() {
+        public FUNC_RevenueTimeTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -1054,16 +847,11 @@ namespace grocery_store.InvoiceTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "VIEW_Invoice";
-            tableMapping.ColumnMappings.Add("ShopOrderID", "ShopOrderID");
-            tableMapping.ColumnMappings.Add("ProductName", "ProductName");
+            tableMapping.DataSetTable = "FUNC_RevenueTime";
             tableMapping.ColumnMappings.Add("OrderDate", "OrderDate");
-            tableMapping.ColumnMappings.Add("Quantity", "Quantity");
-            tableMapping.ColumnMappings.Add("MarketPrice", "MarketPrice");
-            tableMapping.ColumnMappings.Add("PriceLine", "PriceLine");
-            tableMapping.ColumnMappings.Add("NameEmp", "NameEmp");
+            tableMapping.ColumnMappings.Add("ProductName", "ProductName");
+            tableMapping.ColumnMappings.Add("Revenue", "Revenue");
             tableMapping.ColumnMappings.Add("SubTotal", "SubTotal");
-            tableMapping.ColumnMappings.Add("PaymentMethod", "PaymentMethod");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1080,17 +868,21 @@ namespace grocery_store.InvoiceTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ShopOrderID, ProductName, OrderDate, Quantity, MarketPrice, PriceLine, Nam" +
-                "eEmp, SubTotal, PaymentMethod FROM dbo.VIEW_Invoice";
+            this._commandCollection[0].CommandText = "SELECT OrderDate, ProductName, Revenue, SubTotal FROM dbo.FUNC_RevenueTime(@TGBat" +
+                "Dau, @TGKetThuc)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TGBatDau", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TGKetThuc", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Invoice.VIEW_InvoiceDataTable dataTable) {
+        public virtual int Fill(GroceryStoreFuncRevenueTime.FUNC_RevenueTimeDataTable dataTable, System.DateTime TGBatDau, System.DateTime TGKetThuc) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(TGBatDau));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(TGKetThuc));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -1102,9 +894,11 @@ namespace grocery_store.InvoiceTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Invoice.VIEW_InvoiceDataTable GetData() {
+        public virtual GroceryStoreFuncRevenueTime.FUNC_RevenueTimeDataTable GetData(System.DateTime TGBatDau, System.DateTime TGKetThuc) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            Invoice.VIEW_InvoiceDataTable dataTable = new Invoice.VIEW_InvoiceDataTable();
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(TGBatDau));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(TGKetThuc));
+            GroceryStoreFuncRevenueTime.FUNC_RevenueTimeDataTable dataTable = new GroceryStoreFuncRevenueTime.FUNC_RevenueTimeDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1178,7 +972,7 @@ namespace grocery_store.InvoiceTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateUpdatedRows(Invoice dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(GroceryStoreFuncRevenueTime dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1188,7 +982,7 @@ namespace grocery_store.InvoiceTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateInsertedRows(Invoice dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(GroceryStoreFuncRevenueTime dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1198,7 +992,7 @@ namespace grocery_store.InvoiceTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateDeletedRows(Invoice dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(GroceryStoreFuncRevenueTime dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1232,7 +1026,7 @@ namespace grocery_store.InvoiceTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public virtual int UpdateAll(Invoice dataSet) {
+        public virtual int UpdateAll(GroceryStoreFuncRevenueTime dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

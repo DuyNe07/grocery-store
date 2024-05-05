@@ -1,5 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using ZXing.Common;
+using ZXing;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
 // If you have enabled NRTs for your project, then un-comment the following line:
@@ -32,6 +35,39 @@ namespace grocery_store.Models
         public string FormattedSubTotal
         {
             get { return SubTotal.ToString("N0", new System.Globalization.CultureInfo("vi-VI")); }
+        }
+        public string FormattedOrderDate
+        {
+            get { return OrderDate.ToString("dd/MM/yyyy HH:mm:ss"); }
+        }
+
+        public byte[] BarCode
+        {
+            get
+            {
+                return generateBarCode(this.ShopOrderId);
+            }
+        }
+
+        public ViewInvoice()
+        {
+
+        }
+
+        public byte[] generateBarCode(int ShopOrderId)
+        {
+            BarcodeWriter writer = new BarcodeWriter();
+            writer.Format = BarcodeFormat.CODE_128;
+            writer.Options = new EncodingOptions
+            {
+                Height = 60,
+                Width = 360
+            };
+
+            Bitmap bitmap = writer.Write(ShopOrderId.ToString());
+            MemoryStream ms = new MemoryStream();
+            bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+            return ms.ToArray();
         }
     }
 }

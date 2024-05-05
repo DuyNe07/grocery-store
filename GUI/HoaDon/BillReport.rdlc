@@ -16,65 +16,89 @@
       </ConnectionProperties>
       <rd:DataSourceID>7b3e142e-04c1-4e98-9fcd-72146967672d</rd:DataSourceID>
     </DataSource>
-    <DataSource Name="Invoice">
+    <DataSource Name="grocery_storeModels1">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>264246d4-e4eb-492b-ad41-301bb256f2fa</rd:DataSourceID>
+      <rd:DataSourceID>047720b6-e6b0-4971-96e8-de34190a6720</rd:DataSourceID>
+    </DataSource>
+    <DataSource Name="grocery_storeModels2">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>59711652-29bb-4e30-b9f7-c1ca64fd000e</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="DataSet_Invoice">
       <Query>
-        <DataSourceName>Invoice</DataSourceName>
+        <DataSourceName>grocery_storeModels2</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="ShopOrderID">
-          <DataField>ShopOrderID</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+        <Field Name="BarCode">
+          <DataField>BarCode</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
         </Field>
-        <Field Name="ProductName">
-          <DataField>ProductName</DataField>
+        <Field Name="FormattedMarketPrice">
+          <DataField>FormattedMarketPrice</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="OrderDate">
-          <DataField>OrderDate</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
+        <Field Name="FormattedOrderDate">
+          <DataField>FormattedOrderDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Quantity">
-          <DataField>Quantity</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+        <Field Name="FormattedPriceLine">
+          <DataField>FormattedPriceLine</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FormattedSubTotal">
+          <DataField>FormattedSubTotal</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="MarketPrice">
           <DataField>MarketPrice</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="PriceLine">
-          <DataField>PriceLine</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="NameEmp">
           <DataField>NameEmp</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="SubTotal">
-          <DataField>SubTotal</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
+        <Field Name="OrderDate">
+          <DataField>OrderDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
         <Field Name="PaymentMethod">
           <DataField>PaymentMethod</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="PriceLine">
+          <DataField>PriceLine</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="ProductName">
+          <DataField>ProductName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Quantity">
+          <DataField>Quantity</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="ShopOrderId">
+          <DataField>ShopOrderId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="SubTotal">
+          <DataField>SubTotal</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>Invoice</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\luong\UTE\hk2\Win\grocery-store\Invoice.xsd</rd:SchemaPath>
-        <rd:TableName>VIEW_Invoice</rd:TableName>
-        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
-        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>VIEW_InvoiceTableAdapter</rd:TableAdapterName>
+        <rd:DataSetName>grocery_store.Models</rd:DataSetName>
+        <rd:TableName>ViewInvoice</rd:TableName>
+        <rd:ObjectDataSourceType>grocery_store.Models.ViewInvoice, grocery-store, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -196,8 +220,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox41</rd:DefaultName>
-            <Top>7.66798cm</Top>
-            <Left>0.7747cm</Left>
+            <Top>7.49159cm</Top>
+            <Left>0.77469cm</Left>
             <Height>0.6cm</Height>
             <Width>3.47367cm</Width>
             <ZIndex>3</ZIndex>
@@ -228,8 +252,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox41</rd:DefaultName>
-            <Top>8.44437cm</Top>
-            <Left>0.7747cm</Left>
+            <Top>8.40909cm</Top>
+            <Left>0.74103cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
             <ZIndex>4</ZIndex>
@@ -637,8 +661,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox41</rd:DefaultName>
-            <Top>7.66798cm</Top>
-            <Left>5.76406cm</Left>
+            <Top>7.49159cm</Top>
+            <Left>5.76405cm</Left>
             <Height>0.6cm</Height>
             <Width>4.33331cm</Width>
             <ZIndex>8</ZIndex>
@@ -689,7 +713,7 @@
             </Style>
           </Line>
           <Line Name="Line4">
-            <Top>9.42975cm</Top>
+            <Top>9.18548cm</Top>
             <Left>0.7747cm</Left>
             <Height>0cm</Height>
             <Width>9.32267cm</Width>
@@ -717,8 +741,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox41</rd:DefaultName>
-            <Top>9.84942cm</Top>
-            <Left>0.7747cm</Left>
+            <Top>9.36187cm</Top>
+            <Left>0.77469cm</Left>
             <Height>0.6cm</Height>
             <Width>4.36267cm</Width>
             <ZIndex>13</ZIndex>
@@ -749,8 +773,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>PaymentMethod</rd:DefaultName>
-            <Top>9.84942cm</Top>
-            <Left>5.76406cm</Left>
+            <Top>9.36187cm</Top>
+            <Left>5.76405cm</Left>
             <Height>0.6cm</Height>
             <Width>4.33331cm</Width>
             <ZIndex>14</ZIndex>
@@ -765,8 +789,8 @@
             </Style>
           </Textbox>
           <Line Name="Line5">
-            <Top>10.97492cm</Top>
-            <Left>0.7747cm</Left>
+            <Top>10.13826cm</Top>
+            <Left>0.77469cm</Left>
             <Height>0cm</Height>
             <Width>9.32267cm</Width>
             <ZIndex>15</ZIndex>
@@ -791,33 +815,6 @@
               </Border>
             </Style>
           </Image>
-          <Image Name="BarCode">
-            <Source>Embedded</Source>
-            <Value>xucxich123</Value>
-            <Sizing>Fit</Sizing>
-            <Top>11.29453cm</Top>
-            <Left>0.7747cm</Left>
-            <Height>1.5cm</Height>
-            <Width>9.32266cm</Width>
-            <ZIndex>17</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-            </Style>
-          </Image>
-          <Line Name="Line6">
-            <Top>13.28208cm</Top>
-            <Left>0.77469cm</Left>
-            <Height>0cm</Height>
-            <Width>9.32267cm</Width>
-            <ZIndex>18</ZIndex>
-            <Style>
-              <Border>
-                <Style>Solid</Style>
-              </Border>
-            </Style>
-          </Line>
           <Textbox Name="Textbox45">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -835,11 +832,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox41</rd:DefaultName>
-            <Top>13.68058cm</Top>
+            <Top>12.33676cm</Top>
             <Left>2.33585cm</Left>
             <Height>0.6cm</Height>
             <Width>5.9925cm</Width>
-            <ZIndex>19</ZIndex>
+            <ZIndex>17</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -867,11 +864,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>SubTotal1</rd:DefaultName>
-            <Top>8.44437cm</Top>
+            <Top>8.40909cm</Top>
             <Left>5.76406cm</Left>
             <Height>0.6cm</Height>
             <Width>4.33331cm</Width>
-            <ZIndex>20</ZIndex>
+            <ZIndex>18</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -882,8 +879,36 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+          <Line Name="Line7">
+            <Top>12.16037cm</Top>
+            <Left>0.74103cm</Left>
+            <Height>0cm</Height>
+            <Width>9.32267cm</Width>
+            <ZIndex>19</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Image Name="BarCode">
+            <Source>Database</Source>
+            <Value>=Fields!BarCode.Value</Value>
+            <MIMEType>image/png</MIMEType>
+            <Sizing>FitProportional</Sizing>
+            <Top>10.31465cm</Top>
+            <Left>0.74103cm</Left>
+            <Height>1.5cm</Height>
+            <Width>9.35634cm</Width>
+            <ZIndex>20</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
         </ReportItems>
-        <Height>5.825in</Height>
+        <Height>5.28333in</Height>
         <Style />
       </Body>
       <Width>4.30684in</Width>

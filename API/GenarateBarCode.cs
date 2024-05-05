@@ -31,5 +31,17 @@ namespace grocery_store.API
                 bitmap.Save("C:\\Users\\luong\\UTE\\hk2\\Win\\grocery-store\\Image\\BarCode\\" + product.Sku + ".png");
             }
         }
+        public void test()
+        {
+            BarcodeWriter writer = new BarcodeWriter();
+            writer.Format = BarcodeFormat.CODE_128;
+            writer.Options = new EncodingOptions
+            {
+                Height = 60,
+                Width = 360
+            };
+            Bitmap bitmap = writer.Write("123456789");
+            bitmap.Save("C:\\Users\\luong\\1234.png");
+        }
     }
 }

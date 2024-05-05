@@ -38,6 +38,7 @@
             this.gunaLabel6 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel7 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel8 = new Guna.UI.WinForms.GunaLabel();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.gunaLinePanel1.SuspendLayout();
             this.gunaLinePanel2.SuspendLayout();
             this.SuspendLayout();
@@ -148,10 +149,20 @@
             this.gunaLabel8.TabIndex = 1;
             this.gunaLabel8.Text = "1";
             // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Location = new System.Drawing.Point(115, 240);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Remote;
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(396, 246);
+            this.reportViewer1.TabIndex = 5;
+            // 
             // Temp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.gunaLinePanel2);
             this.Controls.Add(this.gunaLinePanel1);
             this.Name = "Temp";
@@ -176,5 +187,6 @@
         private Guna.UI.WinForms.GunaLabel gunaLabel6;
         private Guna.UI.WinForms.GunaLabel gunaLabel7;
         private Guna.UI.WinForms.GunaLabel gunaLabel8;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

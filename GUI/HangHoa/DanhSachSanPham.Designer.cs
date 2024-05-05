@@ -34,10 +34,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.lb_tong_so_dong = new System.Windows.Forms.Label();
             this.txtbox_tim_kiem = new Guna.UI.WinForms.GunaTextBox();
             this.btn_tim_kiem = new Guna.UI.WinForms.GunaButton();
-            this.lb_so_dong = new System.Windows.Forms.Label();
-            this.lb_tong_so_dong = new System.Windows.Forms.Label();
             this.cbb_phan_loai = new System.Windows.Forms.ComboBox();
             this.cbb_nha_cung_cap = new System.Windows.Forms.ComboBox();
             this.btn_them = new Guna.UI.WinForms.GunaAdvenceButton();
@@ -48,7 +47,6 @@
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sku = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ten_san_pham = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.han_su_dung = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phan_loai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nha_cung_cap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.so_luong_ton_kho = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,10 +60,9 @@
             // 
             // gunaPanel1
             // 
+            gunaPanel1.Controls.Add(this.lb_tong_so_dong);
             gunaPanel1.Controls.Add(this.txtbox_tim_kiem);
             gunaPanel1.Controls.Add(this.btn_tim_kiem);
-            gunaPanel1.Controls.Add(this.lb_so_dong);
-            gunaPanel1.Controls.Add(this.lb_tong_so_dong);
             gunaPanel1.Controls.Add(this.cbb_phan_loai);
             gunaPanel1.Controls.Add(this.cbb_nha_cung_cap);
             gunaPanel1.Controls.Add(this.btn_them);
@@ -75,6 +72,17 @@
             gunaPanel1.Name = "gunaPanel1";
             gunaPanel1.Size = new System.Drawing.Size(1730, 150);
             gunaPanel1.TabIndex = 8;
+            // 
+            // lb_tong_so_dong
+            // 
+            this.lb_tong_so_dong.AutoSize = true;
+            this.lb_tong_so_dong.Font = new System.Drawing.Font("Segoe UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_tong_so_dong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(125)))), ((int)(((byte)(229)))));
+            this.lb_tong_so_dong.Location = new System.Drawing.Point(44, 102);
+            this.lb_tong_so_dong.Name = "lb_tong_so_dong";
+            this.lb_tong_so_dong.Size = new System.Drawing.Size(76, 23);
+            this.lb_tong_so_dong.TabIndex = 13;
+            this.lb_tong_so_dong.Text = "Kết quả:";
             // 
             // txtbox_tim_kiem
             // 
@@ -87,15 +95,12 @@
             this.txtbox_tim_kiem.FocusedForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.txtbox_tim_kiem.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbox_tim_kiem.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.txtbox_tim_kiem.Location = new System.Drawing.Point(120, 50);
+            this.txtbox_tim_kiem.Location = new System.Drawing.Point(117, 42);
             this.txtbox_tim_kiem.Name = "txtbox_tim_kiem";
             this.txtbox_tim_kiem.PasswordChar = '\0';
             this.txtbox_tim_kiem.Size = new System.Drawing.Size(450, 50);
             this.txtbox_tim_kiem.TabIndex = 16;
-            this.txtbox_tim_kiem.Text = "Tìm Kiếm";
             this.txtbox_tim_kiem.TextOffsetX = 15;
-            this.txtbox_tim_kiem.Enter += new System.EventHandler(this.txtbox_tim_kiem_Enter);
-            this.txtbox_tim_kiem.Leave += new System.EventHandler(this.txtbox_tim_kiem_Leave);
             // 
             // btn_tim_kiem
             // 
@@ -108,7 +113,7 @@
             this.btn_tim_kiem.ForeColor = System.Drawing.Color.White;
             this.btn_tim_kiem.Image = global::grocery_store.Properties.Resources.Search;
             this.btn_tim_kiem.ImageSize = new System.Drawing.Size(30, 30);
-            this.btn_tim_kiem.Location = new System.Drawing.Point(50, 50);
+            this.btn_tim_kiem.Location = new System.Drawing.Point(47, 42);
             this.btn_tim_kiem.Name = "btn_tim_kiem";
             this.btn_tim_kiem.OnHoverBaseColor = System.Drawing.Color.Gray;
             this.btn_tim_kiem.OnHoverBorderColor = System.Drawing.Color.White;
@@ -117,30 +122,11 @@
             this.btn_tim_kiem.OnPressedColor = System.Drawing.Color.Black;
             this.btn_tim_kiem.Size = new System.Drawing.Size(70, 50);
             this.btn_tim_kiem.TabIndex = 15;
-            // 
-            // lb_so_dong
-            // 
-            this.lb_so_dong.AutoSize = true;
-            this.lb_so_dong.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_so_dong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(125)))), ((int)(((byte)(229)))));
-            this.lb_so_dong.Location = new System.Drawing.Point(110, 119);
-            this.lb_so_dong.Name = "lb_so_dong";
-            this.lb_so_dong.Size = new System.Drawing.Size(0, 17);
-            this.lb_so_dong.TabIndex = 14;
-            // 
-            // lb_tong_so_dong
-            // 
-            this.lb_tong_so_dong.AutoSize = true;
-            this.lb_tong_so_dong.Font = new System.Drawing.Font("Segoe UI", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_tong_so_dong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(125)))), ((int)(((byte)(229)))));
-            this.lb_tong_so_dong.Location = new System.Drawing.Point(47, 119);
-            this.lb_tong_so_dong.Name = "lb_tong_so_dong";
-            this.lb_tong_so_dong.Size = new System.Drawing.Size(60, 17);
-            this.lb_tong_so_dong.TabIndex = 13;
-            this.lb_tong_so_dong.Text = "Kết quả:";
+            this.btn_tim_kiem.Click += new System.EventHandler(this.btn_tim_kiem_Click);
             // 
             // cbb_phan_loai
             // 
+            this.cbb_phan_loai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_phan_loai.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbb_phan_loai.FormattingEnabled = true;
             this.cbb_phan_loai.ItemHeight = 22;
@@ -148,10 +134,12 @@
             this.cbb_phan_loai.Name = "cbb_phan_loai";
             this.cbb_phan_loai.Size = new System.Drawing.Size(270, 30);
             this.cbb_phan_loai.TabIndex = 12;
+            this.cbb_phan_loai.SelectedIndexChanged += new System.EventHandler(this.cbb_phan_loai_SelectedIndexChanged);
             // 
             // cbb_nha_cung_cap
             // 
             this.cbb_nha_cung_cap.BackColor = System.Drawing.Color.White;
+            this.cbb_nha_cung_cap.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_nha_cung_cap.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbb_nha_cung_cap.ForeColor = System.Drawing.Color.Black;
             this.cbb_nha_cung_cap.FormattingEnabled = true;
@@ -159,6 +147,7 @@
             this.cbb_nha_cung_cap.Name = "cbb_nha_cung_cap";
             this.cbb_nha_cung_cap.Size = new System.Drawing.Size(270, 30);
             this.cbb_nha_cung_cap.TabIndex = 11;
+            this.cbb_nha_cung_cap.SelectedIndexChanged += new System.EventHandler(this.cbb_nha_cung_cap_SelectedIndexChanged);
             // 
             // btn_them
             // 
@@ -288,7 +277,6 @@
             this.id,
             this.sku,
             this.ten_san_pham,
-            this.han_su_dung,
             this.phan_loai,
             this.nha_cung_cap,
             this.so_luong_ton_kho,
@@ -309,6 +297,7 @@
             this.gridview_danh_sach_san_pham.MultiSelect = false;
             this.gridview_danh_sach_san_pham.Name = "gridview_danh_sach_san_pham";
             this.gridview_danh_sach_san_pham.ReadOnly = true;
+            this.gridview_danh_sach_san_pham.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.gridview_danh_sach_san_pham.RowHeadersVisible = false;
             this.gridview_danh_sach_san_pham.RowHeadersWidth = 51;
             this.gridview_danh_sach_san_pham.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -347,6 +336,7 @@
             this.gridview_danh_sach_san_pham.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.gridview_danh_sach_san_pham.VirtualMode = true;
             this.gridview_danh_sach_san_pham.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridview_danh_sach_san_pham_RowEnter);
+            this.gridview_danh_sach_san_pham.DoubleClick += new System.EventHandler(this.gridview_danh_sach_san_pham_DoubleClick);
             // 
             // id
             // 
@@ -371,14 +361,6 @@
             this.ten_san_pham.MinimumWidth = 6;
             this.ten_san_pham.Name = "ten_san_pham";
             this.ten_san_pham.ReadOnly = true;
-            // 
-            // han_su_dung
-            // 
-            this.han_su_dung.DataPropertyName = "Expiry";
-            this.han_su_dung.HeaderText = "Hạn Sử Dụng";
-            this.han_su_dung.MinimumWidth = 6;
-            this.han_su_dung.Name = "han_su_dung";
-            this.han_su_dung.ReadOnly = true;
             // 
             // phan_loai
             // 
@@ -439,8 +421,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lb_so_dong;
         private System.Windows.Forms.Label lb_tong_so_dong;
         private System.Windows.Forms.ComboBox cbb_phan_loai;
         private System.Windows.Forms.ComboBox cbb_nha_cung_cap;
@@ -454,7 +434,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn sku;
         private System.Windows.Forms.DataGridViewTextBoxColumn ten_san_pham;
-        private System.Windows.Forms.DataGridViewTextBoxColumn han_su_dung;
         private System.Windows.Forms.DataGridViewTextBoxColumn phan_loai;
         private System.Windows.Forms.DataGridViewTextBoxColumn nha_cung_cap;
         private System.Windows.Forms.DataGridViewTextBoxColumn so_luong_ton_kho;

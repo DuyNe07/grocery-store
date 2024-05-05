@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props" Condition="Exists('packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -58,15 +59,6 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuButton">
       <HintPath>Frameworks\Bufinu\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
     </Reference>
-    <Reference Include="Bunifu.UI.WinForms.BunifuCircleProgress">
-      <HintPath>Frameworks\Bufinu\Bunifu.UI.WinForms.BunifuCircleProgress.dll</HintPath>
-    </Reference>
-    <Reference Include="Bunifu.UI.WinForms.BunifuColorTransition">
-      <HintPath>Frameworks\Bufinu\Bunifu.UI.WinForms.BunifuColorTransition.dll</HintPath>
-    </Reference>
-    <Reference Include="Bunifu.UI.WinForms.BunifuDataGridView">
-      <HintPath>Frameworks\Bufinu\Bunifu.UI.WinForms.BunifuDataGridView.dll</HintPath>
-    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuDatePicker">
       <HintPath>Frameworks\Bufinu\Bunifu.UI.WinForms.BunifuDatePicker.dll</HintPath>
     </Reference>
@@ -91,12 +83,6 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuPictureBox">
       <HintPath>Frameworks\Bufinu\Bunifu.UI.WinForms.BunifuPictureBox.dll</HintPath>
     </Reference>
-    <Reference Include="Bunifu.UI.WinForms.BunifuProgressBar">
-      <HintPath>Frameworks\Bufinu\Bunifu.UI.WinForms.BunifuProgressBar.dll</HintPath>
-    </Reference>
-    <Reference Include="Bunifu.UI.WinForms.BunifuRating">
-      <HintPath>Frameworks\Bufinu\Bunifu.UI.WinForms.BunifuRating.dll</HintPath>
-    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuScrollBar">
       <HintPath>Frameworks\Bufinu\Bunifu.UI.WinForms.BunifuScrollBar.dll</HintPath>
     </Reference>
@@ -105,6 +91,9 @@
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuSlider">
       <HintPath>Frameworks\Bufinu\Bunifu.UI.WinForms.BunifuSlider.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuSnackbar">
+      <HintPath>Frameworks\Bufinu\Bunifu.UI.WinForms.BunifuSnackbar.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuTextbox">
       <HintPath>Frameworks\Bufinu\Bunifu.UI.WinForms.BunifuTextbox.dll</HintPath>
@@ -229,8 +218,8 @@
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    <Reference Include="Microsoft.SqlServer.Types, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.Win32.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -333,6 +322,7 @@
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
     </Reference>
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Net.Http, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Net.Http.4.3.0\lib\net46\System.Net.Http.dll</HintPath>
       <Private>True</Private>
@@ -428,6 +418,40 @@
     <Compile Include="API\GenarateBarCode.cs" />
     <Compile Include="API\GenerateProductCode.cs" />
     <Compile Include="API\PaymentQR.cs" />
+    <Compile Include="DataSet\GroceryStoreDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GroceryStoreDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\GroceryStoreFuncRevenueTime.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GroceryStoreFuncRevenueTime.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\BanHang\ScanBarCode.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\BanHang\ScanBarCode.Designer.cs">
+      <DependentUpon>ScanBarCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HangHoa\ChiTietSanPham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\HangHoa\ChiTietSanPham.Designer.cs">
+      <DependentUpon>ChiTietSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HangHoa\DanhSachChiTietSanPham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\HangHoa\DanhSachChiTietSanPham.Designer.cs">
+      <DependentUpon>DanhSachChiTietSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\HangHoa\NhaCungCap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\HangHoa\NhaCungCap.Designer.cs">
+      <DependentUpon>NhaCungCap.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\HangHoa\PhanLoai.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -536,11 +560,6 @@
     <Compile Include="GUI\Dashboard\ThongKe.Designer.cs">
       <DependentUpon>ThongKe.cs</DependentUpon>
     </Compile>
-    <Compile Include="Invoice.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Invoice.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\EmployeeTimekeeping.cs" />
@@ -549,23 +568,39 @@
     <Compile Include="Models\OrderLine.cs" />
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductDetail.cs" />
+    <Compile Include="Models\RevenueTime.cs" />
     <Compile Include="Models\ShopOrder.cs" />
     <Compile Include="Models\Supplier.cs" />
     <Compile Include="Models\Timekeeping.cs" />
     <Compile Include="Models\ViewInvoice.cs" />
+    <Compile Include="Models\ViewStatistical.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources1.Designer.cs">
+    <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
-    <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="GUI\BanHang\ScanBarCode.resx">
+      <DependentUpon>ScanBarCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HangHoa\ChiTietSanPham.resx">
+      <DependentUpon>ChiTietSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HangHoa\DanhSachChiTietSanPham.resx">
+      <DependentUpon>DanhSachChiTietSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HangHoa\NhaCungCap.resx">
+      <DependentUpon>NhaCungCap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\HangHoa\PhanLoai.resx">
       <DependentUpon>PhanLoai.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\BanHang\ShopOrderReport.rdlc" />
+    <EmbeddedResource Include="GUI\BanHang\ShopOrderReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\HoaDon\Bill.resx">
       <DependentUpon>Bill.cs</DependentUpon>
     </EmbeddedResource>
@@ -586,7 +621,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Dashboard\NhanVien.resx">
       <DependentUpon>NhanVien.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Dashboard\QuanLy.resx">
       <DependentUpon>QuanLy.cs</DependentUpon>
@@ -607,6 +641,7 @@
       <DependentUpon>SanPham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\HoaDon\BillReport.rdlc" />
+    <EmbeddedResource Include="GUI\HoaDon\temp.rdlc" />
     <EmbeddedResource Include="GUI\HoaDon\Temp.resx">
       <DependentUpon>Temp.cs</DependentUpon>
     </EmbeddedResource>
@@ -619,28 +654,53 @@
     <EmbeddedResource Include="GUI\Dashboard\ThongKe.resx">
       <DependentUpon>ThongKe.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ThongKe\statistical.rdlc" />
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <SubType>Designer</SubType>
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Invoice.xsc">
-      <DependentUpon>Invoice.xsd</DependentUpon>
+    <None Include="DataSet\GroceryStoreDataSet.xsc">
+      <DependentUpon>GroceryStoreDataSet.xsd</DependentUpon>
     </None>
-    <None Include="Invoice.xsd">
+    <None Include="DataSet\GroceryStoreDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Invoice.Designer.cs</LastGenOutput>
+      <LastGenOutput>GroceryStoreDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Invoice.xss">
-      <DependentUpon>Invoice.xsd</DependentUpon>
+    <None Include="DataSet\GroceryStoreDataSet.xss">
+      <DependentUpon>GroceryStoreDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\GroceryStoreFuncRevenueTime.xsc">
+      <DependentUpon>GroceryStoreFuncRevenueTime.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\GroceryStoreFuncRevenueTime.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GroceryStoreFuncRevenueTime.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSet\GroceryStoreFuncRevenueTime.xss">
+      <DependentUpon>GroceryStoreFuncRevenueTime.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\grocery_store.GUI.BanHang.Item.datasource" />
+    <None Include="Properties\DataSources\grocery_store.GUI.Dashboard.ThongKe.datasource" />
+    <None Include="Properties\DataSources\grocery_store.Models.Category.datasource" />
     <None Include="Properties\DataSources\grocery_store.Models.Employee.datasource" />
+    <None Include="Properties\DataSources\grocery_store.Models.EmployeeTimekeeping.datasource" />
+    <None Include="Properties\DataSources\grocery_store.Models.GroceryStoreContext.datasource" />
+    <None Include="Properties\DataSources\grocery_store.Models.Job.datasource" />
     <None Include="Properties\DataSources\grocery_store.Models.OrderLine.datasource" />
+    <None Include="Properties\DataSources\grocery_store.Models.Payment.datasource" />
     <None Include="Properties\DataSources\grocery_store.Models.Product.datasource" />
+    <None Include="Properties\DataSources\grocery_store.Models.ProductDetail.datasource" />
+    <None Include="Properties\DataSources\grocery_store.Models.RevenueTime.datasource" />
+    <None Include="Properties\DataSources\grocery_store.Models.ShopOrder.datasource" />
+    <None Include="Properties\DataSources\grocery_store.Models.Supplier.datasource" />
+    <None Include="Properties\DataSources\grocery_store.Models.Timekeeping.datasource" />
+    <None Include="Properties\DataSources\grocery_store.Models.ViewInvoice.datasource" />
+    <None Include="Properties\DataSources\grocery_store.Models.ViewStatistical.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -725,14 +785,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Image\BarCode\" />
-    <Folder Include="SqlServerTypes\x64\" />
-    <Folder Include="SqlServerTypes\x86\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\user_img.bmp" />
-    <None Include="Resources\user_img.png" />
-    <None Include="Resources\user_img1.png" />
-    <None Include="Resources\search.png" />
     <None Include="Resources\text.png" />
     <None Include="Resources\Image1.bmp" />
     <None Include="Resources\Search.png" />
@@ -748,6 +802,22 @@
     <None Include="Resources\cross_tv.png" />
     <None Include="Resources\check_tv.png" />
     <Content Include="SqlServerTypes\readme.htm" />
+    <None Include="Image\cancel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Image\revenue.png" />
+    <None Include="Image\profit.png" />
+    <None Include="Image\cart-2.png" />
+    <Content Include="Image\banking.jpg" />
+    <Content Include="Image\cash.png" />
+    <Content Include="Image\credit-card.png" />
+    <None Include="Image\eye-onpng.png" />
+    <None Include="Image\eye-off.png" />
+    <None Include="Image\eye-on.png" />
+    <Content Include="Image\momo.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Image\nhom.jpg" />
     <Content Include="takeeasy_1.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -762,5 +832,6 @@
     <Error Condition="!Exists('packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets'))" />
     <Error Condition="!Exists('packages\SQLite.3.13.0\build\net45\SQLite.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\SQLite.3.13.0\build\net45\SQLite.props'))" />
     <Error Condition="!Exists('packages\Microsoft.EntityFrameworkCore.Design.3.1.32\build\net461\Microsoft.EntityFrameworkCore.Design.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.EntityFrameworkCore.Design.3.1.32\build\net461\Microsoft.EntityFrameworkCore.Design.props'))" />
+    <Error Condition="!Exists('packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props'))" />
   </Target>
 </Project>

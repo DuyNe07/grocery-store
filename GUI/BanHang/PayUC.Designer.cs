@@ -40,7 +40,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(648, 32);
+            this.label1.Location = new System.Drawing.Point(331, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(413, 38);
             this.label1.TabIndex = 0;
@@ -48,9 +48,9 @@
             // 
             // pictureBox_QR
             // 
-            this.pictureBox_QR.Location = new System.Drawing.Point(682, 203);
+            this.pictureBox_QR.Location = new System.Drawing.Point(299, 149);
             this.pictureBox_QR.Name = "pictureBox_QR";
-            this.pictureBox_QR.Size = new System.Drawing.Size(350, 350);
+            this.pictureBox_QR.Size = new System.Drawing.Size(490, 490);
             this.pictureBox_QR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox_QR.TabIndex = 1;
             this.pictureBox_QR.TabStop = false;
@@ -65,7 +65,7 @@
             this.btn_OK.ForeColor = System.Drawing.Color.Black;
             this.btn_OK.Image = null;
             this.btn_OK.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_OK.Location = new System.Drawing.Point(682, 662);
+            this.btn_OK.Location = new System.Drawing.Point(309, 766);
             this.btn_OK.Name = "btn_OK";
             this.btn_OK.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(148)))), ((int)(((byte)(118)))));
             this.btn_OK.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -88,7 +88,7 @@
             this.btn_Cancel.ForeColor = System.Drawing.Color.Black;
             this.btn_Cancel.Image = null;
             this.btn_Cancel.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_Cancel.Location = new System.Drawing.Point(874, 662);
+            this.btn_Cancel.Location = new System.Drawing.Point(586, 766);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
             this.btn_Cancel.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -104,11 +104,18 @@
             // reportViewer
             // 
             this.reportViewer.LocalReport.ReportEmbeddedResource = "grocery_store.GUI.BanHang.ShopOrderReport.rdlc";
-            this.reportViewer.Location = new System.Drawing.Point(40, 48);
+            this.reportViewer.Location = new System.Drawing.Point(254, 42);
             this.reportViewer.Name = "reportViewer";
             this.reportViewer.ServerReport.BearerToken = null;
-            this.reportViewer.Size = new System.Drawing.Size(588, 691);
+            this.reportViewer.ShowBackButton = false;
+            this.reportViewer.ShowFindControls = false;
+            this.reportViewer.ShowPageNavigationControls = false;
+            this.reportViewer.ShowPrintButton = false;
+            this.reportViewer.ShowStopButton = false;
+            this.reportViewer.ShowZoomControl = false;
+            this.reportViewer.Size = new System.Drawing.Size(576, 691);
             this.reportViewer.TabIndex = 13;
+            this.reportViewer.Visible = false;
             // 
             // PayUC
             // 
@@ -121,7 +128,7 @@
             this.Controls.Add(this.pictureBox_QR);
             this.Controls.Add(this.label1);
             this.Name = "PayUC";
-            this.Size = new System.Drawing.Size(1087, 770);
+            this.Size = new System.Drawing.Size(1087, 841);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_QR)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -132,8 +139,8 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox_QR;
-        private Guna.UI.WinForms.GunaButton btn_OK;
-        private Guna.UI.WinForms.GunaButton btn_Cancel;
+        public Guna.UI.WinForms.GunaButton btn_OK;
+        public Guna.UI.WinForms.GunaButton btn_Cancel;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer;
     }
 }
