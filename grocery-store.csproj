@@ -803,9 +803,13 @@
     <Content Include="Image\banking.jpg" />
     <Content Include="Image\cash.png" />
     <Content Include="Image\credit-card.png" />
+    <None Include="Image\eye-onpng.png" />
+    <None Include="Image\eye-off.png" />
+    <None Include="Image\eye-on.png" />
     <Content Include="Image\momo.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Image\nhom.jpg" />
     <Content Include="takeeasy_1.ico" />
   </ItemGroup>
   <ItemGroup>

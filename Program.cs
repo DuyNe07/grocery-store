@@ -15,14 +15,14 @@ namespace grocery_store
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static async Task Main()
+        static void Main()
         {
             //API.GenarateBarCode genarateBarCode = new API.GenarateBarCode();
             //genarateBarCode.test();
             //API.PaymentQR paymentQR = new API.PaymentQR();
             //paymentQR.Genarate();
             //updatePayment();
-            Application.Run(new GUI.Main());
+            Application.Run(new GUI.Login());
         }
 
         static void updatePayment()

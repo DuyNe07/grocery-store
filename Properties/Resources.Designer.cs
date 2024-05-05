@@ -183,6 +183,26 @@ namespace grocery_store.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap eye_off {
+            get {
+                object obj = ResourceManager.GetObject("eye-off", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap eye_on {
+            get {
+                object obj = ResourceManager.GetObject("eye-on", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap key {
             get {
                 object obj = ResourceManager.GetObject("key", resourceCulture);
@@ -236,6 +256,16 @@ namespace grocery_store.Properties {
         internal static System.Drawing.Bitmap minus_square_svgrepo_com {
             get {
                 object obj = ResourceManager.GetObject("minus_square_svgrepo_com", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nhom {
+            get {
+                object obj = ResourceManager.GetObject("nhom", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
