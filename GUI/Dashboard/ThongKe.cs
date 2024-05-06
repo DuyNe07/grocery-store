@@ -26,7 +26,7 @@ namespace grocery_store.GUI.Dashboard
         {
             loadPanel();
             loadDataPieChart();
-            loadDataLineChart(input_dateStart.Value, input_dateEnd.Value);
+            loadDataChart(input_dateStart.Value, input_dateEnd.Value);
         }
 
         #region Panel
@@ -160,7 +160,6 @@ namespace grocery_store.GUI.Dashboard
         #region PieChart
         private void loadDataPieChart()
         {
-
             var data = db.ViewStatistical.ToList();
             this.reportViewer.LocalReport.DataSources.Clear();
             this.reportViewer.LocalReport.DataSources.Add(new ReportDataSource("DataSetViewStatistical", data));
@@ -169,8 +168,14 @@ namespace grocery_store.GUI.Dashboard
 
         #endregion
 
-        private void loadDataLineChart(DateTime startDate, DateTime endDate)
+        #region DataChart
+        private void loadDataChart(DateTime startDate, DateTime endDate)
         {
+            var oldDataSource = this.reportViewer.LocalReport.DataSources.FirstOrDefault(ds => ds.Name == "DataSetRevenueTime");
+            if (oldDataSource != null)
+            {
+                this.reportViewer.LocalReport.DataSources.Remove(oldDataSource);
+            }
             var result = db.Set<RevenueTime>().FromSqlRaw("SELECT * FROM FUNC_RevenueTime({0},{1})", startDate, endDate).ToList();
 
             DataTable dataTable = new DataTable();
@@ -185,7 +190,7 @@ namespace grocery_store.GUI.Dashboard
                 dataTable.Rows.Add(item.OrderDate, item.Revenue, item.SubTotal, item.ProductName, item.MonthYear);
             }
 
-            this.reportViewer.LocalReport.DataSources.Add(new ReportDataSource("DataSetRevenueTime", result));
+            this.reportViewer.LocalReport.DataSources.Add(new ReportDataSource("DataSetRevenueTime", dataTable));
             this.reportViewer.RefreshReport();
         }
 
@@ -193,12 +198,25 @@ namespace grocery_store.GUI.Dashboard
         {
             if(input_dateStart.Value < input_dateEnd.Value)
             {
-                loadDataLineChart(input_dateStart.Value, input_dateEnd.Value);
+                loadDataChart(input_dateStart.Value, input_dateEnd.Value);
             }
             else
             {
                 MessageBox.Show("Ngày kết thúc phải sau ngày bắt đầu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void input_dateStart_ValueChanged(object sender, EventArgs e)
+        {
+            if (input_dateStart.Value < input_dateEnd.Value)
+            {
+                loadDataChart(input_dateStart.Value, input_dateEnd.Value);
+            }
+            else
+            {
+                MessageBox.Show("Ngày kết thúc phải sau ngày bắt đầu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        #endregion
     }
 }
