@@ -43,142 +43,6 @@ namespace grocery_store.GUI.Dashboard
         public NhanVien()
         {
             InitializeComponent();
-
-            employee = gs_context.Employee.Include(e => e.Job).ToList()[1];
-            
-
-            // Setup hình ảnh employee
-            if (employee.Img == null)
-            {
-                ptb_emp.BackgroundImage = grocery_store.Properties.Resources.user_img;
-            } else
-            {
-                using (MemoryStream ms = new MemoryStream(employee.Img))
-                {
-                    Image image = Image.FromStream(ms);
-
-                    // Hiển thị hình ảnh trong PictureBox
-                    ptb_emp.BackgroundImage = image;
-                }
-            }
-
-            // Setup employee cùng ca
-            panel_user_inshift.Controls.Clear();
-            lb_number.Visible = false;
-            List<Employee> employees = gs_context.Employee.Include(e => e.Job).ToList();
-            int number = 0;
-            int hidden = 0;
-            foreach (Employee e in employees)
-            {
-                bool check = false;
-                if (employee.Job.Name == "FullTime")
-                {
-                    check = true;
-                }
-                else if (e.Job.Name == employee.Job.Name || e.Job.Name == "FullTime")
-                {
-                    check = true;
-                }
-                if (e.EmployeeId == employee.EmployeeId)
-                {
-                    check = false;
-                }
-                if (check)
-                {
-                    if (number * 40 + 5 < 1365)
-                    {
-                        PictureBox uo = new PictureBox();
-                        int size = panel_user_inshift.Size.Height;
-                        uo.Size = new Size(size, size);
-                        uo.Location = new Point(number * size + 40, 0);
-                        if (e.Img == null)
-                        {
-                            uo.BackgroundImage = grocery_store.Properties.Resources.user_img;
-                        }
-                        else
-                        {
-                            using (MemoryStream ms = new MemoryStream(e.Img))
-                            {
-                                Image image = Image.FromStream(ms);
-
-                                // Hiển thị hình ảnh trong PictureBox
-                                uo.BackgroundImage = image;
-                            }
-                        }
-                        uo.BackgroundImageLayout = ImageLayout.Stretch;
-                        GunaElipse elip = new GunaElipse();
-                        elip.TargetControl = uo;
-                        elip.Radius = 140;
-                        uo.Tag = "Họ tên: " + e.FirstName + " " + e.LastName + "\nCa làm: " + e.Job.Name;
-                        uo.Click += uo_click;
-                        uo.Cursor = Cursors.Hand;
-                        panel_user_inshift.Controls.Add(uo);
-                        number++;
-                    }
-                    else
-                    {
-                        hidden++;
-                        lb_number.Visible = true;
-                        lb_number.Text = "+" + hidden;
-                    }
-
-                }
-            }
-
-            // Setup thông tin employee
-            tb_lastname.Text = employee.LastName;
-            tb_firstname.Text = employee.FirstName;
-            tb_role.Text = employee.Role;
-            Job job = employee.Job;
-            if (job != null)
-            {
-                switch (job.Name)
-                {
-                    case "FullTime": 
-                        {
-                            timestart_shift = new TimeSpan(7, 0, 0);
-                            timeend_shift = new TimeSpan(22, 0, 0);
-                            tb_jobname.Text = "Từ 7h00 đến 22h00 (" + job.Name + ")";
-                            lb_timestart.Text = "07:00";
-                            lb_timeend.Text = "22:00";
-                            break;
-                        }
-                    case "Morning Shift":
-                        {
-                            timestart_shift = new TimeSpan(7, 0, 0);
-                            timeend_shift = new TimeSpan(11, 30, 0);
-                            tb_jobname.Text = "Từ 7h00 đến 11h30 (" + job.Name + ")";
-                            lb_timestart.Text = "07:00";
-                            lb_timeend.Text = "11:30";
-                            break;
-                        }
-                    case "Afternoon Shift":
-                        {
-                            timestart_shift = new TimeSpan(12, 30, 0);
-                            timeend_shift = new TimeSpan(17, 0, 0);
-                            tb_jobname.Text = "Từ 12h30 đến 17h00 (" + job.Name + ")";
-                            lb_timestart.Text = "12:30";
-                            lb_timeend.Text = "17:00";
-                            break;
-                        }
-                    case "Night Shift":
-                        {
-                            timestart_shift = new TimeSpan(17, 0, 0);
-                            timeend_shift = new TimeSpan(22,0,0);
-                            tb_jobname.Text = "Từ 17h00 đến 22h00 (" + job.Name + ")";
-                            lb_timestart.Text = "17:00";
-                            lb_timeend.Text = "22:00";
-                            break;
-                        } 
-                }
-            }
-
-            // Setup Time Online
-            timer_online.Start();
-            // Setup TimeKeeping
-            TimeKeeping_Check();
-            Update_bt_timekeeping();
-            timer_timekeeping.Start();
         }
 
         public TimeSpan Checkout;
@@ -523,6 +387,143 @@ namespace grocery_store.GUI.Dashboard
         public DateTime endnow = new DateTime();
         private async void NhanVien_Load(object sender, EventArgs e)
         {
+            employee = ((Main)this.ParentForm).Employee;
+
+
+            // Setup hình ảnh employee
+            if (employee.Img == null)
+            {
+                ptb_emp.BackgroundImage = grocery_store.Properties.Resources.user_img;
+            }
+            else
+            {
+                using (MemoryStream ms = new MemoryStream(employee.Img))
+                {
+                    Image image = Image.FromStream(ms);
+
+                    // Hiển thị hình ảnh trong PictureBox
+                    ptb_emp.BackgroundImage = image;
+                }
+            }
+
+            // Setup employee cùng ca
+            panel_user_inshift.Controls.Clear();
+            lb_number.Visible = false;
+            List<Employee> employees = gs_context.Employee.Include(a => a.Job).ToList();
+            int number = 0;
+            int hidden = 0;
+            foreach (Employee empl in employees)
+            {
+                bool check = false;
+                if (employee.Job.Name == "FullTime")
+                {
+                    check = true;
+                }
+                else if (empl.Job.Name == employee.Job.Name || empl.Job.Name == "FullTime")
+                {
+                    check = true;
+                }
+                if (empl.EmployeeId == employee.EmployeeId)
+                {
+                    check = false;
+                }
+                if (check)
+                {
+                    if (number * 40 + 5 < 1365)
+                    {
+                        PictureBox uo = new PictureBox();
+                        int size = panel_user_inshift.Size.Height;
+                        uo.Size = new Size(size, size);
+                        uo.Location = new Point(number * size + 40, 0);
+                        if (empl.Img == null)
+                        {
+                            uo.BackgroundImage = grocery_store.Properties.Resources.user_img;
+                        }
+                        else
+                        {
+                            using (MemoryStream ms = new MemoryStream(empl.Img))
+                            {
+                                Image image = Image.FromStream(ms);
+
+                                // Hiển thị hình ảnh trong PictureBox
+                                uo.BackgroundImage = image;
+                            }
+                        }
+                        uo.BackgroundImageLayout = ImageLayout.Stretch;
+                        GunaElipse elip = new GunaElipse();
+                        elip.TargetControl = uo;
+                        elip.Radius = 140;
+                        uo.Tag = "Họ tên: " + empl.FirstName + " " + empl.LastName + "\nCa làm: " + empl.Job.Name;
+                        uo.Click += uo_click;
+                        uo.Cursor = Cursors.Hand;
+                        panel_user_inshift.Controls.Add(uo);
+                        number++;
+                    }
+                    else
+                    {
+                        hidden++;
+                        lb_number.Visible = true;
+                        lb_number.Text = "+" + hidden;
+                    }
+
+                }
+            }
+
+            // Setup thông tin employee
+            tb_lastname.Text = employee.LastName;
+            tb_firstname.Text = employee.FirstName;
+            tb_role.Text = employee.Role;
+            Job job = employee.Job;
+            if (job != null)
+            {
+                switch (job.Name)
+                {
+                    case "FullTime":
+                        {
+                            timestart_shift = new TimeSpan(7, 0, 0);
+                            timeend_shift = new TimeSpan(22, 0, 0);
+                            tb_jobname.Text = "Từ 7h00 đến 22h00 (" + job.Name + ")";
+                            lb_timestart.Text = "07:00";
+                            lb_timeend.Text = "22:00";
+                            break;
+                        }
+                    case "Morning Shift":
+                        {
+                            timestart_shift = new TimeSpan(7, 0, 0);
+                            timeend_shift = new TimeSpan(11, 30, 0);
+                            tb_jobname.Text = "Từ 7h00 đến 11h30 (" + job.Name + ")";
+                            lb_timestart.Text = "07:00";
+                            lb_timeend.Text = "11:30";
+                            break;
+                        }
+                    case "Afternoon Shift":
+                        {
+                            timestart_shift = new TimeSpan(12, 30, 0);
+                            timeend_shift = new TimeSpan(17, 0, 0);
+                            tb_jobname.Text = "Từ 12h30 đến 17h00 (" + job.Name + ")";
+                            lb_timestart.Text = "12:30";
+                            lb_timeend.Text = "17:00";
+                            break;
+                        }
+                    case "Night Shift":
+                        {
+                            timestart_shift = new TimeSpan(17, 0, 0);
+                            timeend_shift = new TimeSpan(22, 0, 0);
+                            tb_jobname.Text = "Từ 17h00 đến 22h00 (" + job.Name + ")";
+                            lb_timestart.Text = "17:00";
+                            lb_timeend.Text = "22:00";
+                            break;
+                        }
+                }
+            }
+
+            // Setup Time Online
+            timer_online.Start();
+            // Setup TimeKeeping
+            TimeKeeping_Check();
+            Update_bt_timekeeping();
+            timer_timekeeping.Start();
+
             panel_delay_timekeeping.Size = new Size(0, 50);
             panel_delay_timekeeping.BackColor = Color.Red;
             panel_delay_timekeeping.Location = new Point(-1, 0);

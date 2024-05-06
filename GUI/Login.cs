@@ -24,7 +24,7 @@ namespace grocery_store.GUI
         {
             using(var db = new GroceryStoreContext())
             {
-                Employee = await db.Employee.Where(e => e.Login == Login && e.Password == Pass).FirstOrDefaultAsync();
+                Employee = await db.Employee.Include(e => e.Job).Where(e => e.Login == Login && e.Password == Pass).FirstOrDefaultAsync();
                 if (Employee != null)
                 {
                     return true;

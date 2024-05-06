@@ -13,7 +13,7 @@ namespace grocery_store.GUI
 {
     public partial class Main : Form
     {
-        public Employee Employee { get; set; }
+        public Employee Employee = new Employee();
         private Dashboard.BanHang UC_Sell;
         private Dashboard.HoaDon UC_Invoice;
         private Dashboard.HangHoa UC_Good;
