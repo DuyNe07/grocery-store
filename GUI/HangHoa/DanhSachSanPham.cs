@@ -238,16 +238,16 @@ namespace grocery_store.GUI.HangHoa
         }
 
 
-        private async Task<List<Product>> GetProductList(string ProductName, int CategoryID, int SupplierID)
+        private async Task<List<Product>> GetProductList(string SearchValue, int CategoryID, int SupplierID)
         {
             List<Product> products;
             using (var dbContext = new GroceryStoreContext())
             {
                 IQueryable<Product> query = dbContext.Product.Include(p => p.Category).Include(p => p.Supplier);
 
-                if (!string.IsNullOrEmpty(ProductName))
+                if (!string.IsNullOrEmpty(SearchValue))
                 {
-                    query = query.Where(p => p.Name == ProductName);
+                    query = query.Where(p => p.Name == SearchValue || p.Sku == SearchValue);
                 }
 
                 if (CategoryID != -1 && CategoryID != null)
@@ -293,5 +293,6 @@ namespace grocery_store.GUI.HangHoa
             gridview_danh_sach_san_pham.DataSource = await GetProducTable(txtbox_tim_kiem.Text, phanLoaiId, nhaCungCapId);
             UpdateSoDong();
         }
+
     }
 }
