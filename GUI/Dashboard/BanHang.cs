@@ -92,7 +92,9 @@ namespace grocery_store.GUI.Dashboard
             {
                 int shopOrderID = await UpdateOrder(payment);
                 updateBarCode(shopOrderID);
-                payUC.loadReport(items, payment.Name, "Lương Vũ Đình Duy");
+                Main main = (Main)this.Parent.Parent;
+                string EmpName = main.Employee.FirstName + " " + main.Employee.LastName;
+                payUC.loadReport(items, payment.Name, EmpName);
                 payUC.paid = true;
                 refresh();
                 updateTotal();
@@ -330,9 +332,6 @@ namespace grocery_store.GUI.Dashboard
 
         private async Task UpdateStockProduct()
         {
-            //var productIds = items.Select(i => i.Product.ProductId).ToList();
-            //var products = await db.Product.Where(p => productIds.Contains(p.ProductId)).ToDictionaryAsync(p => p.ProductId, p => p);
-
             foreach (Item item in items)
             {
                 ProductDetail productDetail = db.ProductDetail.First(pd => pd.BarCode == item.productBarCode);

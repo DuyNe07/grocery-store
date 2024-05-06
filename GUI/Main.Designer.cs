@@ -51,7 +51,6 @@
             this.btn_invoice = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.btn_sell = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.Logo = new System.Windows.Forms.PictureBox();
-            this.panel_UC.SuspendLayout();
             this.panel_header.SuspendLayout();
             this.panel_control.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo_Code)).BeginInit();
@@ -347,7 +346,7 @@
             this.btn_manage.IdleIconLeftImage = global::grocery_store.Properties.Resources.shield;
             this.btn_manage.IdleIconRightImage = null;
             this.btn_manage.IndicateFocus = true;
-            this.btn_manage.Location = new System.Drawing.Point(12, 600);
+            this.btn_manage.Location = new System.Drawing.Point(12, 609);
             this.btn_manage.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.btn_manage.Name = "btn_manage";
             this.btn_manage.OnDisabledState.BorderColor = System.Drawing.Color.Black;
@@ -438,7 +437,7 @@
             this.btn_staff.IdleIconLeftImage = global::grocery_store.Properties.Resources.user;
             this.btn_staff.IdleIconRightImage = null;
             this.btn_staff.IndicateFocus = true;
-            this.btn_staff.Location = new System.Drawing.Point(12, 530);
+            this.btn_staff.Location = new System.Drawing.Point(12, 466);
             this.btn_staff.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.btn_staff.Name = "btn_staff";
             this.btn_staff.OnDisabledState.BorderColor = System.Drawing.Color.Black;
@@ -529,7 +528,7 @@
             this.btn_statistical.IdleIconLeftImage = global::grocery_store.Properties.Resources.chart;
             this.btn_statistical.IdleIconRightImage = null;
             this.btn_statistical.IndicateFocus = true;
-            this.btn_statistical.Location = new System.Drawing.Point(12, 460);
+            this.btn_statistical.Location = new System.Drawing.Point(12, 393);
             this.btn_statistical.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.btn_statistical.Name = "btn_statistical";
             this.btn_statistical.OnDisabledState.BorderColor = System.Drawing.Color.Black;
@@ -620,7 +619,7 @@
             this.btn_good.IdleIconLeftImage = global::grocery_store.Properties.Resources.box;
             this.btn_good.IdleIconRightImage = null;
             this.btn_good.IndicateFocus = true;
-            this.btn_good.Location = new System.Drawing.Point(12, 390);
+            this.btn_good.Location = new System.Drawing.Point(12, 536);
             this.btn_good.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.btn_good.Name = "btn_good";
             this.btn_good.OnDisabledState.BorderColor = System.Drawing.Color.Black;
@@ -877,7 +876,6 @@
             this.Text = "Takeasy";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Main_Load);
-            this.panel_UC.ResumeLayout(false);
             this.panel_header.ResumeLayout(false);
             this.panel_control.ResumeLayout(false);
             this.panel_control.PerformLayout();
