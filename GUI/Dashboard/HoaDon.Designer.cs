@@ -190,7 +190,7 @@
             // ShopOrderId
             // 
             this.ShopOrderId.DataPropertyName = "ShopOrderId";
-            this.ShopOrderId.HeaderText = "Shop Order ID";
+            this.ShopOrderId.HeaderText = "Số hoá đơn";
             this.ShopOrderId.MinimumWidth = 6;
             this.ShopOrderId.Name = "ShopOrderId";
             // 

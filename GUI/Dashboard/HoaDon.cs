@@ -31,8 +31,8 @@ namespace grocery_store.GUI.Dashboard
 
         private async Task loadDataGridView()
         {
-            gridview_invoice.DataSource = null;
-
+            
+            
             DataTable invoiceTable = new DataTable();
             invoiceTable.Columns.Add("ShopOrderId", typeof(int));
             invoiceTable.Columns.Add("OrderDate", typeof(string));
@@ -41,12 +41,11 @@ namespace grocery_store.GUI.Dashboard
             invoiceTable.Columns.Add("NameEmp", typeof(string));
 
             List<ViewInvoice> invoiceList = await db.ViewInvoice.ToListAsync();
-
+            invoiceList = invoiceList.GroupBy(x => x.ShopOrderId).Select(x => x.First()).ToList();
             foreach (ViewInvoice invoice in invoiceList)
             {
                 invoiceTable.Rows.Add(invoice.ShopOrderId,invoice.FormattedOrderDate, invoice.FormattedSubTotal, invoice.PaymentMethod, invoice.NameEmp);
             }
-
             gridview_invoice.DataSource = invoiceTable;
         }
 
@@ -81,9 +80,41 @@ namespace grocery_store.GUI.Dashboard
             selectedInvoiceId = e.RowIndex;
         }
 
-        private void btn_search_Click(object sender, EventArgs e)
+        private async void btn_search_Click(object sender, EventArgs e)
         {
-            // tìm kiếm theo 
+            string searchValue = input_search.Text;
+            if (searchValue != "")
+            {
+                DataTable invoiceTable = new DataTable();
+
+                if (invoiceTable != null)
+                {
+                    invoiceTable.Clear();
+                }
+
+                invoiceTable.Columns.Add("ShopOrderId", typeof(int));
+                invoiceTable.Columns.Add("OrderDate", typeof(string));
+                invoiceTable.Columns.Add("SubTotal", typeof(string));
+                invoiceTable.Columns.Add("PaymentMethod", typeof(string));
+                invoiceTable.Columns.Add("NameEmp", typeof(string));
+
+                List<ViewInvoice> invoiceList = db.ViewInvoice.ToList();
+                invoiceList = invoiceList.GroupBy(x => x.ShopOrderId).Select(x => x.First()).ToList();
+
+                foreach (ViewInvoice invoice in invoiceList)
+                {
+                    if (invoice.PaymentMethod.ToLower().Contains(searchValue.ToLower()) || invoice.NameEmp.ToLower().Contains(searchValue.ToLower()) || invoice.OrderDate.ToString("dd/MM/yyyy HH:mm:ss").Contains(searchValue) || invoice.ShopOrderId.ToString().Contains(searchValue))
+                    {
+                        invoiceTable.Rows.Add(invoice.ShopOrderId, invoice.FormattedOrderDate, invoice.FormattedSubTotal, invoice.PaymentMethod, invoice.NameEmp);
+                    }
+                }
+
+                gridview_invoice.DataSource = invoiceTable;
+            }
+            else
+            {
+                await loadDataGridView();
+            }
         }
     }
 }

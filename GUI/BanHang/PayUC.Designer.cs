@@ -113,7 +113,7 @@
             this.reportViewer.ShowPrintButton = false;
             this.reportViewer.ShowStopButton = false;
             this.reportViewer.ShowZoomControl = false;
-            this.reportViewer.Size = new System.Drawing.Size(576, 691);
+            this.reportViewer.Size = new System.Drawing.Size(590, 691);
             this.reportViewer.TabIndex = 13;
             this.reportViewer.Visible = false;
             // 

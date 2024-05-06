@@ -66,6 +66,7 @@ namespace grocery_store.GUI.Dashboard
             else
             {
                 addItem(txtbox_tim_kiem.Text);
+                txtbox_tim_kiem.Text = "";
             }
         }
 
@@ -85,7 +86,6 @@ namespace grocery_store.GUI.Dashboard
                 MessageBox.Show("Phương thức thanh toán không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            //                items, payment.Name, "Lương Vũ Đình Duy"
             PayUC payUC = new PayUC(Image.FromStream(new System.IO.MemoryStream(payment.Qr)));
             payUC.Location = new Point(150, 100);
             payUC.OKClick += async (s, args) =>
@@ -104,6 +104,8 @@ namespace grocery_store.GUI.Dashboard
                 if (payUC.paid == true)
                 {
                     items.Clear();
+                    refresh();
+                    updateTotal();
                 }
                 payUC.Dispose();
                 this.Controls.Remove(payUC);
@@ -196,7 +198,8 @@ namespace grocery_store.GUI.Dashboard
             Product product = await db.Product
                 .Include(p => p.ProductDetail)
                 .Where(p => p.ProductDetail.Any(pd => pd.BarCode == productBarCode))
-                .FirstAsync();
+                .FirstOrDefaultAsync();
+
 
             if (product == null)
             {
@@ -299,8 +302,7 @@ namespace grocery_store.GUI.Dashboard
             shopOrder.Payment = payment;
 
             Main main = (Main)this.Parent.Parent;
-            // Modify this later
-            shopOrder.EmployeeId = 1; //main.Employee.EmployeeId; 
+            shopOrder.EmployeeId = main.Employee.EmployeeId; 
 
             List<OrderLine> orderLines = await CreateOrderLinesAsync(shopOrder);
             shopOrder.OrderLine = orderLines;
@@ -341,22 +343,5 @@ namespace grocery_store.GUI.Dashboard
         }
 
         #endregion
-
-        //private async void gunaButton1_Click_1(object sender, EventArgs e)
-        //{
-        //    if (this.Controls.ContainsKey("Bill"))
-        //    {
-        //        this.Controls.RemoveByKey("Bill");
-        //        return;
-        //    }
-        //    Employee employee = await db.Employee.FindAsync(3);
-        //    List<OrderLine> orderLines = await CreateOrderLinesAsync(new ShopOrder());
-        //    Bill bill = new Bill(2);
-        //    bill.Location = new Point(500, 200);
-        //    bill.AutoSize = true;
-        //    bill.AutoScroll = false;
-        //    this.Controls.Add(bill);
-        //    bill.BringToFront();
-        //}
     }
 }
