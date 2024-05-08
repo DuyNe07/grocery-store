@@ -14,7 +14,7 @@ namespace grocery_store.GUI
 {
     public partial class Login : Form
     {
-        public Employee Employee { get; set; }
+        public Employee employee { get; set; }
         public Login()
         {
             InitializeComponent();
@@ -24,8 +24,8 @@ namespace grocery_store.GUI
         {
             using(var db = new GroceryStoreContext())
             {
-                Employee = await db.Employee.Where(e => e.Login == Login && e.Password == Pass).FirstOrDefaultAsync();
-                if (Employee != null)
+                employee = await db.Employee.Include(e => e.Job).Where(e => e.Login == Login && e.Password == Pass).FirstOrDefaultAsync();
+                if (employee != null)
                 {
                     return true;
                 }
@@ -38,7 +38,7 @@ namespace grocery_store.GUI
             if (await checkLogin(txtbox_Login.Text, txtbox_Pass.Text))
             {
                 Main main = new Main();
-                main.Employee = Employee;
+                main.Employee = employee;
                 main.FormClosed += Main_FormClosed;
                 main.Show();
                 this.Hide();

@@ -38,7 +38,7 @@ namespace grocery_store.GUI.Dashboard
         }
 
         #region Danh sách
-        public async void Update_List_Employees()
+        public async void Update_List_Employees(string search = "")
         {
             List<Employee> employees = await gs_context.Employee.Include(e => e.Job).ToListAsync();
             DataTable dt = new DataTable();
@@ -67,13 +67,19 @@ namespace grocery_store.GUI.Dashboard
                 {
                     TimeEnd = e.Job.EndDate.Value.ToString("dd/MM/yyyy");
                 }
-                dt.Rows.Add(ID, FirstName, LastName, Role, Shift, Salary, TimeStart, TimeEnd);
+                if (FirstName.Contains(search) || LastName.Contains(search) || Role.Contains(search) || Shift.Contains(search) || Salary.Contains(search) || TimeStart.Contains(search))
+                {
+                    dt.Rows.Add(ID, FirstName, LastName, Role, Shift, Salary, TimeStart, TimeEnd);
+                }
             }
 
             dtgv_list_employees.DataSource = dt;
         }
 
-
+        private void tb_search_TextChanged(object sender, EventArgs e)
+        {
+            Update_List_Employees(tb_search.Text);
+        }
 
         #endregion
 
@@ -545,8 +551,8 @@ namespace grocery_store.GUI.Dashboard
             }
         }
 
-        #endregion
 
+        #endregion
 
     }
 }

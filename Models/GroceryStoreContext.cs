@@ -41,7 +41,7 @@ namespace grocery_store.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=localhost;Database=GroceryStore;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=localhost;Database=GroceryStore;Trusted_Connection=True;"); 
             }
         }
 
