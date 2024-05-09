@@ -1,7 +1,5 @@
-﻿using AForge.Video;
-using AForge.Video.DirectShow;
+﻿using AForge.Video.DirectShow;
 using grocery_store.GUI.BanHang;
-using grocery_store.GUI.HoaDon;
 using grocery_store.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -12,7 +10,6 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ZXing;
 
 namespace grocery_store.GUI.Dashboard
 {
@@ -33,25 +30,24 @@ namespace grocery_store.GUI.Dashboard
 
         #region Event Control
         // INFO : Sự kiện khi nhấn nút quét mã vạch
-        private void btn_scan_Click(object sender, EventArgs e)
+        private async void btn_scan_ClickAsync(object sender, EventArgs e)
         {
             ScanBarCode scanBarCode = new ScanBarCode();
             this.Controls.Add(scanBarCode);
             scanBarCode.BringToFront();
             scanBarCode.Location = new Point(0, 0);
-            scanBarCode.CancelClick += (s, args) =>
+
+            string barcode = null;
+            await Task.Run(() =>
             {
-                scanBarCode.StopWebcam();
-                scanBarCode.Dispose();
-                this.Controls.Remove(scanBarCode);
-            };
-            scanBarCode.ScanBarCodeAsync().ContinueWith((task) =>
-            {
-                string barcode = task.Result;
-                addItem(barcode);
-                scanBarCode.StopWebcam();
-                this.Controls.Remove(scanBarCode);
+                barcode = scanBarCode.ScanBarCodeAsync();
             });
+
+            if (barcode != null)
+            {
+                addItem(barcode);
+                this.Controls.Remove(scanBarCode);
+            }
         }
 
         // INFO : Sự kiện khi nhấn nút xác nhận
@@ -208,7 +204,7 @@ namespace grocery_store.GUI.Dashboard
                 MessageBox.Show("Không tìm thấy sản phẩm");
                 return;
             }
-            
+
             //int quantityInStock = product.ProductDetail.First(pd => pd.BarCode == productBarCode).QuantityInStock;
             if (items.Any(i => i.NameProduct == product.Name))
             {
@@ -304,7 +300,7 @@ namespace grocery_store.GUI.Dashboard
             shopOrder.Payment = payment;
 
             Main main = (Main)this.Parent.Parent;
-            shopOrder.EmployeeId = main.Employee.EmployeeId; 
+            shopOrder.EmployeeId = main.Employee.EmployeeId;
 
             List<OrderLine> orderLines = await CreateOrderLinesAsync(shopOrder);
             shopOrder.OrderLine = orderLines;

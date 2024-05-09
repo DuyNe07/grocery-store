@@ -171,9 +171,7 @@ namespace grocery_store.GUI
             if (jobcurrent.Name != "Owner")
             {
                 btn_manage.Enabled = false;
-                btn_good.Enabled = false;
                 btn_manage.Visible = false;
-                btn_good.Visible = false;
                 return false;
             }
             return true;

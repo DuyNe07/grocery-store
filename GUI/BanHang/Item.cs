@@ -28,7 +28,17 @@ namespace grocery_store.GUI.BanHang
         public int Quantity
         {
             get => int.Parse(Num_quantity.Text);
-            set => Num_quantity.Text = value.ToString();
+            set
+            {
+                if (Num_quantity.InvokeRequired)
+                {
+                    Num_quantity.Invoke(new Action(() => Num_quantity.Text = value.ToString()));
+                }
+                else
+                {
+                    Num_quantity.Text = value.ToString();
+                }
+            }
         }
         public string NameProduct
         {

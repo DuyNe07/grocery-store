@@ -157,7 +157,7 @@ namespace grocery_store.GUI.Dashboard
             this.btn_scan.Text = "Quét mã";
             this.btn_scan.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btn_scan.TextOffsetX = 12;
-            this.btn_scan.Click += new System.EventHandler(this.btn_scan_Click);
+            this.btn_scan.Click += new System.EventHandler(this.btn_scan_ClickAsync);
             // 
             // btn_enterCode
             // 
