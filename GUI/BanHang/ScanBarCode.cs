@@ -1,44 +1,45 @@
-﻿using AForge.Video.DirectShow;
-using AForge.Video;
+﻿using AForge.Video;
+using AForge.Video.DirectShow;
+using grocery_store.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZXing;
-using grocery_store.Models;
 
 namespace grocery_store.GUI.BanHang
 {
     public partial class ScanBarCode : UserControl
     {
         private VideoCaptureDevice FinalFrame = null;
-        public event EventHandler CancelClick;
+        public string barcode = null;
+        //public event EventHandler CancelClick;
         public ScanBarCode()
         {
             InitializeComponent();
-            this.btn_cancel.Click += (sender, e) => CancelClick?.Invoke(this, e);
         }
 
-        public async Task<string> ScanBarCodeAsync()
+        private bool isCancelled = false;
+
+        public string ScanBarCodeAsync()
         {
-            while (true)
+            while (!isCancelled)
             {
-                string barcode = await Scan();
-                if (checkProduct(barcode))
+                string barcode = Scan().Result;
+                if (barcode != null)
                 {
-                    return barcode;
-                }
-                else
-                {
-                    MessageBox.Show("Sản phẩm không tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (checkProduct(barcode))
+                    {
+                        return barcode;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sản phẩm không tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
+            return null;
         }
 
         public Task<string> Scan()
@@ -79,10 +80,17 @@ namespace grocery_store.GUI.BanHang
 
         private bool checkProduct(string barcode)
         {
-            using(GroceryStoreContext db = new GroceryStoreContext())
+            using (GroceryStoreContext db = new GroceryStoreContext())
             {
                 return db.ProductDetail.Any(x => x.BarCode == barcode);
             }
+        }
+
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
+            StopWebcam();
+            this.Dispose();
+            isCancelled = true;
         }
     }
 }

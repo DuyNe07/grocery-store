@@ -67,6 +67,7 @@
             this.btn_cancel.Text = "Huỷ";
             this.btn_cancel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn_cancel.TextOffsetX = 10;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // label1
             // 

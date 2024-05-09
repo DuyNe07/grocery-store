@@ -36,15 +36,14 @@
             this.show_password = new System.Windows.Forms.PictureBox();
             this.gunaTransfarantPictureBox1 = new Guna.UI.WinForms.GunaTransfarantPictureBox();
             this.gunaGradientPanel1 = new Guna.UI.WinForms.GunaGradientPanel();
-            this.gunaTransfarantPictureBox2 = new Guna.UI.WinForms.GunaTransfarantPictureBox();
             this.btn_login = new Guna.UI.WinForms.GunaButton();
             this.btn_minimize = new Bunifu.UI.WinForms.BunifuImageButton();
             this.btn_close = new Bunifu.UI.WinForms.BunifuImageButton();
             this.Logo = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.show_password)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaTransfarantPictureBox1)).BeginInit();
             this.gunaGradientPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaTransfarantPictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,7 +114,7 @@
             // 
             this.gunaGradientPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gunaGradientPanel1.BackgroundImage")));
             this.gunaGradientPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.gunaGradientPanel1.Controls.Add(this.gunaTransfarantPictureBox2);
+            this.gunaGradientPanel1.Controls.Add(this.label3);
             this.gunaGradientPanel1.GradiantColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(105)))), ((int)(((byte)(182)))));
             this.gunaGradientPanel1.GradiantColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(136)))), ((int)(((byte)(198)))));
             this.gunaGradientPanel1.GradiantColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(175)))), ((int)(((byte)(209)))));
@@ -125,18 +124,6 @@
             this.gunaGradientPanel1.Size = new System.Drawing.Size(700, 600);
             this.gunaGradientPanel1.TabIndex = 17;
             this.gunaGradientPanel1.Text = "gunaGradientPanel1";
-            // 
-            // gunaTransfarantPictureBox2
-            // 
-            this.gunaTransfarantPictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.gunaTransfarantPictureBox2.BaseColor = System.Drawing.Color.Black;
-            this.gunaTransfarantPictureBox2.Image = global::grocery_store.Properties.Resources.nhom;
-            this.gunaTransfarantPictureBox2.Location = new System.Drawing.Point(153, 106);
-            this.gunaTransfarantPictureBox2.Name = "gunaTransfarantPictureBox2";
-            this.gunaTransfarantPictureBox2.Size = new System.Drawing.Size(400, 400);
-            this.gunaTransfarantPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.gunaTransfarantPictureBox2.TabIndex = 0;
-            this.gunaTransfarantPictureBox2.TabStop = false;
             // 
             // btn_login
             // 
@@ -254,6 +241,17 @@
             this.Logo.TabIndex = 5;
             this.Logo.TabStop = false;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Vladimir Script", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(133, 213);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(422, 145);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Welcome";
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -278,7 +276,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.show_password)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaTransfarantPictureBox1)).EndInit();
             this.gunaGradientPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gunaTransfarantPictureBox2)).EndInit();
+            this.gunaGradientPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -298,6 +296,6 @@
         private Guna.UI.WinForms.GunaGradientPanel gunaGradientPanel1;
         private Guna.UI.WinForms.GunaTransfarantPictureBox gunaTransfarantPictureBox1;
         private System.Windows.Forms.PictureBox show_password;
-        private Guna.UI.WinForms.GunaTransfarantPictureBox gunaTransfarantPictureBox2;
+        private System.Windows.Forms.Label label3;
     }
 }
