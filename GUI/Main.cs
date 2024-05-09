@@ -161,12 +161,22 @@ namespace grocery_store.GUI
 
         private void Main_Load(object sender, EventArgs e)
         {
-
+            checkRoll();
         }
 
-        public void setEmployee(Employee employee)
+        //false: nhân viên
+        private bool checkRoll()
         {
-            this.Employee = employee;
+            Job jobcurrent = Employee.Job;
+            if (jobcurrent.Name != "Owner")
+            {
+                btn_manage.Enabled = false;
+                btn_good.Enabled = false;
+                btn_manage.Visible = false;
+                btn_good.Visible = false;
+                return false;
+            }
+            return true;
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)

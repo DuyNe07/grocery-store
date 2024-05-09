@@ -3,14 +3,10 @@ using grocery_store.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Drawing.Printing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace grocery_store.GUI.Dashboard
@@ -31,8 +27,8 @@ namespace grocery_store.GUI.Dashboard
 
         private async Task loadDataGridView()
         {
-            
-            
+
+
             DataTable invoiceTable = new DataTable();
             invoiceTable.Columns.Add("ShopOrderId", typeof(int));
             invoiceTable.Columns.Add("OrderDate", typeof(string));
@@ -44,7 +40,7 @@ namespace grocery_store.GUI.Dashboard
             invoiceList = invoiceList.GroupBy(x => x.ShopOrderId).Select(x => x.First()).ToList();
             foreach (ViewInvoice invoice in invoiceList)
             {
-                invoiceTable.Rows.Add(invoice.ShopOrderId,invoice.FormattedOrderDate, invoice.FormattedSubTotal, invoice.PaymentMethod, invoice.NameEmp);
+                invoiceTable.Rows.Add(invoice.ShopOrderId, invoice.FormattedOrderDate, invoice.FormattedSubTotal, invoice.PaymentMethod, invoice.NameEmp);
             }
             gridview_invoice.DataSource = invoiceTable;
         }

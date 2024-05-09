@@ -25,7 +25,7 @@ namespace grocery_store.GUI.HangHoa
         }
         private async void DanhSachSanPham_Load(object sender, EventArgs e)
         {
-            gridview_danh_sach_san_pham.DataSource = await GetProducTable(null, -1, -1);
+            gridview_danh_sach_san_pham.DataSource = await GetProducTable(null, -1, -1, 10000);
             UpdateSoDong();
         }
 
@@ -50,7 +50,7 @@ namespace grocery_store.GUI.HangHoa
                 if (newProdcut != null)
                 {
                     this.Controls.Remove(UC_san_pham);
-                    gridview_danh_sach_san_pham.DataSource = await GetProducTable(null, -1, -1);
+                    gridview_danh_sach_san_pham.DataSource = await GetProducTable(null, -1, -1, 10000);
                     UpdateSoDong();
                 }
             };
@@ -75,7 +75,7 @@ namespace grocery_store.GUI.HangHoa
                 if (productUpdate != null)
                 {
                     this.Controls.Remove(UC_san_pham);
-                    gridview_danh_sach_san_pham.DataSource = await GetProducTable(null, -1, -1);
+                    gridview_danh_sach_san_pham.DataSource = await GetProducTable(null, -1, -1, 10000);
                     currentProduct = productUpdate;
                 }
             };
@@ -92,7 +92,7 @@ namespace grocery_store.GUI.HangHoa
             if (result == DialogResult.Yes)
             {
                 await DeleteProductByID(currentProduct.ProductId);
-                gridview_danh_sach_san_pham.DataSource = await GetProducTable(null, -1, -1);
+                gridview_danh_sach_san_pham.DataSource = await GetProducTable(null, -1, -1, 10000);
                 UpdateSoDong();
             }
         }
@@ -132,9 +132,11 @@ namespace grocery_store.GUI.HangHoa
                 DanhSachChiTietSanPham UC_Danh_Sach_Chi_Tiet_San_Pham = new DanhSachChiTietSanPham(currentProduct);
                 UC_Danh_Sach_Chi_Tiet_San_Pham.Location = new Point(0, 0);
 
-                UC_Danh_Sach_Chi_Tiet_San_Pham.TroVeClick += (s, args) =>
+                UC_Danh_Sach_Chi_Tiet_San_Pham.TroVeClick += async (s, args) =>
                 {
                     this.Controls.Remove(UC_Danh_Sach_Chi_Tiet_San_Pham);
+                    gridview_danh_sach_san_pham.DataSource = await GetProducTable(null, -1, -1, 10000);
+                    UpdateSoDong();
                 };
 
                 this.Controls.Add(UC_Danh_Sach_Chi_Tiet_San_Pham);
@@ -196,7 +198,7 @@ namespace grocery_store.GUI.HangHoa
         #endregion
 
         #region DB Util
-        private async Task<DataTable> GetProducTable(string ProductName, int CategoryID, int SupplierID)
+        private async Task<DataTable> GetProducTable(string ProductName, int CategoryID, int SupplierID, int NumOfStock)
         {
             DataTable ProductTable = new DataTable();
             ProductTable.Columns.Add("ProductId", typeof(int));
@@ -216,7 +218,9 @@ namespace grocery_store.GUI.HangHoa
                 string formattedMarketPrice = string.Format("{0:N0}", product.MarketPrice);
                 int QuantityInStock = await GetQtyInStock(product.Sku);
 
-                ProductTable.Rows.Add(product.ProductId,
+                if (QuantityInStock <= NumOfStock)
+                {
+                    ProductTable.Rows.Add(product.ProductId,
                             product.Sku,
                             product.Name,
                             product.Category.Name,
@@ -224,6 +228,8 @@ namespace grocery_store.GUI.HangHoa
                             QuantityInStock,
                             formattedCostPrice,
                             formattedMarketPrice);
+                }
+                
             }
             return ProductTable;
         }
@@ -238,16 +244,16 @@ namespace grocery_store.GUI.HangHoa
         }
 
 
-        private async Task<List<Product>> GetProductList(string ProductName, int CategoryID, int SupplierID)
+        private async Task<List<Product>> GetProductList(string SearchValue, int CategoryID, int SupplierID)
         {
             List<Product> products;
             using (var dbContext = new GroceryStoreContext())
             {
                 IQueryable<Product> query = dbContext.Product.Include(p => p.Category).Include(p => p.Supplier);
 
-                if (!string.IsNullOrEmpty(ProductName))
+                if (!string.IsNullOrEmpty(SearchValue))
                 {
-                    query = query.Where(p => p.Name == ProductName);
+                    query = query.Where(p => p.Name == SearchValue || p.Sku == SearchValue);
                 }
 
                 if (CategoryID != -1 && CategoryID != null)
@@ -271,7 +277,11 @@ namespace grocery_store.GUI.HangHoa
 
         private async void btn_tim_kiem_Click(object sender, EventArgs e)
         {
-            gridview_danh_sach_san_pham.DataSource = await GetProducTable(txtbox_tim_kiem.Text, (int)cbb_phan_loai.SelectedValue, (int)cbb_nha_cung_cap.SelectedValue);
+            int phanLoaiId = cbb_phan_loai.SelectedValue != null ? (int)cbb_phan_loai.SelectedValue : 0;
+            int nhaCungCapId = cbb_nha_cung_cap.SelectedValue != null ? (int)cbb_nha_cung_cap.SelectedValue : 0;
+            int numOfStock = (int)tb_muc_ton.Value;
+
+            gridview_danh_sach_san_pham.DataSource = await GetProducTable(txtbox_tim_kiem.Text, phanLoaiId, nhaCungCapId, numOfStock);
             UpdateSoDong();
         }
 
@@ -279,8 +289,9 @@ namespace grocery_store.GUI.HangHoa
         {
             int phanLoaiId = cbb_phan_loai.SelectedValue != null ? (int)cbb_phan_loai.SelectedValue : 0;
             int nhaCungCapId = cbb_nha_cung_cap.SelectedValue != null ? (int)cbb_nha_cung_cap.SelectedValue : 0;
+            int numOfStock = (int)tb_muc_ton.Value;
 
-            gridview_danh_sach_san_pham.DataSource = await GetProducTable(txtbox_tim_kiem.Text, phanLoaiId, nhaCungCapId);
+            gridview_danh_sach_san_pham.DataSource = await GetProducTable(txtbox_tim_kiem.Text, phanLoaiId, nhaCungCapId, numOfStock);
             UpdateSoDong();
 
         }
@@ -289,8 +300,19 @@ namespace grocery_store.GUI.HangHoa
         {
             int phanLoaiId = cbb_phan_loai.SelectedValue != null ? (int)cbb_phan_loai.SelectedValue : 0;
             int nhaCungCapId = cbb_nha_cung_cap.SelectedValue != null ? (int)cbb_nha_cung_cap.SelectedValue : 0;
+            int numOfStock = (int)tb_muc_ton.Value;
 
-            gridview_danh_sach_san_pham.DataSource = await GetProducTable(txtbox_tim_kiem.Text, phanLoaiId, nhaCungCapId);
+            gridview_danh_sach_san_pham.DataSource = await GetProducTable(txtbox_tim_kiem.Text, phanLoaiId, nhaCungCapId, numOfStock);
+            UpdateSoDong();
+        }
+
+        private async void tb_muc_ton_ValueChanged(object sender, EventArgs e)
+        {
+            int phanLoaiId = cbb_phan_loai.SelectedValue != null ? (int)cbb_phan_loai.SelectedValue : 0;
+            int nhaCungCapId = cbb_nha_cung_cap.SelectedValue != null ? (int)cbb_nha_cung_cap.SelectedValue : 0;
+            int numOfStock = (int)tb_muc_ton.Value;
+
+            gridview_danh_sach_san_pham.DataSource = await GetProducTable(txtbox_tim_kiem.Text, phanLoaiId, nhaCungCapId, numOfStock);
             UpdateSoDong();
         }
     }
