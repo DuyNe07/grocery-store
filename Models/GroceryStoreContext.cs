@@ -79,7 +79,7 @@ namespace grocery_store.Models
 
             modelBuilder.Entity<EmployeeTimekeeping>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => new { e.EmployeeId, e.TimekeepingId });
 
                 entity.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
 
