@@ -345,7 +345,8 @@
             this.input_dateStart.Name = "input_dateStart";
             this.input_dateStart.Size = new System.Drawing.Size(233, 47);
             this.input_dateStart.TabIndex = 10;
-            this.input_dateStart.Value = new System.DateTime(2024, 4, 1, 0, 0, 0, 0);
+            this.input_dateStart.Value = new System.DateTime(2024, 3, 1, 0, 0, 0, 0);
+            this.input_dateStart.ValueChanged += new System.EventHandler(this.input_dateStart_ValueChanged);
             // 
             // input_dateEnd
             // 
