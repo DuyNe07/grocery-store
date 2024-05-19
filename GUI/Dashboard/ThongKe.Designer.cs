@@ -346,7 +346,8 @@
             this.input_dateStart.Size = new System.Drawing.Size(233, 47);
             this.input_dateStart.TabIndex = 10;
             this.input_dateStart.Value = new System.DateTime(2024, 3, 1, 0, 0, 0, 0);
-            this.input_dateStart.ValueChanged += new System.EventHandler(this.input_dateStart_ValueChanged);
+            this.input_dateStart.Validating += new System.ComponentModel.CancelEventHandler(this.input_dateStart_Validating);
+            this.input_dateStart.Validated += new System.EventHandler(this.input_dateStart_Validated);
             // 
             // input_dateEnd
             // 
@@ -358,7 +359,8 @@
             this.input_dateEnd.Size = new System.Drawing.Size(233, 47);
             this.input_dateEnd.TabIndex = 12;
             this.input_dateEnd.Value = new System.DateTime(2024, 5, 30, 0, 0, 0, 0);
-            this.input_dateEnd.ValueChanged += new System.EventHandler(this.input_dateEnd_ValueChanged);
+            this.input_dateEnd.Validating += new System.ComponentModel.CancelEventHandler(this.input_dateEnd_Validating);
+            this.input_dateEnd.Validated += new System.EventHandler(this.input_dateEnd_Validated);
             // 
             // label1
             // 

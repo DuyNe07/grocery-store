@@ -194,19 +194,7 @@ namespace grocery_store.GUI.Dashboard
             this.reportViewer.RefreshReport();
         }
 
-        private void input_dateEnd_ValueChanged(object sender, EventArgs e)
-        {
-            if(input_dateStart.Value < input_dateEnd.Value)
-            {
-                loadDataChart(input_dateStart.Value, input_dateEnd.Value);
-            }
-            else
-            {
-                MessageBox.Show("Ngày kết thúc phải sau ngày bắt đầu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void input_dateStart_ValueChanged(object sender, EventArgs e)
+        private void input_dateStart_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (input_dateStart.Value < input_dateEnd.Value)
             {
@@ -217,6 +205,35 @@ namespace grocery_store.GUI.Dashboard
                 MessageBox.Show("Ngày kết thúc phải sau ngày bắt đầu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void input_dateStart_Validated(object sender, EventArgs e)
+        {
+            if(input_dateStart.Value > input_dateEnd.Value)
+            {
+                input_dateStart.Value = input_dateEnd.Value - new TimeSpan(360, 0, 0);
+            }
+        }
+
+        private void input_dateEnd_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (input_dateStart.Value < input_dateEnd.Value)
+            {
+                loadDataChart(input_dateStart.Value, input_dateEnd.Value);
+            }
+            else
+            {
+                MessageBox.Show("Ngày kết thúc phải sau ngày bắt đầu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void input_dateEnd_Validated(object sender, EventArgs e)
+        {
+            if (input_dateStart.Value > input_dateEnd.Value)
+            {
+                input_dateStart.Value = input_dateEnd.Value - new TimeSpan(360, 0, 0);
+            }
+        }
+
         #endregion
     }
 }

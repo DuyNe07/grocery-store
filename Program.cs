@@ -18,7 +18,7 @@ namespace grocery_store
         static void Main()
         {
             //API.GenarateBarCode genarateBarCode = new API.GenarateBarCode();
-            //genarateBarCode.test();
+            //genarateBarCode.Genarate();
             //API.PaymentQR paymentQR = new API.PaymentQR();
             //paymentQR.Genarate();
             //updatePayment();

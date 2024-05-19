@@ -16,8 +16,8 @@ namespace grocery_store.API
         //tôi muốn lấy tất cả các product dưới cơ sở dữ liệu sau đó tạo ra barcode cho từng product và lưu các ảnh vào trongthu mục image của project
         public void Genarate()
         {
-            List<Product> products = db.Product.ToList();
-            foreach (Product product in products)
+            List<ProductDetail> productDetails = db.ProductDetail.ToList();
+            foreach (ProductDetail product in productDetails)
             {
                 //tạo ra barcode cho từng product
                 BarcodeWriter writer = new BarcodeWriter();
@@ -27,7 +27,7 @@ namespace grocery_store.API
                     Height = 100,
                     Width = 300
                 };
-                Bitmap bitmap = writer.Write(product.Sku);
+                Bitmap bitmap = writer.Write(product.BarCode);
                 bitmap.Save("C:\\Users\\luong\\UTE\\hk2\\Win\\grocery-store\\Image\\BarCode\\" + product.Sku + ".png");
             }
         }
